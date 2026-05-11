@@ -1,0 +1,3516 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Evaluasi SKL & Kurikulum MQBS — Analisis Strategis Berbasis Bukti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Menambahkan Tabler Icons untuk ikon pada Persona Ideal -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+:root {
+  /* MQBS Color Identity Mapping */
+  --ink: #0e373e;       /* Very Dark Slate */
+  --ink-2: #004133;     /* Dark Green/Teal */
+  --paper: #e8e9ea;     /* Light Grey */
+  --paper-2: #ffffff;   /* Pure White for contrast areas like footer */
+  --paper-3: #eac06f;   /* Light Gold/Sand */
+  --rule: #959699;      /* Medium Grey */
+  --rule-soft: rgba(14,55,62,0.12); /* Softened Ink */
+  --gold: #e3b11f;      /* Mustard Gold */
+  --gold-2: #ffcc00;    /* Bright Yellow */
+  --teal: #005a26;      /* Forest Green */
+  --teal-2: #004133;    /* Dark Green/Teal */
+  --moss: #005a26;      /* Forest Green */
+  --brick: #9b6220;     /* Dark Brown (replacing old red) */
+  --brick-2: #eac06f;   /* Light Gold */
+  --amber: #e3b11f;     /* Mustard Gold */
+  --cream: #ffffff;     /* White for cards to contrast against light grey paper */
+  --shadow: 0 1px 0 rgba(14,55,62,0.06), 0 12px 32px -12px rgba(14,55,62,0.18);
+  
+  --serif: 'Signika', sans-serif;
+  --sans: 'Plus Jakarta Sans', -apple-system, system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Paper texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(227,177,31,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(0,65,51,0.05) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.wrap { position: relative; z-index: 1; }
+
+/* ============ TOP MASTHEAD ============ */
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  padding: 14px 0;
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(6px);
+}
+.masthead-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-mark {
+  width: 28px; height: 28px;
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  place-items: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 2px;
+}
+.meta-strip {
+  display: flex;
+  gap: 22px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-2);
+  opacity: 0.85;
+}
+.meta-strip span b { color: var(--brick); font-weight: 600; }
+@media (max-width: 720px) {
+  .meta-strip { display: none; }
+}
+
+/* ============ HERO ============ */
+.hero {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 28px 60px;
+  position: relative;
+}
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--brick);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--brick);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(38px, 6.4vw, 84px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  max-width: 22ch;
+  font-variation-settings: "opsz" 144;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brick);
+}
+.hero h1 .underline {
+  position: relative;
+  white-space: nowrap;
+}
+.hero h1 .underline::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0.06em;
+  height: 0.18em;
+  background: var(--gold);
+  z-index: -1;
+  opacity: 0.55;
+}
+.hero-sub {
+  margin-top: 32px;
+  font-size: 18px;
+  line-height: 1.55;
+  max-width: 60ch;
+  color: var(--ink-2);
+}
+.hero-sub strong { color: var(--ink); font-weight: 600; }
+
+.hero-stats {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.hero-stat {
+  padding: 22px 24px;
+  border-right: 1px solid var(--rule-soft);
+}
+.hero-stat:last-child { border-right: 0; }
+.hero-stat .v {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.hero-stat .v.warn { color: var(--brick); }
+.hero-stat .v.pos { color: var(--teal-2); }
+.hero-stat .l {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  line-height: 1.4;
+  font-weight: 500;
+}
+@media (max-width: 720px) {
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-stat {
+    border-right: 1px solid var(--rule-soft);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .hero-stat:nth-child(2n) { border-right: 0; }
+  .hero-stat:nth-last-child(-n+2) { border-bottom: 0; }
+}
+
+/* ============ EXEC SUMMARY ============ */
+.section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 28px;
+  position: relative;
+}
+.section-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--brick);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.section-num .nm {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  color: var(--gold);
+  font-weight: 400;
+  line-height: 1;
+}
+.action-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 26ch;
+  font-variation-settings: "opsz" 144;
+}
+.action-title em { font-style: italic; color: var(--teal-2); }
+.action-title b { font-weight: 600; }
+.action-deck {
+  margin-top: 22px;
+  font-size: 17px;
+  color: var(--ink-2);
+  max-width: 70ch;
+  line-height: 1.6;
+}
+
+.exec-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  border-top: 1px solid var(--rule);
+  padding-top: 48px;
+}
+@media (max-width: 900px) {
+  .exec-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+.exec-block h3 {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--brick);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.exec-block p {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144;
+}
+.exec-block p .hl {
+  background: linear-gradient(180deg, transparent 60%, rgba(227,177,31,0.35) 60%);
+  font-weight: 600;
+}
+
+/* ============ SCQA SPINE (sidebar nav) ============ */
+.scqa-spine {
+  position: fixed;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.scqa-dot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--ink-2);
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.scqa-dot:hover, .scqa-dot.active { opacity: 1; }
+.scqa-dot .pip {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--ink);
+  transition: all 0.2s;
+}
+.scqa-dot.active .pip {
+  background: var(--brick);
+  box-shadow: 0 0 0 3px rgba(155,98,32,0.18);
+}
+.scqa-dot .lbl {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s;
+}
+.scqa-dot:hover .lbl, .scqa-dot.active .lbl {
+  opacity: 1; transform: translateX(0);
+}
+@media (max-width: 1080px) { .scqa-spine { display: none; } }
+
+/* ============ STAGE LABEL ============ */
+.stage {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 80px 0 100px;
+  margin: 80px 0 0;
+  position: relative;
+}
+.stage.s-comp { background: linear-gradient(180deg, #1b3531 0%, #0e373e 100%); }
+.stage.s-ans  { background: linear-gradient(180deg, #004133 0%, #0e373e 100%); }
+.stage-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.stage-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.stage-tag::before { content: ""; width: 36px; height: 1px; background: var(--gold-2); }
+.stage h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+  max-width: 18ch;
+  font-variation-settings: "opsz" 144;
+}
+.stage h2 em { font-style: italic; color: var(--gold-2); }
+.stage-deck {
+  margin-top: 32px;
+  max-width: 60ch;
+  font-size: 18px;
+  line-height: 1.55;
+  color: rgba(232,233,234,0.78);
+}
+
+/* dark section */
+.dark { background: var(--ink); color: var(--paper); padding: 80px 0; }
+.dark .section { padding-top: 0; padding-bottom: 0; }
+.dark .action-title { color: var(--paper); }
+.dark .action-deck { color: rgba(232,233,234,0.72); }
+.dark .section-num { color: var(--gold-2); }
+.dark .section-num .nm { color: var(--gold-2); }
+
+/* ============ SWOT GRID ============ */
+.swot-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--paper);
+}
+@media (max-width: 800px) {
+  .swot-grid { grid-template-columns: 1fr; }
+}
+.swot-cell {
+  background: var(--cream);
+  padding: 32px;
+  position: relative;
+  min-height: 380px;
+  margin: 6px;
+  border: 1px solid var(--rule-soft);
+}
+.swot-cell.s-cell { background: var(--cream); padding: 32px;}
+.swot-cell.w-cell { background: var(--cream); padding: 32px;}
+.swot-cell.o-cell { background: var(--cream); padding: 32px;}
+.swot-cell.t-cell { background: var(--cream); padding: 32px;}
+.swot-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+.swot-letter {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variation-settings: "opsz" 144;
+}
+.s-cell .swot-letter { color: var(--teal); }
+.w-cell .swot-letter { color: var(--brick); }
+.o-cell .swot-letter { color: var(--moss); }
+.t-cell .swot-letter { color: var(--amber); }
+.swot-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.swot-tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  margin-top: 4px;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 22px;
+  max-width: 38ch;
+}
+.swot-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.swot-list li {
+  font-size: 14px;
+  line-height: 1.55;
+  padding-left: 18px;
+  position: relative;
+  color: var(--ink-2);
+}
+.swot-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 600;
+}
+.swot-list li b {
+  color: var(--ink);
+  font-weight: 700;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.swot-list li .c {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--brick);
+  background: rgba(155,98,32,0.08);
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+.s-cell .swot-list li .c { color: var(--teal); background: rgba(0,90,38,0.1); }
+.o-cell .swot-list li .c { color: var(--moss); background: rgba(0,65,51,0.12); }
+.t-cell .swot-list li .c { color: var(--amber); background: rgba(227,177,31,0.1); }
+
+/* ============ DATA CARDS ============ */
+.data-row {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media (max-width: 900px) { .data-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .data-row { grid-template-columns: 1fr; } }
+.data-card {
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  padding: 24px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.data-card::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--brick);
+}
+.data-card.pos::before { background: var(--teal-2); }
+.data-card.warn::before { background: var(--amber); }
+.data-card .v {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--brick);
+  font-variation-settings: "opsz" 144;
+}
+.data-card.pos .v { color: var(--teal-2); }
+.data-card.warn .v { color: var(--amber); }
+.data-card.neutral .v { color: var(--ink); }
+.data-card .v sup { font-size: 0.45em; vertical-align: super; opacity: 0.8; font-weight: 400; }
+.data-card .l {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+.data-card .l b { color: var(--ink); font-weight: 600; }
+
+/* ============ TAHFIDZ TABLE ============ */
+.tah-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+@media (max-width: 800px) { .tah-grid { grid-template-columns: 1fr; } }
+.tah-card {
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  padding: 32px;
+  border-radius: 4px;
+}
+.tah-card h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+.tah-card .sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brick);
+  font-weight: 600;
+}
+.tah-row {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule-soft);
+}
+.tah-row:first-of-type { margin-top: 28px; }
+.tah-row-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+.tah-row-head .lbl {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+}
+.tah-row-head .n {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-2);
+  letter-spacing: 0.05em;
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 50px;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.bar-row .bl {
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.bar-track {
+  height: 22px;
+  background: rgba(14,55,62,0.06);
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  background: linear-gradient(90deg, var(--teal-2), var(--teal));
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.1, 1);
+  width: 0;
+}
+.bar-fill.warn { background: linear-gradient(90deg, var(--amber), var(--brick)); }
+.bar-fill.crit { background: linear-gradient(90deg, var(--brick-2), var(--brick)); }
+.bar-row .pct {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: right;
+  color: var(--ink);
+}
+@media (max-width: 540px) {
+  .bar-row { grid-template-columns: 90px 1fr 42px; gap: 8px; }
+  .bar-row .bl { font-size: 11px; }
+}
+
+/* ============ SO WHAT BOX ============ */
+.sowhat {
+  margin-top: 36px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 28px 32px;
+  border-left: 4px solid var(--gold);
+  position: relative;
+}
+.sowhat::before {
+  content: "Lalu Bagaimana?";
+  position: absolute;
+  top: -10px; left: 28px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 4px 10px;
+}
+.sowhat p {
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.5;
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+}
+.sowhat p .hl {
+  background: linear-gradient(180deg, transparent 65%, rgba(227,177,31,0.45) 65%);
+  font-weight: 600;
+}
+
+/* ============ MISMATCH VISUAL ============ */
+.mismatch-wrap {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: stretch;
+}
+@media (max-width: 800px) { .mismatch-wrap { grid-template-columns: 1fr; gap: 24px; } }
+.mismatch-side {
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  padding: 32px;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.mismatch-side h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brick);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.mismatch-side .big {
+  font-family: var(--serif);
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--brick);
+  font-variation-settings: "opsz" 144;
+}
+.mismatch-side.curr .big { color: var(--teal-2); }
+.mismatch-side .desc {
+  font-family: var(--serif);
+  font-size: 18px;
+  margin-top: 14px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.mismatch-side .nums {
+  margin-top: auto;
+  padding-top: 24px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-2);
+  border-top: 1px solid var(--rule-soft);
+  margin-top: 24px;
+  padding-top: 18px;
+}
+.mismatch-side .nums b { color: var(--ink); font-weight: 700; }
+
+/* divergent visual: stacked horizontal bars */
+.dist-bar {
+  margin-top: 20px;
+  display: flex;
+  height: 44px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--rule-soft);
+}
+.dist-seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+.dist-seg.maj { background: var(--brick); flex: 36; }
+.dist-seg.min { background: var(--teal-2); flex: 3; }
+.dist-legend {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  font-size: 11.5px;
+  color: var(--ink-2);
+  font-family: var(--mono);
+}
+.dist-legend b { color: var(--ink); }
+.dist-legend .lg-dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* ============ JP CHART ============ */
+.jp-chart {
+  margin-top: 48px;
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  padding: 36px;
+  border-radius: 4px;
+}
+.jp-chart h4 {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  color: var(--ink-2);
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.jp-chart h4 .total {
+  font-family: var(--serif);
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--brick);
+  font-style: italic;
+}
+.jp-row {
+  display: grid;
+  grid-template-columns: 220px 1fr 80px;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--rule-soft);
+}
+.jp-row:last-child { border-bottom: none; }
+.jp-row .pl {
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.jp-row .pl em {
+  font-style: italic;
+  color: var(--ink-2);
+  font-weight: 400;
+  font-size: 12px;
+  display: block;
+  margin-top: 2px;
+}
+.jp-track {
+  height: 28px;
+  background: rgba(14,55,62,0.04);
+  position: relative;
+  border-radius: 2px;
+}
+.jp-fill {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  border-radius: 2px;
+}
+.jp-fill.qurani  { background: linear-gradient(90deg, #005a26, #004133); }
+.jp-fill.karakter { background: linear-gradient(90deg, #e3b11f, #9b6220); }
+.jp-fill.visioner { background: linear-gradient(90deg, #ffcc00, #e3b11f); }
+.jp-fill.kosong { background: repeating-linear-gradient(45deg, rgba(155,98,32,0.4), rgba(155,98,32,0.4) 4px, rgba(155,98,32,0.2) 4px, rgba(155,98,32,0.2) 8px); }
+.jp-row .jp-num {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: right;
+  color: var(--ink);
+}
+@media (max-width: 720px) {
+  .jp-row { grid-template-columns: 1fr; gap: 6px; }
+  .jp-row .jp-num { text-align: left; }
+}
+.jp-legend {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 11.5px;
+  font-family: var(--mono);
+  color: var(--ink-2);
+}
+.jp-legend .it { display: flex; align-items: center; gap: 8px; }
+.jp-legend .sw { width: 12px; height: 12px; border-radius: 1px; }
+
+/* ============ LIPIA / KITAB CRISIS ============ */
+.crisis-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 900px) { .crisis-grid { grid-template-columns: 1fr; } }
+.crisis-card {
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  padding: 36px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.crisis-card .top {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brick);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.crisis-card .ratio {
+  font-family: var(--serif);
+  font-size: clamp(54px, 7vw, 86px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  color: var(--brick);
+  font-variation-settings: "opsz" 144;
+}
+.crisis-card .ratio span { font-size: 0.55em; color: var(--ink-2); font-style: italic; }
+.crisis-card .desc {
+  margin-top: 16px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.crisis-card .desc b { color: var(--ink); font-weight: 700; }
+.crisis-card .source {
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-2);
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+
+/* ============ EXTERNAL PRESSURE TICKER ============ */
+.pressure-grid {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+@media (max-width: 800px) { .pressure-grid { grid-template-columns: 1fr; } }
+.pressure-block {
+  border-top: 1px solid rgba(232,233,234,0.2);
+  padding-top: 24px;
+}
+.pressure-block h4 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: var(--gold-2);
+}
+.pressure-block ul {
+  list-style: none;
+}
+.pressure-block li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(232,233,234,0.08);
+  gap: 16px;
+}
+.pressure-block li .lt {
+  font-size: 14px;
+  line-height: 1.35;
+  color: rgba(232,233,234,0.85);
+  flex: 1;
+}
+.pressure-block li .rt {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--gold-2);
+  white-space: nowrap;
+  font-variation-settings: "opsz" 144;
+}
+
+/* ============ QUESTION SECTION ============ */
+.question-section {
+  background: var(--paper);
+  padding: 140px 0 130px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.question-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px;
+  text-align: center;
+}
+.question-inner .q-mark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(120px, 18vw, 240px);
+  line-height: 0.8;
+  font-weight: 400;
+  color: var(--gold);
+  opacity: 0.35;
+  letter-spacing: -0.05em;
+  margin-bottom: -40px;
+}
+.question-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brick);
+  font-weight: 600;
+  margin-bottom: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.question-tag::before, .question-tag::after {
+  content: ""; width: 28px; height: 1px; background: var(--brick);
+}
+.question-text {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(28px, 4.6vw, 54px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 24ch;
+  margin: 0 auto;
+  font-variation-settings: "opsz" 144;
+}
+.question-text em { font-style: italic; color: var(--brick); }
+.question-text .underline {
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 4px;
+}
+
+/* ============ FRAMEWORK / PILLARS ============ */
+.framework-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule-soft);
+}
+@media (max-width: 800px) { .framework-grid { grid-template-columns: 1fr; } }
+.fw-cell {
+  padding: 36px 32px;
+  background: var(--cream);
+  border-right: 1px solid var(--rule-soft);
+  position: relative;
+}
+.fw-cell:last-child { border-right: 0; }
+@media (max-width: 800px) {
+  .fw-cell { border-right: 0; border-bottom: 1px solid var(--rule-soft); }
+  .fw-cell:last-child { border-bottom: 0; }
+}
+.fw-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--gold);
+  font-variation-settings: "opsz" 144;
+  margin-bottom: 8px;
+}
+.fw-cell h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.fw-cell p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.fw-cell ul {
+  list-style: none;
+  margin-top: 18px;
+}
+.fw-cell ul li {
+  padding-left: 18px;
+  position: relative;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  color: var(--ink-2);
+}
+.fw-cell ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* ============ PENJURUSAN / TRACK SPLIT ============ */
+.track-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 800px) { .track-grid { grid-template-columns: 1fr; } }
+.track-card {
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  padding: 36px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.track-card.diniyah { border-top: 4px solid var(--teal); }
+.track-card.umum { border-top: 4px solid var(--gold); }
+.track-card .pct-cap {
+  font-family: var(--serif);
+  font-size: clamp(56px, 7vw, 80px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144;
+}
+.track-card .pct-cap .of { color: var(--ink-2); font-size: 0.4em; font-style: italic; }
+.track-card .track-name {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--brick);
+  margin-top: 14px;
+  margin-bottom: 16px;
+}
+.track-card .track-tag {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  margin-bottom: 24px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.track-card .track-list {
+  list-style: none;
+  border-top: 1px solid var(--rule-soft);
+  padding-top: 20px;
+}
+.track-card .track-list li {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--rule-soft);
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+.track-card .track-list li:last-child { border-bottom: 0; }
+.track-card .track-list li .k {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-2);
+  align-self: center;
+}
+.track-card .track-list li .v {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ============ JP REALLOCATION ============ */
+.realloc {
+  margin-top: 56px;
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  padding: 36px;
+  border-radius: 4px;
+}
+.realloc-row {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.realloc-row:last-child { border-bottom: 0; }
+.realloc-row.head {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 14px;
+}
+.realloc-from { color: var(--brick); }
+.realloc-to { color: var(--teal-2); }
+.realloc-arrow {
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--gold);
+}
+.realloc-cell .pl-name { font-weight: 600; font-size: 15px; line-height: 1.3; }
+.realloc-cell .pl-jp { font-family: var(--mono); font-size: 12px; margin-top: 2px; opacity: 0.7; }
+@media (max-width: 720px) {
+  .realloc-row { grid-template-columns: 1fr; gap: 6px; }
+  .realloc-arrow { display: none; }
+  .realloc-row.head { display: none; }
+  .realloc-cell.realloc-from::before { content: "DARI: "; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; opacity: 0.6; }
+  .realloc-cell.realloc-to::before { content: "KE: "; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; opacity: 0.6; }
+}
+
+/* ============ SKL JENJANG ============ */
+.skl-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 800px) { .skl-grid { grid-template-columns: 1fr; } }
+.skl-card {
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  padding: 28px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.skl-card .level {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--gold);
+  font-variation-settings: "opsz" 144;
+}
+.skl-card .age {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brick);
+  font-weight: 600;
+  margin-top: 6px;
+}
+.skl-card .phase-name {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  margin-top: 14px;
+  line-height: 1.3;
+}
+.skl-card .phase-tagline {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 6px;
+  color: var(--ink-2);
+  line-height: 1.4;
+}
+.skl-card .metrics {
+  margin-top: 22px;
+  border-top: 1px solid var(--rule-soft);
+  padding-top: 16px;
+}
+.skl-card .metrics .m {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--rule-soft);
+  gap: 12px;
+}
+.skl-card .metrics .m:last-child { border-bottom: 0; }
+.skl-card .metrics .m .k {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  flex-shrink: 0;
+}
+.skl-card .metrics .m .v {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: right;
+}
+
+/* ============ PERSONA WIDGET ============ */
+.persona-wrap { margin-top: 48px; background: var(--cream); border: 1px solid var(--rule-soft); border-radius: 4px; padding: 36px; }
+.persona-wrap h3 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin-bottom: 24px; font-weight: 500; }
+.top-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.nav-btn { padding: 8px 18px; border-radius: 20px; border: 1px solid var(--rule-soft); background: var(--paper); color: var(--ink-2); font-size: 13px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.nav-btn.active { background: var(--teal); border-color: var(--teal); color: white; }
+.nav-btn:hover:not(.active) { background: var(--rule-soft); color: var(--ink); }
+.gender-toggle { display: flex; border: 1px solid var(--rule-soft); border-radius: 20px; overflow: hidden; width: fit-content; margin-bottom: 32px; background: var(--paper); }
+.gender-btn { padding: 8px 24px; font-size: 13px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; border: none; cursor: pointer; background: transparent; color: var(--ink-2); transition: all 0.2s; }
+.gender-btn.active-i { background: var(--teal-2); color: white; }
+.gender-btn.active-a { background: var(--teal-2); color: white; }
+.hero-card { border: 1px solid var(--rule-soft); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+.hero-header { padding: 24px; background: rgba(14,55,62,0.03); }
+.hero-title { font-family: var(--serif); font-size: 22px; font-weight: 500; margin: 0 0 6px; color: var(--ink); }
+.hero-sub { font-size: 14px; color: var(--ink-2); margin: 0; }
+.hero-quote { font-family: var(--serif); font-size: 16px; font-style: italic; padding: 16px 24px; border-top: 1px solid var(--rule-soft); color: var(--ink-2); background: white;}
+.pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.pillar-card { background: white; border: 1px solid var(--rule-soft); border-radius: 4px; padding: 20px; }
+.pillar-icon { font-size: 24px; margin-bottom: 12px; color: var(--gold); }
+.pillar-title { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--ink); margin: 0 0 12px; }
+.pillar-items { list-style: none; padding: 0; margin: 0; }
+.pillar-items li { font-size: 13px; color: var(--ink-2); padding: 6px 0; border-bottom: 1px dashed var(--rule-soft); line-height: 1.4; }
+.pillar-items li:last-child { border-bottom: none; }
+.p-section-label { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); margin: 24px 0 12px; display: flex; align-items: center; gap: 8px; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.tag { font-size: 13px; padding: 4px 12px; border-radius: 16px; border: 1px solid var(--rule-soft); color: var(--ink-2); background: var(--brick); }
+.tag.q { background: rgba(0,90,38,0.06); color: var(--teal); border-color: rgba(0,90,38,0.15); }
+.tag.k { background: rgba(227,177,31,0.08); color: var(--brick); border-color: rgba(227,177,31,0.2); }
+.tag.v { background: rgba(155,98,32,0.06); color: var(--brick); border-color: rgba(155,98,32,0.15); }
+.persona-name { font-family: var(--serif); font-size: 20px; font-weight: 500; margin: 0 0 4px; color: var(--ink); }
+.persona-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brick); font-weight: 600; }
+.avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 18px; font-weight: 500; flex-shrink: 0; }
+.av-i { background: rgba(0,90,38,0.1); color: var(--teal); border: 1px solid rgba(0,90,38,0.2); }
+.av-a { background: rgba(155,98,32,0.1); color: var(--brick); border: 1px solid rgba(155,98,32,0.2); }
+.distinguish-box { border-left: 3px solid var(--gold); padding: 16px 20px; margin-bottom: 16px; background: rgba(227,177,31,0.05); border-radius: 0 4px 4px 0; }
+.distinguish-title { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--ink); margin: 0 0 8px; }
+.distinguish-text { font-size: 14px; color: var(--ink-2); margin: 0; line-height: 1.6; }
+
+/* ============ INTERVENSI / RECOMMENDATIONS ============ */
+.rec-list {
+  margin-top: 56px;
+  border-top: 1px solid var(--rule);
+}
+.rec-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 220px;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--rule-soft);
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .rec-row { grid-template-columns: 60px 1fr; gap: 18px; }
+  .rec-row .rec-meta { grid-column: 2; margin-top: 10px; }
+}
+.rec-num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 56px;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: -0.03em;
+  font-variation-settings: "opsz" 144;
+}
+.rec-body h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144;
+}
+.rec-body p {
+  margin-top: 10px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.rec-body p b { color: var(--ink); font-weight: 700; }
+.rec-meta {
+  border-left: 2px solid var(--gold);
+  padding-left: 16px;
+}
+.rec-meta .m {
+  margin-bottom: 12px;
+}
+.rec-meta .m:last-child { margin-bottom: 0; }
+.rec-meta .m .k {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--brick);
+}
+.rec-meta .m .v {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 2px;
+  line-height: 1.35;
+}
+
+/* ============ INTERACTIVE ROADMAP (Section 13) ============ */
+.roadmap-interactive-wrap {
+  margin-top: 48px;
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.rm-phase-nav {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--rule-soft);
+  background: var(--paper);
+  scrollbar-width: none;
+}
+.rm-phase-nav::-webkit-scrollbar { display: none; }
+.rm-nav-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-2);
+  padding: 16px 24px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .2s;
+}
+.rm-nav-btn:hover { color: var(--ink); background: rgba(14,55,62,0.03); }
+.rm-nav-btn.active { color: var(--teal); border-bottom-color: var(--teal); background: var(--cream); }
+
+.rm-phase-section { display: none; padding: 32px; }
+.rm-phase-section.visible { display: block; }
+
+.rm-header-card {
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  margin-bottom: 32px;
+  background: var(--cream);
+  overflow: hidden;
+}
+.rm-header-top { padding: 24px; }
+.rm-badge-row { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
+.rm-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-weight: 600;
+}
+.rm-badge.urgent { background: rgba(155,98,32,0.1); color: var(--brick); border: 1px solid rgba(155,98,32,0.2); }
+.rm-badge.prio { background: rgba(227,177,31,0.1); color: var(--brick); border: 1px solid rgba(227,177,31,0.2); }
+.rm-badge.normal { background: rgba(0,90,38,0.1); color: var(--teal); border: 1px solid rgba(0,90,38,0.2); }
+.rm-badge.good { background: rgba(0,65,51,0.1); color: var(--teal-2); border: 1px solid rgba(0,65,51,0.2); }
+
+.rm-phase-title { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+.rm-phase-sub { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+
+.rm-meta-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  border-top: 1px solid var(--rule-soft);
+  background: rgba(14,55,62,0.02);
+}
+.rm-meta-cell { padding: 12px 24px; border-right: 1px solid var(--rule-soft); }
+.rm-meta-cell:last-child { border-right: none; }
+.rm-meta-lbl { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); display: block; margin-bottom: 4px; }
+.rm-meta-val { font-size: 13px; font-weight: 600; color: var(--ink); }
+
+.rm-section-label { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brick); margin: 32px 0 16px; border-bottom: 1px solid var(--rule-soft); padding-bottom: 8px;}
+
+.rm-kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 12px; margin-bottom: 32px; }
+.rm-kpi-card { background: var(--paper); border: 1px solid var(--rule-soft); border-radius: 4px; padding: 16px; border-left: 3px solid var(--teal); }
+.rm-kpi-lbl { font-size: 12px; color: var(--ink-2); margin-bottom: 6px; }
+.rm-kpi-val { font-family: var(--serif); font-size: 24px; font-weight: 500; color: var(--ink); line-height: 1; }
+.rm-kpi-sub { font-family: var(--mono); font-size: 10px; color: var(--ink-2); margin-top: 8px; opacity: 0.8; }
+
+.rm-timeline { position: relative; padding-left: 24px; margin-bottom: 32px; }
+.rm-timeline::before { content: ''; position: absolute; left: 7px; top: 4px; bottom: 4px; width: 2px; background: var(--rule-soft); }
+.rm-tl-item { position: relative; margin-bottom: 20px; }
+.rm-tl-dot { position: absolute; left: -22px; top: 4px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--rule-soft); background: var(--cream); }
+.rm-tl-dot.now { background: var(--teal); border-color: var(--teal); }
+.rm-tl-dot.done { background: var(--gold); border-color: var(--gold); }
+.rm-tl-date { font-family: var(--mono); font-size: 11px; color: var(--brick); letter-spacing: .05em; font-weight: 600; margin-bottom: 4px; }
+.rm-tl-text { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+
+.rm-task-card { border: 1px solid var(--rule-soft); border-radius: 4px; margin-bottom: 12px; overflow: hidden; transition: all .2s; background: var(--cream); }
+.rm-task-card.open { border-color: var(--teal); box-shadow: 0 4px 12px rgba(14,55,62,0.05); }
+.rm-task-head { display: flex; align-items: center; gap: 16px; padding: 16px 20px; cursor: pointer; user-select: none; background: rgba(14,55,62,0.02); transition: background .2s; }
+.rm-task-head:hover { background: rgba(14,55,62,0.05); }
+.rm-task-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; background: var(--paper); color: var(--ink); }
+.rm-task-name { font-size: 14px; font-weight: 600; color: var(--ink); flex: 1; line-height: 1.4; }
+.rm-task-chip { font-family: var(--mono); font-size: 10px; padding: 4px 10px; border-radius: 16px; flex-shrink: 0; letter-spacing: .05em; font-weight: 600; background: var(--paper); border: 1px solid var(--rule-soft); color: var(--ink-2); }
+.rm-task-card.open .rm-task-chip.kritis { background: rgba(155,98,32,0.1); color: var(--brick); border-color: rgba(155,98,32,0.2); }
+.rm-task-card.open .rm-task-chip.prioritas { background: rgba(227,177,31,0.1); color: var(--brick); border-color: rgba(227,177,31,0.2); }
+.rm-chevron { font-size: 16px; color: var(--ink-2); flex-shrink: 0; transition: transform .3s; }
+.rm-task-card.open .rm-chevron { transform: rotate(180deg); color: var(--teal); }
+
+.rm-task-body { display: none; padding: 20px 20px 20px 68px; font-size: 14px; color: var(--ink-2); line-height: 1.7; border-top: 1px solid var(--rule-soft); background: var(--cream); }
+.rm-task-card.open .rm-task-body { display: block; }
+.rm-task-body ul { padding-left: 20px; margin: 12px 0; }
+.rm-task-body li { padding: 4px 0; }
+.rm-verif-box { margin-top: 16px; padding: 12px 16px; background: rgba(0,90,38,0.04); border-left: 3px solid var(--teal); border-radius: 0 4px 4px 0; display: flex; gap: 12px; align-items: flex-start; font-size: 13px; color: var(--teal-2); font-weight: 500; }
+.rm-verif-icon { flex-shrink: 0; margin-top: 2px; }
+
+/* ============ EXEC CONCLUSION ============ */
+.conclusion {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+.conclusion::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(227,177,31,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0,65,51,0.18) 0%, transparent 50%);
+  pointer-events: none;
+}
+.conclusion-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative;
+  z-index: 1;
+}
+.conclusion .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.conclusion .tag::before { content: ""; width: 36px; height: 1px; background: var(--gold-2); }
+.conclusion h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 5.4vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--paper);
+  max-width: 22ch;
+  font-variation-settings: "opsz" 144;
+}
+.conclusion h2 em { font-style: italic; color: var(--gold-2); }
+.conclusion h2 .hl {
+  background: linear-gradient(180deg, transparent 65%, rgba(227,177,31,0.4) 65%);
+}
+.conclusion-grid {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+@media (max-width: 800px) { .conclusion-grid { grid-template-columns: 1fr; } }
+.conclusion-cell {
+  border-top: 1px solid rgba(232,233,234,0.18);
+  padding-top: 20px;
+}
+.conclusion-cell .ck {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-2);
+  font-weight: 600;
+}
+.conclusion-cell .cv {
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 8px;
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144;
+  color: var(--paper);
+}
+.conclusion-cell .cd {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(232,233,234,0.72);
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--paper-2);
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--rule);
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr; } }
+.footer h5 {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  color: var(--brick);
+  margin-bottom: 14px;
+}
+.footer p { line-height: 1.6; max-width: 60ch; }
+.footer-meta {
+  font-family: var(--mono);
+  margin-top: 30px;
+  font-size: 10.5px;
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+.footer ul { list-style: none; }
+.footer ul li { padding: 4px 0; }
+
+/* ============ ANIMATIONS ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal-stagger.in > * { opacity: 1; transform: translateY(0); }
+.reveal-stagger.in > *:nth-child(1) { transition-delay: 0.0s; }
+.reveal-stagger.in > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger.in > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-stagger.in > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-stagger.in > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal-stagger.in > *:nth-child(6) { transition-delay: 0.40s; }
+.reveal-stagger.in > *:nth-child(7) { transition-delay: 0.48s; }
+.reveal-stagger.in > *:nth-child(8) { transition-delay: 0.56s; }
+
+/* count-up reset */
+.count { font-variant-numeric: tabular-nums; }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ============ MASTHEAD ============ -->
+<nav class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <span class="brand-mark">M</span>
+      <span>MQBS — SKL & Kurikulum 2026/2027</span>
+    </div>
+    <div class="meta-strip">
+      <span>DOK: <b>SKL-2026-EVALUASI</b></span>
+      <span>STATUS: <b>RAHASIA INTERNAL</b></span>
+      <span>VER: <b>1.0</b></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ SCQA SPINE ============ -->
+<div class="scqa-spine" id="spine">
+  <a href="#situation" class="scqa-dot active" data-target="situation"><span class="pip"></span><span class="lbl">Situation</span></a>
+  <a href="#complication" class="scqa-dot" data-target="complication"><span class="pip"></span><span class="lbl">Complication</span></a>
+  <a href="#question" class="scqa-dot" data-target="question"><span class="pip"></span><span class="lbl">Question</span></a>
+  <a href="#answer" class="scqa-dot" data-target="answer"><span class="pip"></span><span class="lbl">Answer</span></a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="reveal">
+    <div class="eyebrow">Evaluasi SKL & Kurikulum · MQBS 2026</div>
+    <h1>
+      Kurikulum yang perlu <em>direformasi</em> atau akan kehilangan <span class="underline">relevansinya</span>.
+    </h1>
+    <p class="hero-sub">
+      Analisis berbasis data atas SKL dan kurikulum Madinatul Qur'an Boarding School mengungkap satu temuan yang perlu dicermati:
+      <strong>92% santri kelas 12 berorientasi pada jalur umum</strong>, namun kurikulum dirancang seolah-olah 100% menuju jalur diniyah —
+      menghasilkan kegagalan ganda yang terukur di kedua sisi. Dokumen ini menyajikan rekonstruksi ulang yang berani, terukur, dan sesuai mandat regulasi Pemerintah.
+    </p>
+  </div>
+
+  <div class="hero-stats reveal-stagger">
+    <div class="hero-stat">
+      <div class="v warn">36 / 39</div>
+      <div class="l">Santri kelas 12 ikhwan berorientasi <b>jalur umum</b>, bukan diniyah</div>
+    </div>
+    <div class="hero-stat">
+      <div class="v warn">0 / 8</div>
+      <div class="l">Lulus tes tertulis I'dad LIPIA — output bahasa Arab <b>tidak terverifikasi</b></div>
+    </div>
+    <div class="hero-stat">
+      <div class="v warn">58 JP</div>
+      <div class="l">Beban kognitif/pekan, melebihi batas <b>Kurikulum Merdeka</b></div>
+    </div>
+    <div class="hero-stat">
+      <div class="v pos">100%</div>
+      <div class="l">Mutqin akhwat kelas 9 & 12 — <b>capaian yang perlu dilanjutkan</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXEC SUMMARY ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">00</span> Ringkasan Analisa</div>
+    <h2 class="action-title">
+      Islamic Boarding School memiliki <em>kemuliaan</em> visi mulia, namun <b>tata kelolanya overload</b> — membebankan target diniyah tingkat lanjut kepada santri yang 92% akan melanjutkan di umum.
+    </h2>
+  </div>
+
+  <div class="exec-grid reveal-stagger">
+    <div class="exec-block">
+      <h3>Data Temuan</h3>
+      <p>
+        MQBS berhasil mencapai <span class="hl">capaian itqon yang sangat baik</span> — 94% ikhwan kelas 9 dan 100% akhwat kelas 9 & 12 mutqin sesuai target.
+        Namun output bahasa Arab fungsional dan kompetensi membaca kitab gagal pada <span class="hl">>80% santri kelas 12</span>,
+        dan tidak ada penyaringan kurikuler antara santri jalur diniyah dengan jalur umum.
+      </p>
+    </div>
+    <div class="exec-block">
+      <h3>Rekomendasi Pragmatis</h3>
+      <p>
+        Lakukan <span class="hl">penjurusan mulai kelas 11</span> dengan dua SKL terpisah (Diniyah & Umum),
+        bebaskan <span class="hl">7 JP dari Mata Pelajaran Kelompok E</span> untuk reinvestasi pada Pilar Visioner,
+        dan terjemahkan Hadits, Ushul Fiqh, Muthala'ah ke dalam soal HOTS <em>(Higher Order Thinking Skills) </em> yang kompatibel dengan SNBT — sehingga sebuah Islamic Boarding School menjadi keunggulan kompetitif, bukan sekadar tradisi.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAGE: SITUATION ============ -->
+<section class="stage" id="situation">
+  <div class="stage-inner reveal">
+    <div class="stage-tag">Bagian 01 / Situasi Saat Ini</div>
+    <h2>Misi yang <em>mulia</em>, membutuhkan sistem yang <em>lebih selaras</em>.</h2>
+    <p class="stage-deck">
+      MQBS berdiri di atas tiga pilar yang mulia: Qur'ani, Berkarakter, Visioner. Setiap pilar memiliki rumusan strategis yang sangat ideal. 
+	  Namun dalam pelaksanaannya, tantangan utamanya adalah bagaimana arsitektur kurikulum mampu mendistribusikan beban ketiga pilar tersebut secara proporsional. Observasi lapangan menunjukkan bahwa struktur saat ini <strong style="color:var(--gold-2)">PERLU PENYESUAIAN.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ============ MISI MQBS — PILAR ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">01</span> Misi Strategis MQBS</div>
+    <h2 class="action-title">
+      Tiga pilar yang <em>saling melengkapi</em> secara konsep — namun <b>memerlukan alokasi waktu yang lebih seimbang</b> dalam implementasi KBM.
+    </h2>
+    <p class="action-deck">
+      Misi MQBS tertulis sebagai sintesis paripurna: melahirkan kembali generasi penegak kejayaan Islam yang Qur'ani, Berkarakter, dan Visioner.
+      Namun dalam praktik harian, ketiga pilar ini bersaing untuk waktu yang sama (58 JP/pekan), perhatian guru yang sama, dan kapasitas kognitif santri yang sama.
+    </p>
+  </div>
+
+  <div class="framework-grid reveal-stagger">
+    <div class="fw-cell">
+      <div class="fw-num">i</div>
+      <h4>Pilar Qur'ani</h4>
+      <p>Kedalaman spiritual & ilmu Al-Qur'an — standardisasi tahfidz dengan kualitas itqan, penjagaan sanad, internalisasi nilai-nilai dalam kehidupan.</p>
+      <ul>
+        <li>Standardisasi tahfidz (mutqin)</li>
+        <li>Sistem talaqqi & sanad terjaga</li>
+        <li>Internalisasi karakter Qur'ani</li>
+      </ul>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">ii</div>
+      <h4>Pilar Berkarakter</h4>
+      <p>Integritas akhlak & kemandirian — pembinaan akhlakul karimah, kedisiplinan, mentalitas mandiri sebagai pondasi kepribadian santri.</p>
+      <ul>
+        <li>Akhlakul karimah & ukhuwah</li>
+        <li>Kedisiplinan & tanggung jawab</li>
+        <li>Mentalitas pejuang & mandiri</li>
+      </ul>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">iii</div>
+      <h4>Pilar Visioner</h4>
+      <p>Wawasan global & integrasi ilmu — memadukan nilai Al-Qur'an dengan ilmu modern, kepemimpinan strategis, kesiapan masa depan.</p>
+      <ul>
+        <li>Integrasi kurikulum modern</li>
+        <li>Kepemimpinan & berpikir kritis</li>
+        <li>Daya saing PT lokal/luar negeri</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sowhat reveal">
+    <p>Pilar ke-3 — <span class="hl">Visioner — secara struktural paling lemah didukung oleh alokasi JP saat ini</span>: Matematika 4 JP, IPA 1–2 JP, Proyek/P5 0 JP. Akibatnya, lulusan menjadi sangat kuat di Pilar Qur'ani namun kehilangan opsi karir di kedokteran, teknik, sains, dan teknologi — bidang yang justru menjadi <em>tujuan utama 92% santri kelas 12</em>.</p>
+  </div>
+</section>
+
+<!-- ============ SWOT ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">02</span> SWOT Analysis</div>
+    <h2 class="action-title">
+      Tiga <em>kekuatan strategis</em> MQBS terkikis oleh empat <b>ancaman struktural</b> yang saling mengunci.
+    </h2>
+    <p class="action-deck">
+      Pemetaan internal-eksternal mengikuti format konsultasi standar. Setiap butir dilengkapi data verifikasi atau referensi observasi lapangan dari kuesioner Litbang 2024, evaluasi tim Akademik & Kesantrian, dan capaian tahfidz per kelas.
+    </p>
+  </div>
+
+  <div class="swot-grid reveal-stagger">
+    <!-- STRENGTHS -->
+    <div class="swot-cell s-cell">
+      <div class="swot-head">
+        <div class="swot-letter">S</div>
+        <div>
+          <div class="swot-label">Strengths · Kekuatan Internal</div>
+          <div class="swot-tagline">Aset yang sudah terbukti dan harus dilindungi dalam restrukturisasi</div>
+        </div>
+      </div>
+      <ul class="swot-list">
+        <li><b>Capaian tahfidz tinggi:</b> 94% mutqin kelas 9 ikhwan, <span class="c">100%</span> mutqin kelas 9 & 12 akhwat — kemampuan eksekusi target Qur'ani sudah teruji.</li>
+        <li><b>Kekayaan keilmuan klasik:</b> Hadits, Ushul Fiqh, Muthala'ah, Bahtsul Masa'il — aset penalaran kritis yang <em>tidak dimiliki sekolah umum</em>.</li>
+        <li><b>Asrama sebagai kawah karakter:</b> 24 jam pembentukan adab, ibadah, kemandirian — value proposition utama bagi orang tua SMP.</li>
+        <li><b>Misi strategis yang jelas:</b> Tiga pilar Qur'ani–Berkarakter–Visioner tertulis koheren, mendapat dukungan kepercayaan keluarga santri.</li>
+        <li><b>Modal kepemimpinan:</b> Santri sudah berpengalaman jadi imam, tampil mutun, dan mengelola konflik kamar — jam terbang leadership setara <span class="c">3+ tahun</span>.</li>
+		<li><b>Ikrar:</b> Kredo dan komitmen guru yang berorientasi perjuangan (selalu dibaca)</li>
+		<li><b>Ekosistem terpadu:</b> Jenjang lengkap SD–SMA–Mahad Aly untuk ikhwan & akhwat.</li>
+      </ul>
+    </div>
+
+    <!-- WEAKNESSES -->
+    <div class="swot-cell w-cell">
+      <div class="swot-head">
+        <div class="swot-letter">W</div>
+        <div>
+          <div class="swot-label">Weaknesses · Kelemahan Internal</div>
+          <div class="swot-tagline">Defisit struktural yang tidak akan hilang tanpa intervensi kurikuler</div>
+        </div>
+      </div>
+      <ul class="swot-list">
+        <li><b>Bahasa Arab fungsional belum optimal:</b> <span class="c">>80%</span> santri kelas 12 masih perlu penguatan kelancaran baca kitab; <span class="c">0/8</span> lulus tes tertulis I'dad LIPIA.</li>
+        <li><b>Target ziyadah 30 juz melambat:</b> kelas 12 ikhwan mencapai <span class="c">12%</span> (5/39); akhwat <span class="c">11%</span> (2/18) — itqon sangat kuat, namun ziyadah membutuhkan pendekatan baru.</li>
+        <li><b>Beban kurikuler sangat padat:</b> total <span class="c">58 JP/pekan</span>, di atas batas rekomendasi Kurikulum Merdeka; rentan mengurangi fokus dan daya serap santri.</li>
+        <li><b>Proporsi alokasi pilar:</b> Pilar Qur'ani <span class="c">60 JP</span> vs Numerasi <span class="c">4 JP</span>, Sains <span class="c">1–2 JP</span>, P5 <span class="c">0 JP</span>, terbatasnya ruang eksplorasi akademik.</li>
+        <li><b>Kesesuaian tujuan-kurikulum:</b> <span class="c">36/39</span> kelas 12 ikhwan berorientasi ke jalur umum — terdapat persepsi materi kurang selaras dengan minat mereka, yang berdampak pada fokus di kelas.</li>
+        <li><b>Standarisasi kompetensi musyrif:</b> masih diperlukan penyamaan standar dalam pendampingan psikologis, tahsin, dan sinergi dengan program akademik.</li>
+        <li><b>Beban administrasi asatidz:</b> kompleksitas ATP (Alur Tujuan Pembelajaran) dan presensi cukup tinggi — membatasi waktu ideal asatidz untuk peran murobbi.</li>
+        <li><b>Fasilitas penunjang KBM:</b> kenyamanan sirkulasi udara dan ketersediaan perangkat penunjang (proyektor/kipas) di kelas masih perlu ditingkatkan pemerataannya.</li>
+      </ul>
+    </div>
+
+    <!-- OPPORTUNITIES -->
+    <div class="swot-cell o-cell">
+      <div class="swot-head">
+        <div class="swot-letter">O</div>
+        <div>
+          <div class="swot-label">Opportunities · Peluang Eksternal</div>
+          <div class="swot-tagline">Momentum regulasi & pasar yang harus dimanfaatkan dalam 12 bulan</div>
+        </div>
+      </div>
+      <ul class="swot-list">
+        <li><b>Permendikdasmen No. 10/2025:</b> mandat 8 dimensi SKL nasional — <span class="c">11 juta</span> santri di <span class="c">42.433</span> pesantren terdampak; peluang untuk diferensiasi kompetitif.</li>
+        <li><b>SNBT 2025 yang ketat:</b> <span class="c">70,6%</span> peserta tidak lolos; pesantren dengan HOTS terstruktur akan menonjol drastis di pasar PTN.</li>
+        <li><b>AKM (Asesmen Kompetensi Minimal) Literasi Numerasi → TPS (Think-Pair-Share) Merdeka, Ushul Fiqh → penalaran:</b> aset klasik pesantren adalah ekuivalen SNBT yang belum diterjemahkan ke format soal modern.</li>
+        <li><b>Krisis moral remaja Indonesia:</b> kenakalan remaja naik <span class="c">+101%</span> dalam 3 tahun; orang tua mencari "karantina moral" — value yang sudah dimiliki MQBS.</li>
+        <li><b>Krisis Gen Alpha:</b> attention span 8 detik & kecanduan gadget membuat pesantren tampak sebagai solusi detoks kognitif yang dicari pasar.</li>
+      </ul>
+    </div>
+
+    <!-- THREATS -->
+    <div class="swot-cell t-cell">
+      <div class="swot-head">
+        <div class="swot-letter">T</div>
+        <div>
+          <div class="swot-label">Threats · Ancaman Eksternal</div>
+          <div class="swot-tagline">Risiko struktural yang akan mengikis relevansi MQBS dalam 5 tahun</div>
+        </div>
+      </div>
+      <ul class="swot-list">
+        <li><b>Tantangan kognitif Gen Alpha:</b> screen time 4–6 jam/hari, attention 8 detik, working memory <span class="c">−11%</span> — membutuhkan adaptasi metode ajar saat santri baru masuk.</li>
+        <li><b>Target tahfidz tinggi:</b> Orang tua menginginkan anaknya jadi penghafal Quran, namun anak mental karena momok menghafal yang cukup membebani.</li>
+        <li><b>Standar nasional yang naik:</b> PISA Indonesia masih <span class="c">82%</span> di bawah level minimum numerasi; SKL baru menuntut kompetensi yang belum terinternalisasi di kurikulum lama.</li>
+        <li><b>Kompetisi pesantren tahfidz lain:</b> jika MQBS hanya unggul di tahfidz tanpa output umum yang terverifikasi, diferensiasi akan hilang.</li>
+        <li><b>Harapan holistik orang tua:</b> Tujuan utama pendaftaran adalah agar anak memiliki kesiapan untuk bersaing memperebutkan kursi di Perguruan Tinggi Negeri (PTN) favorit atau meraih beasiswa ke universitas luar negeri (biasanya didukung oleh kurikulum ganda bersertifikasi global).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sowhat reveal">
+    <p><span class="hl">Pemetaan SWOT memunculkan satu insight penting</span>: kekuatan MQBS (standar target tahfidz tinggi) <em>justru dapat menimbulkan kelemahan</em> ketika tidak mampu beradaptasi dengan kondisi perubahan zaman. 100% mutqin tanpa output kemampuan bahasa Arab (baca kitab) merupakan tujuan yang separuh terealisasi.</p>
+  </div>
+</section>
+
+<!-- ============ CAPAIAN TAHFIDZ ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">03</span> Capaian Tahfidz Reality Check</div>
+    <h2 class="action-title">
+      Mutqin <em>tercapai sangat baik</em>, sementara target ziyadah <b>membutuhkan penyesuaian</b> — indikasi bahwa fokus pada satu pilar inti memberikan hasil yang lebih kokoh.
+    </h2>
+    <p class="action-deck">
+      Data per Mei 2026 menunjukkan tren konsisten: santri sangat berhasil mengkonsolidasikan hafalan yang sudah ada (itqon), namun mengalami pelambatan dalam menuntaskan setoran ziyadah 30 juz. Hal ini mengarah pada satu kesimpulan strategis: <strong>menjadikan "mutqin" sebagai capaian utama jauh lebih efektif</strong> daripada mengejar "mutqin + ziyadah" pada ruang waktu yang sama — senada dengan pandangan konstruktif dari Waka Al-Qur'an.
+    </p>
+  </div>
+
+  <div class="tah-grid reveal">
+    <!-- IKHWAN -->
+    <div class="tah-card">
+      <div class="sub">Santri Ikhwan</div>
+      <h4>Capaian Tahfidz Per Jenjang</h4>
+
+      <div class="tah-row">
+        <div class="tah-row-head">
+          <div class="lbl">Kelas 9 — total 50 santri</div>
+          <div class="n">target itqon: 3 juz</div>
+        </div>
+        <div class="bar-row">
+          <div class="bl">Mutqin (3 juz)</div>
+          <div class="bar-track"><div class="bar-fill" data-w="94"></div></div>
+          <div class="pct">94%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bl">Setor 30 juz</div>
+          <div class="bar-track"><div class="bar-fill warn" data-w="40"></div></div>
+          <div class="pct">40%</div>
+        </div>
+      </div>
+
+      <div class="tah-row">
+        <div class="tah-row-head">
+          <div class="lbl">Kelas 12 — total 39 santri</div>
+          <div class="n">target itqon: 10 juz</div>
+        </div>
+        <div class="bar-row">
+          <div class="bl">Mutqin (10 juz)</div>
+          <div class="bar-track"><div class="bar-fill" data-w="84"></div></div>
+          <div class="pct">84%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bl">Setor 30 juz</div>
+          <div class="bar-track"><div class="bar-fill crit" data-w="12"></div></div>
+          <div class="pct">12%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AKHWAT -->
+    <div class="tah-card">
+      <div class="sub">Santri Akhwat</div>
+      <h4>Capaian Tahfidz Per Jenjang</h4>
+
+      <div class="tah-row">
+        <div class="tah-row-head">
+          <div class="lbl">Kelas 9 — total 31 santri</div>
+          <div class="n">target itqon: 3 juz</div>
+        </div>
+        <div class="bar-row">
+          <div class="bl">Mutqin (3 juz)</div>
+          <div class="bar-track"><div class="bar-fill" data-w="100"></div></div>
+          <div class="pct">100%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bl">Setor 30 juz</div>
+          <div class="bar-track"><div class="bar-fill warn" data-w="55"></div></div>
+          <div class="pct">55%</div>
+        </div>
+      </div>
+
+      <div class="tah-row">
+        <div class="tah-row-head">
+          <div class="lbl">Kelas 12 — total 18 santri</div>
+          <div class="n">target itqon: 10 juz</div>
+        </div>
+        <div class="bar-row">
+          <div class="bl">Mutqin (10 juz)</div>
+          <div class="bar-track"><div class="bar-fill" data-w="100"></div></div>
+          <div class="pct">100%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bl">Setor 30 juz</div>
+          <div class="bar-track"><div class="bar-fill crit" data-w="11"></div></div>
+          <div class="pct">11%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sowhat reveal">
+    <p><span class="hl">Pola asimetri ini merupakan sinyal pentingnya manajemen beban kognitif.</span> Ketika itqon dan ziyadah ditargetkan bersamaan secara intensif, atensi santri secara natural terserap pada porsi yang paling intens dievaluasi (itqon). <em>Halaqah 4 waktu</em> juga terindikasi mengalami penurunan efektivitas pada waktu Ashar. <strong>Rekomendasi: optimalkan menjadi 3 waktu halaqah, berpusat pada pemantapan mutqin (SMP 5 juz, SMA 10 juz), dengan ziyadah sebagai capaian prestasi.</strong></p>
+  </div>
+</section>
+
+<!-- ============ STAGE: COMPLICATION ============ -->
+<section class="stage s-comp" id="complication">
+  <div class="stage-inner reveal">
+    <div class="stage-tag">Bagian 02 / Komplikasi</div>
+    <h2>Empat <em>dinamika struktural</em> yang saling memengaruhi.</h2>
+    <p class="stage-deck">
+      Kondisi KBM MQBS berinteraksi dengan dinamika yang lebih luas. Empat faktor utama — perbedaan orientasi karir santri, penguasaan bahasa Arab yang belum merata, kepadatan jam pelajaran, serta tuntutan regulasi — bekerja secara <strong style="color:var(--gold-2)">simultan</strong>. Kondisi ini menegaskan perlunya penyelarasan kurikulum yang lebih komprehensif, tidak hanya parsial.
+    </p>
+  </div>
+</section>
+
+<!-- ============ MISMATCH ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">04</span> Mismatch Strategis #1</div>
+    <h2 class="action-title">
+      Kurikulum dirancang untuk <em>menghasilkan ulama</em> — tetapi <b>92% santri kelas 12 Ikhwan</b> fokus bersiap menjadi insinyur, dokter, militer, dan pengusaha.
+    </h2>
+    <p class="action-deck">
+      Data konkrit <u><b>WAWANCARA terhadap 39 santri kelas 12 ikhwan</b></u> menemukan distribusi orientasi karir yang tidak diakomodasi oleh struktur kurikulum saat ini. Konsekuensinya bukan hanya akademis — tetapi mengikis motivasi belajar, atmosfer KBM, dan akhirnya reputasi pesantren itu sendiri.
+    </p>
+  </div>
+
+  <div class="mismatch-wrap reveal-stagger">
+    <div class="mismatch-side curr">
+      <h4>Realita Aspirasi Santri</h4>
+      <div class="big">36<span style="font-size:0.5em;color:var(--ink-2);font-style:italic"> dari 39</span></div>
+      <p class="desc">santri kelas 12 ikhwan berorientasi ke <strong>jalur umum</strong> — ITB, bisnis digital, militer, pertanian, kedokteran. Hanya 3 santri yang mengarah ke jalur diniyah murni.</p>
+      <div class="dist-bar">
+        <div class="dist-seg maj">UMUM · 92,3%</div>
+        <div class="dist-seg min">DINIYAH · 7,7%</div>
+      </div>
+      <div class="dist-legend">
+        <span><span class="lg-dot" style="background:var(--brick)"></span><b>Jalur umum:</b> 36 santri</span>
+        <span><span class="lg-dot" style="background:var(--teal-2)"></span><b>Jalur diniyah:</b> 3 santri</span>
+      </div>
+    </div>
+
+    <div class="mismatch-side">
+      <h4>Asumsi Kurikulum Saat Ini</h4>
+      <div class="big">100%</div>
+      <p class="desc">santri menerima beban Diniyah lanjut yang sama: <em>Musthalah Hadits, Ushul Fiqh, Mukhtarot, Nahwu lanjut, Akhlak Arab</em> — sebagian membutuhkan kesiapan akademik yang lebih spesifik.</p>
+      <div class="nums">
+        Dinamika: Adanya persepsi kurangnya relevansi materi dengan minat karir berujung pada penurunan partisipasi di kelas (killing time), yang akhirnya dapat memengaruhi kondusivitas belajar secara umum. <b>Menyelaraskan materi dengan jalur orientasi santri akan menyelamatkan efektivitas pembelajaran bagi semua pihak.</b>
+      </div>
+    </div>
+  </div>
+
+  <div class="sowhat reveal">
+    <p><span class="hl">Data 92% ini adalah wawasan berharga untuk memandu diferensiasi.</span> Materi lanjutan seperti Musthalah Hadits dan Ushul Fiqh akan jauh lebih bersinar sebagai <em>kompetensi penjurusan</em> bagi santri jalur diniyah. Untuk santri jalur umum, pondasi Akidah dan Fiqih tetap dipertahankan, lalu dipadukan dengan penguatan terstruktur pada Penalaran Umum, Literasi, Numerasi, dan Bahasa Inggris sesuai standar SNBT.</p>
+  </div>
+</section>
+
+<!-- ============ KRISIS BAHASA ARAB ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">05</span> Evaluasi Kompetensi Bahasa Arab</div>
+    <h2 class="action-title">
+      Diperlukan penguatan <em>metodologi pembelajaran</em> — agar kelancaran bahasa Arab dapat memenuhi standar tes pihak eksternal.
+    </h2>
+    <p class="action-deck">
+      Target mendalam pada jalur diniyah perlu diimbangi dengan kesiapan mengikuti tolok ukur eksternal. Evaluasi berbasis tes masuk LIPIA mengindikasikan perlunya pembenahan pada strategi pembekalan bahasa, agar santri yang memang diproyeksikan ke pendidikan Islam tinggi memiliki daya saing yang lebih matang.
+    </p>
+  </div>
+
+  <div class="crisis-grid reveal-stagger">
+    <div class="crisis-card">
+      <div class="top">Tes Tertulis I'dad LIPIA</div>
+      <div class="ratio">0<span> / 8</span></div>
+      <p class="desc">Dari 8 santri yang mengikuti tes masuk jenjang persiapan (I'dad), <b>tidak ada satu pun yang lulus</b> ujian tertulis. Hanya 1 yang lulus jalur Syariah — anomali statistik, bukan pola yang dapat diandalkan.</p>
+      <div class="source">Sumber: data observasi tim akademik MQBS 2024</div>
+    </div>
+
+    <div class="crisis-card">
+      <div class="top">Baca Kitab</div>
+      <div class="ratio">>80<span style="font-size:0.45em">%</span></div>
+      <p class="desc"><b>kelas 12 belum lancar</b> membaca kitab gundul (tanpa harakat) — kemampuan pasif esensial untuk mendalami materi agama. Banyak masih kesulitan pelajaran dasar Shorof.</p>
+      <div class="source">Sumber: kuesioner Litbang 2024 — guru bahasa Arab MQBS</div>
+    </div>
+
+    <div class="crisis-card">
+      <div class="top">Pencapaian Anomali</div>
+      <div class="ratio">1<span> / 39</span></div>
+      <p class="desc">santri yang berhasil memenuhi <b>seluruh ekspektasi ganda</b> kurikulum secara optimal. Data ini menguatkan pandangan asatidz bahwa tuntutan komprehensif saat ini sangat bergantung pada <em>kapasitas istimewa individu</em>, bukan sekadar dari sistem itu sendiri.</p>
+      <div class="source">Sumber: catatan wali kelas 12 ikhwan MQBS 2024</div>
+    </div>
+  </div>
+
+  <div class="sowhat reveal">
+    <p><span class="hl">Kelancaran bahasa Arab merupakan cerminan paling konkret dari efektivitas kurikulum diniyah.</span> Meninjau hasil seleksi eksternal dan pemetaan baca kitab, disimpulkan bahwa <em>kedalaman materi perlu dibarengi dengan penguasaan metode yang bertahap</em>. Diperlukan restrukturisasi urutan belajar (tadarruj) — mematangkan pondasi Nahwu-Sharaf sebelum materi lanjutan, serta mengutamakan kecakapan aktif di tahap awal.</p>
+  </div>
+</section>
+
+<!-- ============ JP OVERLOAD ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">06</span> Beban Kognitif Overload</div>
+    <h2 class="action-title">
+      <em>58 jam pelajaran per pekan</em> — beban yang melampaui pedoman <b>Kurikulum Merdeka</b> dan berpotensi mengurangi daya serap santri secara keseluruhan.
+    </h2>
+    <p class="action-deck">
+      Distribusi JP saat ini menunjukkan ketimpangan ekstrem antar pilar. Pilar Qur'ani memakan 60 JP (gabungan Tahfidz, Bahasa Arab I'dad, Dasar Syar'i), sementara Pilar Visioner — yang justru menjadi pilihan 92% santri — hampir tidak mendapat ruang. Total 58 JP/pekan mengakibatkan apa yang oleh tim akademik disebut <em>"siswa tidak fokus dan gagal menguasai semuanya"</em>.
+    </p>
+  </div>
+
+  <div class="jp-chart reveal">
+    <h4>
+      <span>Distribusi JP per pekan — Kondisi Saat Ini</span>
+      <span class="total">Total: 58 JP/pekan · melebihi batas Kurikulum Merdeka (SD: 42 JP | SMP: 43 JP | SMA: 48 JP)</span>
+    </h4>
+    <div class="jp-row">
+      <div class="pl">Tahfidz <em>Pilar Qur'ani</em></div>
+      <div class="jp-track"><div class="jp-fill qurani" data-w="40"></div></div>
+      <div class="jp-num">~24 JP</div>
+    </div>
+    <div class="jp-row">
+      <div class="pl">Bahasa Arab + Dasar Syar'i <em>Pilar Qur'ani</em></div>
+      <div class="jp-track"><div class="jp-fill qurani" data-w="60"></div></div>
+      <div class="jp-num">~36 JP</div>
+    </div>
+    <div class="jp-row">
+      <div class="pl">Karakter & Akhlak <em>Pilar Berkarakter</em></div>
+      <div class="jp-track"><div class="jp-fill karakter" data-w="20"></div></div>
+      <div class="jp-num">~12 JP</div>
+    </div>
+    <div class="jp-row">
+      <div class="pl">Numerasi (Matematika) <em>Pilar Visioner</em></div>
+      <div class="jp-track"><div class="jp-fill visioner" data-w="7"></div></div>
+      <div class="jp-num">4 JP</div>
+    </div>
+    <div class="jp-row">
+      <div class="pl">Sains (Fisika/Kimia) <em>Pilar Visioner</em></div>
+      <div class="jp-track"><div class="jp-fill visioner" data-w="3"></div></div>
+      <div class="jp-num">1–2 JP</div>
+    </div>
+    <div class="jp-row">
+      <div class="pl">Unplugged coding (Logika & Critical Thinking) <em>Pilar Visioner</em></div>
+      <div class="jp-track"><div class="jp-fill visioner" data-w="3"></div></div>
+      <div class="jp-num">2 JP</div>
+    </div>
+    <div class="jp-row">
+      <div class="pl">Proyek/P5 (Kemendikbud)<em>Pilar Visioner </em></div>
+      <div class="jp-track"><div class="jp-fill kosong" data-w="2"></div></div>
+      <div class="jp-num">0 JP</div>
+    </div>
+    <div class="jp-legend">
+      <div class="it"><span class="sw" style="background:var(--teal)"></span> Pilar Qur'ani · ~60 JP</div>
+      <div class="it"><span class="sw" style="background:var(--gold)"></span> Pilar Berkarakter · ~12 JP</div>
+      <div class="it"><span class="sw" style="background:var(--amber)"></span> Pilar Visioner · ~7–8 JP</div>
+      <div class="it"><span class="sw" style="background:repeating-linear-gradient(45deg,rgba(155,98,32,0.4),rgba(155,98,32,0.4) 4px,rgba(155,98,32,0.2) 4px,rgba(155,98,32,0.2) 8px)"></span> Tidak terisi</div>
+    </div>
+  </div>
+
+  <div class="sowhat reveal">
+    <p><span class="hl">Distribusi jam pelajaran ini mencerminkan tingginya target capaian, namun membutuhkan proporsionalitas baru.</span> Dengan susunan saat ini, ruang bagi santri untuk melatih literasi-numerasi menuju SNBT keilmuan eksakta menjadi sangat terbatas. Oleh karena itu, usulan restrukturisasi 7 JP dari tim akademik merupakan <em>langkah penyesuaian esensial</em> untuk memberikan ruang nafas bagi Pilar Visioner.</p>
+  </div>
+</section>
+
+<!-- ============ TEKANAN EKSTERNAL ============ -->
+<section class="dark">
+  <div class="section">
+    <div class="reveal">
+      <div class="section-num"><span class="nm">07</span> Tekanan Eksternal</div>
+      <h2 class="action-title">
+        Krisis kognitif Gen Alpha + mandat <b>Permendikdasmen No 10 Tahun 2025</b> + <b>SNBT yang ketat</b> = Proyek 12 bulan <b>MQBS</b> untuk berbenah.
+      </h2>
+      <p class="action-deck">
+        Tiga gelombang eksternal datang bersamaan. Pesantren yang tidak menyesuaikan SKL-nya bukan hanya akan kehilangan daya saing — tetapi terancam tidak dapat menerbitkan ijazah yang diakui secara nasional.
+      </p>
+    </div>
+
+    <div class="pressure-grid reveal-stagger">
+      <div class="pressure-block">
+        <h4>Atensi — Tantangan kognitif Gen Alpha</h4>
+        <ul>
+          <li><span class="lt">Screen time harian rata-rata</span><span class="rt">4–6 jam</span></li>
+          <li><span class="lt">Rentang atensi Gen Alpha (vs 12 dtk Milenial)</span><span class="rt">8 detik</span></li>
+          <li><span class="lt">Penurunan working memory akibat konten cepat</span><span class="rt">−11%</span></li>
+          <li><span class="lt">Pemulihan fokus setelah 1 gangguan digital</span><span class="rt">25–27 mnt</span></li>
+          <li><span class="lt">Remaja screen time ≥4 jam/hari → cemas</span><span class="rt">27,1%</span></li>
+        </ul>
+      </div>
+
+      <div class="pressure-block">
+        <h4>Regulasi — Mandat UU Dikdasmen</h4>
+        <ul>
+          <li><span class="lt">Pesantren aktif terdampak Permendikdasmen 10/2025</span><span class="rt">42.433</span></li>
+          <li><span class="lt">Santri terdampak langsung kualitas kurikulum</span><span class="rt">11 juta</span></li>
+          <li><span class="lt">Dimensi SKL nasional yang wajib (8 dimensi)</span><span class="rt">8 / 8</span></li>
+          <li><span class="lt">Dimensi yang sudah terinternalisasi MQBS</span><span class="rt">2–3</span></li>
+          <li><span class="lt">Guru pesantren belum bergelar S1 (Balitbang Kemenag)</span><span class="rt">>60%</span></li>
+        </ul>
+      </div>
+
+      <div class="pressure-block">
+        <h4>Tes Masuk — Standar PTN & literasi</h4>
+        <ul>
+          <li><span class="lt">Peserta SNBT 2025 yang tidak lolos</span><span class="rt">70,6%</span></li>
+          <li><span class="lt">Siswa Indonesia di bawah level minimum numerasi (PISA)</span><span class="rt">82%</span></li>
+          <li><span class="lt">Skor literasi membaca Indonesia (rata-rata OECD: 476)</span><span class="rt">359</span></li>
+          <li><span class="lt">Gap skor numerasi Indonesia vs rata-rata dunia</span><span class="rt">−106</span></li>
+          <li><span class="lt">Subtes SNBT yang berbasis HOTS (semuanya)</span><span class="rt">7 / 7</span></li>
+        </ul>
+      </div>
+
+      <div class="pressure-block">
+        <h4>Bullying — Krisis moral remaja</h4>
+        <ul>
+          <li><span class="lt">Kenaikan kasus kenakalan remaja ≤18 thn (2018–21, BPS)</span><span class="rt">+101%</span></li>
+          <li><span class="lt">Anak usia sekolah bermain gadget terlalu lama (KPAI)</span><span class="rt">71,3%</span></li>
+          <li><span class="lt">Rata-rata waktu layar harian Indonesia (tertinggi dunia)</span><span class="rt">6,05 jam</span></li>
+          <li><span class="lt">Remaja laki-laki seks pranikah usia 15–19 (SDKI 2017)</span><span class="rt">74%</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sowhat reveal" style="background:var(--paper);color:var(--ink);margin-top:48px">
+      <p style="color:var(--ink)"><span style="background:linear-gradient(180deg,transparent 60%,rgba(227,177,31,0.45) 60%);font-weight:600">Empat tekanan ini menciptakan paradoks</span>: pesantren menjadi <em>lebih dibutuhkan</em> sebagai detoks moral-kognitif, sekaligus <em>lebih sulit</em> mempertahankan relevansi akademik tanpa SKL yang terverifikasi. Menjawab paradoks ini adalah kewajiban — bukan pilihan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUESTION SECTION ============ -->
+<section class="question-section" id="question">
+  <div class="question-inner">
+    <div class="reveal">
+      <div class="q-mark">"</div>
+      <div class="question-tag">Big Question</div>
+      <h2 class="question-text">
+        Bagaimana MQBS dapat <em>tetap setia</em> pada misi Qur'ani–Berkarakter–Visioner, sekaligus <span class="underline">menghasilkan lulusan yang siap</span> baik di jalur ulama maupun profesional — <em>tanpa membebani semua santri dengan target yang hanya dicapai 1 dari 39?</em>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAGE: ANSWER ============ -->
+<section class="stage s-ans" id="answer">
+  <div class="stage-inner reveal">
+    <div class="stage-tag">Bagian 03 / Solusi Strategis</div>
+    <h2>Satu kerangka, <em>dua jalur</em>, enam intervensi terukur.</h2>
+    <p class="stage-deck">
+      Jawaban tidak terletak pada penambahan, tetapi pada <strong style="color:var(--gold-2)">diferensiasi yang berani</strong>. SKL & Kurikulum baru harus mengakui realitas 92% jalur umum tanpa mengorbankan kekayaan 8% jalur diniyah — dan setiap jalur harus memiliki indikator output yang berbeda, terverifikasi eksternal, serta selaras Permendikdasmen No. 10 Tahun 2025.
+    </p>
+  </div>
+</section>
+
+<!-- ============ STRATEGIC FRAMEWORK ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">08</span> Kerangka Strategis</div>
+    <h2 class="action-title">
+      Tiga sumbu yang <em>tidak bisa dinegosiasi</em>: Qur'ani sebagai akar, Karakter sebagai batang, <b>Visioner sebagai cabang</b> yang bercabang dua.
+    </h2>
+    <p class="action-deck">
+      Pilar Qur'ani dan Berkarakter tetap menjadi standar minimum bersama untuk semua santri MQBS — non-negotiable, terukur, terverifikasi. Pilar Visioner-lah yang bercabang sesuai jalur: Diniyah lanjut atau Umum kompetitif.
+    </p>
+  </div>
+
+  <div class="framework-grid reveal-stagger">
+    <div class="fw-cell">
+      <div class="fw-num">i</div>
+      <h4>Qur'ani — akar bersama</h4>
+      <p>Mutqin sebagai target utama tunggal. Ziyadah menjadi prestasi opsional. Halaqah dipangkas dari 4 ke 3 waktu (Ashar di-skip).</p>
+      <ul>
+        <li>SMP: 5 juz mutqin</li>
+        <li>SMA Diniyah: 20–30 juz</li>
+        <li>SMA Umum: 7–10 juz mutqin</li>
+        <li>Tilawah harian terdokumentasi</li>
+      </ul>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">ii</div>
+      <h4>Berkarakter — batang bersama</h4>
+      <p>Output karakter menjadi <em>butir checklist terverifikasi musyrif</em>, yang terukur dan dapat diamati dalam keseharian.</p>
+      <ul>
+        <li>Shalat 5 waktu mandiri 3 bulan</li>
+        <li>Tidak berbohong/menyontek 1 tahun</li>
+        <li>Aurat & adab konsisten tanpa tekanan</li>
+        <li>Akidah Wasithiyyah dipahami</li>
+      </ul>
+    </div>
+    <div class="fw-cell">
+      <div class="fw-num">iii</div>
+      <h4>Visioner — cabang yang bercabang</h4>
+      <p>Inilah lokus diferensiasi. Mulai kelas 11, santri memilih: Diniyah lanjut (kitab + Arab C1) atau Umum kompetitif (HOTS + Inggris B2).</p>
+      <ul>
+        <li>Diniyah: 8 kitab mu'tabar + karya dakwah</li>
+        <li>Umum: SNBT >600 + prestasi eksternal</li>
+        <li>Bahasa: Arab C1 atau Inggris B2</li>
+        <li>1 karya nyata wajib di kelas 12</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRACK SPLIT ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">09</span> Penjurusan Tegas</div>
+    <h2 class="action-title">
+      Mulai kelas 11, satu kurikulum berubah menjadi <em>dua arsitektur</em> — masing-masing dengan SKL, indikator, dan jalur lanjut yang berbeda.
+    </h2>
+    <p class="action-deck">
+      Penjurusan ini bukan diskriminasi — namun pengakuan nyata atas aspirasi santri. Setiap jalur dibangun setara dalam standar mutu: keduanya menuntut hafalan mutqin, keduanya menuntut karakter terverifikasi, dan keduanya wajib menghasilkan 1 karya/portofolio nyata di kelas 12.
+    </p>
+  </div>
+
+  <div class="track-grid reveal-stagger">
+    <div class="track-card diniyah">
+      <div class="pct-cap">~8%<span class="of"> populasi santri</span></div>
+      <div class="track-name">Jalur · Takhassus Diniyah</div>
+      <div class="track-tag">"Calon ulama yang membumi, menebar manfaat"</div>
+      <ul class="track-list">
+        <li><div class="k">Hafalan</div><div class="v">20–30 juz mutqin, sanad terjaga</div></li>
+        <li><div class="k">Kitab</div><div class="v">Min. 8 kitab mu'tabar (Alfiyyah, Waraqat, Nukhbah, Minhaj)</div></li>
+        <li><div class="k">Bahasa Arab</div><div class="v">C1 CEFR aktif — diskusi ilmiah</div></li>
+        <li><div class="k">Karya wajib</div><div class="v">Risalah ilmiah / modul ta'lim</div></li>
+        <li><div class="k">Bahtsul Masa'il</div><div class="v">Aktif memformulasikan masalah & dalil</div></li>
+        <li><div class="k">Tujuan lanjut</div><div class="v">LIPIA · STDI · Madinah · Yaman</div></li>
+      </ul>
+    </div>
+    <div class="track-card umum">
+      <div class="pct-cap">~92%<span class="of"> populasi santri</span></div>
+      <div class="track-name">Jalur · Umum Kompetitif</div>
+      <div class="track-tag">"Profesional muslim yang tidak tercerabut aqidahnya"</div>
+      <ul class="track-list">
+        <li><div class="k">Hafalan</div><div class="v">7–10 juz mutqin · tilawah harian</div></li>
+        <li><div class="k">UTBK/SNBT</div><div class="v">Skor TPS >650, total >600</div></li>
+        <li><div class="k">Bahasa Inggris</div><div class="v">B2–C1 CEFR · esai argumentatif</div></li>
+        <li><div class="k">Numerasi-Literasi</div><div class="v">PISA level 4–5 · HOTS</div></li>
+        <li><div class="k">Portofolio</div><div class="v">Min. 1 prestasi/proyek/karya eksternal</div></li>
+        <li><div class="k">Tujuan lanjut</div><div class="v">PTN unggulan · ITB/UI/UGM · STAN · militer · luar negeri</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sowhat reveal">
+    <p><span class="hl">Diferensiasi adalah langkah bijak untuk mengapresiasi keragaman potensi santri.</span> Mewajibkan penguasaan materi diniyah spesialis (seperti Alfiyyah Ibn Malik) bagi santri yang berfokus pada persiapan ujian eksakta PTN dapat menyita waktu berharga mereka. Sebaliknya, membebani santri jalur takhassus dengan tuntutan sains intensif juga kurang proporsional. Penjurusan hadir agar energi setiap santri tersalurkan optimal pada bidang keahliannya kelak.</p>
+  </div>
+</section>
+
+<!-- ============ JP REALLOCATION ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">10</span> Restrukturisasi 7 JP</div>
+    <h2 class="action-title">
+      Dengan <em>fusi & ekstrakurikuler</em>, MQBS membebaskan <b>7 JP/pekan</b> tanpa kehilangan satu pun esensi pembelajaran.
+    </h2>
+    <p class="action-deck">
+      Strategi ekstraksi tim akademik MQBS sudah terumuskan dengan presisi: leburkan Kelompok E (PAI/PKN/Sejarah/Sosiologi) ke dalam mapel inti & diniyah, alihkan Seni-Prakarya-PJOK ke ekstrakurikuler sore/malam. Ruang yang terbebas direinvestasikan ke Pilar Visioner yang selama ini defisit.
+    </p>
+  </div>
+
+  <div class="realloc reveal">
+    <div class="realloc-row head">
+      <div>Versi Awal (dipangkas/dilebur)</div>
+      <div></div>
+      <div>Versi Baru (diperkuat)</div>
+    </div>
+
+    <div class="realloc-row">
+      <div class="realloc-cell realloc-from">
+        <div class="pl-name">PAI, PKN, Sejarah, Sosiologi</div>
+        <div class="pl-jp">−4 JP · difusikan ke mapel inti / Diniyah</div>
+      </div>
+      <div class="realloc-arrow">→</div>
+      <div class="realloc-cell realloc-to">
+        <div class="pl-name">Proyek Karakter / P5</div>
+        <div class="pl-jp">+7 JP · jadi mata pelajaran wajib (mandat Kemendikbud)</div>
+      </div>
+    </div>
+
+    <div class="realloc-row">
+      <div class="realloc-cell realloc-from">
+        <div class="pl-name">Seni Budaya, Prakarya, PJOK</div>
+        <div class="pl-jp">−3 JP · pindah ke ekstrakurikuler sore/Sabtu</div>
+      </div>
+      <div class="realloc-arrow">→</div>
+      <div class="realloc-cell realloc-to">
+        <div class="pl-name">Numerasi SMA</div>
+        <div class="pl-jp">+1 JP (4 → 5 JP) · penguatan numerasi UTBK</div>
+      </div>
+    </div>
+
+    <div class="realloc-row">
+      <div class="realloc-cell realloc-from">
+        <div class="pl-name">Mukhtarot & Akhlak Arab lanjut</div>
+        <div class="pl-jp">khusus jalur Diniyah · jalur Umum: dasar saja</div>
+      </div>
+      <div class="realloc-arrow">→</div>
+      <div class="realloc-cell realloc-to">
+        <div class="pl-name">Sains (Fisika/Kimia)</div>
+        <div class="pl-jp">+1–2 JP (1–2 → 3 JP) · sains dasar HOTS</div>
+      </div>
+    </div>
+
+    <div class="realloc-row">
+      <div class="realloc-cell realloc-from">
+        <div class="pl-name">Halaqah Ashar</div>
+        <div class="pl-jp">dipangkas (kurang efektif post-tidur siang)</div>
+      </div>
+      <div class="realloc-arrow">→</div>
+      <div class="realloc-cell realloc-to">
+        <div class="pl-name">Program Karakter & Visioner</div>
+        <div class="pl-jp">+1 JP (2 → 3 JP) · transformasi kegiatan</div>
+      </div>
+    </div>
+
+    <div class="realloc-row" style="background:rgba(14,55,62,0.06);margin-top:14px">
+      <div class="realloc-cell">
+        <div class="pl-name" style="color:var(--ink-2)">Jadwal KBM</div>
+        <div class="pl-jp" style="opacity:0.8">Senin–Sabtu 08.00–12.20</div>
+      </div>
+      <div class="realloc-arrow">→</div>
+      <div class="realloc-cell">
+        <div class="pl-name" style="color:var(--teal-2)">Senin–Jumat 08.00–14.00</div>
+        <div class="pl-jp" style="opacity:0.8">Sabtu: PJOK, karakter, ekskul</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sowhat reveal">
+    <p><span class="hl">Ini bukan pemangkasan — ini reposisi.</span> Esensi PAI, PKN, dan Sejarah tetap diajarkan, hanya wadahnya berbeda (terintegrasi ke modul ajar lintas mapel & P5). Esensi Seni-Olahraga-Prakarya tetap dimiliki santri, hanya formatnya geser ke ekstrakurikuler — yang justru lebih sesuai dengan watak ilmu praktis tersebut.</p>
+  </div>
+</section>
+
+<!-- ============ SKL PER JENJANG ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">11</span> SKL Per Jenjang</div>
+    <h2 class="action-title">
+      Tiga jenjang, <em>tiga filosofi progresif</em> — setiap kelas memiliki output yang dapat diuji eksternal pada hari kelulusan.
+    </h2>
+    <p class="action-deck">
+      SKL tidak boleh berhenti di rumusan abstrak ("santri bertaqwa, berakhlak, berilmu"). Setiap jenjang membutuhkan indikator yang dapat diaudit oleh penguji eksternal — musyrif untuk karakter, penguji bersanad untuk tahfidz, lembaga uji untuk bahasa Arab, dan simulasi standar untuk SNBT.
+    </p>
+  </div>
+
+  <div class="skl-grid reveal-stagger">
+    <div class="skl-card">
+      <div class="level">Kls. 06</div>
+      <div class="age">Akhir SD · usia 12</div>
+      <div class="phase-name">Fase Menanam</div>
+      <div class="phase-tagline">"Fitrah terjaga, adab mendarah daging, Qur'an menjadi teman"</div>
+      <div class="metrics">
+        <div class="m"><span class="k">Hafalan</span><span class="v">3 juz mutqin</span></div>
+        <div class="m"><span class="k">Hadis/Doa</span><span class="v">40 hadis adab/akhlak</span></div>
+        <div class="m"><span class="k">Arab & Inggris</span><span class="v">300 kosakata</span></div>
+        <div class="m"><span class="k">Visioner</span><span class="v">Ibadah & Murajaah mandiri tanpa diawasi</span></div>
+        <div class="m"><span class="k">Karakter</span><span class="v">Jujur, amanah, qana'ah</span></div>
+		  <div class="m"><span class="k">AKM Mandiri</span><span class="v">Level Cakap</span></div>
+      </div>
+    </div>
+
+    <div class="skl-card">
+      <div class="level">Kls. 09</div>
+      <div class="age">Akhir SMP · usia 15</div>
+      <div class="phase-name">Fase Menghunjam</div>
+      <div class="phase-tagline">"Identitas Islam terkristal, logika tajam, visi mulai terbentuk"</div>
+      <div class="metrics">
+        <div class="m"><span class="k">Hafalan</span><span class="v">5 juz mutqin</span></div>
+        <div class="m"><span class="k">Hadits</span><span class="v">100 pilihan</span></div>
+        <div class="m"><span class="k">Bahasa Arab</span><span class="v">B1 CEFR</span></div>
+        <div class="m"><span class="k">Kitab</span><span class="v">Min. 3 kitab dasar</span></div>
+		  <div class="m"><span class="k">AKM Mandiri</span><span class="v">Level Cakap/Mahir</span></div>
+        <div class="m"><span class="k">Output publik</span><span class="v">Pidato/khutbah 7–10 mnt</span></div>
+      </div>
+    </div>
+
+    <div class="skl-card">
+      <div class="level">Kls. 12</div>
+      <div class="age">Akhir SMA · usia 18 · 2 jalur</div>
+      <div class="phase-name">Fase Menghasilkan</div>
+      <div class="phase-tagline">"Calon ulama yang membumi · profesional muslim yang berakar"</div>
+      <div class="metrics">
+        <div class="m"><span class="k">Diniyah · hafalan</span><span class="v">10 juz mutqin</span></div>
+        <div class="m"><span class="k">Diniyah · bahasa</span><span class="v">Arab C1, 8 kitab mu'tabar</span></div>
+        <div class="m"><span class="k">Diniyah · karya</span><span class="v">Risalah / modul ta'lim</span></div>
+        <div class="m"><span class="k">Umum · UTBK</span><span class="v">Skor TPS >650</span></div>
+        <div class="m"><span class="k">Umum · bahasa</span><span class="v">Inggris B2–C1</span></div>
+		<div class="m"><span class="k">AKM Mandiri</span><span class="v">Level Mahir</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PERSONA WIDGET ============ -->
+  <div class="persona-wrap reveal">
+    <h3>Persona Ideal Lulusan</h3>
+    
+    <div class="top-nav">
+      <button class="nav-btn active" onclick="setLevel('sd')">SD</button>
+      <button class="nav-btn" onclick="setLevel('smp')">SMP</button>
+      <button class="nav-btn" onclick="setLevel('sma-din')">SMA Diniyah</button>
+      <button class="nav-btn" onclick="setLevel('sma-um')">SMA Umum</button>
+    </div>
+
+    <div class="gender-toggle">
+      <button class="gender-btn active-i" id="btn-i" onclick="setGender('i')">Ikhwan</button>
+      <button class="gender-btn" id="btn-a" onclick="setGender('a')">Akhwat</button>
+    </div>
+
+    <div id="content-area"></div>
+  </div>
+
+</section>
+
+<!-- ============ 6 INTERVENSI ============ -->
+<section class="section">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">12</span> Enam Intervensi</div>
+    <h2 class="action-title">
+      6 tindakan terukur yang harus <em>masuk SKL final dalam 12 bulan</em> — masing-masing dengan indikator verifikasi yang dapat diaudit.
+    </h2>
+    <p class="action-deck">
+      Setiap rekomendasi ini bukan aspirasi normatif. Setiap poin dilengkapi target kuantitatif, ruang lingkup penerapan, dan metode verifikasi — sehingga pelaksanaannya dapat dikontrol oleh Litbang Yayasan dan dilaporkan secara transparan kepada wali santri.
+    </p>
+  </div>
+
+  <div class="rec-list">
+
+    <div class="rec-row reveal">
+      <div class="rec-num">01</div>
+      <div class="rec-body">
+        <h4>Terjemahkan Hadits, Ushul Fiqh, Muthala'ah ke dalam soal HOTS terstandar</h4>
+        <p>Aset keilmuan klasik MQBS adalah <b>ekuivalen subtes SNBT</b> — AKM (Asesmen Kompetensi Minimal) paralel dengan Penalaran Umum, Ushul Fiqh dengan penalaran induktif-deduktif, Muthala'ah dengan literasi membaca kritis. Yang hilang bukan substansi, tapi <em>translasi</em>. Bentuk tim kurikulum yang menyusun bank soal HOTS bilingual berbasis kitab.</p>
+      </div>
+      <div class="rec-meta">
+        <div class="m"><div class="k">Target</div><div class="v">65% kelas 12 umum skor TPS >650 dalam simulasi</div></div>
+        <div class="m"><div class="k">Lingkup</div><div class="v">Kelas 9 & 12 Umum</div></div>
+        <div class="m"><div class="k">Verifier</div><div class="v">Simulasi UTBK 2x/tahun</div></div>
+      </div>
+    </div>
+
+    <div class="rec-row reveal">
+      <div class="rec-num">02</div>
+      <div class="rec-body">
+        <h4>Jadikan output karakter butir terverifikasi — bukan kalimat di brosur</h4>
+        <p>Output seperti <em>"pembiasaan kejujuran"</em>, <em>"shalat mandiri dengan kesadaran"</em>, atau <em>"konsistensi adab"</em> perlu diterjemahkan ke dalam parameter checklist obyektif yang didampingi oleh musyrif. Pendekatan ini akan memperkuat bukti nyata komitmen pesantren dalam membentuk akhlakul karimah.</p>
+      </div>
+      <div class="rec-meta">
+        <div class="m"><div class="k">Target</div><div class="v">100% santri lulus dengan checklist karakter terverifikasi</div></div>
+        <div class="m"><div class="k">Lingkup</div><div class="v">Semua jenjang</div></div>
+        <div class="m"><div class="k">Verifier</div><div class="v">musyrif + tim kesantrian</div></div>
+      </div>
+    </div>
+
+    <div class="rec-row reveal">
+      <div class="rec-num">03</div>
+      <div class="rec-body">
+        <h4>Bangun protokol detoks kognitif sejak minggu pertama masuk pesantren</h4>
+        <p>Santri Gen Alpha datang dengan <b>attention 8 detik dan working memory −11%</b>. Mereka tidak siap untuk halaqah 60 menit pada hari pertama. Susun program membaca Al Quran panjang bertahap (15 → 30 → 60 menit tanpa gangguan) selama 6–8 minggu pertama, didampingi musyrif yang sudah dilatih khusus.</p>
+      </div>
+      <div class="rec-meta">
+        <div class="m"><div class="k">Target</div><div class="v">Cognitive endurance 60 mnt fokus tanpa gangguan</div></div>
+        <div class="m"><div class="k">Lingkup</div><div class="v">Kelas 7 & 10 (masa orientasi)</div></div>
+        <div class="m"><div class="k">Verifier</div><div class="v">Tes baseline & post-test minggu ke-8</div></div>
+      </div>
+    </div>
+
+    <div class="rec-row reveal">
+      <div class="rec-num">04</div>
+      <div class="rec-body">
+        <h4>Penuhi 5–6 dimensi Permendikdasmen No. 10 th. 2025 yang masih defisit</h4>
+        <p>Saat ini hanya Keimanan-Ketakwaan dan sebagian Kemandirian yang sudah terinternalisasi. Prioritaskan <b>Penalaran Kritis dan Komunikasi (literasi-numerasi)</b> karena ini adalah <em>mandat hukum</em>, bukan imbauan. Kewargaan, Kreativitas, Kolaborasi, dan Keberlanjutan menyusul dengan integrasi modul ajar lintas mapel.</p>
+      </div>
+      <div class="rec-meta">
+        <div class="m"><div class="k">Target</div><div class="v">8/8 dimensi terdokumentasi dalam SKL final</div></div>
+        <div class="m"><div class="k">Lingkup</div><div class="v">Kebijakan kurikuler</div></div>
+        <div class="m"><div class="k">Verifier</div><div class="v">Audit eksternal Kemenag/Kemendikbud</div></div>
+      </div>
+    </div>
+
+    <div class="rec-row reveal">
+      <div class="rec-num">05</div>
+      <div class="rec-body">
+        <h4>Bedakan SKL kelas 12 Diniyah vs Umum dengan indikator eksplisit yang berbeda</h4>
+        <p><b>Diniyah:</b> 20–30 juz mutqin + kitab mu'tabar + kecakapan bahasa Arab tingkat lanjut + karya dakwah. <b>Umum:</b> 10 juz mutqin + kompetensi SNBT + kecakapan bahasa Inggris + portofolio eksternal. Menggunakan satu SKL seragam untuk dua orientasi ini berisiko mengaburkan fokus capaian, sehingga evaluasi menjadi kurang presisi dan kurang terarah.</p>
+      </div>
+      <div class="rec-meta">
+        <div class="m"><div class="k">Target</div><div class="v">2 SKL terpisah, terbit Q3 2026</div></div>
+        <div class="m"><div class="k">Lingkup</div><div class="v">Kelas 12 (mulai pemilihan kelas 10)</div></div>
+        <div class="m"><div class="k">Verifier</div><div class="v">SK pimpinan yayasan + ratifikasi Kemenag</div></div>
+      </div>
+    </div>
+
+    <div class="rec-row reveal">
+      <div class="rec-num">06</div>
+      <div class="rec-body">
+        <h4>Ukur outcome, bukan hanya output — survei pasca-kelulusan 1 tahun</h4>
+        <p>Pesantren hanya bisa mengontrol <em>output</em> (hafalan, nilai, kitab khatam). Tetapi desain kurikulumnya harus menggunakan <b>outcome</b> sebagai kompas: apakah lulusan tetap shalat di kampus? Apakah identitas Islam-nya bertahan di lingkungan baru? Berapa yang lolos PTN? Berapa yang konsisten dakwah? Bangun sistem tracking 1 tahun pasca-kelulusan.</p>
+      </div>
+      <div class="rec-meta">
+        <div class="m"><div class="k">Target</div><div class="v">Response rate survei alumni ≥70%</div></div>
+        <div class="m"><div class="k">Lingkup</div><div class="v">Sistem evaluasi yayasan</div></div>
+        <div class="m"><div class="k">Verifier</div><div class="v">Laporan tahunan kepada wali santri</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ ROADMAP ============ -->
+<section class="section" id="roadmap">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">13</span> Roadmap Implementasi</div>
+    <h2 class="action-title">
+      Lima fase, <em>14 bulan</em>, dengan output yang dapat diverifikasi pada akhir setiap fase. (Ver. Draft)
+    </h2>
+    <p class="action-deck">
+      Roadmap ini menyiratkan urutan yang tidak boleh dibalik. Terdapat <strong>Fase 0 (Mei–Juni)</strong> sebagai fase pra-tahun-ajaran yang harus dimulai segera, sehingga santri baru kelas 7 dan 10 disambut dengan sistem yang sudah siap pada hari pertama masuk. 
+	  </br><em>(Catatan: Masih perlu disesuikan dengan kondisi real di lapangan).</em>
+    </p>
+  </div>
+
+  <div class="roadmap-interactive-wrap reveal">
+    <!-- NAV -->
+    <nav class="rm-phase-nav">
+      <button class="rm-nav-btn active" onclick="showPhase(0)">Fase 0 — Mei–Jun</button>
+      <button class="rm-nav-btn" onclick="showPhase(1)">Fase 1 — Juli</button>
+      <button class="rm-nav-btn" onclick="showPhase(2)">Fase 2 — Ags–Okt</button>
+      <button class="rm-nav-btn" onclick="showPhase(3)">Fase 3 — Nov–Jan</button>
+      <button class="rm-nav-btn" onclick="showPhase(4)">Fase 4 — Feb–Jun '27</button>
+    </nav>
+
+    <!-- FASE 0 -->
+    <section class="rm-phase-section visible">
+      <div class="rm-header-card">
+        <div class="rm-header-top">
+          <div class="rm-badge-row">
+            <span class="rm-badge urgent">Fase 00 · Sedang Berjalan</span>
+            <span class="rm-badge prio">Mei – Juni 2026</span>
+            <span class="rm-badge urgent">KRITIS</span>
+          </div>
+          <h2 class="rm-phase-title">Pra-Tahun-Ajaran: Otorisasi & Landasan</h2>
+          <p class="rm-phase-sub">8 minggu sebelum santri datang — satu-satunya waktu untuk mempersiapkan tanpa mengganggu KBM yang sedang berjalan.</p>
+        </div>
+        <div class="rm-meta-bar">
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Periode</span><span class="rm-meta-val">Mei – Juni 2026</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Durasi</span><span class="rm-meta-val">8 minggu</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Sasaran</span><span class="rm-meta-val">Seluruh perencana</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Tenggat keras</span><span class="rm-meta-val">Selesai sebelum 14 Juli</span></div>
+        </div>
+      </div>
+
+      <p class="rm-section-label">Indikator kunci fase ini</p>
+      <div class="rm-kpi-grid">
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Tenggat otorisasi SK</p><p class="rm-kpi-val">30 Jun</p><p class="rm-kpi-sub">Batas terakhir sebelum T.A. baru</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Sesi briefing guru</p><p class="rm-kpi-val">4 sesi</p><p class="rm-kpi-sub">Per jenjang & per mapel</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Draft SKL selesai</p><p class="rm-kpi-val">2 dok</p><p class="rm-kpi-sub">Diniyah & Umum</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Materi orientasi siap</p><p class="rm-kpi-val">100%</p><p class="rm-kpi-sub">Sebelum 14 Juli</p></div>
+      </div>
+
+      <p class="rm-section-label">Timeline mingguan</p>
+      <div class="rm-timeline">
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot now"></div>
+          <p class="rm-tl-date">Pekan 1–2 · 12–23 Mei 2026</p>
+          <p class="rm-tl-text">Rapat pimpinan yayasan: tetapkan keputusan penjurusan, restrukturisasi JP, dan penghapusan halaqah Ashar — hasilkan notulensi berformat SK.</p>
+        </div>
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">Pekan 3–4 · 26 Mei – 6 Jun</p>
+          <p class="rm-tl-text">Sosialisasi internal asatidz: penjelasan 2 jalur, pembagian peran musyrif sebagai verifier karakter, dan demonstrasi checklist karakter baru.</p>
+        </div>
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">Pekan 5–6 · 9–20 Jun</p>
+          <p class="rm-tl-text">Workshop translasi keilmuan: tim kurikulum memetakan hadits → TPS, Ushul Fiqh → penalaran, Muthala'ah → literasi — hasilkan peta kompetensi satu halaman.</p>
+        </div>
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">Pekan 7–8 · 23 Jun – 4 Jul</p>
+          <p class="rm-tl-text">Finalisasi: jadwal KBM baru, checklist karakter musyrif, modul detoks kognitif 8 minggu, dan briefing wali santri kelas 9 & 11 (calon penjurusan kelas 10).</p>
+        </div>
+      </div>
+
+      <p class="rm-section-label">Agenda & tugas — klik untuk detail</p>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">📋</div>
+          <span class="rm-task-name">SK Otorisasi: penjurusan, restrukturisasi JP, dan pemangkasan halaqah</span>
+          <span class="rm-task-chip kritis">Kritis</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Pimpinan yayasan menandatangani 3 SK sebelum 30 Juni:
+          <ul>
+            <li><strong>SK Penjurusan</strong> — berlaku kelas 10 T.A. 2026/27: dua jalur resmi (Diniyah & Umum) dengan SKL berbeda.</li>
+            <li><strong>SK Restrukturisasi JP</strong> — perampingan Kelompok E (−7 JP), reinvestasi ke: Proyek/P5 (+4 JP), Matematika (+1 JP), IPA (+1–2 JP), TIK (+1 JP).</li>
+            <li><strong>SK Halaqah</strong> — pangkas dari 4 waktu menjadi 3 waktu (halaqah Ashar dihapus), berlaku mulai hari pertama T.A. baru.</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: dokumen SK ditandatangani + diarsipkan sebelum 30 Juni 2026.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">👥</div>
+          <span class="rm-task-name">Briefing asatidz: sosialisasi 2 jalur, peran baru musyrif, format checklist</span>
+          <span class="rm-task-chip prioritas">Prioritas</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          4 sesi briefing terpisah:
+          <ul>
+            <li><strong>Sesi 1:</strong> Kepala Sekolah + Waka Kurikulum — overview perubahan arsitektur kurikulum secara keseluruhan.</li>
+            <li><strong>Sesi 2:</strong> musyrif — cara mengisi dan menandatangani checklist karakter (bukan rapor afektif seperti dulu).</li>
+            <li><strong>Sesi 3:</strong> Guru diniyah — penyesuaian silabus untuk 2 jalur (materi lanjut hanya jalur Diniyah).</li>
+            <li><strong>Sesi 4:</strong> Guru mapel umum — target HOTS baru, integrasi hadits ke Penalaran, target numerasi kelas 9 dan 12 Umum.</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: daftar hadir + notulensi per sesi, pertanyaan guru terdokumentasi dan dijawab sebelum T.A. baru.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">🗺</div>
+          <span class="rm-task-name">Peta translasi keilmuan: hadits / Ushul Fiqh / Muthala'ah → HOTS SNBT</span>
+          <span class="rm-task-chip">Strategis</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Tim kurikulum (minimal: guru hadits, guru Bahasa Indonesia, guru Matematika) menyusun peta kompetensi satu halaman:
+          <ul>
+            <li>hadits silogisme → sub-tes Penalaran Umum (analogi, silogisme, pola logika)</li>
+            <li>Ushul Fiqh qiyas → penalaran induktif-deduktif (analisis argumen, kesimpulan logis)</li>
+            <li>Muthala'ah + Balaghah → Literasi Bahasa Indonesia (inferensi, fakta vs opini, simpulan teks)</li>
+            <li>Hisab / Falak dasar → Penalaran Matematika (logika kuantitatif kontekstual)</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: 1 dokumen peta kompetensi + 10 contoh soal HOTS hasil translasi, selesai 30 Juni 2026.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">📢</div>
+          <span class="rm-task-name">Briefing wali santri kelas 9 & 11 tentang pilihan penjurusan kelas 10</span>
+          <span class="rm-task-chip prioritas">Prioritas</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Pertemuan wali santri kelas 9 (calon kelas 10) sebelum akhir tahun ajaran 2025/26:
+          <ul>
+            <li>Penjelasan 2 jalur: Takhassus Diniyah vs Umum Kompetitif — bukan hierarki, tapi spesialisasi.</li>
+            <li>Kriteria pemilihan: prestasi tahfidz, minat, kemampuan bahasa Arab, orientasi karir santri.</li>
+            <li>Konsekuensi kurikuler: jalur Diniyah dapat Alfiyyah & Waraqat; jalur Umum dapat penguatan UTBK & Inggris intensif.</li>
+            <li>Formulir pra-pemilihan jalur — dikembalikan sebelum 11 Juli (hari pertama MPLS).</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: daftar hadir wali + 100% formulir pilihan jalur terkumpul sebelum 11 Juli 2026.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FASE 1 -->
+    <section class="rm-phase-section">
+      <div class="rm-header-card">
+        <div class="rm-header-top">
+          <div class="rm-badge-row">
+            <span class="rm-badge prio">Fase 01 · Juli 2026</span>
+            <span class="rm-badge prio">PRIORITAS</span>
+          </div>
+          <h2 class="rm-phase-title">Orientasi: Sambut Santri dengan Sistem yang Sudah Berubah</h2>
+          <p class="rm-phase-sub">Kelas 7 dan 10 masuk sebagai angkatan pertama kurikulum baru — program detoks kognitif dimulai dari hari pertama, bukan ditunda.</p>
+        </div>
+        <div class="rm-meta-bar">
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Periode</span><span class="rm-meta-val">14–31 Juli 2026</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Durasi</span><span class="rm-meta-val">3 pekan</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Prioritas sasaran</span><span class="rm-meta-val">Kelas 7 & 10</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Status</span><span class="rm-meta-val">Implementasi perdana</span></div>
+        </div>
+      </div>
+
+      <p class="rm-section-label">Indikator kunci fase ini</p>
+      <div class="rm-kpi-grid">
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Mulai detoks kognitif</p><p class="rm-kpi-val">Hari ke-1</p><p class="rm-kpi-sub">Kelas 7 & 10</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Jadwal KBM baru berlaku</p><p class="rm-kpi-val">14 Jul</p><p class="rm-kpi-sub">Sesuai SK yang ditandatangani</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Penjurusan kelas 10</p><p class="rm-kpi-val">Pekan 1</p><p class="rm-kpi-sub">Berdasarkan data kuesioner</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Checklist karakter</p><p class="rm-kpi-val">Pekan 2</p><p class="rm-kpi-sub">musyrif observasi aktif</p></div>
+      </div>
+
+      <p class="rm-section-label">Timeline mingguan</p>
+      <div class="rm-timeline">
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">14–18 Juli · Pekan pertama</p>
+          <p class="rm-tl-text">MPLS/MOS kelas 7 & 10: pengenalan 2 jalur, nilai-nilai pesantren, dan sesi perdana detoks kognitif (baca teks 15 menit tanpa gangguan). Penetapan jalur kelas 10 berdasarkan formulir yang sudah terkumpul.</p>
+        </div>
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">21–25 Juli · Pekan kedua</p>
+          <p class="rm-tl-text">KBM reguler dimulai dengan jadwal baru. Kelas 10 sudah masuk jalur masing-masing. musyrif mulai mengisi form observasi karakter pekan pertama.</p>
+        </div>
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">28–31 Juli · Pekan ketiga</p>
+          <p class="rm-tl-text">Evaluasi awal: cek apakah jadwal berjalan sesuai rancangan, inventarisasi hambatan lapangan, penyesuaian minor sebelum Agustus penuh.</p>
+        </div>
+      </div>
+
+      <p class="rm-section-label">Agenda & tugas — klik untuk detail</p>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">🧠</div>
+          <span class="rm-task-name">Program detoks kognitif 8 minggu — dimulai hari pertama kelas 7 & 10</span>
+          <span class="rm-task-chip kritis">Kritis</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Santri Gen Alpha masuk dengan attention span 8 detik dan working memory −11%. Jangan langsung halaqah 60 menit. Protokol bertahap:
+          <ul>
+            <li><strong>Minggu 1–2:</strong> baca teks 15 menit tanpa gangguan → muraja'ah lisan 10 menit → bebas 5 menit.</li>
+            <li><strong>Minggu 3–4:</strong> ditingkatkan ke 25 menit fokus — teks kitab Jurumiyyah atau bacaan Indonesia bermutu.</li>
+            <li><strong>Minggu 5–6:</strong> 40 menit fokus tanpa jeda — mulai bisa mengidentifikasi argumen pokok teks.</li>
+            <li><strong>Minggu 7–8:</strong> 60 menit penuh → post-test: apakah bisa merangkum 1 halaman teks tanpa kehilangan arah?</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: tes baseline minggu 1 + post-test minggu 8 — catat durasi fokus rata-rata per santri per kelas.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">⑂</div>
+          <span class="rm-task-name">Penetapan jalur kelas 10: Diniyah atau Umum Kompetitif</span>
+          <span class="rm-task-chip kritis">Kritis</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Berdasarkan formulir yang sudah dikumpulkan sebelum 11 Juli, pimpinan akademik menetapkan:
+          <ul>
+            <li><strong>Kelas 10 Diniyah:</strong> jadwal dengan Alfiyyah, Waraqat, Muthala'ah lanjut, bahasa Arab aktif C1.</li>
+            <li><strong>Kelas 10 Umum:</strong> jadwal dengan Matematika (5 JP), IPA (3 JP), TIK (3 JP), Bahasa Inggris intensif, dan P5 (4 JP).</li>
+            <li>Santri yang belum punya pilihan tegas: konseling wali kelas + orang tua dalam 3 hari pertama sekolah.</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: daftar nama santri per jalur disetujui kepala sekolah dan wali santri sebelum 18 Juli.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">✅</div>
+          <span class="rm-task-name">Aktivasi checklist karakter musyrif — bukan rapor afektif lama</span>
+          <span class="rm-task-chip prioritas">Prioritas</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          musyrif menerima format baru — berisi pernyataan yang ditandatangani, bukan rating "baik/cukup/kurang":
+          <ul>
+            <li><strong>Format per bulan:</strong> 8 butir perilaku terverifikasi (shalat tepat waktu tanpa diingatkan, jujur saat ditemukan melanggar, tidak mengadu domba, dll.)</li>
+            <li><strong>Catatan insiden:</strong> jika ada pelanggaran, musyrif mencatat tanggal, konteks, dan respons santri.</li>
+            <li><strong>Rekap semester:</strong> agregasi dari 6 bulan observasi → menjadi 1 komponen penilaian kelulusan jenjang.</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: seluruh musyrif menyerahkan observasi pekan pertama sebelum 25 Juli.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FASE 2 -->
+    <section class="rm-phase-section">
+      <div class="rm-header-card">
+        <div class="rm-header-top">
+          <div class="rm-badge-row">
+            <span class="rm-badge normal">Fase 02 · Ags–Okt 2026</span>
+            <span class="rm-badge prio">PRIORITAS</span>
+          </div>
+          <h2 class="rm-phase-title">Konstruksi: Bank Soal HOTS & Pemantapan Dua Jalur</h2>
+          <p class="rm-phase-sub">3 bulan untuk membangun infrastruktur keilmuan baru — soal, modul, upgrade kompetensi guru, dan simulasi UTBK pertama.</p>
+        </div>
+        <div class="rm-meta-bar">
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Periode</span><span class="rm-meta-val">Agustus – Oktober 2026</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Durasi</span><span class="rm-meta-val">3 bulan</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Prioritas sasaran</span><span class="rm-meta-val">Kelas 9 & 12 Umum</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Status</span><span class="rm-meta-val">Konstruksi aktif</span></div>
+        </div>
+      </div>
+
+      <p class="rm-section-label">Indikator kunci fase ini</p>
+      <div class="rm-kpi-grid">
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Bank soal HOTS</p><p class="rm-kpi-val">50 soal</p><p class="rm-kpi-sub">Per sub-tes TPS dari translasi kitab</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Simulasi UTBK</p><p class="rm-kpi-val">1× Okt</p><p class="rm-kpi-sub">Baseline score kelas 12 Umum</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Sesi upgrading guru</p><p class="rm-kpi-val">2×/bln</p><p class="rm-kpi-sub">Active Learning + PjBL</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Modul ajar integratif</p><p class="rm-kpi-val">3 modul</p><p class="rm-kpi-sub">hadits-TPS, Muthala'ah-Lit, Ushul-Penalaran</p></div>
+      </div>
+
+      <p class="rm-section-label">Timeline bulanan</p>
+      <div class="rm-timeline">
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">Agustus · Bulan 1</p>
+          <p class="rm-tl-text">Tim kurikulum finalisasi 3 modul ajar integratif. Guru mulai menggunakan peta translasi keilmuan dalam KBM. Sesi upgrading guru Active Learning pertama.</p>
+        </div>
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">September · Bulan 2</p>
+          <p class="rm-tl-text">Bank soal HOTS 50 soal per sub-tes selesai. Latihan soal masuk jadwal mingguan kelas 9 & 12 Umum. Evaluasi detoks kognitif kelas 7 & 10 (post-test minggu ke-8).</p>
+        </div>
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">Oktober · Bulan 3</p>
+          <p class="rm-tl-text">Simulasi UTBK pertama kelas 12 Umum — catat baseline score. Review administrasi guru: apakah ATP dan absensi sudah disederhanakan? Audit kompetensi musyrif tahsin.</p>
+        </div>
+      </div>
+
+      <p class="rm-section-label">Agenda & tugas — klik untuk detail</p>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">📝</div>
+          <span class="rm-task-name">Bank soal HOTS berbasis translasi keilmuan pesantren</span>
+          <span class="rm-task-chip">Strategis</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          50 soal per kategori, dikembangkan dari materi yang sudah diajarkan di MQBS:
+          <ul>
+            <li><strong>Penalaran Umum:</strong> silogisme dari contoh-contoh hadits, analogi dari Ushul Fiqh qiyas, pola logika dari argumen ilmu kalam.</li>
+            <li><strong>Literasi Bahasa Indonesia:</strong> teks berbasis matan hadis terjemah, artikel isu muslimah kontemporer, wacana sosial berbasis nilai Islam.</li>
+            <li><strong>Penalaran Matematika:</strong> soal kontekstual berbasis penghitungan zakat, faraidh, jadwal shalat — logika numerik bukan hafalan rumus.</li>
+            <li><strong>Literasi Bahasa Inggris:</strong> teks opini tentang Islam dan modernitas, artikel sains populer.</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: 50 soal per sub-tes selesai September, diuji coba ke 1 kelas pilot sebelum digunakan massal.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">🎓</div>
+          <span class="rm-task-name">Upgrading guru: Active Learning, PjBL, dan simplifikasi administrasi</span>
+          <span class="rm-task-chip prioritas">Prioritas</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Guru kelelahan sebelum masuk kelas akibat beban administrasi. Dua intervensi paralel:
+          <ul>
+            <li><strong>Workshop pedagogis 2×/bulan:</strong> teknik Active Learning untuk kelas dengan attention pendek, metode Project-Based Learning untuk P5 baru.</li>
+            <li><strong>Simplifikasi administrasi:</strong> satu format ATP yang ringkas (bukan 15 halaman), sistem absensi digital satu platform, jurnal KBM 3 kolom saja (tujuan, aktivitas, evaluasi).</li>
+            <li><strong>Standarisasi tahsin musyrif:</strong> audit kompetensi, musyrif yang belum lulus standar tajwid mendapat pendampingan khusus sebelum Oktober.</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: presensi workshop + audit administrasi Oktober — apakah guru merasa beban administrasi berkurang?</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">📊</div>
+          <span class="rm-task-name">Simulasi UTBK baseline kelas 12 Umum — Oktober 2026</span>
+          <span class="rm-task-chip">Ukur baseline</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Simulasi UTBK pertama menggunakan soal standar SNBT + soal HOTS buatan tim:
+          <ul>
+            <li>Sub-tes: Penalaran Umum, Literasi BI, Literasi Inggris, Penalaran Matematika.</li>
+            <li>Target baseline (sebelum intervensi penuh): rata-rata kelas minimal 500.</li>
+            <li>Target akhir T.A. (Juni 2027): rata-rata kelas 600+, 65% santri TPS >650.</li>
+            <li>Data digunakan untuk penyesuaian intensitas latihan di semester 2.</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: laporan score simulasi + identifikasi sub-tes terlemah per santri, diserahkan ke wali kelas sebelum 31 Oktober.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FASE 3 -->
+    <section class="rm-phase-section">
+      <div class="rm-header-card">
+        <div class="rm-header-top">
+          <div class="rm-badge-row">
+            <span class="rm-badge normal">Fase 03 · Nov 2026–Jan 2027</span>
+            <span class="rm-badge">NORMAL</span>
+          </div>
+          <h2 class="rm-phase-title">Pemantapan: Konsolidasi dan Uji Kelayakan SKL</h2>
+          <p class="rm-phase-sub">Periksa apakah arsitektur baru berjalan sesuai rencana, perkuat yang lemah, dan siapkan bukti untuk audit Kemenag.</p>
+        </div>
+        <div class="rm-meta-bar">
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Periode</span><span class="rm-meta-val">November 2026 – Januari 2027</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Durasi</span><span class="rm-meta-val">3 bulan</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Prioritas sasaran</span><span class="rm-meta-val">Semua jenjang + alumni</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Status</span><span class="rm-meta-val">Konsolidasi</span></div>
+        </div>
+      </div>
+
+      <p class="rm-section-label">Indikator kunci fase ini</p>
+      <div class="rm-kpi-grid">
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Simulasi UTBK ke-2</p><p class="rm-kpi-val">Des '26</p><p class="rm-kpi-sub">Ukur progres dari baseline Oktober</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">SKL final diratifikasi</p><p class="rm-kpi-val">Jan '27</p><p class="rm-kpi-sub">2 dokumen + SK pimpinan</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Audit Permendikdasmen</p><p class="rm-kpi-val">8 dimensi</p><p class="rm-kpi-sub">Dokumentasi per dimensi</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Kepuasan wali santri</p><p class="rm-kpi-val">≥80%</p><p class="rm-kpi-sub">Target setuju dengan perubahan</p></div>
+      </div>
+
+      <p class="rm-section-label">Timeline bulanan</p>
+      <div class="rm-timeline">
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">November · Bulan 1</p>
+          <p class="rm-tl-text">Review semester 1: apa yang berjalan, apa yang tidak. Penyesuaian modul ajar dan pendalaman program detoks kognitif kelas 7 & 10 yang sudah 4 bulan berjalan.</p>
+        </div>
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">Desember · Bulan 2</p>
+          <p class="rm-tl-text">Simulasi UTBK ke-2 — ukur pertumbuhan dari Oktober. Finalisasi draft SKL 2 jalur. Mulai membangun sistem tracking alumni (formulir kontak, platform sederhana).</p>
+        </div>
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">Januari 2027 · Bulan 3</p>
+          <p class="rm-tl-text">SKL final diratifikasi pimpinan yayasan. Audit 8 dimensi Permendikdasmen 10/2025 — dokumentasi per dimensi. Persiapan laporan tahunan untuk wali santri.</p>
+        </div>
+      </div>
+
+      <p class="rm-section-label">Agenda & tugas — klik untuk detail</p>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">📜</div>
+          <span class="rm-task-name">Ratifikasi SKL final 2 jalur dan audit Permendikdasmen 10/2025</span>
+          <span class="rm-task-chip">Regulasi</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Dua SKL terpisah (Diniyah & Umum) diratifikasi Januari 2027 dengan kelengkapan:
+          <ul>
+            <li>Indikator output terukur per jenjang (kelas 6, 9, 12) sesuai persona ideal yang sudah disusun.</li>
+            <li>Checklist 8 dimensi Permendikdasmen 10/2025: setiap dimensi ada mata pelajaran/kegiatan penanggungjawabnya.</li>
+            <li>Dimensi yang masih defisit (Kreativitas, Kolaborasi, Kewargaan): diisi via P5 — proyek lintas mapel wajib semester 2.</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: dokumen SKL ditandatangani pimpinan yayasan + diarsipkan untuk audit Kemenag kapanpun dibutuhkan.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">🔗</div>
+          <span class="rm-task-name">Bangun sistem tracking alumni — mulai dari angkatan terdekat</span>
+          <span class="rm-task-chip">Outcome</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Pesantren selama ini hanya mengontrol output, tapi tidak mengukur outcome. Mulai sederhana:
+          <ul>
+            <li>Database alumni kelas 12 angkatan 2024 & 2025: nomor HP aktif, universitas/lembaga yang dituju, status tilawah saat ini.</li>
+            <li>Survei 6 pertanyaan via WhatsApp: apakah masih shalat 5 waktu? bergabung komunitas Islam kampus? ada kendala identitas muslimnya?</li>
+            <li>Target response rate ≥70% — hasilnya menjadi input evaluasi efektivitas kurikulum lama vs baru.</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: laporan tracking alumni pertama diserahkan ke pimpinan yayasan sebelum Februari 2027.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">💬</div>
+          <span class="rm-task-name">Survei wali santri: apakah perubahan kurikulum terasa dan disetujui?</span>
+          <span class="rm-task-chip">Kepercayaan</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Wali santri adalah pemangku kepentingan yang paling terdampak dan paling cepat menyebarkan reputasi:
+          <ul>
+            <li>Survei 10 pertanyaan: apakah mengetahui perubahan? apakah setuju penjurusan? apakah melihat perubahan perilaku anak?</li>
+            <li>Fokus khusus: wali santri kelas 10 (angkatan pertama penjurusan) — apakah merasa pilihan jalur tepat?</li>
+            <li>Target: ≥80% menyatakan setuju atau sangat setuju dengan arah perubahan kurikulum.</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: laporan survei + action plan untuk keluhan utama yang muncul, selesai Januari 2027.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FASE 4 -->
+    <section class="rm-phase-section">
+      <div class="rm-header-card">
+        <div class="rm-header-top">
+          <div class="rm-badge-row">
+            <span class="rm-badge good">Fase 04 · Feb–Jun 2027</span>
+            <span class="rm-badge">NORMAL</span>
+          </div>
+          <h2 class="rm-phase-title">Peluncuran Penuh: Ukur, Laporkan, dan Tingkatkan</h2>
+          <p class="rm-phase-sub">Tahun pertama evaluasi menyeluruh — apakah lulusan kelas 12 membuktikan validitas SKL baru yang telah dirancang?</p>
+        </div>
+        <div class="rm-meta-bar">
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Periode</span><span class="rm-meta-val">Februari – Juni 2027</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Durasi</span><span class="rm-meta-val">5 bulan</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Prioritas sasaran</span><span class="rm-meta-val">Semua jenjang</span></div>
+          <div class="rm-meta-cell"><span class="rm-meta-lbl">Status</span><span class="rm-meta-val">Operasional penuh</span></div>
+        </div>
+      </div>
+
+      <p class="rm-section-label">Indikator kunci fase ini</p>
+      <div class="rm-kpi-grid">
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Santri daftar SNBT '27</p><p class="rm-kpi-val">100%</p><p class="rm-kpi-sub">Kelas 12 Umum</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Target skor SNBT</p><p class="rm-kpi-val">>600</p><p class="rm-kpi-sub">Dari baseline Oktober 2026</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Kelas 12 Din berkarya</p><p class="rm-kpi-val">100%</p><p class="rm-kpi-sub">Risalah / modul ta'lim</p></div>
+        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Review tahunan laporan</p><p class="rm-kpi-val">Jun '27</p><p class="rm-kpi-sub">Disajikan ke yayasan & wali</p></div>
+      </div>
+
+      <p class="rm-section-label">Timeline bulanan</p>
+      <div class="rm-timeline">
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">Februari – Maret 2027</p>
+          <p class="rm-tl-text">Simulasi SNBT final kelas 12 Umum. Pendaftaran SNBT 2027. Kelas 12 Diniyah presentasi karya (risalah / modul ta'lim) di depan tim penguji internal.</p>
+        </div>
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">April – Mei 2027</p>
+          <p class="rm-tl-text">Pelaksanaan UTBK SNBT 2027. Kelas 12 Diniyah menyelesaikan setoran akhir tahfidz + uji baca kitab oleh penguji eksternal. Checklist karakter direkap musyrif.</p>
+        </div>
+        <div class="rm-tl-item">
+          <div class="rm-tl-dot"></div>
+          <p class="rm-tl-date">Juni 2027</p>
+          <p class="rm-tl-text">Review tahun pertama: score SNBT, kelulusan kitab, checklist karakter, kepuasan wali, tracking alumni. Laporan disajikan ke pimpinan yayasan sebagai benchmark T.A. 2027/28.</p>
+        </div>
+      </div>
+
+      <p class="rm-section-label">Agenda & tugas — klik untuk detail</p>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">🏅</div>
+          <span class="rm-task-name">Uji eksternal komprehensif kelas 12 — kelulusan dengan bukti yang terverifikasi</span>
+          <span class="rm-task-chip">Verifikasi akhir</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Kelas 12 pertama yang lulus dari sistem baru harus diuji secara eksternal, bukan hanya internal:
+          <ul>
+            <li><strong>Kelas 12 Umum:</strong> hasil UTBK SNBT 2027 adalah verifier eksternal terkuat — tidak bisa dimanipulasi.</li>
+            <li><strong>Kelas 12 Diniyah:</strong> uji baca kitab oleh penguji bersanad dari luar MQBS + presentasi karya dakwah.</li>
+            <li><strong>Semua jalur:</strong> rekap checklist karakter 3 tahun dari musyrif — ditandatangani dan diarsipkan.</li>
+            <li><strong>Semua jalur:</strong> 1 karya nyata (risalah, portofolio, proyek, atau halaqah yang masih berjalan).</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: sertifikat kelulusan baru mencantumkan jalur, score/capaian tahfidz, dan status checklist karakter.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rm-task-card" onclick="toggleTask(this)">
+        <div class="rm-task-head">
+          <div class="rm-task-icon">📈</div>
+          <span class="rm-task-name">Laporan tahunan pertama — transparansi kepada wali santri dan yayasan</span>
+          <span class="rm-task-chip">Akuntabilitas</span>
+          <span class="rm-chevron">▾</span>
+        </div>
+        <div class="rm-task-body">
+          Laporan satu halaman ringkas + dokumen lengkap, disajikan Juni 2027:
+          <ul>
+            <li>Capaian tahfidz mutqin per jenjang vs target SKL — berapa % tercapai?</li>
+            <li>Score SNBT angkatan pertama jalur Umum — vs baseline Oktober 2026.</li>
+            <li>Kelas 12 Diniyah: berapa yang diterima di UIN/PTKIN/luar negeri?</li>
+            <li>Tracking karakter: berapa % santri lulus checklist 3 tahun tanpa insiden serius?</li>
+            <li>Tracking alumni: apakah yang lulus tahun lalu masih shalat, masih aktif di komunitas Islam?</li>
+          </ul>
+          <div class="rm-verif-box">
+            <span class="rm-verif-icon">✓</span>
+            <span>Verifier: laporan disajikan dalam Rapat Wali Santri tahunan + diarsipkan sebagai benchmark T.A. berikutnya.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</section>
+
+<!-- ============ EXECUTIVE CONCLUSION ============ -->
+<section class="conclusion">
+  <div class="conclusion-inner reveal">
+    <div class="tag">Kesimpulan</div>
+    <h2>
+      Keunggulan masa depan MQBS tidak terletak pada <em>penambahan beban kurikulum</em> — melainkan pada <span class="hl">kebijaksanaan merancang prioritas</span> antara apa yang harus dijaga, disesuaikan, dan didiferensiasikan.
+    </h2>
+
+    <div class="conclusion-grid reveal-stagger">
+      <div class="conclusion-cell">
+        <div class="ck">Yang dijaga</div>
+        <div class="cv">Mutqin, Karakter terverifikasi, Akar Qur'ani</div>
+        <div class="cd">Pilar Qur'ani dan Berkarakter tetap menjadi standar minimum bersama untuk semua santri — non-negotiable, terukur, terverifikasi eksternal.</div>
+      </div>
+      <div class="conclusion-cell">
+        <div class="ck">Yang disesuaikan</div>
+        <div class="cv">Beban klasikal, Integrasi Mapel, Efisiensi Halaqah</div>
+        <div class="cd">Membebaskan 7 JP melalui integrasi. Mengoptimalkan Halaqah menjadi 3 waktu yang efektif. Target ziyadah 30 juz diformat sebagai jalur pencapaian pengayaan khusus.</div>
+      </div>
+      <div class="conclusion-cell">
+        <div class="ck">Yang didiferensiasi</div>
+        <div class="cv">Pilar Visioner: Diniyah lanjut vs Umum kompetitif</div>
+        <div class="cd">Mulai kelas 10, dua kurikulum dengan indikator output berbeda. Setiap jalur menuntut karya nyata di kelas 12 — risalah ilmiah atau portofolio eksternal.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:80px;padding-top:40px;border-top:1px solid rgba(232,233,234,0.15);font-family:var(--serif);font-style:italic;font-size:21px;color:rgba(232,233,234,0.85);max-width:60ch;line-height:1.55">
+      "Kesuksesan tarbiyah tidak diukur secara reduktif melalui lensa kesuksesan akademik sekuler atau hegemoni otonomi finansial. Lebih dari itu, kesuksesan diukur dari sejauh mana manifestasi kedekatan jiwa lulusan dengan Allah SWT — yang tecermin dari ketangguhan akidah, kepatuhan pada syariat, dan keluhuran akhlak yang mereka dedikasikan secara persisten hingga lembar akhir hayat."
+      <div style="margin-top:14px;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:0.16em;color:var(--gold-2);text-transform:uppercase">— Pedoman Pendidikan Islam Manhaj Salaf</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <h5>Tentang Dokumen Ini</h5>
+      <p>
+        Analisis strategis ini disusun sebagai input evaluasi SKL & Kurikulum Madinatul Qur'an Boarding School (MQBS).
+        Seluruh data berasal dari empat sumber primer internal: Misi Strategis MQBS, Kondisi Lapangan & Kuesioner Litbang 2024,
+        Observasi Lapangan tim Akademik dan Kesantrian, serta capaian tahfidz per kelas (Mei 2026).
+        Sumber referensi pendidikan menggunakan Pedoman Pendidikan Islam Manhaj Salaf (Ibn Qayyim, Ibn Taimiyyah, Al-Badr) dan analisis pesantren era Gen Alpha berbasis data AECF, Carnegie Mellon, PISA, Kemenag, dan SNPMB.
+      </p>
+      <p class="footer-meta">DOK: SKL-2026-EVAL · STATUS: RAHASIA INTERNAL · DISIAPKAN UNTUK: Pimpinan Yayasan & Tim Litbang MQBS</p>
+    </div>
+    <div>
+      <h5>Bagian Dokumen</h5>
+      <ul>
+        <li><a href="#situation" style="color:var(--ink-2);text-decoration:none">01 — Situation: Misi & SWOT</a></li>
+        <li><a href="#complication" style="color:var(--ink-2);text-decoration:none">02 — Complication: 4 Mismatch</a></li>
+        <li><a href="#question" style="color:var(--ink-2);text-decoration:none">03 — Strategic Question</a></li>
+        <li><a href="#answer" style="color:var(--ink-2);text-decoration:none">04 — Answer: Kerangka & 6 Intervensi</a></li>
+        <li><a href="#roadmap" style="color:var(--ink-2);text-decoration:none">05 — Roadmap Implementasi</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+// === Reveal on scroll ===
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => obs.observe(el));
+
+// === Animate bar fills when visible ===
+const barObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const bars = e.target.querySelectorAll('[data-w]');
+      bars.forEach((bar, i) => {
+        setTimeout(() => {
+          bar.style.width = bar.dataset.w + '%';
+        }, i * 80);
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.tah-card, .jp-chart').forEach(el => barObs.observe(el));
+
+// === SCQA spine active state ===
+const sections = ['situation','complication','question','answer','roadmap'];
+const spineDots = document.querySelectorAll('.scqa-dot');
+window.addEventListener('scroll', () => {
+  let current = 'situation';
+  for (const id of sections) {
+    const el = document.getElementById(id);
+    if (el) {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.4) {
+        current = id;
+      }
+    }
+  }
+  spineDots.forEach(d => {
+    d.classList.toggle('active', d.dataset.target === current);
+  });
+}, { passive: true });
+
+// === Persona Ideal Widget Logic ===
+const personaData = {
+  sd: {
+    title: "Jenjang SD (usia 7–12 tahun)",
+    tagline: "Fase menanam — fitrah dijaga, iman dirawat, adab ditanamkan",
+    quote: "\"الأدب قبل العلم\" — Adab sebelum ilmu (Imam Malik)",
+    pillars: [
+      { icon: "ti-book", title: "Qurani", items: ["Tartil & tajwid benar", "Hafal 3 Juz Mutqin", "Paham 15 makna surat harian", "Muraja'ah mandiri"] },
+      { icon: "ti-heart", title: "Akidah & ibadah", items: ["Rukun iman & islam mantap", "Shalat 5 waktu & sunnah rawatib", "Adab masjid & wudhu", "Puasa Ramadan penuh"] },
+      { icon: "ti-users", title: "Adab & akhlak", items: ["Adab kepada guru & ortu", "Jujur, amanah, qana'ah", "Bertutur santun", "Menjaga kebersihan diri"] },
+      { icon: "ti-pencil", title: "Keilmuan dasar", items: ["Baca-tulis Arab & latin", "Hitung dasar & logika", "Hafal doa harian & hadis pilihan", "Cerita sirah singkat"] },
+      { icon: "ti-seedling", title: "Kemandirian", items: ["Urus diri sendiri", "Taat aturan asrama", "Bangun pagi tanpa disuruh", "Minta maaf & memaafkan"] }
+    ],
+    ikhwan: {
+      name: "Ahmad Salim",
+      label: "Santri SD ikhwan ideal",
+      qurani: ["Hafal 60 surat pilihan", "Bacaan Al Quran tartil", "Mengimami shalat jama'ah kelas"],
+      karakter: ["Tidak jajan sembarangan", "Antri & tertib tanpa diawasi", "Suka membantu teman lemah"],
+      visioner: ["Cita-cita menjadi muslim profesional", "Malu berbuat curang walau bisa lolos"],
+      pembeda: "Laki-laki sejati dimulai dari keberanian berkata benar. Ikhwan SD diarahkan menginternalisasi nilai syaja'ah (keberanian) — berani memimpin doa, berani menegur teman yang salah.",
+    },
+    akhwat: {
+      name: "Fathimah Nuur",
+      label: "Santri SD akhwat ideal",
+      qurani: ["Hafal 60 surat pilihan", "Tilawah dengan suara lembut", "Menjaga adab suara di depan non-mahram"],
+      karakter: ["Rapi, bersih, menutup aurat sejak dini", "Penyayang kepada teman & adik kelas", "Tidak bergosip & mengadu domba"],
+      visioner: ["Bangga menjadi muslimah", "Memimpikan menjadi ibu pendidik terbaik"],
+      pembeda: "Akhwat SD diarahkan menginternalisasi hayaa' (rasa malu yang mulia) — menjaga lisan, penampilan, dan pergaulan bukan karena takut dimarahi, tapi karena mengerti fitrah kemuliaan wanita Islam.",
+    }
+  },
+  smp: {
+    title: "Jenjang SMP (usia 12–15 tahun)",
+    tagline: "Fase menghunjam — identitas islam dikristalkan sebelum dunia membentuknya",
+    quote: "\"طلب العلم فريضة على كل مسلم\" — Menuntut ilmu wajib atas setiap muslim (HR. Ibn Majah)",
+    pillars: [
+      { icon: "ti-book-2", title: "Qurani", items: ["Hafal 5 Juz Mutqin", "Memahami tafsir juz 30 + Al Fatihah", "Menulis Arab tanpa harakat", "Tadabbur ayat tematis"] },
+      { icon: "ti-school", title: "Keilmuan syar'i", items: ["Fiqh ibadah lengkap (Riyadhussalihin)", "Aqidah Wasithiyyah dasar", "Sirah Nabawiyah kronologis", "Mushthalah hadis pengenalan"] },
+      { icon: "ti-brain", title: "Penalaran & literasi", items: ["Baca kritis teks Indonesia & Arab", "hadits dasar (silogisme)", "Numerasi kontekstual", "Presentasi argumen sederhana"] },
+      { icon: "ti-shield", title: "Karakter & identitas", items: ["Bangga identitas muslim", "Tidak silau dunia (zuhud terapan)", "Adab berbeda pendapat", "Menghindari ashabiyyah"] },
+      { icon: "ti-world", title: "Visi & wawasan", items: ["Mengenal peradaban Islam & Barat", "Isu kontemporer level remaja", "Pilih karir selaras nilai Islam", "Bisa berpidato 5 menit"] }
+    ],
+    ikhwan: {
+      name: "Umar Faris",
+      label: "Santri SMP ikhwan ideal",
+      qurani: ["Hafal 5 Juz Mutqin", "Mampu memimpin tarawih", "Paham asbabun nuzul surat-surat kunci"],
+      karakter: ["Tidak terpengaruh tren negatif sekolah umum", "Tegas menolak ghibah & konten haram", "Pemimpin alami di kamar asrama"],
+      visioner: ["Punya rencana kuliah & kontribusi umat", "Baca buku non-pelajaran minimal 1/bulan"],
+      pembeda: "Ikhwan SMP adalah fase paling kritis pembentukan identitas maskulin islami. Diarahkan pada qawwamah — jiwa kepemimpinan, tanggung jawab, dan keberanian membela kebenaran; bukan tunduk pada tekanan teman sebaya.",
+    },
+    akhwat: {
+      name: "Zainab Hafsah",
+      label: "Santri SMP akhwat ideal",
+      qurani: ["Hafal 10 juz dengan mutqin", "Tilawah 1 juz/hari secara istiqamah", "Tadabbur surat Al-Baqarah sampai khatam"],
+      karakter: ["Syar'i dalam berpakaian tanpa paksaan", "Tidak terlibat gosip dan perbandingan penampilan", "Fasih bahasa Arab percakapan sehari-hari"],
+      visioner: ["Tahu 5 muslimah inspiratif sepanjang sejarah", "Menulis jurnal refleksi mingguan"],
+      pembeda: "Akhwat SMP diarahkan membangun izzah (kemuliaan diri) yang tidak bergantung validasi eksternal. Ia percaya diri sebagai muslimah, tahan banting dari tekanan budaya populer yang merendahkan perempuan.",
+    }
+  },
+  "sma-din": {
+    title: "SMA Takhassus Diniyah (usia 15–18 tahun)",
+    tagline: "Fase menjulang — ulama muda yang membumi, bukan hanya hafidz tanpa konteks",
+    quote: "\"إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ\" — Hanya ulama yang benar-benar takut kepada Allah (QS. Fatir: 28)",
+    pillars: [
+      { icon: "ti-book-open", title: "Qurani & ulumul quran", items: ["Hafal 10 Juz Mutqin", "Ulumul Quran (Mabahits fi Ulumil Quran)", "Imam Shalat Ideal", "Bisa tafsir mandiri dengan metode"] },
+      { icon: "ti-gavel", title: "Keilmuan syar'i lanjut", items: ["Ushul fiqh (Al-Waraqat)", "Mushthalah hadis aplikatif", "Nahwu-sharaf (Alfiyyah Ibn Malik)", "Bahtsul masa'il pesantren"] },
+      { icon: "ti-eye", title: "Pemikiran & dakwah", items: ["Fiqhud da'wah kontemporer", "Studi perbandingan mazhab", "Membantah syubhat populer", "Pidato & ceramah berjenjang"] },
+      { icon: "ti-certificate", title: "Kompetensi modern", items: ["Bahasa Arab aktif (C1)", "Bahasa Inggris pasif (B2)", "Literasi media & digital islami", "Manajemen waktu & proyek"] },
+      { icon: "ti-rocket", title: "Visi peradaban", items: ["Punya khittah dakwah pribadi", "Networking ulama & lembaga Islam", "Kontribusi nyata (mengajar dll)", "Roadmap 10 tahun ke depan"] }
+    ],
+    ikhwan: {
+      name: "Ibrahim Musa",
+      label: "Takhassus Diniyah — ikhwan ideal",
+      qurani: ["Hafal 20 juz min., 10 juz mutqin", "Sanad bacaan tersambung ke guru", "Mampu memimpin majelis taklim kecil"],
+      karakter: ["Zuhud terhadap gawai & hiburan duniawi", "Adil kepada diri, teman & juniornya", "Istiqamah wirid harian tanpa diawasi"],
+      visioner: ["Rancangan dakwah di komunitas tertentu", "Kuasai 1 bidang keahlian dunia (sains/ekonomi/hukum) sebagai bekal"],
+      pembeda: "Lulusan takhassus diniyah bukan sekadar 'hafidz bersertifikat'. Ia adalah calon ulama yang memahami konteks zamannya — mampu menjawab pertanyaan anak muda tentang hukum media sosial, ekonomi Islam, dan isu gender dari sumber yang shahih.",
+    },
+    akhwat: {
+      name: "Maryam Khadijah",
+      label: "Takhassus Diniyah — akhwat ideal",
+      qurani: ["Hafal 20 juz min., 10 juz mutqin", "Fasih tafsir tematis untuk kajian muslimah", "Bisa mengajar tilawah kepada pemula"],
+      karakter: ["Qanaah dan tidak materialisme", "Bijak bersikap di lingkungan non-pesantren", "Menjadi rujukan adik kelas dalam masalah syar'i"],
+      visioner: ["Siap menjadi pendidik generasi / ibu teladan", "Merintis majelis ilmu muslimah setelah lulus"],
+      pembeda: "Akhwat takhassus disiapkan sebagai 'murabbi peradaban' — kekuatan Islam yang tersembunyi. Ia faham bahwa kekuatan seorang akhwat bukan dari viralitas, tapi dari kedalaman ilmu, kesabaran mendidik, dan keikhlasan berkorban.",
+    }
+  },
+  "sma-um": {
+    title: "SMA Jalur Umum (usia 15–18 tahun)",
+    tagline: "Fase melengkapi — profesional muslim yang tidak tercerabut dari akarnya",
+    quote: "\"خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ\" — Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia (HR. Ahmad, shahih)",
+    pillars: [
+      { icon: "ti-award", title: "Qurani & ibadah", items: ["Hafal 10–15 juz (min. 10 juz mutqin)", "Shalat khusyuk & on-time tanpa alarm", "Tilawah harian 1–2 halaman min.", "Paham tafsir ibadah sehari-hari"] },
+      { icon: "ti-trending-up", title: "Akademik & SNBT", items: ["Skor UTBK >600 (target PTN favorit)", "Penalaran kritis (TPS) terlatih", "Literasi & numerasi di atas rata-rata", "Portofolio prestasi akademik/non"] },
+      { icon: "ti-language", title: "Kompetensi global", items: ["Bahasa Inggris aktif (B2–C1)", "Bahasa Arab pasif (B1 min.)", "Literasi digital bertanggung jawab", "Public speaking & debat"] },
+      { icon: "ti-building", title: "Karakter profesional", items: ["Integritas di lingkungan kompetitif", "Kolaborasi lintas latar belakang", "Manajemen stres & prioritas", "Menolak jalan pintar haram"] },
+      { icon: "ti-compass", title: "Identitas & visi", items: ["Muslim percaya diri di kampus umum", "Punya rencana karir berbasis nilai", "Aktif di organisasi Islam kampus (proyeksi)", "Kontribusi nyata sejak SMA"] }
+    ],
+    ikhwan: {
+      name: "Hasan Rasyid",
+      label: "SMA Umum — ikhwan ideal",
+      qurani: ["Hafal 10 juz mutqin", "Bisa memimpin shalat jamaah dengan baik", "Tidak malu tilawah di lingkungan umum"],
+      karakter: ["Tidak merokok, tidak pacaran, tidak berbohong", "Berani tampil sebagai muslim di lingkungan sekuler", "Dermawan & tidak pelit dengan ilmu"],
+      visioner: ["Target jurusan: kedokteran/teknik/hukum/ekonomi Islam", "Punya mentor dan rencana 5 tahunan"],
+      pembeda: "Ikhwan SMA jalur umum adalah 'duta Islam di dunia modern'. Ia bukan hanya tidak melanggar syariat, tapi menjadi bukti hidup bahwa Islam dan prestasi akademik tinggi bukan dua hal yang bertentangan.",
+    },
+    akhwat: {
+      name: "Nur Aisha",
+      label: "SMA Umum — akhwat ideal",
+      qurani: ["Hafal 10 juz mutqin", "Rutinitas tadabbur harian terjaga", "Menjadi contoh tilawah di lingkungan non-pesantren"],
+      karakter: ["Syar'i berpakaian di lingkungan apapun", "Tidak terpengaruh tren diet atau kecantikan tidak sehat", "Setia kawan, anti gosip, anti bully"],
+      visioner: ["Lolos SNBT jalur saintek atau soshum sesuai passion", "Punya karya nyata (tulisan/proyek/beasiswa) sejak SMA"],
+      pembeda: "Akhwat SMA umum adalah muslimah yang menavigasi dunia modern dengan kompas iman. Ia berprestasi tanpa mengorbankan identitas, bersaing tanpa rasa rendah diri, dan beradab tanpa merasa ketinggalan zaman.",
+    }
+  }
+};
+
+let pCurrentLevel = 'sd';
+let pCurrentGender = 'i';
+
+window.setLevel = function(l) {
+  pCurrentLevel = l;
+  document.querySelectorAll('.nav-btn').forEach((b,i) => {
+    const levels = ['sd','smp','sma-din','sma-um'];
+    b.classList.toggle('active', levels[i] === l);
+  });
+  renderPersona();
+}
+
+window.setGender = function(g) {
+  pCurrentGender = g;
+  const bi = document.getElementById('btn-i');
+  const ba = document.getElementById('btn-a');
+  bi.className = 'gender-btn' + (g === 'i' ? ' active-i' : '');
+  ba.className = 'gender-btn' + (g === 'a' ? ' active-a' : '');
+  renderPersona();
+}
+
+function renderPersona() {
+  const d = personaData[pCurrentLevel];
+  const g = pCurrentGender === 'i' ? d.ikhwan : d.akhwat;
+  const isI = pCurrentGender === 'i';
+  const avClass = isI ? 'av-i' : 'av-a';
+  const initials = g.name.split(' ').map(x=>x[0]).join('').slice(0,2);
+
+  const pillarsHTML = d.pillars.map(p => `
+    <div class="pillar-card">
+      <div class="pillar-icon"><i class="ti ${p.icon}" aria-hidden="true"></i></div>
+      <p class="pillar-title">${p.title}</p>
+      <ul class="pillar-items">
+        ${p.items.map(i => `<li>${i}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+
+  const qTags = g.qurani.map(t => `<span class="tag q">${t}</span>`).join('');
+  const kTags = g.karakter.map(t => `<span class="tag k">${t}</span>`).join('');
+  const vTags = g.visioner.map(t => `<span class="tag v">${t}</span>`).join('');
+
+  document.getElementById('content-area').innerHTML = `
+    <div class="hero-card">
+      <div class="hero-header">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
+          <div class="avatar ${avClass}">${initials}</div>
+          <div>
+            <p class="persona-name">${g.name}</p>
+            <p class="persona-label">${g.label}</p>
+          </div>
+        </div>
+        <p class="hero-title">${d.title}</p>
+        <p class="hero-sub">${d.tagline}</p>
+      </div>
+      <div class="hero-quote">${d.quote}</div>
+    </div>
+
+    <p class="p-section-label">5 pilar kompetensi lulusan</p>
+    <div class="pillars-grid">${pillarsHTML}</div>
+
+    <p class="p-section-label"><i class="ti ti-book" style="font-size:16px;vertical-align:-2px" aria-hidden="true"></i> Qurani — penanda utama</p>
+    <div class="tag-row">${qTags}</div>
+
+    <p class="p-section-label"><i class="ti ti-heart" style="font-size:16px;vertical-align:-2px" aria-hidden="true"></i> Karakter — perilaku yang terlihat</p>
+    <div class="tag-row">${kTags}</div>
+
+    <p class="p-section-label"><i class="ti ti-telescope" style="font-size:16px;vertical-align:-2px" aria-hidden="true"></i> Visioner — orientasi masa depan</p>
+    <div class="tag-row">${vTags}</div>
+
+    <p class="p-section-label" style="margin-top: 32px">Pembeda gender — apa yang khas</p>
+    <div class="distinguish-box">
+      <p class="distinguish-title">${isI ? 'Ikhwan' : 'Akhwat'}: ${pCurrentLevel === 'sd' ? (isI ? 'Syaja\'ah — keberanian yang terhormat' : 'Haya\' — rasa malu yang mulia') : pCurrentLevel === 'smp' ? (isI ? 'Qawwamah — jiwa kepemimpinan bertanggung jawab' : 'Izzah — kemuliaan diri yang tidak lapar validasi') : pCurrentLevel === 'sma-din' ? (isI ? 'Ulama membumi — ilmu menjawab zaman' : 'Murabbi peradaban — kekuatan yang tersembunyi') : (isI ? 'Duta Islam modern — buktikan iman & prestasi seiring' : 'Muslimah navigasi zaman — kompas iman di dunia terbuka')}</p>
+      <p class="distinguish-text">${g.pembeda}</p>
+    </div>
+  `;
+}
+
+// Inisialisasi awal render
+renderPersona();
+
+
+// === Interactive Roadmap Logic ===
+window.showPhase = function(i) {
+  document.querySelectorAll('.rm-phase-section').forEach((s, j) => {
+    s.classList.toggle('visible', j === i);
+  });
+  document.querySelectorAll('.rm-nav-btn').forEach((b, j) => {
+    b.classList.toggle('active', j === i);
+  });
+}
+
+window.toggleTask = function(card) {
+  card.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
