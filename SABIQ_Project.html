@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SABIQ Project — Sistem Apresiasi & Bina Prestasi Santri MQBS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+--ink:#0e373e;--ink-2:#004133;--ink-3:#24474d;
+--paper:#e8e9ea;--paper-2:#ffffff;--paper-3:#f4f5f6;--cream:#ffffff;
+--gold:#e3b11f;--gold-2:#9b6220;--gold-3:#eac06f;
+--emerald:#005a26;--terracotta:#9b6220;
+--muted:#5c6b6d;--line:#959699;--line-soft:rgba(14,55,62,0.12);
+--success:#005a26;--warn:#9b6220;
+--display:'Signika',sans-serif;
+--body:'Plus Jakarta Sans',system-ui,sans-serif;
+--arab:'Amiri',serif;--mono:'JetBrains Mono',monospace;
+}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(circle at 20% 30%,rgba(227,177,31,0.04) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(0,65,51,0.05) 0%,transparent 50%);z-index:0;}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 32px}
+.narrow{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:0 32px}
+.display{font-family:var(--display);font-weight:400;letter-spacing:-0.02em}
+.mono{font-family:var(--mono);font-size:12px}
+
+.topbar{position:sticky;top:0;background:rgba(232,233,234,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:0.5px solid var(--line-soft);z-index:100}
+.topbar-inner{max-width:1180px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-mark{width:34px;height:34px;background:var(--ink);color:var(--paper);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:15px}
+.brand-text{font-family:var(--display);font-weight:600;font-size:15px}
+.brand-tag{font-size:10px;color:var(--muted);margin-left:8px;padding-left:8px;border-left:1px solid var(--line);display:none}
+@media (min-width:720px){.brand-tag{display:inline}}
+.nav{display:none;gap:22px}
+.nav a{color:var(--ink-3);text-decoration:none;font-size:12.5px;font-weight:500;transition:color .15s}
+.nav a:hover{color:var(--gold-2)}
+@media (min-width:960px){.nav{display:flex}}
+
+.hero{padding:80px 0 96px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:end}
+@media (min-width:880px){.hero-grid{grid-template-columns:1.5fr 1fr;gap:60px}}
+.hero-label{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.hero-label .line{width:40px;height:1px;background:var(--gold)}
+.hero-label span{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-2);font-weight:500}
+.audience-pill{display:inline-block;padding:3px 10px;background:var(--ink);color:var(--paper) !important;font-size:10px !important;letter-spacing:0.15em !important;border-radius:100px}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(44px,7.5vw,88px);line-height:0.96;letter-spacing:-0.04em;margin-bottom:28px}
+.hero h1 .em{font-style:italic;font-weight:300;color:var(--gold-2)}
+.hero h1 .underline{background-image:linear-gradient(transparent 68%,rgba(227,177,31,0.35) 68%)}
+.hero-arabic{font-family:var(--arab);direction:rtl;font-size:22px;color:var(--gold-2);margin-bottom:10px;line-height:1.8}
+.hero-arabic-trans{font-size:13px;font-style:italic;color:var(--muted);margin-bottom:30px;border-left:2px solid var(--gold);padding-left:14px}
+.hero-sub{font-size:18px;line-height:1.55;color:var(--ink-3);max-width:580px;margin-bottom:32px}
+.hero-sub b{color:var(--ink);font-weight:600}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;font-size:14px;font-weight:500;border-radius:4px;text-decoration:none;transition:all .2s ease;cursor:pointer;border:none}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--ink-2);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.hero-card{background:var(--cream);border:1px solid var(--line);padding:28px;position:relative}
+.hero-card::before{content:'';position:absolute;top:-1px;left:-1px;width:32px;height:32px;border-top:2px solid var(--gold);border-left:2px solid var(--gold)}
+.hero-card::after{content:'';position:absolute;bottom:-1px;right:-1px;width:32px;height:32px;border-bottom:2px solid var(--gold);border-right:2px solid var(--gold)}
+.hero-card-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-2);margin-bottom:12px}
+.hero-card-title{font-family:var(--display);font-size:22px;font-weight:500;line-height:1.2;margin-bottom:16px}
+.hero-card-list{list-style:none}
+.hero-card-list li{font-size:13px;color:var(--ink-3);padding:7px 0;border-bottom:1px dashed var(--line-soft);display:flex;gap:10px}
+.hero-card-list li:last-child{border-bottom:none}
+.hero-card-list .num{font-family:var(--display);font-style:italic;color:var(--gold-2);font-size:14px;flex-shrink:0;min-width:16px}
+
+section{padding:88px 0}
+.section-eyebrow{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-2);font-weight:500;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+.section-title{font-family:var(--display);font-weight:400;font-size:clamp(30px,4.5vw,48px);line-height:1.08;letter-spacing:-0.03em;margin-bottom:22px;max-width:800px}
+.section-title .em{font-style:italic;color:var(--gold-2);font-weight:300}
+.section-intro{font-size:16.5px;line-height:1.65;color:var(--ink-3);max-width:680px;margin-bottom:50px}
+
+.why{background:var(--paper-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.why-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media (min-width:720px){.why-grid{grid-template-columns:repeat(3,1fr)}}
+.why-card{background:var(--cream);border:1px solid var(--line-soft);padding:30px;position:relative}
+.why-num{font-family:var(--display);font-size:52px;font-weight:300;font-style:italic;color:var(--gold);line-height:1;margin-bottom:16px}
+.why-title{font-family:var(--display);font-size:21px;font-weight:500;margin-bottom:12px;line-height:1.25}
+.why-text{font-size:14px;color:var(--ink-3);line-height:1.65}
+.why-text b{color:var(--ink);font-weight:600}
+
+.pillars-section{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.pillars-section::before{content:'سَابِق';position:absolute;font-family:var(--arab);font-size:32vw;line-height:1;color:rgba(227,177,31,0.06);bottom:-10vw;left:-2vw;pointer-events:none;font-weight:700}
+.pillars-section .section-eyebrow{color:var(--gold-3)}
+.pillars-section .section-eyebrow::before{background:var(--gold-3)}
+.pillars-section .section-title{color:var(--cream)}
+.pillars-section .section-title .em{color:var(--gold-3)}
+.pillars-section .section-intro{color:rgba(232,233,234,0.75)}
+.pillars{margin-top:56px;position:relative;z-index:2}
+.pillar{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:32px 0;border-bottom:1px solid rgba(227,177,31,0.2);align-items:start}
+@media (min-width:720px){.pillar{grid-template-columns:140px 1fr 1fr;gap:40px;padding:40px 0}}
+.pillar:last-child{border-bottom:none}
+.pillar-letter{font-family:var(--display);font-size:64px;font-weight:300;line-height:1;color:var(--gold-3)}
+.pillar-letter sup{font-size:11px;font-family:var(--body);font-weight:500;color:var(--gold);letter-spacing:0.15em;vertical-align:top;margin-left:4px;text-transform:uppercase}
+.pillar-name{font-family:var(--display);font-size:26px;font-weight:500;color:var(--cream);margin-bottom:10px;letter-spacing:-0.01em}
+.pillar-tag{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-3);margin-bottom:14px;font-weight:500}
+.pillar-desc{font-size:14.5px;line-height:1.7;color:rgba(232,233,234,0.85)}
+.pillar-quote{border-left:2px solid var(--gold);padding-left:16px;margin-top:14px;font-style:italic;font-size:13px;color:var(--gold-3);line-height:1.6}
+
+.ga-section{background:var(--cream)}
+.ga-toc{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid var(--line-soft)}
+.ga-toc a{padding:6px 14px;background:var(--paper);border:1px solid var(--line-soft);border-radius:100px;font-size:12px;color:var(--ink-3);text-decoration:none;transition:all .2s}
+.ga-toc a:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ga-block{margin-bottom:64px}
+.ga-block:last-child{margin-bottom:0}
+.ga-block h3{font-family:var(--display);font-size:28px;font-weight:500;letter-spacing:-0.02em;margin-bottom:8px;display:flex;align-items:baseline;gap:14px}
+.ga-block h3 .num{font-family:var(--display);font-style:italic;font-weight:300;color:var(--gold-3);font-size:24px}
+.ga-block .ga-intro{font-size:14.5px;color:var(--ink-3);line-height:1.65;margin-bottom:28px;max-width:720px}
+
+.ps-row{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border:1px solid var(--line-soft);border-radius:8px;margin-bottom:8px;background:var(--paper)}
+.ps-row > div:first-child{flex:1}
+.ps-name{font-size:14px;font-weight:500;margin-bottom:3px}
+.ps-desc{font-size:12px;color:var(--muted)}
+.ps-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.ps-tag{font-size:10px;padding:3px 9px;border-radius:100px;font-weight:500}
+.tag-green{background:rgba(0,90,38,0.1);color:var(--emerald)}
+.tag-amber{background:rgba(155,98,32,0.1);color:var(--terracotta)}
+.tag-blue{background:rgba(0,65,51,0.12);color:var(--ink-2)}
+.ps-pts{font-family:var(--display);font-size:16px;font-weight:500;min-width:70px;text-align:right;color:var(--ink)}
+.ps-pts .unit{font-size:11px;color:var(--muted);font-style:italic}
+
+.streak-demo{background:var(--paper);border:1px solid var(--line-soft);border-radius:8px;padding:20px;margin-top:12px}
+.streak-grid{display:flex;gap:4px;flex-wrap:wrap;margin:10px 0}
+.day-box{width:26px;height:26px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--muted);border:1px solid var(--line-soft);background:var(--cream)}
+.day-box.done{background:rgba(0,90,38,0.1);color:var(--emerald);border-color:rgba(0,90,38,0.3);font-weight:600}
+.day-box.today{border:2px solid var(--gold-2);color:var(--gold-2);font-weight:600}
+
+.tier-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:720px){.tier-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.tier-grid{grid-template-columns:repeat(4,1fr)}}
+.tier-card{border:1px solid var(--line-soft);border-radius:10px;padding:22px;background:var(--paper);position:relative}
+.tier-card.sabiq{background:linear-gradient(155deg,#ffffff 0%,#f4e8cf 100%);border-color:var(--gold)}
+.tier-icon{font-size:28px;margin-bottom:10px}
+.tier-name{font-family:var(--display);font-size:19px;font-weight:600;margin-bottom:4px}
+.tier-arab{font-family:var(--arab);font-size:15px;color:var(--gold-2);margin-bottom:8px}
+.tier-range{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-2);font-weight:500;margin-bottom:14px}
+.tier-perks{list-style:none;padding-top:14px;border-top:1px dashed var(--line-soft)}
+.tier-perks li{font-size:12px;color:var(--ink-3);padding:4px 0;padding-left:14px;position:relative}
+.tier-perks li::before{content:'◆';position:absolute;left:0;top:6px;color:var(--gold-3);font-size:7px}
+
+.alur-grid{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;background:var(--paper)}
+@media (min-width:720px){.alur-grid{grid-template-columns:repeat(4,1fr)}}
+.alur-step{padding:28px 22px;position:relative;border-bottom:1px solid var(--line-soft)}
+@media (min-width:720px){.alur-step{border-right:1px solid var(--line-soft);border-bottom:none}.alur-step:last-child{border-right:none}}
+.alur-icon{font-size:26px;margin-bottom:14px}
+.alur-when{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-2);margin-bottom:6px;font-weight:500}
+.alur-title{font-family:var(--display);font-size:17px;font-weight:500;margin-bottom:10px;line-height:1.2}
+.alur-desc{font-size:12.5px;color:var(--ink-3);line-height:1.65}
+.alur-actor{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line-soft);font-size:11px;color:var(--muted);font-style:italic}
+.alur-actor b{color:var(--gold-2);font-style:normal;font-weight:600}
+
+.sipond-mockup{background:var(--paper);border:1px solid var(--line-soft);border-radius:12px;padding:22px;margin-top:20px}
+.sipond-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line-soft);flex-wrap:wrap;gap:8px}
+.sipond-title{font-family:var(--display);font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+.sipond-status{font-size:10px;padding:3px 8px;background:rgba(0,90,38,0.1);color:var(--emerald);border-radius:100px;font-weight:500}
+.sipond-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.sipond-metric{padding:12px 14px;background:var(--cream);border:1px solid var(--line-soft);border-radius:8px}
+.sipond-metric-label{font-size:10px;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.sipond-metric-val{font-family:var(--display);font-size:22px;font-weight:600}
+.sipond-metric-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.sipond-bar-row{display:flex;align-items:center;gap:12px;padding:9px 0;font-size:12px;border-bottom:1px dashed var(--line-soft)}
+.sipond-bar-row:last-child{border-bottom:none}
+.sipond-bar-label{width:80px;color:var(--ink-3);font-weight:500}
+.sipond-bar{flex:1;height:6px;background:var(--paper-2);border-radius:3px;overflow:hidden}
+.sipond-bar > div{height:100%;background:var(--emerald);border-radius:3px}
+.sipond-bar-val{font-family:var(--mono);font-size:11px;color:var(--ink);min-width:32px;text-align:right}
+
+/* LEADERBOARD */
+.lb-section{margin-top:24px}
+.lb-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.lb-tab{padding:5px 12px;border:1px solid var(--line-soft);border-radius:100px;font-size:11px;font-weight:500;cursor:pointer;background:var(--paper-2);color:var(--muted);transition:all .15s;font-family:var(--body)}
+.lb-tab.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.lb-content{display:none}
+.lb-content.active{display:block}
+.lb-row{display:flex;align-items:center;gap:10px;padding:9px 14px;border-bottom:1px solid var(--line-soft);border-radius:0;font-size:12px}
+.lb-row:last-child{border-bottom:none}
+.lb-row:first-child{border-radius:8px 8px 0 0}
+.lb-body{border:1px solid var(--line-soft);border-radius:8px;overflow:hidden;background:var(--paper-2)}
+.lb-rank{font-family:var(--display);font-weight:600;width:24px;flex-shrink:0;text-align:center;font-size:13px}
+.lb-rank.gold{color:#B8893C}
+.lb-rank.silver{color:#8c9ca0}
+.lb-rank.bronze{color:#a0522d}
+.lb-name{flex:1;font-weight:500;color:var(--ink)}
+.lb-kelas{font-size:10px;color:var(--muted);margin-left:4px}
+.lb-val{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink);flex-shrink:0;text-align:right}
+.lb-unit{font-size:10px;color:var(--muted);margin-left:3px;font-weight:400}
+.lb-bar-mini{width:60px;height:4px;background:var(--line-soft);border-radius:2px;overflow:hidden;flex-shrink:0}
+.lb-bar-mini > div{height:100%;background:var(--emerald);border-radius:2px}
+.lb-warn{background:rgba(155,98,32,0.06)}
+.lb-warn .lb-val{color:var(--terracotta)}
+.lb-warn .lb-bar-mini > div{background:var(--terracotta)}
+
+/* BADGES */
+.badge-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:10px;margin-top:14px}
+.badge-item{display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 8px;background:var(--paper-2);border:1px solid var(--line-soft);border-radius:10px;text-align:center;position:relative;transition:all .15s}
+.badge-item:hover{border-color:var(--gold);transform:translateY(-1px)}
+.badge-item.locked{opacity:0.35;filter:grayscale(0.8)}
+.badge-icon-wrap{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;position:relative}
+.badge-icon-wrap.earned{box-shadow:0 0 0 2px var(--gold)}
+.badge-icon-wrap.locked{box-shadow:0 0 0 2px var(--line-soft);background:var(--paper-3)}
+.badge-name{font-size:10px;font-weight:600;color:var(--ink);line-height:1.3}
+.badge-cond{font-size:9px;color:var(--muted);line-height:1.3;display:none}
+.badge-item:hover .badge-cond{display:block}
+.badge-item:hover .badge-name{display:none}
+.badge-check{position:absolute;top:-4px;right:-4px;width:16px;height:16px;background:var(--emerald);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;color:white;border:2px solid var(--paper-2)}
+
+.reward-tab-bar{display:flex;gap:6px;margin-bottom:24px;border-bottom:1px solid var(--line-soft);padding-bottom:0;flex-wrap:wrap}
+.reward-tab{padding:12px 20px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:13.5px;font-weight:500;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;font-family:var(--body)}
+.reward-tab:hover{color:var(--ink)}
+.reward-tab.active{color:var(--ink);border-bottom-color:var(--gold)}
+.reward-content{display:none}
+.reward-content.active{display:block}
+.reward-card{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:14px;padding:22px;background:var(--paper);border:1px solid var(--line-soft);border-radius:10px}
+@media (min-width:720px){.reward-card{grid-template-columns:170px 1fr auto;align-items:center;gap:24px}}
+.reward-tier-name{font-family:var(--display);font-size:17px;font-weight:600;display:flex;align-items:center;gap:8px;line-height:1.25}
+.reward-tier-name .ico{font-size:22px}
+.reward-list{list-style:none}
+.reward-list li{font-size:13px;color:var(--ink-3);padding:3px 0 3px 14px;position:relative}
+.reward-list li::before{content:'→';position:absolute;left:0;color:var(--gold-2);font-family:var(--display)}
+.reward-cost{font-family:var(--display);font-size:22px;font-weight:600;color:var(--ink);white-space:nowrap}
+.reward-cost .unit{font-size:11px;color:var(--muted);font-style:italic;font-weight:400;display:block;margin-top:2px}
+
+.reward-callout{padding:20px 24px;background:linear-gradient(135deg,#ffffff 0%,#f4e8cf 100%);border:1px solid var(--gold);border-radius:10px;margin:24px 0}
+.reward-callout-label{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-2);font-weight:500;margin-bottom:8px}
+.reward-callout-text{font-size:14px;color:var(--ink);line-height:1.65}
+.reward-callout-text b{color:var(--gold-2);font-weight:600}
+
+.comp-categories{display:grid;grid-template-columns:1fr;gap:12px;margin-top:30px}
+@media (min-width:720px){.comp-categories{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.comp-categories{grid-template-columns:repeat(3,1fr)}}
+.comp-cat{background:var(--paper);border:1px solid var(--line-soft);border-radius:10px;padding:22px;transition:all .2s}
+.comp-cat:hover{border-color:var(--gold);transform:translateY(-2px)}
+.comp-cat-pillar{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-2);margin-bottom:8px;font-weight:500}
+.comp-cat-title{font-family:var(--display);font-size:18px;font-weight:600;margin-bottom:8px}
+.comp-cat-desc{font-size:12.5px;color:var(--ink-3);line-height:1.6;margin-bottom:12px}
+.comp-cat-winners{font-size:11px;color:var(--muted);padding-top:10px;border-top:1px dashed var(--line-soft)}
+.comp-cat-winners b{color:var(--gold-2);font-weight:600}
+
+.timeline{margin-top:32px;position:relative}
+.timeline::before{content:'';position:absolute;left:24px;top:8px;bottom:8px;width:1px;background:var(--gold-3)}
+@media (min-width:720px){.timeline::before{left:50%}}
+.timeline-item{position:relative;padding-left:60px;padding-bottom:32px}
+@media (min-width:720px){.timeline-item{width:50%;padding-left:0;padding-right:40px;text-align:right}.timeline-item.right{margin-left:50%;padding-left:40px;padding-right:0;text-align:left}}
+.timeline-dot{position:absolute;left:16px;top:4px;width:16px;height:16px;background:var(--cream);border:2px solid var(--gold);border-radius:50%;z-index:2}
+@media (min-width:720px){.timeline-dot{left:auto;right:-8px}.timeline-item.right .timeline-dot{right:auto;left:-8px}}
+.timeline-dot.major{background:var(--gold);border-color:var(--gold-2);width:20px;height:20px;top:2px}
+@media (min-width:720px){.timeline-dot.major{right:-10px}.timeline-item.right .timeline-dot.major{left:-10px}}
+.timeline-date{font-family:var(--display);font-style:italic;font-size:13px;color:var(--gold-2);margin-bottom:4px}
+.timeline-title{font-family:var(--display);font-size:18px;font-weight:600;margin-bottom:8px;line-height:1.25}
+.timeline-desc{font-size:13px;color:var(--ink-3);line-height:1.65}
+.timeline-tag{display:inline-block;margin-top:8px;padding:3px 10px;border-radius:100px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);font-weight:500}
+.timeline-tag.event{background:var(--gold-2)}
+
+.budget-summary{background:var(--paper);border:1px solid var(--line-soft);border-radius:12px;overflow:hidden;margin-bottom:20px}
+.budget-header{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;background:var(--ink);color:var(--paper);flex-wrap:wrap;gap:8px}
+.budget-header-title{font-family:var(--display);font-size:16px;font-weight:600}
+.budget-header-meta{font-size:11px;color:var(--gold-3);letter-spacing:0.1em;text-transform:uppercase}
+.budget-row{display:grid;grid-template-columns:1fr 80px 110px 130px;gap:16px;padding:14px 22px;border-bottom:1px solid var(--line-soft);font-size:13px;align-items:center}
+.budget-row:last-child{border-bottom:none}
+.budget-row.subhead{background:var(--paper-3);font-weight:600;font-family:var(--display);color:var(--ink);font-size:12px;letter-spacing:0.05em;text-transform:uppercase}
+.budget-row.total{background:var(--paper-2);font-family:var(--display);font-weight:600;font-size:15px;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold)}
+.budget-item-name{color:var(--ink-3)}
+.budget-qty,.budget-unit{color:var(--muted);font-family:var(--mono);font-size:12px;text-align:right}
+.budget-total{font-family:var(--display);font-weight:600;color:var(--ink);text-align:right}
+@media (max-width:640px){.budget-row{grid-template-columns:1fr 1fr;gap:8px}.budget-qty,.budget-unit{display:none}}
+.budget-meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:24px}
+.budget-meta-card{padding:18px;background:var(--paper);border:1px solid var(--line-soft);border-radius:8px}
+.budget-meta-label{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-2);margin-bottom:6px;font-weight:500}
+.budget-meta-val{font-family:var(--display);font-size:24px;font-weight:600;margin-bottom:2px}
+.budget-meta-sub{font-size:11px;color:var(--muted)}
+
+.principles{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:12px;overflow:hidden}
+.principle{background:var(--cream);padding:28px;display:flex;gap:20px;align-items:start}
+.principle-num{font-family:var(--display);font-size:34px;font-weight:300;font-style:italic;color:var(--gold);line-height:1;flex-shrink:0;width:56px}
+.principle-title{font-family:var(--display);font-size:18px;font-weight:500;margin-bottom:6px}
+.principle-text{font-size:13.5px;color:var(--ink-3);line-height:1.65}
+.principle-text b{color:var(--ink);font-weight:600}
+
+.faq-list{display:flex;flex-direction:column;gap:10px}
+details{background:var(--cream);border:1px solid var(--line-soft);border-radius:8px;transition:border-color .2s}
+details[open]{border-color:var(--gold)}
+summary{list-style:none;cursor:pointer;padding:20px 24px;font-family:var(--display);font-size:16px;font-weight:500;display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-family:var(--display);font-size:22px;color:var(--gold-2);flex-shrink:0}
+details[open] summary::after{content:'−'}
+.faq-body{padding:0 24px 22px;font-size:13.5px;color:var(--ink-3);line-height:1.7}
+.faq-body b{color:var(--ink);font-weight:600}
+
+footer{background:var(--ink);color:var(--paper);padding:56px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:36px;margin-bottom:40px}
+@media (min-width:720px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
+.footer-brand{font-family:var(--display);font-size:22px;font-weight:500;color:var(--cream);margin-bottom:10px}
+.footer-tag{font-size:13px;color:rgba(232,233,234,0.7);line-height:1.65;max-width:360px}
+.footer-col h4{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-3);margin-bottom:14px;font-weight:500}
+.footer-col a{display:block;color:rgba(232,233,234,0.7);text-decoration:none;font-size:13px;padding:4px 0;transition:color .15s}
+.footer-col a:hover{color:var(--gold-3)}
+.footer-bottom{padding-top:24px;border-top:1px solid rgba(227,177,31,0.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(232,233,234,0.5)}
+.footer-arabic{font-family:var(--arab);color:var(--gold-3);font-size:14px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero h1,.hero-sub,.hero-arabic,.hero-arabic-trans,.hero-cta{animation:fadeUp .8s ease-out backwards}
+.hero-arabic{animation-delay:0.05s}.hero-arabic-trans{animation-delay:0.1s}.hero h1{animation-delay:0.15s}.hero-sub{animation-delay:0.3s}.hero-cta{animation-delay:0.45s}
+.hero-card{animation:fadeUp .9s ease-out 0.5s backwards}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media (max-width:720px){
+.wrap,.narrow{padding:0 20px}
+section{padding:56px 0}
+.hero{padding:48px 0 64px}
+.topbar-inner{padding:12px 20px}
+.pillar{padding:24px 0}
+.pillar-letter{font-size:48px}
+.principle{flex-direction:column;gap:10px;padding:22px}
+.principle-num{font-size:28px;width:auto}
+.ga-block h3{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">S</div>
+      <span class="brand-text">SABIQ</span>
+      <span class="brand-tag">Sistem Apresiasi & Bina Prestasi Santri MQBS</span>
+    </div>
+    <nav class="nav">
+      <a href="#mengapa">Mengapa</a>
+      <a href="#pilar">5 Pilar</a>
+      <a href="#sistem">Sistem</a>
+      <a href="#mekanisme">Mekanisme</a>
+      <a href="#kompetisi">Kompetisi</a>
+      <a href="#reward">Reward</a>
+      <a href="#kalender">Kalender</a>
+      <a href="#budget">Budget</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-label">
+          <div class="line"></div>
+          <span>SABIQ Project · MQBS 2026/2027</span>
+          <span class="audience-pill">Internal · Pengelola</span>
+        </div>
+        <div class="hero-arabic">وَالسَّابِقُونَ السَّابِقُونَ ۚ أُولَٰئِكَ الْمُقَرَّبُونَ</div>
+        <div class="hero-arabic-trans">"Dan orang-orang yang paling dahulu (beriman), merekalah yang paling dahulu (masuk surga). Mereka itulah yang didekatkan (kepada Allah)." <span style="color: var(--gold-2)">— QS. Al-Waqi'ah: 10-11</span></div>
+        <h1>Membentuk santri<br>yang <span class="em">bersegera</span><br>dalam <span class="underline">kebaikan</span>.</h1>
+        <p class="hero-sub"><b>SABIQ</b> adalah kerangka apresiasi dan bina prestasi yang membantu setiap santri MQBS menjadi pembelajar sinergis, berakhlak, berkarakter, istiqomah, dan qurani — melalui sistem yang terukur, adil, dan bermakna. SABIQ adalah inisiatif litbang untuk merealisasikan visi MQBS: <br><b>"Membangun Generasi Qur'ani, Berkarakter &amp; Visioner."</p>
+        <div class="hero-cta">
+          <a href="#sistem" class="btn btn-primary">Lihat sistem lengkap <span style="font-family:var(--display); font-style:italic;">→</span></a>
+          <a href="#budget" class="btn btn-ghost">Anggaran & operasional</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-label">SABIQ — Akronim 5 Pilar</div>
+        <div class="hero-card-title">Lima nilai yang membentuk satu santri utuh.</div>
+        <ul class="hero-card-list">
+          <li><span class="num">S</span><span><b>Sinergi</b> antara akal, fisik, dan hati</span></li>
+          <li><span class="num">A</span><span><b>Akhlak</b> mulia kepada Allah dan sesama</span></li>
+          <li><span class="num">B</span><span><b>Berkarakter</b> disiplin dan bertanggung jawab</span></li>
+          <li><span class="num">I</span><span><b>Istiqomah</b> dalam perbaikan berkelanjutan</span></li>
+          <li><span class="num">Q</span><span><b>Qurani</b> berlandaskan manhaj salafus sholih</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="mengapa">
+  <div class="wrap">
+    <div class="section-eyebrow">Mengapa SABIQ Ada</div>
+    <h2 class="section-title">3 keresahan yang melahirkan <span class="em">1 jawaban.</span></h2>
+    <p class="section-intro">SABIQ adalah jawaban litbang MQBS atas harapan mudir, guru dan musyrif untuk perbaikan yang sistemik. Tiga keresahan ini bukan keresahan umum — melainkan keresahan nyata di lingkungan pesantren bermanhaj salaf yang berjuang menjaga kualitas tarbiyah setiap harinya.</p>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-num">01</div>
+        <h3 class="why-title">Mutabaah yang terputus</h3>
+        <p class="why-text">Musyrif mengenal santrinya secara kualitatif — tapi tidak selalu punya data yang membantu melihat <em>pola tersembunyi</em>: santri yang kelihatan baik tapi konsistensinya menurun perlahan, atau santri yang berjuang keras tapi tidak terlihat. <b>SABIQ hadir agar tidak ada santri yang melemah semangatnya.</b></p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">02</div>
+        <h3 class="why-title">Istiqomah yang tidak tersistem</h3>
+        <p class="why-text">Pesantren salaf sangat menekankan istiqomah — tapi belum ada mekanisme yang secara konsisten <em>merekam, menghargai, dan mengingatkan</em> istiqomah itu. Amal yang sedikit tapi rutin lebih dicintai Allah, namun sistem lama hanya mencatat ujian akhir. <b>SABIQ menjadikan istiqomah terukur dan dihargai.</b></p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">03</div>
+        <h3 class="why-title">Orang tua terputus dari tarbiyah</h3>
+        <p class="why-text">Allah memerintahkan: <em>"Quu anfusakum wa ahlikum naaran"</em> — jaga dirimu dan keluargamu dari api neraka (QS. At-Tahrim: 6). Tapi selama ini orang tua hanya menerima rapor di akhir semester. <b>SABIQ menjadikan orang tua mitra tarbiyah aktif</b> yang mengikuti perjalanan anak setiap pekannya — bukan hanya penerima hasil akhir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars-section" id="pilar">
+  <div class="wrap">
+    <div class="section-eyebrow">Anatomi SABIQ</div>
+    <h2 class="section-title">5 pilar yang membentuk <span class="em"> profil santri.</span></h2>
+    <p class="section-intro">Setiap huruf SABIQ adalah pilar yang berdiri sendiri sekaligus saling menopang. Bukan urutan langkah, tapi lima sisi dari kepribadian yang sama.</p>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="pillar-letter">S<sup>01</sup></div>
+        <div>
+          <div class="pillar-tag">Pilar Pertama</div>
+          <div class="pillar-name">Sinergi</div>
+          <p class="pillar-desc">Santri yang mampu <b style="color:var(--gold-3)">menyelaraskan kecerdasan akal, keterampilan fisik, dan kelembutan hati</b> dalam setiap proses pendidikan. Bukan unggul di satu ranah tapi lemah di sisi yang lain.</p>
+        </div>
+        <div><div class="pillar-quote">"Akal yang tajam tanpa hati yang lembut menghasilkan sombong. Hati yang lembut tanpa fisik yang kuat menghasilkan kerapuhan."</div></div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-letter">A<sup>02</sup></div>
+        <div>
+          <div class="pillar-tag">Pilar Kedua</div>
+          <div class="pillar-name">Akhlak</div>
+          <p class="pillar-desc">Santri yang <b style="color:var(--gold-3)">menjaga kehormatan diri, guru, dan sesama</b>, serta menjauhi perbuatan yang merusak citra lembaga. Akhlak adalah pakaian sehari-hari, bukan kostum saat upacara.</p>
+        </div>
+        <div><div class="pillar-quote">"Ilmu tanpa akhlak adalah bencana. SABIQ memastikan setiap kenaikan ilmu disertai kenaikan adab."</div></div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-letter">B<sup>03</sup></div>
+        <div>
+          <div class="pillar-tag">Pilar Ketiga</div>
+          <div class="pillar-name">Berkarakter</div>
+          <p class="pillar-desc">Santri yang <b style="color:var(--gold-3)">memahami bahwa penegakan disiplin adalah sarana pembangunan karakter</b> untuk hasil belajar yang lebih baik. Aturan adalah tiang rumah, bukan kandang.</p>
+        </div>
+        <div><div class="pillar-quote">"Karakter terbentuk bukan dari hari yang mudah, tapi dari konsistensi dalam hari yang biasa."</div></div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-letter">I<sup>04</sup></div>
+        <div>
+          <div class="pillar-tag">Pilar Keempat</div>
+          <div class="pillar-name">Istiqomah</div>
+          <p class="pillar-desc">Santri yang <b style="color:var(--gold-3)">konsisten dalam ibadah dan tata tertib harian</b>, dan tidak berhenti bertumbuh meski dalam tantangan. Continuous improvement — perbaikan kecil setiap hari.</p>
+        </div>
+        <div><div class="pillar-quote">"Amal yang paling dicintai Allah adalah yang paling istiqomah, meskipun sedikit."</div></div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-letter">Q<sup>05</sup></div>
+        <div>
+          <div class="pillar-tag">Pilar Kelima</div>
+          <div class="pillar-name">Qurani</div>
+          <p class="pillar-desc">Santri yang <b style="color:var(--gold-3)">menjadikan Al-Qur'an dan As-Sunnah sebagai kompas utama</b> dalam berpikir, bersikap, dan bertindak — sesuai pemahaman salafus sholih.</p>
+        </div>
+        <div><div class="pillar-quote">"Generasi terbaik adalah mereka yang mencintai Al-Qur'an dan dicintai oleh Al-Qur'an."</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ga-section" id="sistem">
+  <div class="wrap">
+    <div class="section-eyebrow">Sistem Gamifikasi SABIQ</div>
+    <h2 class="section-title">Sembilan komponen yang saling <span class="em">mengunci.</span></h2>
+    <p class="section-intro">Sistem SABIQ dirancang sebagai sembilan lapisan yang saling memperkuat. Setiap lapisan punya tujuan dan mekanisme yang berbeda — tapi semuanya mengarah pada satu hal: <b>mendampingi santri tumbuh dengan cara yang adil dan penuh semangat.</b></p>
+
+    <div class="ga-toc">
+      <a href="#sumber-poin">① Poin SKL</a>
+	  <a href="#sumber-poin-harian">① Poin Harian</a>
+	  <a href="#multiplier">② Multiplier</a>
+      <a href="#multiplier">② Multiplier</a>
+      <a href="#tier">③ Capaian</a>
+      <a href="#mekanisme">④ Mekanisme</a>
+      <a href="#reward">⑤ Reward</a>
+      <a href="#kompetisi">⑥ Competition</a>
+      <a href="#kalender">⑦ Kalender</a>
+      <a href="#budget">⑧ Budget</a>
+    </div>
+
+    <div class="ga-block" id="sumber-poin">
+      <h3><span class="num">①</span>Poin dari SKL Mapel</h3>
+      <p class="ga-intro">Poin ini berasal dari pencapaian santri pada setiap indikator SKL (Standar Kompetensi Lulusan) yang dinilai guru mapel. Poin SKL adalah fondasi utama sistem — mengukur pertumbuhan ilmu secara terstruktur sesuai kurikulum MQBS.</p>
+      <div class="ps-row"><div><div class="ps-name">Pencapaian SKL — Jayyid (minimum)</div><div class="ps-desc">Batas minimum lulus per indikator; dicatat guru mapel di SIPOND</div></div><div class="ps-right"><span class="ps-tag tag-green">SKL</span><span class="ps-pts">5 <span class="unit">p/indikator</span></span></div></div>
+      <div class="ps-row"><div><div class="ps-name">Pencapaian SKL — Jayyid Jiddan (target)</div><div class="ps-desc">Target ideal/wajib per indikator; menunjukkan penguasaan yang solid</div></div><div class="ps-right"><span class="ps-tag tag-green">SKL</span><span class="ps-pts">15 <span class="unit">p/indikator</span></span></div></div>
+      <div class="ps-row"><div><div class="ps-name">Pencapaian SKL — Mumtaz (prestasi)</div><div class="ps-desc">Pencapaian di atas target; menunjukkan keunggulan dan inisiatif lebih</div></div><div class="ps-right"><span class="ps-tag tag-green">SKL</span><span class="ps-pts">30 <span class="unit">p/indikator</span></span></div></div>
+      <div style="margin-top: 14px;">
+        <a href="https://abu-sena.github.io/litbang/SKL-MQBS-per-Jenjang.html" target="_blank" class="btn btn-primary" style="font-size: 14px; padding: 8px 16px;">
+          Lihat SKL lengkap per jenjang →
+        </a>
+      </div>
+    </div>
+
+    <div class="ga-block" id="sumber-poin-harian">
+      <h3><span class="num">②</span>Poin Keseharian Santri</h3>
+      <p class="ga-intro">Poin ini berasal dari aktivitas harian santri yang dicatat musyrif dan direkap mingguan ke SIPOND. Tidak ada poin untuk klaim diri — selalu ada bukti yang bisa diverifikasi.</p>
+      <div class="ps-row"><div><div class="ps-name">Setoran hafalan harian (ziyadah)</div><div class="ps-desc">Setiap setoran ayat baru ke musyrif halaqah</div></div><div class="ps-right"><span class="ps-tag tag-green">Harian</span><span class="ps-pts">1 <span class="unit">p/hari</span></span></div></div>
+      <div class="ps-row"><div><div class="ps-name">Murajaah terdokumentasi</div><div class="ps-desc">Tercatat di buku mutabaah & diverifikasi tiap pekan</div></div><div class="ps-right"><span class="ps-tag tag-green">Harian</span><span class="ps-pts">1 <span class="unit">p/hari</span></span></div></div>
+      <div class="ps-row"><div><div class="ps-name">Streak dzikir pagi & shalat dhuha</div><div class="ps-desc">≥6 dari 7 hari dalam pekan berjalan tanpa putus</div></div><div class="ps-right"><span class="ps-tag tag-amber">Pekan</span><span class="ps-pts">5 <span class="unit">p/pekan</span></span></div></div>
+      <div class="ps-row"><div><div class="ps-name">Adab & akhlak harian</div><div class="ps-desc">Form observasi musyrif: konsistensi adab sesuai jenjang</div></div><div class="ps-right"><span class="ps-tag tag-amber">Pekan</span><span class="ps-pts">3 <span class="unit">p/pekan</span></span></div></div>
+      <div class="ps-row"><div><div class="ps-name">Bimbingan antarteman</div><div class="ps-desc">Membantu teman yang kesulitan, diverifikasi guru/musyrif</div></div><div class="ps-right"><span class="ps-tag tag-blue">Bonus</span><span class="ps-pts">+10 <span class="unit">p/sesi</span></span></div></div>
+      <div class="ps-row"><div><div class="ps-name">Prestasi kompetisi eksternal</div><div class="ps-desc">MTQ, lomba tahfidz, lomba B.Arab, KIR nasional</div></div><div class="ps-right"><span class="ps-tag tag-blue">Bonus</span><span class="ps-pts">+20–50 <span class="unit">p</span></span></div></div>
+      <div class="ps-row"><div><div class="ps-name">Sertifikat milestone</div><div class="ps-desc">3 Juz bersanad, Khatam Arba'in, 100 Hadits, Jurumiyyah</div></div><div class="ps-right"><span class="ps-tag tag-blue">Milestone</span><span class="ps-pts">+25-50 <span class="unit">p/sertifikat</span></span></div></div>
+    </div>
+
+    <div class="ga-block" id="multiplier">
+      <h3><span class="num">②</span>Multiplier Istiqomah</h3>
+      <p class="ga-intro">Konsistensi dihargai lebih dari ledakan. SABIQ memberikan bonus otomatis untuk santri yang istiqomah. Semakin panjang konsistensi, semakin tinggi multiplier.</p>
+      <div class="streak-demo">
+        <div style="font-size: 13px; color: var(--ink); font-weight: 500; margin-bottom: 6px;">Contoh: 17 hari berturut → multiplier aktif ×1.5</div>
+        <div class="streak-grid">
+          <div class="day-box done">S</div><div class="day-box done">A</div><div class="day-box done">R</div><div class="day-box done">K</div><div class="day-box done">J</div><div class="day-box done">S</div><div class="day-box done">M</div>
+          <div class="day-box done">S</div><div class="day-box done">A</div><div class="day-box done">R</div><div class="day-box done">K</div><div class="day-box done">J</div><div class="day-box done">S</div><div class="day-box done">M</div>
+          <div class="day-box done">S</div><div class="day-box done">A</div><div class="day-box done">R</div><div class="day-box today">K</div><div class="day-box">J</div><div class="day-box">S</div><div class="day-box">M</div>
+        </div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.6;">
+          <b style="color:var(--success)">Streak 7 hari:</b> semua poin harian × 1.5 selama 7 hari tersebut<br>
+          <b style="color:var(--success)">Streak 30 hari:</b> × 2.0 untuk bulan tersebut (multiplier tertinggi)<br>
+          <b style="color:var(--success)">Zero pelanggaran tatib 1 bulan:</b> +15 poin bonus akhir bulan
+        </div>
+      </div>
+    </div>
+
+    <div class="ga-block" id="tier">
+      <h3><span class="num">④</span>Marhalah Capaian</h3>
+      <p class="ga-intro">Akumulasi poin per semester menentukan <em>marhalah</em> (tahapan capaian) santri. Bukan ranking 1-2-3 — banyak santri bisa berada di marhalah yang sama secara bersamaan. Marhalah adalah cermin rekam jejak, bukan gelar permanen. Setiap marhalah punya tanggung jawab dan pengakuan yang berbeda.</p>
+      <div class="tier-grid">
+        <div class="tier-card">
+          <div class="tier-icon">🌱</div>
+          <div class="tier-name">Thalib</div>
+          <div class="tier-arab">طالب</div>
+          <div class="tier-range">0 – 79 poin</div>
+          <ul class="tier-perks">
+            <li>Status awal semua santri</li>
+            <li>Akses laporan progres dasar</li>
+            <li>Pendampingan ekstra musyrif</li>
+          </ul>
+        </div>
+        <div class="tier-card">
+          <div class="tier-icon">📖</div>
+          <div class="tier-name">Raghib</div>
+          <div class="tier-arab">راغب</div>
+          <div class="tier-range">80 – 179 poin</div>
+          <ul class="tier-perks">
+            <li>Santri mulai istiqomah</li>
+            <li>Sertifikat tingkatan digital</li>
+            <li>Apresiasi lisan dari musyrif</li>
+          </ul>
+        </div>
+        <div class="tier-card">
+          <div class="tier-icon">⭐</div>
+          <div class="tier-name">Mujtahid</div>
+          <div class="tier-arab">مجتهد</div>
+          <div class="tier-range">180 – 319 poin</div>
+          <ul class="tier-perks">
+            <li>Santri mulai mandiri</li>
+            <li>Sertifikat tingkatan digital</li>
+            <li>Apresiasi lisan dari musyrif & asatidz</li>
+          </ul>
+        </div>
+        <div class="tier-card sabiq">
+          <div class="tier-icon">🏆</div>
+          <div class="tier-name">Sabiq</div>
+          <div class="tier-arab">سابق</div>
+          <div class="tier-range">320+ poin</div>
+          <ul class="tier-perks">
+            <li>Prioritas jadi imam shalat berjamaah</li>
+            <li>Profil di Leaderboard mading MQBS</li>
+            <li>Akses sesi kajian eksklusif</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reward-callout">
+        <div class="reward-callout-label">Catatan Penting — Framing Manhaj Salaf</div>
+        <div class="reward-callout-text">Marhalah <b>SABIQ bukan gelar permanen dan bukan ranking kompetisi juara 1-2-3</b> — ia adalah <em>rekam jejak semester</em> yang menunjukkan di mana santri berada dalam perjalanannya. Santri yang turun marhalah bukan santri yang gagal — ia santri yang sedang melewati masa sulit dan membutuhkan perhatian lebih dari musyrif. Marhalah diumumkan <b>2× setahun</b> bersamaan dengan rapor akhir semester, hanya kepada santri dan wali yang bersangkutan.</div>
+      </div>
+    </div>
+
+    <div class="ga-block" id="mekanisme">
+      <h3><span class="num">⑤</span>Mekanisme Pencatatan</h3>
+      <p class="ga-intro">Pencatatan SABIQ berlapis — dari manual oleh musyrif hingga integrasi otomatis ke SIPOND. Setiap lapisan punya redundansi: jika digital down, manual tetap berjalan.</p>
+      <div class="alur-grid">
+        <div class="alur-step">
+          <div class="alur-icon">📓</div>
+          <div class="alur-when">Harian</div>
+          <div class="alur-title">Musyrif catat di buku fisik</div>
+          <div class="alur-desc">Setiap musyrif memegang Buku Mutabaah Halaqah. Pencatatan harian: setoran, murajaah, observasi adab. Format sederhana, &lt;5 menit per halaqah.</div>
+          <div class="alur-actor"><b>Aktor:</b> Musyrif halaqah</div>
+        </div>
+        <div class="alur-step">
+          <div class="alur-icon">💻</div>
+          <div class="alur-when">Mingguan</div>
+          <div class="alur-title">Rekap ke SIPOND</div>
+          <div class="alur-desc">Setiap Senin pagi, musyrif input rekapan pekan lalu ke SIPOND (Sistem Informasi Pondok MQBS). Total: 10-15 menit per halaqah.</div>
+          <div class="alur-actor"><b>Aktor:</b> Musyrif → SIPOND</div>
+        </div>
+        <div class="alur-step">
+          <div class="alur-icon">⚙️</div>
+          <div class="alur-when">Otomatis</div>
+          <div class="alur-title">Sistem hitung poin & tier</div>
+          <div class="alur-desc">SIPOND otomatis menghitung poin, mengakumulasi streak, dan memutakhirkan tier santri. Tidak ada hitungan manual.</div>
+          <div class="alur-actor"><b>Aktor:</b> SIPOND (otomatis)</div>
+        </div>
+        <div class="alur-step">
+          <div class="alur-icon">📱</div>
+          <div class="alur-when">Real-time</div>
+          <div class="alur-title">Wali santri akses dashboard</div>
+          <div class="alur-desc">Orang tua login ke dashboard SIPOND dari rumah untuk melihat poin, tier, badge, dan progres harian anak.</div>
+          <div class="alur-actor"><b>Aktor:</b> Orang tua / Wali</div>
+        </div>
+      </div>
+
+      <div class="sipond-mockup">
+        <div class="sipond-header">
+          <div class="sipond-title">
+            <span>📊</span>
+            <span>SIPOND — Dashboard Wali Santri</span>
+          </div>
+          <div class="sipond-status">● Live · Update real-time</div>
+        </div>
+        <div style="font-size: 13px; color: var(--muted); margin-bottom: 14px; line-height: 1.6;">
+          <b style="color: var(--ink)">Ahmad Faiz · K5 SD MQ · Halaqah Al-Fath</b><br>
+          Semester Ganjil 2026/2027 · Pekan ke-12 dari 20
+        </div>
+        <div class="sipond-grid" style="margin-bottom: 18px;">
+          <div class="sipond-metric">
+            <div class="sipond-metric-label">Total Poin</div>
+            <div class="sipond-metric-val">312</div>
+            <div class="sipond-metric-sub" style="color:var(--success)">⭐ Marhalah Mujtahid</div>
+          </div>
+          <div class="sipond-metric">
+            <div class="sipond-metric-label">Streak Hafalan</div>
+            <div class="sipond-metric-val">17 hari</div>
+            <div class="sipond-metric-sub" style="color: var(--success)">Multiplier ×1.5 aktif</div>
+          </div>
+          <div class="sipond-metric">
+            <div class="sipond-metric-label">Lencana Diraih</div>
+            <div class="sipond-metric-val">4</div>
+            <div class="sipond-metric-sub">dari 12 lencana tersedia</div>
+          </div>
+          <div class="sipond-metric">
+            <div class="sipond-metric-label">Hafalan</div>
+            <div class="sipond-metric-val">2½ juz</div>
+            <div class="sipond-metric-sub">Target K6: 3 juz itqan</div>
+          </div>
+        </div>
+
+        <div style="font-size: 11px; color: var(--muted); margin-bottom: 8px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Pilar SABIQ — Komposisi Poin</div>
+        <div style="margin-bottom: 20px;">
+          <div class="sipond-bar-row"><div class="sipond-bar-label">Sinergi</div><div class="sipond-bar"><div style="width: 72%"></div></div><div class="sipond-bar-val">72p</div></div>
+          <div class="sipond-bar-row"><div class="sipond-bar-label">Akhlak</div><div class="sipond-bar"><div style="width: 58%"></div></div><div class="sipond-bar-val">58p</div></div>
+          <div class="sipond-bar-row"><div class="sipond-bar-label">Karakter</div><div class="sipond-bar"><div style="width: 65%"></div></div><div class="sipond-bar-val">65p</div></div>
+          <div class="sipond-bar-row"><div class="sipond-bar-label">Istiqomah</div><div class="sipond-bar"><div style="width: 48%"></div></div><div class="sipond-bar-val">48p</div></div>
+          <div class="sipond-bar-row"><div class="sipond-bar-label">Qurani</div><div class="sipond-bar"><div style="width: 69%"></div></div><div class="sipond-bar-val">69p</div></div>
+        </div>
+
+        <!-- BADGES -->
+        <div style="font-size: 11px; color: var(--muted); margin-bottom: 8px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Lencana — Capaian Santri</div>
+        <div style="font-size: 11px; color: var(--muted); margin-bottom: 10px; font-style: italic;">Arahkan kursor ke lencana untuk melihat kriteria. Lencana yang belum terkunci tampil redup.</div>
+        <div class="badge-grid">
+          <div class="badge-item">
+            <div class="badge-icon-wrap earned" style="background: rgba(0,90,38,0.08);">🌙
+              <div class="badge-check">✓</div>
+            </div>
+            <div class="badge-name">Istiqamah</div>
+            <div class="badge-cond">30 hari berturut tanpa putus setoran hafalan</div>
+          </div>
+          <div class="badge-item">
+            <div class="badge-icon-wrap earned" style="background: rgba(0,90,38,0.08);">📚
+              <div class="badge-check">✓</div>
+            </div>
+            <div class="badge-name">Qari' Kitab</div>
+            <div class="badge-cond">Baca 1 halaman kitab gundul mandiri tanpa bantuan</div>
+          </div>
+          <div class="badge-item">
+            <div class="badge-icon-wrap earned" style="background: rgba(0,90,38,0.08);">🤝
+              <div class="badge-check">✓</div>
+            </div>
+            <div class="badge-name">Murabby</div>
+            <div class="badge-cond">Membimbing 3 santri junior mencapai target mereka</div>
+          </div>
+          <div class="badge-item">
+            <div class="badge-icon-wrap earned" style="background: rgba(0,90,38,0.08);">🕌
+              <div class="badge-check">✓</div>
+            </div>
+            <div class="badge-name">Imam Masjid</div>
+            <div class="badge-cond">Memimpin shalat wajib berjamaah selama 14 hari</div>
+          </div>
+          <div class="badge-item locked">
+            <div class="badge-icon-wrap locked">📿</div>
+            <div class="badge-name">Khatim Arba'in</div>
+            <div class="badge-cond">Hafal & memahami 42 hadits Arba'in Nawawi</div>
+          </div>
+          <div class="badge-item locked">
+            <div class="badge-icon-wrap locked">🏅</div>
+            <div class="badge-name">Duta MQBS</div>
+            <div class="badge-cond">Juara/finalis kompetisi eksternal atas nama pesantren</div>
+          </div>
+          <div class="badge-item locked">
+            <div class="badge-icon-wrap locked">✍️</div>
+            <div class="badge-name">Qalam</div>
+            <div class="badge-cond">Karya masuk perpustakaan atau media luar</div>
+          </div>
+          <div class="badge-item locked">
+            <div class="badge-icon-wrap locked">⚡</div>
+            <div class="badge-name">Sprinter Hafal</div>
+            <div class="badge-cond">Menambah ≥1 juz baru dalam 6 pekan berturut</div>
+          </div>
+          <div class="badge-item locked">
+            <div class="badge-icon-wrap locked">🌿</div>
+            <div class="badge-name">Bibit Unggul</div>
+            <div class="badge-cond">SD: Khatam juz 30 sebelum kelas 3</div>
+          </div>
+          <div class="badge-item locked">
+            <div class="badge-icon-wrap locked" style="background:var(--paper-3)">🔒</div>
+            <div class="badge-name">Tersembunyi</div>
+            <div class="badge-cond">Badge rahasia — muncul saat dicapai</div>
+          </div>
+          <div class="badge-item locked">
+            <div class="badge-icon-wrap locked" style="background:var(--paper-3)">🔒</div>
+            <div class="badge-name">Tersembunyi</div>
+            <div class="badge-cond">Badge rahasia — muncul saat dicapai</div>
+          </div>
+        </div>
+
+        <!-- LEADERBOARD -->
+        <div class="lb-section">
+          <div style="font-size: 11px; color: var(--muted); margin-bottom: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 20px;">Papan Capaian — Pekan Ini (SD MQ)</div>
+          <div style="font-size: 11px; color: var(--muted); margin-bottom: 10px; font-style: italic;">Papan capaian menampilkan prestasi kolektif — bukan poin total individu. Santri hanya melihat nama dirinya sendiri yang disorot. Nama santri lain tampil inisial untuk menjaga privasi.</div>
+          <div class="lb-tabs">
+            <button class="lb-tab active" onclick="showLb('hafalan',this)">🌙 Hafalan Terbanyak</button>
+            <button class="lb-tab" onclick="showLb('ziyadah',this)">⚡ Ziyadah Baris</button>
+            <button class="lb-tab" onclick="showLb('itqan',this)">🔖 Itqan Terbanyak</button>
+          </div>
+
+          <div id="lb-hafalan" class="lb-content active">
+            <div class="lb-body">
+              <div class="lb-row"><span class="lb-rank gold">1</span><span class="lb-name">M. Faris<span class="lb-kelas">K6</span></span><div class="lb-bar-mini"><div style="width:100%"></div></div><span class="lb-val">5.2<span class="lb-unit">juz</span></span></div>
+              <div class="lb-row"><span class="lb-rank gold">2</span><span class="lb-name">A. Zahra<span class="lb-kelas">K6</span></span><div class="lb-bar-mini"><div style="width:90%"></div></div><span class="lb-val">4.8<span class="lb-unit">juz</span></span></div>
+              <div class="lb-row"><span class="lb-rank gold">3</span><span class="lb-name">R. Hakim<span class="lb-kelas">K5</span></span><div class="lb-bar-mini"><div style="width:82%"></div></div><span class="lb-val">4.3<span class="lb-unit">juz</span></span></div>
+              <div class="lb-row"><span class="lb-rank silver">4</span><span class="lb-name">S. Nadia<span class="lb-kelas">K5</span></span><div class="lb-bar-mini"><div style="width:75%"></div></div><span class="lb-val">3.9<span class="lb-unit">juz</span></span></div>
+              <div class="lb-row"><span class="lb-rank silver">5</span><span class="lb-name">D. Yusuf<span class="lb-kelas">K4</span></span><div class="lb-bar-mini"><div style="width:68%"></div></div><span class="lb-val">3.5<span class="lb-unit">juz</span></span></div>
+             <div class="lb-row"><span class="lb-rank silver">6</span><span class="lb-name">Umamah<span class="lb-kelas">K4</span></span><div class="lb-bar-mini"><div style="width:68%"></div></div><span class="lb-val">2.9<span class="lb-unit">juz</span></span></div>			 
+              <div class="lb-row" style="background:rgba(0,90,38,0.06);"><span class="lb-rank" style="color:var(--emerald)">7</span><span class="lb-name" style="color:var(--emerald);font-weight:700">Ahmad Faiz ← Kamu<span class="lb-kelas">K5</span></span><div class="lb-bar-mini"><div style="width:58%"></div></div><span class="lb-val" style="color:var(--emerald)">2.5<span class="lb-unit">juz</span></span></div>
+              <div class="lb-row"><span class="lb-rank">8</span><span class="lb-name">F. Aisyah<span class="lb-kelas">K5</span></span><div class="lb-bar-mini"><div style="width:50%"></div></div><span class="lb-val">2.2<span class="lb-unit">juz</span></span></div>
+              <div class="lb-row"><span class="lb-rank">9</span><span class="lb-name">H. Bilal<span class="lb-kelas">K4</span></span><div class="lb-bar-mini"><div style="width:43%"></div></div><span class="lb-val">2.0<span class="lb-unit">juz</span></span></div>
+              <div class="lb-row"><span class="lb-rank">10</span><span class="lb-name">I. Salma<span class="lb-kelas">K4</span></span><div class="lb-bar-mini"><div style="width:37%"></div></div><span class="lb-val">1.8<span class="lb-unit">juz</span></span></div>
+            </div>
+          </div>
+
+          <div id="lb-ziyadah" class="lb-content">
+            <div class="lb-body">
+              <div class="lb-row"><span class="lb-rank gold">1</span><span class="lb-name">K. Rahma<span class="lb-kelas">K3</span></span><div class="lb-bar-mini"><div style="width:100%"></div></div><span class="lb-val">47<span class="lb-unit">baris/pekan</span></span></div>
+              <div class="lb-row"><span class="lb-rank gold">2</span><span class="lb-name">L. Hasan<span class="lb-kelas">K4</span></span><div class="lb-bar-mini"><div style="width:88%"></div></div><span class="lb-val">41<span class="lb-unit">baris/pekan</span></span></div>
+              <div class="lb-row"><span class="lb-rank gold">3</span><span class="lb-name">M. Faris<span class="lb-kelas">K6</span></span><div class="lb-bar-mini"><div style="width:79%"></div></div><span class="lb-val">37<span class="lb-unit">baris/pekan</span></span></div>
+              <div class="lb-row"><span class="lb-rank silver">4</span><span class="lb-name">N. Zubair<span class="lb-kelas">K5</span></span><div class="lb-bar-mini"><div style="width:72%"></div></div><span class="lb-val">34<span class="lb-unit">baris/pekan</span></span></div>
+              <div class="lb-row"><span class="lb-rank silver">5</span><span class="lb-name">O. Fatima<span class="lb-kelas">K3</span></span><div class="lb-bar-mini"><div style="width:64%"></div></div><span class="lb-val">30<span class="lb-unit">baris/pekan</span></span></div>
+			  <div class="lb-row"><span class="lb-rank silver">6</span><span class="lb-name">Nawa Ibrahim<span class="lb-kelas">K3</span></span><div class="lb-bar-mini"><div style="width:64%"></div></div><span class="lb-val">27<span class="lb-unit">baris/pekan</span></span></div>
+			  <div class="lb-row"><span class="lb-rank silver">7</span><span class="lb-name">Maryam Madinah<span class="lb-kelas">K2</span></span><div class="lb-bar-mini"><div style="width:64%"></div></div><span class="lb-val">25<span class="lb-unit">baris/pekan</span></span></div>
+			  <div class="lb-row"><span class="lb-rank silver">8</span><span class="lb-name">Mecca Khadijah<span class="lb-kelas">K1</span></span><div class="lb-bar-mini"><div style="width:64%"></div></div><span class="lb-val">22<span class="lb-unit">baris/pekan</span></span></div>			  
+              <div class="lb-row" style="background:rgba(0,90,38,0.06);"><span class="lb-rank" style="color:var(--emerald)">9</span><span class="lb-name" style="color:var(--emerald);font-weight:700">Ahmad Faiz ← Kamu<span class="lb-kelas">K5</span></span><div class="lb-bar-mini"><div style="width:43%"></div></div><span class="lb-val" style="color:var(--emerald)">20<span class="lb-unit">baris/pekan</span></span></div>
+              <div class="lb-row"><span class="lb-rank">10</span><span class="lb-name">P. Rashid<span class="lb-kelas">K4</span></span><div class="lb-bar-mini"><div style="width:38%"></div></div><span class="lb-val">18<span class="lb-unit">baris/pekan</span></span></div>
+            </div>
+          </div>
+
+          <div id="lb-itqan" class="lb-content">
+            <div class="lb-body">
+              <div class="lb-row"><span class="lb-rank gold">1</span><span class="lb-name">M. Faris<span class="lb-kelas">K6</span></span><div class="lb-bar-mini"><div style="width:100%"></div></div><span class="lb-val">98%<span class="lb-unit">akurasi</span></span></div>
+              <div class="lb-row"><span class="lb-rank gold">2</span><span class="lb-name">A. Zahra<span class="lb-kelas">K6</span></span><div class="lb-bar-mini"><div style="width:94%"></div></div><span class="lb-val">96%<span class="lb-unit">akurasi</span></span></div>
+              <div class="lb-row"><span class="lb-rank gold">3</span><span class="lb-name">K. Rahma<span class="lb-kelas">K3</span></span><div class="lb-bar-mini"><div style="width:88%"></div></div><span class="lb-val">95%<span class="lb-unit">akurasi</span></span></div>
+              <div class="lb-row"><span class="lb-rank silver">4</span><span class="lb-name">R. Hakim<span class="lb-kelas">K5</span></span><div class="lb-bar-mini"><div style="width:85%"></div></div><span class="lb-val">94%<span class="lb-unit">akurasi</span></span></div>
+              <div class="lb-row"><span class="lb-rank silver">5</span><span class="lb-name">L. Hasan<span class="lb-kelas">K4</span></span><div class="lb-bar-mini"><div style="width:80%"></div></div><span class="lb-val">93%<span class="lb-unit">akurasi</span></span></div>
+              <div class="lb-row"><span class="lb-rank silver">6</span><span class="lb-name">Mujahid<span class="lb-kelas">K4</span></span><div class="lb-bar-mini"><div style="width:80%"></div></div><span class="lb-val">92%<span class="lb-unit">akurasi</span></span></div>			  
+              <div class="lb-row"><span class="lb-rank silver">7</span><span class="lb-name">Keysha<span class="lb-kelas">K4</span></span><div class="lb-bar-mini"><div style="width:80%"></div></div><span class="lb-val">91%<span class="lb-unit">akurasi</span></span></div>			  
+              <div class="lb-row" style="background:rgba(0,90,38,0.06);"><span class="lb-rank" style="color:var(--emerald)">8</span><span class="lb-name" style="color:var(--emerald);font-weight:700">Ahmad Faiz ← Kamu<span class="lb-kelas">K5</span></span><div class="lb-bar-mini"><div style="width:68%"></div></div><span class="lb-val" style="color:var(--emerald)">91%<span class="lb-unit">akurasi</span></span></div>
+              <div class="lb-row"><span class="lb-rank">9</span><span class="lb-name">N. Zubair<span class="lb-kelas">K5</span></span><div class="lb-bar-mini"><div style="width:62%"></div></div><span class="lb-val">90%<span class="lb-unit">akurasi</span></span></div>
+              <div class="lb-row"><span class="lb-rank">10</span><span class="lb-name">O. Fatima<span class="lb-kelas">K3</span></span><div class="lb-bar-mini"><div style="width:57%"></div></div><span class="lb-val">89%<span class="lb-unit">akurasi</span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="ga-block" id="formula-poin">
+      <h3><span class="num" style="font-size:20px">📐</span>Formula Komposisi Poin per Pilar</h3>
+      <p class="ga-intro">SIPOND menghitung komposisi poin per pilar secara otomatis menggunakan formula berikut. Setiap sumber poin dikunci ke <b>satu pilar saja</b> untuk memudahkan perhitungan dan audit. Pilar Istiqomah diisi oleh nilai multiplier streak — bukan dari aktivitas terpisah.</p>
+
+      <div style="display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:24px;">
+
+        <div style="background:rgba(0,90,38,0.06);border:1px solid rgba(0,90,38,0.2);border-radius:10px;padding:18px 20px;">
+          <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--emerald);font-weight:600;margin-bottom:8px;">Pilar Qurani</div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--ink);line-height:2;background:var(--paper-2);border-radius:6px;padding:12px 16px;">
+            <b>Poin Qurani</b> =<br>
+            &nbsp;&nbsp;Poin SKL (Tahfidz + Tahsin + Aqidah + Fiqh + Halaqoh Mutun + B.Arab + Imla')<br>
+            &nbsp;&nbsp;+ Poin ziyadah harian (2p/hari)<br>
+            &nbsp;&nbsp;+ Poin murajaah harian (1p/hari)<br>
+            &nbsp;&nbsp;+ Bonus sertifikat milestone (3 Juz, Arba'in, 100 Hadits, dst)
+          </div>
+        </div>
+
+        <div style="background:rgba(155,98,32,0.06);border:1px solid rgba(155,98,32,0.2);border-radius:10px;padding:18px 20px;">
+          <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:8px;">Pilar Sinergi</div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--ink);line-height:2;background:var(--paper-2);border-radius:6px;padding:12px 16px;">
+            <b>Poin Sinergi</b> =<br>
+            &nbsp;&nbsp;Poin SKL (Mapel)<br>
+			 &nbsp;&nbsp;+ Poin Liga Tim<br>
+			 &nbsp;&nbsp;+ Poin P5/Proyek<br>
+            &nbsp;&nbsp;+ Bonus prestasi kompetisi eksternal (MTQ, KIR, Lomba B.Arab, dll)
+          </div>
+        </div>
+
+        <div style="background:rgba(0,65,51,0.06);border:1px solid rgba(0,65,51,0.2);border-radius:10px;padding:18px 20px;">
+          <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-2);font-weight:600;margin-bottom:8px;">Pilar Akhlak</div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--ink);line-height:2;background:var(--paper-2);border-radius:6px;padding:12px 16px;">
+            <b>Poin Akhlak</b> =<br>
+            &nbsp;&nbsp;Poin SKL (Akhlaq & Adab)<br>
+            &nbsp;&nbsp;+ Poin adab harian dari observasi musyrif (3p/pekan)<br>
+            &nbsp;&nbsp;+ Bonus bimbingan antarteman (10p/sesi, diverifikasi guru)
+          </div>
+        </div>
+
+        <div style="background:rgba(14,55,62,0.05);border:1px solid rgba(14,55,62,0.15);border-radius:10px;padding:18px 20px;">
+          <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:8px;">Pilar Berkarakter (Kedisiplinan)</div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--ink);line-height:2;background:var(--paper-2);border-radius:6px;padding:12px 16px;">
+            <b>Poin Berkarakter</b> =<br>
+            &nbsp;&nbsp;Poin SKL (Fiqh & Ibadah Praktik — aspek disiplin)<br>
+            &nbsp;&nbsp;+ Bonus disiplin tatib dalam 1 bulan (+15p/bulan)<br>
+			&nbsp;&nbsp;- Poin pelanggaran tatib dalam 1 bulan (-5p/bulan)<br>
+            &nbsp;&nbsp;+ Poin tanggung jawab amanah (diverifikasi musyrif, situasional)
+          </div>
+        </div>
+
+        <div style="background:rgba(227,177,31,0.08);border:1px solid rgba(227,177,31,0.3);border-radius:10px;padding:18px 20px;">
+          <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-2);font-weight:600;margin-bottom:8px;">Pilar Istiqomah ← mengisi dari Multiplier Streak</div>
+          <div style="font-family:var(--mono);font-size:12px;color:var(--ink);line-height:2;background:var(--paper-2);border-radius:6px;padding:12px 16px;">
+            <b>Poin Istiqomah</b> =<br>
+            &nbsp;&nbsp;Selisih poin terboost dari multiplier streak<br>
+            &nbsp;&nbsp;= (Poin harian × multiplier) − Poin harian dasar<br><br>
+            Contoh: streak 17 hari aktif (×1.5)<br>
+			 &nbsp;&nbsp;Poin streak dzikir & dhuha (5p/pekan)<br>
+            &nbsp;&nbsp;Poin harian dasar = 3p/hari<br>
+            &nbsp;&nbsp;Poin terboost = 4.5p/hari<br>
+            &nbsp;&nbsp;<b>Poin Istiqomah = 1.5p/hari selama streak aktif</b>
+          </div>
+          <div style="font-size:11px;color:var(--muted);margin-top:8px;font-style:italic;">
+            ✦ Istiqomah tidak punya sumber poin sendiri — ia adalah bonus dari konsistensi. Semakin panjang streak, semakin besar kontribusi ke pilar Istiqomah. Ini mencerminkan makna istiqomah yang sesungguhnya.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="reward-callout">
+        <div class="reward-callout-label">Total Poin SABIQ</div>
+        <div class="reward-callout-text" style="font-family:var(--mono);font-size:13px;">
+          <b>Total Poin = Poin Qurani + Poin Sinergi + Poin Akhlak + Poin Berkarakter + Poin Istiqomah</b><br><br>
+          <span style="font-family:var(--body);font-size:13px;">Semua perhitungan dilakukan otomatis oleh SIPOND setelah musyrif mengisi data harian. Wali santri dapat melihat breakdown per pilar di dashboard kapan saja.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ga-block" id="kompetisi">
+      <h3><span class="num">⑥</span>SABIQ Competition</h3>
+      <p class="ga-intro">Di luar marhalah umum, SABIQ Competition adalah ajang penganugerahan khusus untuk santri yang menonjol di salah satu pilar SABIQ. Diadakan <b>2× per tahun</b> bersamaan dengan akhir semester. Setiap pilar punya juara per jenjang — <b>15 juara pilar per semester</b> (SD, SMP, SMA) + <b>3 juara umum tahunan</b>. <em style="font-size:12px;color:var(--muted)">Catatan: Santri I'dad tidak masuk kompetisi reward — masa I'dad adalah masa persiapan dan normalisasi, bukan kompetisi. Mereka tetap tercatat dalam sistem mutabaah SIPOND.</em></p>
+
+      <div class="comp-categories">
+        <div class="comp-cat">
+          <div class="comp-cat-pillar">Pilar — S</div>
+          <div class="comp-cat-title">Sabiq Sinergi</div>
+          <p class="comp-cat-desc">Santri paling seimbang dalam kecerdasan akal, fisik, dan hati. Diukur dari distribusi poin yang merata di seluruh ranah.</p>
+          <div class="comp-cat-winners">Juara per jenjang: <b>SD · SMP · SMA</b></div>
+        </div>
+        <div class="comp-cat">
+          <div class="comp-cat-pillar">Pilar — A</div>
+          <div class="comp-cat-title">Sabiq Akhlak</div>
+          <p class="comp-cat-desc">Santri dengan rekam jejak adab terbaik. Kombinasi observasi musyrif + polling anonim antar santri.</p>
+          <div class="comp-cat-winners">Juara per jenjang: <b>SD · SMP · SMA</b></div>
+        </div>
+        <div class="comp-cat">
+          <div class="comp-cat-pillar">Pilar — B</div>
+          <div class="comp-cat-title">Sabiq Berkarakter</div>
+          <p class="comp-cat-desc">Santri dengan integritas & disiplin paling konsisten. Zero pelanggaran tatib + bertanggung jawab di tugas amanah.</p>
+          <div class="comp-cat-winners">Juara per jenjang: <b>SD · SMP · SMA</b></div>
+        </div>
+        <div class="comp-cat">
+          <div class="comp-cat-pillar">Pilar — I</div>
+          <div class="comp-cat-title">Sabiq Istiqomah</div>
+          <p class="comp-cat-desc">Santri dengan streak terpanjang dan konsistensi tertinggi. Bukan yang paling pintar — yang paling konsisten.</p>
+          <div class="comp-cat-winners">Juara per jenjang: <b>SD · SMP · SMA</b></div>
+        </div>
+        <div class="comp-cat">
+          <div class="comp-cat-pillar">Pilar — Q</div>
+          <div class="comp-cat-title">Sabiq Qurani</div>
+          <p class="comp-cat-desc">Santri dengan hafalan & tahsin terbaik di jenjangnya. Diuji penguji bersanad sebelum penganugerahan.</p>
+          <div class="comp-cat-winners">Juara per jenjang: <b>SD · SMP · SMA</b></div>
+        </div>
+        <div class="comp-cat" style="background: linear-gradient(135deg,#FAF7EF 0%,#F4ECD7 100%);border-color:var(--gold-3);">
+          <div class="comp-cat-pillar" style="color: var(--gold-2);">Penghargaan Tertinggi</div>
+          <div class="comp-cat-title">Sabiq Sejati</div>
+          <p class="comp-cat-desc">Santri terbaik secara keseluruhan di jenjangnya. Diumumkan di <b>Apresiasi Tahunan akhir Juni</b> — bukan tiap semester. Hanya 1 nama per jenjang, tanpa ranking 1-2-3.</p>
+          <div class="comp-cat-winners">Hanya <b>1 per jenjang (SD · SMP · SMA)</b> per tahun · Mushaf premium + Uang Apresiasi</div>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div class="ga-block" id="reward">
+      <h3><span class="num">⑦</span>Reward & Apresiasi</h3>
+      <p class="ga-intro">Reward SABIQ terbagi dua jalur: <b>tanggungan MQBS</b> dan <b>himbauan untuk orang tua</b>. Filosofinya: MQBS memberi <b>pengakuan</b>, orang tua memberi <b>apresiasi</b>.</p>
+
+      <div class="reward-tab-bar">
+        <button class="reward-tab active" onclick="showRewardTab('mqbs',this)">Reward MQBS</button>
+        <button class="reward-tab" onclick="showRewardTab('ortu',this)">Himbauan Orang Tua</button>
+      </div>
+
+      <div id="rt-mqbs" class="reward-content active">
+        <div style="font-size: 13px; color: var(--ink-3); margin-bottom: 18px; line-height: 1.65;">
+          Reward MQBS diberikan khusus kepada <b style="color:var(--ink)">pemenang SABIQ Competition</b> — bukan kepada semua santri berdasarkan marhalah. Ini menjaga reward tetap bermakna dan tidak inflasif. Semua santri tetap mendapat <em>sertifikat partisipasi</em> di setiap akhir semester sebagai rekam jejak.
+        </div>
+        <div class="reward-card">
+          <div class="reward-tier-name"><span class="ico">🥇</span>Juara Pilar per Semester</div>
+          <ul class="reward-list">
+            <li>Sertifikat juara pilar bertandatangan Mudir — resmi dan bernilai</li>
+            <li>Lencana SIPOND juara pilar (Sabiq Sinergi / Akhlak / Berkarakter / Istiqomah / Qurani)</li>
+            <li>Uang pembinaan (nominal ditetapkan yayasan)</li>
+            <li>Dipublikasikan di papan prestasi MQBS dan informasi ke orang tua</li>
+          </ul>
+        </div>
+        <div class="reward-card">
+          <div class="reward-tier-name"><span class="ico">🏆</span>Juara Umum Tahunan — Sabiq Sejati</div>
+          <ul class="reward-list">
+            <li>Sertifikat Sabiq Sejati bertandatangan Mudir + Ketua Yayasan</li>
+            <li>Plakat untuk dipajang di rumah — kenangan</li>
+            <li>Mushaf Al-Qur'an premium sebagai hadiah utama</li>
+            <li>Uang pembinaan (nominal ditetapkan yayasan)</li>
+            <li>Profil di Wall of Honor MQBS + dokumentasi momen penganugerahan</li>
+          </ul>
+        </div>
+        <div class="reward-card">
+          <div class="reward-tier-name"><span class="ico">📜</span>Semua Santri — Sertifikat Partisipasi</div>
+          <ul class="reward-list">
+            <li>Lencana SIPOND marhalah capaian semester (Thalib / Raghib / Mujtahid / Sabiq)</li>
+            <li>Rekam jejak resmi yang tersimpan di SIPOND dan dibawa tiap jenjang</li>
+            <li>Santri Thalib mendapat sesi konseling musyrif — tidak ada stigma</li>
+          </ul>
+        </div>
+		
+		<div class="reward-callout" style="margin-top: 28px;">
+        <div class="reward-callout-label">Reward Juara SABIQ Competition</div>
+        <div class="reward-callout-text">
+          <b>Juara Pilar (per semester):</b> Plakat khusus + Sertifikat juara + Uang pembinaan (ditetapkan yayasan) — 15 juara × 2 semester = 30 penganugerahan/tahun (SD · SMP · SMA)<br>
+          <b>Juara Umum Tahunan "Sabiq Sejati":</b> Mushaf Al-Qur'an premium + Plakat besar + Uang pembinaan (ditetapkan yayasan) — 3 Sabiq Sejati — 1 per jenjang (SD · SMP · SMA)<br>
+          Total budget kompetisi yang direvisi: ~Rp 3,4 juta/tahun
+        </div>
+      </div>
+      </div>
+
+      <div id="rt-ortu" class="reward-content">
+        <div class="reward-callout">
+          <div class="reward-callout-label">Landasan Syar'i Pemberian Hadiah</div>
+          <div class="reward-callout-text">
+            <b>① Hadits: Tahaadu Tahahabbu</b> — "Saling memberi hadiahlah, niscaya kalian akan saling mencintai." <em>(HR. Al-Bukhari dalam Al-Adab Al-Mufrad, dihasankan Al-Albani)</em>. Hadiah dari orang tua kepada anak atas pencapaian ibadah adalah ungkapan kasih sayang, bukan suap.<br><br>
+            <b>② Apresiasi Nabi ﷺ kepada Sahabat</b> — Nabi ﷺ memberikan apresiasi nyata (material dan verbal) kepada sahabat atas amal baik mereka: memberikan bagian ghanimah lebih, pakaian, doa khusus, dan sanjungan di hadapan yang lain. Ini dalil bahwa apresiasi atas amal shalih adalah sunnah.<br><br>
+            <b>③ Kewajiban Tarbiyah Keluarga</b> — <em>"Quu anfusakum wa ahlikum naaran"</em> (QS. At-Tahrim: 6). Orang tua wajib aktif dalam tarbiyah anak. Memberi hadiah atas capaian ibadah adalah bentuk tarbiyah yang mengikat anak dengan kebaikan.<br><br>
+            <b>Catatan:</b> Niat orang tua yang benar adalah <em>ungkapan syukur dan kebahagiaan</em> atas pertumbuhan anak — bukan <em>suap agar anak mau ibadah</em>. Bedakan keduanya dalam komunikasi dengan anak.
+          </div>
+        </div>
+        <div style="font-size: 13px; color: var(--ink-3); margin-bottom: 20px; line-height: 1.65;">
+          Berikut <b style="color:var(--ink)">contoh reward yang dihimbau</b> untuk orang tua berikan dari rumah. Bentuknya bebas — yang penting tulus:
+        </div>
+        <div class="reward-card">
+          <div class="reward-tier-name"><span class="ico">🏆</span>Anak meraih Sabiq</div>
+          <ul class="reward-list">
+            <li>Buku atau mushaf yang anak inginkan</li>
+            <li>Liburan bersama keluarga ke tempat yang anak suka</li>
+            <li>Uang pembinaan sesuai kemampuan keluarga</li>
+            <li>Pelatihan atau kursus yang anak minati</li>
+            <li>Doa khusus dari orang tua di hadapan anak</li>
+          </ul>
+        </div>
+        <div class="reward-card">
+          <div class="reward-tier-name"><span class="ico">⭐</span>Anak meraih Mujtahid</div>
+          <ul class="reward-list">
+            <li>Buku Islam atau buku favorit anak</li>
+            <li>Hadiah kecil bermakna (alat tulis premium, mainan edukatif)</li>
+			<li>Makan bersama keluarga di tempat favorit anak</li>
+            <li>Aktivitas bersama keluarga di akhir pekan</li>
+          </ul>
+        </div>
+        <div class="reward-card">
+          <div class="reward-tier-name"><span class="ico">📖</span>Anak meraih Raghib</div>
+          <ul class="reward-list">
+            <li>Apresiasi verbal tulus dari kedua orang tua</li>
+            <li>Buku atau mainan edukatif kecil</li>
+            <li>Aktivitas bersama keluarga</li>
+            <li>Cerita kebanggaan ke saudara/kakek-nenek</li>
+          </ul>
+        </div>
+        <div class="reward-card" style="background: #FEF3DC; border-color: #E8D098;">
+          <div class="reward-tier-name"><span class="ico">🌱</span>Anak masih Thalib</div>
+          <ul class="reward-list">
+            <li><b style="color:var(--ink)">DUKUNGAN dan pelukan</b> — bukan kekecewaan</li>
+            <li>Bicara empat mata: "Apa yang bisa Ayah/Ibu bantu?"</li>
+            <li><b style="color:var(--ink)">TIDAK ada hukuman</b> atau perbandingan dengan saudara/teman</li>
+            <li>Diskusi bersama musyrif tentang rencana perbaikan</li>
+          </ul>
+        </div>
+        <div class="reward-callout" style="background: #E6F4EC; border-color: #1E6E3C;">
+          <div class="reward-callout-label" style="color: #1E6E3C;">Pesan untuk Orang Tua</div>
+          <div class="reward-callout-text">Anak yang masih Thalib bukan anak yang gagal — ia adalah anak yang sedang berjuang. <b>Cara kita memperlakukan dia di titik ini sangat menentukan apakah ia akan bangkit atau menyerah.</b> Reward terbesar yang bisa orang tua berikan kepada anak Thalib adalah: keyakinan bahwa keluarga tetap di belakangnya.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ga-block" id="kalender">
+      <h3><span class="num">⑧</span>Kalender SABIQ 2026/2027</h3>
+      <p class="ga-intro">SABIQ berjalan mengikuti ritme tahun ajaran MQBS. Berikut kalender utama untuk tahun ajaran baru — yayasan, mudir, dan guru perlu menjadikan ini referensi untuk perencanaan agenda lainnya. Implementasi direncakan di Semester 2.</p>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot major"></div>
+          <div class="timeline-date">Desember 2026 — Pekan 3</div>
+          <div class="timeline-title">Sosialisasi & Workshop SABIQ</div>
+          <div class="timeline-desc">Pengenalan SABIQ ke seluruh santri, guru, musyrif, dan orang tua. Workshop teknis SIPOND untuk musyrif. Pembagian Buku Mutabaah fisik. Penandatanganan komitmen orang tua.</div>
+          <span class="timeline-tag">Persiapan</span>
+        </div>
+        <div class="timeline-item right reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Desember 2026 - Juni 2027</div>
+          <div class="timeline-title">Periode Penilaian Semester 2</div>
+          <div class="timeline-desc">Pencatatan harian oleh musyrif di buku fisik. Rekap mingguan ke SIPOND setiap Senin. Laporan bulanan ke WA grup orang tua. Konseling tengah semester untuk santri yang membutuhkan.</div>
+          <span class="timeline-tag">Operasional</span>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Mei 2027</div>
+          <div class="timeline-title">Verifikasi & Validasi Data</div>
+          <div class="timeline-desc">Pengecekan akhir tim akademik untuk memastikan data SIPOND akurat. Klarifikasi kasus yang dibekukan musyrif. Penetapan kandidat juara pilar.</div>
+          <span class="timeline-tag">Verifikasi</span>
+        </div>
+        <div class="timeline-item right reveal">
+          <div class="timeline-dot major"></div>
+          <div class="timeline-date">Juni 2026 — Pekan 3</div>
+          <div class="timeline-title">⭐ SABIQ Competition #1</div>
+          <div class="timeline-desc">Pengumuman marhalah per santri (Thalib / Raghib / Mujtahid / Sabiq). Penganugerahan 15 juara pilar (SD · SMP · SMA). Penyerahan sertifikat resmi MQBS bertandatangan Mudir. Acara dihadiri orang tua. Diadakan bersamaan dengan penyerahan rapor.</div>
+          <span class="timeline-tag event">Penganugerahan</span>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Juli 2027 — Pekan 1</div>
+          <div class="timeline-title">Refleksi & Target Baru</div>
+          <div class="timeline-desc">Sesi refleksi musyrif-santri: apa yang berhasil di S2, apa yang perlu diperbaiki. Penetapan target semester 1 tahun ajaran baru bersama orang tua. Konseling khusus untuk santri Thalib.</div>
+          <span class="timeline-tag">Refleksi</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ga-block" id="budget">
+      <h3><span class="num">⑨</span>Anggaran Tahunan</h3>
+      <p class="ga-intro">Berikut rincian anggaran SABIQ untuk tahun ajaran 2026/2027 — estimasi 330 santri (180 SD, 90 SMP, 60 SMA). Anggaran ini <b>masuk kategori hemat</b> dan dapat diserap dari anggaran kesiswaan MQBS yang sudah ada.</p>
+
+      <div class="budget-summary">
+        <div class="budget-header">
+          <div class="budget-header-title">Rincian Anggaran SABIQ — Tahunan</div>
+          <div class="budget-header-meta">TA 2026/2027</div>
+        </div>
+        <div class="budget-row subhead">
+          <div>Komponen</div>
+          <div style="text-align:right;">Qty</div>
+          <div style="text-align:right;">Satuan</div>
+          <div style="text-align:right;">Total</div>
+        </div>
+        <div class="budget-row subhead" style="background: var(--paper-3);">
+          <div style="grid-column: 1 / -1;">A. Sertifikat SABIQ Competition (juara pilar & juara umum)</div>
+        </div>
+        <div class="budget-row">
+          <div class="budget-item-name">Sertifikat juara pilar S1 (15 juara × 3 jenjang)</div>
+          <div class="budget-qty">15</div>
+          <div class="budget-unit">Rp 8.000</div>
+          <div class="budget-total">Rp 120.000</div>
+        </div>
+        <div class="budget-row">
+          <div class="budget-item-name">Sertifikat juara pilar S2 (15 juara × 3 jenjang)</div>
+          <div class="budget-qty">15</div>
+          <div class="budget-unit">Rp 8.000</div>
+          <div class="budget-total">Rp 120.000</div>
+        </div>
+        <div class="budget-row">
+          <div class="budget-item-name">Sertifikat juara umum "Sabiq Sejati" (3 jenjang)</div>
+          <div class="budget-qty">3</div>
+          <div class="budget-unit">Rp 15.000</div>
+          <div class="budget-total">Rp 45.000</div>
+        </div>
+        <div class="budget-row subhead" style="background: var(--paper-3);">
+          <div style="grid-column: 1 / -1;">B. SABIQ Competition (2× setahun, juara pilar)</div>
+        </div>
+        <div class="budget-row">
+          <div class="budget-item-name">Reward juara pilar S1 (5 pilar × 3 jenjang)</div>
+          <div class="budget-qty">15</div>
+          <div class="budget-unit">Rp 125.000</div>
+          <div class="budget-total">Rp 2.500.000</div>
+        </div>
+        <div class="budget-row">
+          <div class="budget-item-name">Reward juara pilar S2 (5 pilar × 3 jenjang)</div>
+          <div class="budget-qty">15</div>
+          <div class="budget-unit">Rp 125.000</div>
+          <div class="budget-total">Rp 2.500.000</div>
+        </div>
+        <div class="budget-row subhead" style="background: var(--paper-3);">
+          <div style="grid-column: 1 / -1;">C. Apresiasi Tahunan (Sabiq Sejati)</div>
+        </div>
+        <div class="budget-row">
+          <div class="budget-item-name">Reward juara umum "Sabiq Sejati" (SD · SMP · SMA)</div>
+          <div class="budget-qty">3</div>
+          <div class="budget-unit">Rp 300.000</div>
+          <div class="budget-total">Rp 900.000</div>
+        </div>
+        <div class="budget-row subhead" style="background: var(--paper-3);">
+          <div style="grid-column: 1 / -1;">D. Operasional Acara</div>
+        </div>
+        <div class="budget-row">
+          <div class="budget-item-name">SABIQ Competition #1 (banner, snack, dokumentasi)</div>
+          <div class="budget-qty">1</div>
+          <div class="budget-unit">Rp 500.000</div>
+          <div class="budget-total">Rp 500.000</div>
+        </div>
+        <div class="budget-row">
+          <div class="budget-item-name">SABIQ Competition #2 + Apresiasi Tahunan</div>
+          <div class="budget-qty">1</div>
+          <div class="budget-unit">Rp 1.000.000</div>
+          <div class="budget-total">Rp 1.000.000</div>
+        </div>
+        <div class="budget-row">
+          <div class="budget-item-name">Buku Mutabaah (cetak awal tahun untuk semua santri & musyrif)</div>
+          <div class="budget-qty">1 paket</div>
+          <div class="budget-unit">—</div>
+          <div class="budget-total">Rp 1.500.000</div>
+        </div>
+        <div class="budget-row total">
+          <div>TOTAL TAHUNAN</div>
+          <div style="text-align:right;"></div>
+          <div style="text-align:right;"></div>
+          <div class="budget-total">Rp 7.935.000</div>
+        </div>
+      </div>
+
+      <div class="budget-meta">
+        <div class="budget-meta-card">
+          <div class="budget-meta-label">Total Anggaran</div>
+          <div class="budget-meta-val">7,9 jt</div>
+          <div class="budget-meta-sub">Range hemat (5-15jt) ✓</div>
+        </div>
+        <div class="budget-meta-card">
+          <div class="budget-meta-label">Per Santri</div>
+          <div class="budget-meta-val">Rp 22rb</div>
+          <div class="budget-meta-sub">Rata-rata/tahun</div>
+        </div>
+        <div class="budget-meta-card">
+          <div class="budget-meta-label">Per Semester</div>
+          <div class="budget-meta-val">4,0 jt</div>
+          <div class="budget-meta-sub">+ apresiasi tahunan di S2</div>
+        </div>
+        <div class="budget-meta-card">
+          <div class="budget-meta-label">Penerima Reward</div>
+          <div class="budget-meta-val">100%</div>
+          <div class="budget-meta-sub">Setiap santri dapat sertifikat</div>
+        </div>
+      </div>
+
+      <div class="reward-callout">
+        <div class="reward-callout-label">Catatan untuk Yayasan</div>
+        <div class="reward-callout-text">Anggaran ini <b>belum termasuk reward untuk guru</b> yang capaian nilai SKL mapel santrinya tinggi secara konsisten. Reward guru direkomendasikan sebagai bentuk apresiasi atas dedikasi mengajar — nilainya dapat ditetapkan oleh yayasan berdasarkan kemampuan lembaga, misalnya dalam bentuk insentif bulanan atau tunjangan prestasi akhir semester.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="prinsip" style="background: var(--paper-2); border-top: 1px solid var(--line-soft);">
+  <div class="wrap">
+    <div class="section-eyebrow">Prinsip Non-Negotiable</div>
+    <h2 class="section-title">Lima hal yang <span class="em">tidak pernah dikompromikan.</span></h2>
+    <p class="section-intro">Sebuah sistem apresiasi yang baik harus tahu apa yang boleh berubah dan apa yang tidak. Berikut prinsip-prinsip yang tidak akan kami langgar — apa pun tekanannya.</p>
+
+    <div class="principles">
+      <div class="principle reveal">
+        <div class="principle-num">01</div>
+        <div>
+          <div class="principle-title">Amal mendahului apresiasi — selalu.</div>
+          <p class="principle-text">Santri beramal karena Allah, bukan karena poin. Jika santri berkata "saya hafal supaya dapat lencana", itu sinyal sistem perlu dikalibrasi. <b>Apresiasi adalah cermin amal, bukan tujuan amal.</b></p>
+        </div>
+      </div>
+      <div class="principle reveal">
+        <div class="principle-num">02</div>
+        <div>
+          <div class="principle-title">Kompetisi mengangkat, bukan menjatuhkan.</div>
+          <p class="principle-text">Tidak ada satu santri pun yang harus kalah agar yang lain bisa menang. Semua tingkat apresiasi dapat dicapai bersamaan. <b>SABIQ Competition memilih juara pilar — bukan menyingkirkan yang lain.</b></p>
+        </div>
+      </div>
+      <div class="principle reveal">
+        <div class="principle-num">03</div>
+        <div>
+          <div class="principle-title">Konsistensi lebih berharga dari ledakan.</div>
+          <p class="principle-text">Tiga puluh hari murajaah stabil lebih bernilai dari satu kali setoran besar diikuti diam seminggu. <b>SABIQ mengapresiasi istiqomah — karena itulah yang Allah lebih cintai dalam amal seorang hamba.</b></p>
+        </div>
+      </div>
+      <div class="principle reveal">
+        <div class="principle-num">04</div>
+        <div>
+          <div class="principle-title">Musyrif adalah hakim, sistem hanya alat bantu.</div>
+          <p class="principle-text">Tidak ada angka, poin, atau dashboard yang bisa menggantikan penilaian musyrif yang mengenal santri sehari-hari. <b>SIPOND melayani musyrif, bukan menggantikannya.</b> Jika sistem digital down, pencatatan tetap berjalan di buku fisik.</p>
+        </div>
+      </div>
+      <div class="principle reveal">
+        <div class="principle-num">05</div>
+        <div>
+          <div class="principle-title">Keadilan terhadap perbedaan latar.</div>
+          <p class="principle-text">Santri yang orang tuanya kurang bisa mendampingi tetap bisa mencapai target. <b>Tingkat dasar selalu dapat dicapai dari kegiatan sekolah saja</b> — keterlibatan orang tua mempercepat, bukan menjadi syarat. Tidak ada anak yang tertinggal karena situasi keluarganya.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
+    <div class="section-eyebrow">Pertanyaan Pengelola</div>
+    <h2 class="section-title">Hal yang sering ditanyakan <span class="em">yayasan, mudir, & musyrif.</span></h2>
+
+    <div class="faq-list">
+      <details>
+        <summary>Apakah SABIQ menggantikan sistem penilaian akademik MQBS?</summary>
+        <div class="faq-body">Tidak. SABIQ <b>menambahkan dimensi apresiasi</b> pada perjalanan santri — di luar nilai akademik biasa. Rapor akademik tetap berjalan seperti biasa. SABIQ adalah lapisan tambahan yang mengapresiasi <b>proses, konsistensi, dan akhlak</b> yang tidak terekam di rapor.</div>
+      </details>
+
+      <details>
+        <summary>Bagaimana memastikan musyrif tidak terbebani dengan pencatatan tambahan?</summary>
+        <div class="faq-body">Pencatatan harian musyrif dirancang <b>&lt;5 menit per halaqah</b> — hanya checklist sederhana di Buku Mutabaah fisik. Rekap mingguan ke SIPOND dijadwalkan setiap Senin pagi (10-15 menit). Total beban tambahan: ~1 jam per pekan per halaqah. Workshop dilakukan di awal tahun agar musyrif terbiasa.</div>
+      </details>
+
+      <details>
+        <summary>Bagaimana jika SIPOND down atau bermasalah?</summary>
+        <div class="faq-body">SABIQ <b>selalu bisa berjalan secara manual</b>. Buku Mutabaah berbentuk kertas, observasi musyrif tertulis di buku, sertifikat dicetak fisik. SIPOND adalah alat bantu untuk mempercepat dan memudahkan, tapi <b>bukan ketergantungan kritis</b>. Jika internet putus sebulan, SABIQ tetap berjalan.</div>
+      </details>
+
+      <details>
+        <summary>Apakah orang tua wajib memberi reward dari rumah?</summary>
+        <div class="faq-body"><b>Tidak diwajibkan.</b> Reward dari rumah adalah <b>tradisi keluarga yang dihimbau</b> — bukan kewajiban. MQBS sudah memberikan pengakuan resmi via sertifikat dan tier. Orang tua dapat memberi apresiasi tambahan sesuai kemampuan keluarga. Yang penting adalah <b>komunikasi orang tua-anak</b> setiap akhir semester, bukan nilai materialnya.</div>
+      </details>
+
+      <details>
+        <summary>Bagaimana jika anggaran 12,8 juta terlalu besar untuk MQBS saat ini?</summary>
+        <div class="faq-body">Anggaran dapat dipangkas dengan beberapa cara: (1) Tahun pertama bisa <b>hanya 1× SABIQ Competition</b> di akhir tahun (hemat ~3 juta). (2) Hadiah Sabiq bisa diturunkan dari Rp 150rb ke Rp 100rb. (3) Sertifikat bisa cetak hitam-putih untuk Mujahid, hanya warna untuk Mujtahid & Sabiq. <b>Minimum viable budget: ~Rp 7 juta/tahun.</b> Yang penting adalah <b>sertifikat dan pengakuan resmi</b> — bukan nilai materialnya.</div>
+      </details>
+
+      <details>
+        <summary>Bagaimana mengukur akhlak yang sifatnya subjektif?</summary>
+        <div class="faq-body">Akhlak diukur lewat <b>form observasi musyrif harian</b> — bukan ujian tertulis. Musyrif menggunakan checklist 5-8 indikator adab per jenjang. Untuk meminimalkan subjektivitas tunggal, di akhir semester ada <b>polling anonim antar santri</b> ("santri yang akhlaknya paling kalian segani") untuk validasi silang. Akhlak yang baik adalah yang diakui banyak orang, bukan klaim diri.</div>
+      </details>
+
+      <details>
+        <summary>Apa yang terjadi jika sebagian besar santri masih Thalib di semester pertama?</summary>
+        <div class="faq-body">Itu adalah hasil yang <b>normal dan diharapkan</b> di semester pertama. SABIQ adalah perjalanan baru — banyak yang masih membangun ritme. Yang penting bukan distribusi tingkatan di S1, tapi <b>pergerakan tingkatan dari S1 ke S2</b>. Jika di S2 sudah ada perpindahan signifikan dari Thalib ke Raghib, sistem berhasil. Target realistis tahun pertama: <b>distribusi 30% Thalib, 35% Raghib, 25% Mujtahid, 10% Sabiq</b>.</div>
+      </details>
+
+      <details>
+        <summary>Apakah ada risiko santri menjadi orientasi pada poin, bukan ibadah?</summary>
+        <div class="faq-body">Risiko ini <b>nyata dan harus diantisipasi</b>. Tiga pertahanan utama: (1) <b>Sosialisasi tegas</b> di awal tahun bahwa poin hanyalah cermin amal — sampaikan dalam khutbah pertama tahun ajaran. (2) <b>Tidak ada peringkat publik</b> antar santri — santri hanya melihat skor diri sendiri dan halaqah. (3) <b>Musyrif memantau bahasa santri</b> — jika ada santri yang mulai bilang "kejar poin", musyrif beri nasihat empat mata. Sistem ini <b>terus dikalibrasi</b> berdasarkan observasi.</div>
+      </details>
+
+      <details>
+        <summary>Bagaimana onboarding santri & orang tua baru di pertengahan tahun ajaran?</summary>
+        <div class="faq-body">Santri baru di pertengahan tahun masuk dengan <b>tingkatan Thalib</b> dan periode penilaian disesuaikan (poin yang sudah tertinggal tidak dihitung). Orang tua mendapat sesi onboarding via WA atau pertemuan singkat tentang dashboard SIPOND dan Buku Mutabaah Orang Tua. Untuk SABIQ Competition di akhir semester, santri baru bisa ikut kategori yang sesuai dengan periode kehadirannya — atau dapat sertifikat partisipasi tanpa kompetisi.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">SABIQ Project</div>
+        <p class="footer-tag">Sistem Apresiasi & Bina Prestasi Santri MQBS — diluncurkan tahun ajaran 2026/2027 sebagai bagian dari kerangka pendidikan Madinatul Qur'an Boarding School.</p>
+        <div class="footer-arabic" style="margin-top: 14px;">وَالسَّابِقُونَ السَّابِقُونَ</div>
+      </div>
+      <div class="footer-col">
+        <h4>Bagian Dokumen</h4>
+        <a href="#mengapa">Mengapa SABIQ</a>
+        <a href="#pilar">5 Pilar SABIQ</a>
+        <a href="#sistem">Sistem Gamifikasi</a>
+        <a href="#tier">Tier & Gelar</a>
+        <a href="#mekanisme">Mekanisme Pencatatan</a>
+        <a href="#reward">Reward & Apresiasi</a>
+      </div>
+      <div class="footer-col">
+        <h4>Pengelolaan</h4>
+        <a href="#kompetisi">SABIQ Competition</a>
+        <a href="#kalender">Kalender 2026/2027</a>
+        <a href="#budget">Anggaran Tahunan</a>
+        <a href="#prinsip">Prinsip Non-Negotiable</a>
+        <a href="https://abu-sena.github.io/litbang/SKL-MQBS.html">SKL & Kurikulum MQBS</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Madinatul Qur'an Boarding School · SABIQ Project v1.0</div>
+      <div>Qur'ani · Berkarakter · Visioner</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showRewardTab(id, btn) {
+  document.querySelectorAll('.reward-content').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.reward-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('rt-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function showLb(id, btn) {
+  document.querySelectorAll('.lb-content').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.lb-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('lb-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
