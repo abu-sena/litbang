@@ -96,7 +96,70 @@
         }
 
         .glow-mumtaz { box-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
+    
+    
+:root {
+  --ink: #0e373e;
+  --ink-2: #004133;
+  --paper: #e8e9ea;
+  --paper-2: #ffffff;
+  --paper-3: #eac06f;
+  --rule: #959699;
+  --rule-soft: rgba(14,55,62,0.12);
+  --gold: #e3b11f;
+  --gold-2: #ffcc00;
+  --teal: #005a26;
+  --teal-2: #004133;
+  --moss: #005a26;
+  --brick: #9b6220;
+  --brick-2: #eac06f;
+  --amber: #e3b11f;
+  --cream: #ffffff;
+  --serif: 'Signika', sans-serif;
+  --sans: 'Plus Jakarta Sans', -apple-system, system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+/* ============ PERSONA WIDGET ============ */
+.persona-wrap { margin-top: 48px; background: var(--cream); border: 1px solid var(--rule-soft); border-radius: 4px; padding: 36px; }
+.persona-wrap h3 { font-family: var(--serif); font-size: 24px; color: var(--ink); margin-bottom: 24px; font-weight: 500; }
+.top-nav { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.nav-btn { padding: 8px 18px; border-radius: 20px; border: 1px solid var(--rule-soft); background: var(--paper); color: var(--ink-2); font-size: 13px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.nav-btn.active { background-color: var(--teal) !important; border-color: var(--teal) !important; color: white !important; }
+.nav-btn:hover:not(.active) { background: var(--rule-soft); color: var(--ink); }
+.gender-toggle { display: flex; border: 1px solid var(--rule-soft); border-radius: 20px; overflow: hidden; width: fit-content; margin-bottom: 32px; background: var(--paper); }
+.gender-btn { padding: 8px 24px; font-size: 13px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; border: none; cursor: pointer; background: transparent; color: var(--ink-2); transition: all 0.2s; }
+.gender-btn.active-i { background-color: var(--teal-2) !important; color: white !important; }
+.gender-btn.active-a { background-color: var(--teal-2) !important; color: white !important; }
+.hero-card { border: 1px solid var(--rule-soft); border-radius: 4px; overflow: hidden; margin-bottom: 24px; }
+.hero-header { padding: 24px; background: rgba(14,55,62,0.03); }
+.hero-title { font-family: var(--serif); font-size: 22px; font-weight: 500; margin: 0 0 6px; color: var(--ink); }
+.hero-sub { font-size: 14px; color: var(--ink-2); margin: 0; }
+.hero-quote { font-family: var(--serif); font-size: 16px; font-style: italic; padding: 16px 24px; border-top: 1px solid var(--rule-soft); color: var(--ink-2); background: white;}
+.pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.pillar-card { background: white; border: 1px solid var(--rule-soft); border-radius: 4px; padding: 20px; }
+.pillar-icon { font-size: 24px; margin-bottom: 12px; color: var(--gold); }
+.pillar-title { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--ink); margin: 0 0 12px; }
+.pillar-items { list-style: none; padding: 0; margin: 0; }
+.pillar-items li { font-size: 13px; color: var(--ink-2); padding: 6px 0; border-bottom: 1px dashed var(--rule-soft); line-height: 1.4; }
+.pillar-items li:last-child { border-bottom: none; }
+.p-section-label { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); margin: 24px 0 12px; display: flex; align-items: center; gap: 8px; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.tag { font-size: 13px; padding: 4px 12px; border-radius: 16px; border: 1px solid var(--rule-soft); color: var(--ink-2); background: var(--brick); }
+.tag.q { background: rgba(0,90,38,0.06); color: var(--teal); border-color: rgba(0,90,38,0.15); }
+.tag.k { background: rgba(227,177,31,0.08); color: var(--brick); border-color: rgba(227,177,31,0.2); }
+.tag.v { background: rgba(155,98,32,0.06); color: var(--brick); border-color: rgba(155,98,32,0.15); }
+.persona-name { font-family: var(--serif); font-size: 20px; font-weight: 500; margin: 0 0 4px; color: var(--ink); }
+.persona-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brick); font-weight: 600; }
+.avatar { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 18px; font-weight: 500; flex-shrink: 0; }
+.av-i { background: rgba(0,90,38,0.1); color: var(--teal); border: 1px solid rgba(0,90,38,0.2); }
+.av-a { background: rgba(155,98,32,0.1); color: var(--brick); border: 1px solid rgba(155,98,32,0.2); }
+.distinguish-box { border-left: 3px solid var(--gold); padding: 16px 20px; margin-bottom: 16px; background: rgba(227,177,31,0.05); border-radius: 0 4px 4px 0; }
+.distinguish-title { font-family: var(--serif); font-size: 16px; font-weight: 500; color: var(--ink); margin: 0 0 8px; }
+.distinguish-text { font-size: 14px; color: var(--ink-2); margin: 0; line-height: 1.6; }
     </style>
+    <!-- Tabler Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 </head>
 <body class="antialiased selection:bg-mqbs-gold selection:text-mqbs-ink">
 
@@ -426,12 +489,47 @@
     <button id="btn-kurismpsma" onclick="switchKurikulumTab('smpsma')" class="px-6 py-2.5 rounded-full text-sm font-medium border border-slate-200 bg-white text-slate-600 transition-all duration-200">SMP & SMA</button>
 </div><!-- TABLE SD --><div id="kuri-sd" class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white hide-scroll"><table class="w-full text-xs text-center border-collapse min-w-[900px]"><thead><tr class="bg-mqbs-darkgreen text-mqbs-yellow font-bold border-b border-mqbs-green/30 text-center"><th rowspan="2" class="p-2 border-r border-mqbs-green/20 w-10">No</th><th rowspan="2" class="p-2 border-r border-mqbs-green/20 text-left uppercase tracking-wider">MATA PELAJARAN</th><th colspan="2" class="p-2 border-r border-mqbs-green/20 bg-mqbs-green text-white">Kelas 1</th><th colspan="2" class="p-2 border-r border-mqbs-green/20 bg-mqbs-green text-white">Kelas 2</th><th colspan="2" class="p-2 border-r border-mqbs-green/20 bg-mqbs-green text-white">Kelas 3</th><th colspan="2" class="p-2 border-r border-mqbs-green/20 bg-mqbs-green text-white">Kelas 4</th><th colspan="2" class="p-2 border-r border-mqbs-green/20 bg-mqbs-green text-white">Kelas 5</th><th colspan="2" class="p-2 bg-mqbs-green text-white">Kelas 6</th></tr><tr class="bg-mqbs-green text-white text-white text-[11px] font-bold text-center"><th class="p-1 border-r border-mqbs-green/20 border-t border-mqbs-green/20 w-8">S1</th><th class="p-1 border-r border-mqbs-green/20 border-t border-mqbs-green/20 w-8">S2</th><th class="p-1 border-r border-mqbs-green/20 border-t border-mqbs-green/20 w-8">S1</th><th class="p-1 border-r border-mqbs-green/20 border-t border-mqbs-green/20 w-8">S2</th><th class="p-1 border-r border-mqbs-green/20 border-t border-mqbs-green/20 w-8">S1</th><th class="p-1 border-r border-mqbs-green/20 border-t border-mqbs-green/20 w-8">S2</th><th class="p-1 border-r border-mqbs-green/20 border-t border-mqbs-green/20 w-8">S1</th><th class="p-1 border-r border-mqbs-green/20 border-t border-mqbs-green/20 w-8">S2</th><th class="p-1 border-r border-mqbs-green/20 border-t border-mqbs-green/20 w-8">S1</th><th class="p-1 border-r border-mqbs-green/20 border-t border-mqbs-green/20 w-8">S2</th><th class="p-1 border-r border-mqbs-green/20 border-t border-mqbs-green/20 w-8">S1</th><th class="p-1 border-t border-mqbs-green/20 w-8">S2</th></tr></thead><tbody class="text-slate-700 text-center font-medium"><tr class="bg-mqbs-green/20 text-mqbs-ink font-bold text-left border-y border-mqbs-green/30"><td colspan="14" class="p-1.5 px-3">Kelompok A — Bahasa Arab</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">1</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Bahasa Arab</td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5">4</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">2</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Tahsin</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5"></td></tr><tr class="bg-mqbs-brown/20 text-mqbs-ink font-bold text-left border-y border-mqbs-brown/30"><td colspan="14" class="p-1.5 px-3">Kelompok B — Ilmu Syar'i</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">1</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Aqidah</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">2</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Akhlaq & Adab</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">3</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Fiqh & Ibadah Praktik</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">4</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Siroh Nabawiyah</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5">2</td></tr><tr class="bg-mqbs-gold/20 text-mqbs-ink font-bold text-left border-y border-mqbs-gold/30"><td colspan="14" class="p-1.5 px-3">Kelompok C — Umum (Diknas)</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">1</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Bahasa Indonesia</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">3</td><td class="p-1.5 border-r border-slate-200">3</td><td class="p-1.5 border-r border-slate-200">3</td><td class="p-1.5 border-r border-slate-200">3</td><td class="p-1.5 border-r border-slate-200">3</td><td class="p-1.5 border-r border-slate-200">3</td><td class="p-1.5 border-r border-slate-200">3</td><td class="p-1.5">3</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">2</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Matematika</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5 border-r border-slate-200">4</td><td class="p-1.5">4</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">3</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">IPA / IPAS</td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5">1</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">4</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Bahasa Inggris</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">5</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Sekunder (rolling Kel.E)</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">2</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5 border-r border-slate-200">1</td><td class="p-1.5">1</td></tr><tr class="bg-[#7FB9E6]/20 text-mqbs-ink font-bold text-left border-y border-[#7FB9E6]/30"><td colspan="14" class="p-1.5 px-3">Kelompok D — Pendalaman</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">1</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Tahfidz Al-Qur'an</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">2</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Dzikir Pagi & Shalat Dhuha</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 border-r border-slate-200 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td><td class="p-1.5 bg-mqbs-green/10 text-mqbs-ink font-bold">5</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">3</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Life Skill & Kemandirian</td><td class="p-1.5 border-r border-slate-200 text-mqbs-green font-semibold">2</td><td class="p-1.5 border-r border-slate-200 text-mqbs-green font-semibold">2</td><td class="p-1.5 border-r border-slate-200 text-mqbs-green font-semibold">2</td><td class="p-1.5 border-r border-slate-200 text-mqbs-green font-semibold">2</td><td class="p-1.5 border-r border-slate-200 text-mqbs-green font-semibold">1</td><td class="p-1.5 border-r border-slate-200 text-mqbs-green font-semibold">1</td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">4</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">P5 / Proyek Islami</td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200"></td><td class="p-1.5 border-r border-slate-200 text-mqbs-green font-semibold">1</td><td class="p-1.5 border-r border-slate-200 text-mqbs-green font-semibold">1</td><td class="p-1.5 border-r border-slate-200 text-mqbs-green font-semibold">1</td><td class="p-1.5 border-r border-slate-200 text-mqbs-green font-semibold">1</td><td class="p-1.5 border-r border-slate-200 text-mqbs-green font-semibold">2</td><td class="p-1.5 text-mqbs-green font-semibold">2</td></tr><tr class="bg-[#D6BEEA]/30 text-mqbs-ink font-bold text-left border-y border-[#D6BEEA]/40"><td colspan="14" class="p-1.5 px-3">Kelompok E — Sekunder (rolling)</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">1</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">PAI (Pendidikan Agama Islam)</td><td colspan="12" class="p-1.5 text-mqbs-brown font-semibold tracking-[1.5rem]">✓✓✓✓✓✓✓✓✓✓✓✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">2</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">PKN (Pend. Kewarganegaraan)</td><td colspan="12" class="p-1.5 text-mqbs-brown font-semibold tracking-[1.5rem]">✓✓✓✓✓✓✓✓✓✓✓✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">3</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">SBdP (Seni Budaya & Prakarya)</td><td colspan="12" class="p-1.5 text-mqbs-brown font-semibold tracking-[1.5rem]">✓✓✓✓✓✓✓✓✓✓✓✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">4</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">PJOK</td><td colspan="12" class="p-1.5 text-mqbs-brown font-semibold tracking-[1.5rem]">✓✓✓✓✓✓✓✓✓✓✓✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">5</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Bahasa Sunda / Bahasa Daerah</td><td colspan="12" class="p-1.5 text-mqbs-brown font-semibold tracking-[1.5rem]">✓✓✓✓✓✓✓✓✓✓✓✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors"><td class="p-1.5 border-r border-slate-200 text-center">6</td><td class="p-1.5 px-3 border-r border-slate-200 text-left whitespace-nowrap">Mulok (Keterampilan/TIK dasar)</td><td colspan="12" class="p-1.5 text-mqbs-brown font-semibold tracking-[1.5rem]">✓✓✓✓✓✓✓✓✓✓✓✓</td></tr><tr class="bg-mqbs-darkgreen text-mqbs-yellow font-bold"><td colspan="2" class="p-2 border-r border-mqbs-green/20 text-center">TOTAL JP / PEKAN</td><td class="p-2 border-r border-mqbs-green/20">35</td><td class="p-2 border-r border-mqbs-green/20">35</td><td class="p-2 border-r border-mqbs-green/20">35</td><td class="p-2 border-r border-mqbs-green/20">35</td><td class="p-2 border-r border-mqbs-green/20">35</td><td class="p-2 border-r border-mqbs-green/20">35</td><td class="p-2 border-r border-mqbs-green/20">35</td><td class="p-2 border-r border-mqbs-green/20">35</td><td class="p-2 border-r border-mqbs-green/20">35</td><td class="p-2 border-r border-mqbs-green/20">35</td><td class="p-2 border-r border-mqbs-green/20">35</td><td class="p-2">35</td></tr></tbody></table></div><!-- TABLE SMP SMA (Hidden by default) --><div id="kuri-smpsma" class="hidden overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white hide-scroll"><table class="w-full text-xs text-center border-collapse min-w-[1050px]"><thead><tr class="bg-mqbs-darkgreen text-mqbs-yellow font-bold border-b border-mqbs-green/30"><th rowspan="2" class="p-1 border-r border-mqbs-green/20 w-8">No</th><th rowspan="2" class="p-1 border-r border-mqbs-green/20 text-left uppercase tracking-wider">MATA PELAJARAN</th><th colspan="2" class="p-1 border-r border-mqbs-green/20 bg-mqbs-green text-white">VII</th><th colspan="2" class="p-1 border-r border-mqbs-green/20 bg-mqbs-green text-white">VIII</th><th colspan="2" class="p-1 border-r border-mqbs-green/20 bg-mqbs-green text-white">IX</th><th colspan="2" class="p-1 border-r border-mqbs-green/20 bg-mqbs-green text-white">IDAD</th><th colspan="2" class="p-1 border-r border-mqbs-green/20 bg-mqbs-green text-white">X</th><th colspan="2" class="p-1 border-r border-mqbs-green/20 bg-mqbs-green text-white">XI Diniyah</th><th colspan="2" class="p-1 border-r border-mqbs-green/20 bg-mqbs-green text-white">XI Umum</th><th colspan="2" class="p-1 border-r border-mqbs-green/20 bg-mqbs-green text-white">XII Diniyah</th><th colspan="2" class="p-1 bg-mqbs-green text-white">XII Umum</th></tr><tr class="bg-mqbs-green/90 text-white text-[10px] font-bold"><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">1</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">2</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">1</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">2</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">1</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">2</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">1</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">2</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">1</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">2</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">1</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">2</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">1</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">2</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">1</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">2</th><th class="p-0.5 border-r border-mqbs-green/20 w-6 border-t border-mqbs-green/20">1</th><th class="p-0.5 border-t border-mqbs-green/20 w-6">2</th></tr></thead><tbody class="text-slate-700 font-medium"><tr class="bg-mqbs-green/20 text-mqbs-ink font-bold text-left text-[11px] border-b border-mqbs-green/30"><td colspan="20" class="p-1 px-2 border-b border-[#a9c9a6]">Kelompok A (Bahasa Arab)</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">1</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Bahasa Arab</td><td class="p-1 border-r border-slate-200">6</td><td class="p-1 border-r border-slate-200">6</td><td class="p-1 border-r border-slate-200">6</td><td class="p-1 border-r border-slate-200">6</td><td class="p-1 border-r border-slate-200">6</td><td class="p-1 border-r border-slate-200">6</td><td class="p-1 border-r border-slate-200">16</td><td class="p-1 border-r border-slate-200">16</td><td class="p-1 border-r border-slate-200">7</td><td class="p-1 border-r border-slate-200">7</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">2</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Mufrodat</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">3</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Sima'ah</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">4</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Imla'</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">5</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Khoth</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">6</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Shorf</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">7</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Nahwu</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">8</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Adab (Sastra Arab)</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">9</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Balaghoh</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="bg-mqbs-brown/20 text-mqbs-ink font-bold text-left text-[11px] border-b border-mqbs-brown/30"><td colspan="20" class="p-1 px-2 border-b border-[#a9c9a6]">Kelompok B (Ilmu Syar'i)</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">1</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Aqidah</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">2</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Akhlaq</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1">1</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">3</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Fiqh</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">4</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Tafsir</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">5</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Hadits</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">6</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Mustholah Hadits</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">7</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Ushul Fiqh</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">8</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Qowa'id Fiqh</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">9</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Ushul Tafsir</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">10</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Faroidh</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">11</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Siroh</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">12</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Tarikh Islam</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">13</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Teori Dakwah</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">14</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Halaqoh Mutun</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1">5</td></tr><tr class="bg-mqbs-gold/20 text-mqbs-ink font-bold text-left text-[11px] border-b border-mqbs-gold/30"><td colspan="20" class="p-1 px-2 border-b border-[#a9c9a6]">Kelompok C (Umum)</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">1</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Bahasa Indonesia</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">2</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Bahasa Inggris</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1">4</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">3</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Matematika</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1">4</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">4</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">IPA (Fisika+Kimia+Biologi)</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">6</td><td class="p-1 border-r border-slate-200">6</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">6</td><td class="p-1">6</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">5</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Sekunder</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="bg-[#7FB9E6]/20 text-mqbs-ink font-bold text-left text-[11px] border-b border-[#7FB9E6]/30"><td colspan="20" class="p-1 px-2 border-b border-[#a9c9a6]">Kelompok D (Pendalaman)</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">1</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Halaqoh Quran</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">16</td><td class="p-1 font-bold text-mqbs-green">16</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">2</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Tahsin, Tajwid, dan Prakt</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200">4</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">3</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Retorika/ Publik Speaking</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">4</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">TIK</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">5</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Karya Tulis</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1 border-r border-slate-200">1</td><td class="p-1">1</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">6</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Kepemimpinan</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">7</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Life Skill</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">8</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Unplugged Coding</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">9</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">P5/Proyek</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">3</td><td class="p-1 border-r border-slate-200">5</td><td class="p-1">5</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">10</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Kajian Maghrib</td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1 border-r border-slate-200"></td><td class="p-1"></td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">11</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Penjasorkes (PJOK)</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1 border-r border-slate-200">2</td><td class="p-1">2</td></tr><tr class="bg-[#D6BEEA]/30 text-mqbs-ink font-bold text-left text-[11px] border-b border-[#D6BEEA]/40"><td colspan="20" class="p-1 px-2 border-b border-[#a9c9a6]">Kelompok E (Sekunder)</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">1</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">PAI</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 font-bold text-mqbs-green">✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">2</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">PKN</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 font-bold text-mqbs-green">✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">3</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Bahasa Sunda</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 font-bold text-mqbs-green">✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">4</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Prakarya (PKWU)</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 font-bold text-mqbs-green">✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">5</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Seni Budaya</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 font-bold text-mqbs-green">✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">6</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">IPS</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 font-bold text-mqbs-green">✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">7</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Sejarah Indonesia</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 font-bold text-mqbs-green">✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">8</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Geografi Sosiologi</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 font-bold text-mqbs-green">✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">9</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Matematika Peminatan</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 font-bold text-mqbs-green">✓</td></tr><tr class="border-b border-slate-200 hover:bg-slate-50 transition-colors text-[11px]"><td class="p-1 border-r border-slate-200 text-center">10</td><td class="p-1 px-2 border-r border-slate-200 text-left whitespace-nowrap">Informatika</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green"></td><td class="p-1 border-r border-slate-200 font-bold text-mqbs-green">✓</td><td class="p-1 font-bold text-mqbs-green">✓</td></tr><tr class="bg-mqbs-darkgreen text-mqbs-yellow font-bold text-[11px]"><td colspan="2" class="p-1 border-r border-mqbs-green/20 text-center uppercase tracking-wider">Total JP</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1 border-r border-mqbs-green/20">68</td><td class="p-1">68</td></tr></tbody></table></div></div></section>
 
-       <!-- SECTION 03: SKL (TABS) -->
-    <section id="skl" class="py-20 bg-slate-50">
+       
+    <!-- SECTION 03: PERSONA IDEAL LULUSAN -->
+    <section id="persona-ideal" class="py-20 bg-white">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-10 text-center">
                 <div class="inline-flex items-center justify-center gap-3 mb-2">
                     <span class="font-mono text-sm font-bold text-mqbs-gold">03</span>
+                    <div class="h-px w-8 bg-mqbs-gold/50"></div>
+                    <span class="text-xs font-bold tracking-widest uppercase text-mqbs-gray">Persona Ideal Lulusan</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-signika font-bold text-mqbs-ink mb-4">Persona Ideal <span class="font-signika italic text-mqbs-green">Lulusan</span></h2>
+            </div>
+            <div class="persona-wrap reveal">
+    <h3>Persona Ideal Lulusan</h3>
+    
+    <div class="top-nav">
+      <button class="nav-btn active" onclick="setLevel('sd')">SD</button>
+      <button class="nav-btn" onclick="setLevel('smp')">SMP</button>
+      <button class="nav-btn" onclick="setLevel('sma-din')">SMA Diniyah</button>
+      <button class="nav-btn" onclick="setLevel('sma-um')">SMA Umum</button>
+    </div>
+
+    <div class="gender-toggle">
+      <button class="gender-btn active-i" id="btn-i" onclick="setGender('i')">Ikhwan</button>
+      <button class="gender-btn" id="btn-a" onclick="setGender('a')">Akhwat</button>
+    </div>
+
+    <div id="content-area"></div>
+  </div>
+
+
+        </div>
+    </section>
+
+
+<!-- SECTION 04: SKL (TABS) -->
+    <section id="skl" class="py-20 bg-slate-50">
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center">
+                <div class="inline-flex items-center justify-center gap-3 mb-2">
+                    <span class="font-mono text-sm font-bold text-mqbs-gold">04</span>
                     <div class="h-px w-8 bg-mqbs-gold/50"></div>
                     <span class="text-xs font-bold tracking-widest uppercase text-mqbs-gray">Standar Kompetensi Lulusan</span>
                 </div>
@@ -536,16 +634,19 @@
                         title: "SD Kelas 1",
                         subtitle: "Pembentukan karakter dasar dan kecintaan pada ibadah.",
                         pillars: ["Qur'ani", "Berkarakter", "Visioner"],
-                        kompetensi: [
-                            { name: "Tahfidz — Target Selesai Juz 30", pct: "Jayyid Jiddan", val: 80, color: "emerald" },
-                            { name: "Aqidah & Akhlaq", pct: "Jayyid Jiddan", val: 85, color: "blue" },
-                            { name: "Matematika Dasar", pct: "Jayyid", val: 70, color: "amber" }
-                        ],
-                        outcomes: [
-                            { icon: "star", title: "Berkarakter Islami", desc: "Menerapkan adab harian dengan baik." },
-                            { icon: "book-open", title: "Cinta Al-Qur'an", desc: "Membaca dan menghafal dengan senang hati." }
-                        ],
-                        mapelData: [
+                        fase: { 
+                        arab: "مرحلة التَّلَقِّي", 
+                        indo: "Fase At-Talaqqi — \"Menerima dengan Utuh\"", 
+                        dalil: "Imam Malik: \"Ilmu itu tidak datang sendiri — ia harus dijemput dari mulut para guru secara langsung.\"", 
+                        makna: "Santri kelas 1–2 berada di fase menerima (talaqqi) — jiwa dan akal masih bersih, siap menerima apa pun yang diajarkan. Tugas utama bukan memahami secara mendalam, melainkan menerima, menirukan, dan merekam dengan sempurna.", 
+                        ciriList: [
+                            "Mendengar dan menirukan (makhraj, doa, adab)",
+                            "Hafalan ayat dan surah tanpa beban analisis",
+                            "Pembiasaan amaliah harian melalui teladan guru",
+                            "Fondasi akhlaq melalui pengulangan dan pembiasaan"
+                        ] 
+                    },
+                    mapelData: [
                             {
                                 nama: "Tahfidz Al-Qur'an",
                                 icon: "book-open",
@@ -958,16 +1059,19 @@
                         title: "SD Kelas 2",
                         subtitle: "Pembentukan karakter dasar dan kecintaan pada ibadah.",
                         pillars: ["Qur'ani", "Berkarakter", "Visioner"],
-                        kompetensi: [
-                            { name: "Tahfidz — Target Selesai Juz 30", pct: "Jayyid Jiddan", val: 80, color: "emerald" },
-                            { name: "Aqidah & Akhlaq", pct: "Jayyid Jiddan", val: 85, color: "blue" },
-                            { name: "Matematika Dasar", pct: "Jayyid", val: 70, color: "amber" }
-                        ],
-                        outcomes: [
-                            { icon: "star", title: "Berkarakter Islami", desc: "Menerapkan adab harian dengan baik." },
-                            { icon: "book-open", title: "Cinta Al-Qur'an", desc: "Membaca dan menghafal dengan senang hati." }
-                        ],
-                        mapelData: [
+                        fase: { 
+                        arab: "مرحلة التَّلَقِّي", 
+                        indo: "Fase At-Talaqqi — \"Menerima dengan Utuh\"", 
+                        dalil: "Imam Malik: \"Ilmu itu tidak datang sendiri — ia harus dijemput dari mulut para guru secara langsung.\"", 
+                        makna: "Santri kelas 1–2 berada di fase menerima (talaqqi) — jiwa dan akal masih bersih, siap menerima apa pun yang diajarkan. Tugas utama bukan memahami secara mendalam, melainkan menerima, menirukan, dan merekam dengan sempurna.", 
+                        ciriList: [
+                            "Mendengar dan menirukan (makhraj, doa, adab)",
+                            "Hafalan ayat dan surah tanpa beban analisis",
+                            "Pembiasaan amaliah harian melalui teladan guru",
+                            "Fondasi akhlaq melalui pengulangan dan pembiasaan"
+                        ] 
+                    },
+                    mapelData: [
                             {
                                 nama: "Tahfidz Al-Qur'an",
                                 icon: "book-open",
@@ -1368,16 +1472,19 @@
                         title: "SD Kelas 3",
                         subtitle: "Pembentukan karakter dasar dan kecintaan pada ibadah.",
                         pillars: ["Qur'ani", "Berkarakter", "Visioner"],
-                        kompetensi: [
-                            { name: "Tahfidz — Target Selesai Juz 30", pct: "Jayyid Jiddan", val: 80, color: "emerald" },
-                            { name: "Aqidah & Akhlaq", pct: "Jayyid Jiddan", val: 85, color: "blue" },
-                            { name: "Matematika Dasar", pct: "Jayyid", val: 70, color: "amber" }
-                        ],
-                        outcomes: [
-                            { icon: "star", title: "Berkarakter Islami", desc: "Menerapkan adab harian dengan baik." },
-                            { icon: "book-open", title: "Cinta Al-Qur'an", desc: "Membaca dan menghafal dengan senang hati." }
-                        ],
-                        mapelData: [
+                        fase: { 
+                        arab: "مرحلة التَّمْكِين", 
+                        indo: "Fase At-Tamkin — \"Penancapan dan Pemantapan\"", 
+                        dalil: "Ibn Jama'ah: \"Hendaklah penuntut ilmu memantapkan apa yang telah ia terima sebelum melangkah ke yang berikutnya.\"", 
+                        makna: "Apa yang telah diterima di Kelas 1–2 kini ditancapkan — hafalan dikuatkan, adab dibentuk menjadi watak, bahasa Arab mulai meresap. Tamkin artinya menjadikan sesuatu menjadi bagian dari diri, bukan sekadar hafalan sementara.", 
+                        ciriList: [
+                            "Muroja'ah dan penguatan hafalan secara sistematis",
+                            "Mufrodat Arab mulai melekat dalam percakapan",
+                            "Kemandirian pesantren sebagai bagian dari ibadah",
+                            "Numerasi dan literasi diperkuat sebagai bekal ilmu"
+                        ] 
+                    },
+                    mapelData: [
                             {
                                 nama: "Tahfidz Al-Qur'an",
                                 icon: "book-open",
@@ -1778,16 +1885,19 @@
                         title: "SD Kelas 4",
                         subtitle: "Pembentukan karakter dasar dan kecintaan pada ibadah.",
                         pillars: ["Qur'ani", "Berkarakter", "Visioner"],
-                        kompetensi: [
-                            { name: "Tahfidz — Target Selesai Juz 30", pct: "Jayyid Jiddan", val: 80, color: "emerald" },
-                            { name: "Aqidah & Akhlaq", pct: "Jayyid Jiddan", val: 85, color: "blue" },
-                            { name: "Matematika Dasar", pct: "Jayyid", val: 70, color: "amber" }
-                        ],
-                        outcomes: [
-                            { icon: "star", title: "Berkarakter Islami", desc: "Menerapkan adab harian dengan baik." },
-                            { icon: "book-open", title: "Cinta Al-Qur'an", desc: "Membaca dan menghafal dengan senang hati." }
-                        ],
-                        mapelData: [
+                        fase: { 
+                        arab: "مرحلة التَّمْكِين", 
+                        indo: "Fase At-Tamkin — \"Penancapan dan Pemantapan\"", 
+                        dalil: "Ibn Jama'ah: \"Hendaklah penuntut ilmu memantapkan apa yang telah ia terima sebelum melangkah ke yang berikutnya.\"", 
+                        makna: "Apa yang telah diterima di Kelas 1–2 kini ditancapkan — hafalan dikuatkan, adab dibentuk menjadi watak, bahasa Arab mulai meresap. Tamkin artinya menjadikan sesuatu menjadi bagian dari diri, bukan sekadar hafalan sementara.", 
+                        ciriList: [
+                            "Muroja'ah dan penguatan hafalan secara sistematis",
+                            "Mufrodat Arab mulai melekat dalam percakapan",
+                            "Kemandirian pesantren sebagai bagian dari ibadah",
+                            "Numerasi dan literasi diperkuat sebagai bekal ilmu"
+                        ] 
+                    },
+                    mapelData: [
                             {
                                 nama: "Tahfidz Al-Qur'an",
                                 icon: "book-open",
@@ -2216,16 +2326,19 @@
                         title: "SD Kelas 5",
                         subtitle: "Pembentukan karakter dasar dan kecintaan pada ibadah.",
                         pillars: ["Qur'ani", "Berkarakter", "Visioner"],
-                        kompetensi: [
-                            { name: "Tahfidz — Target Selesai Juz 30", pct: "Jayyid Jiddan", val: 80, color: "emerald" },
-                            { name: "Aqidah & Akhlaq", pct: "Jayyid Jiddan", val: 85, color: "blue" },
-                            { name: "Matematika Dasar", pct: "Jayyid", val: 70, color: "amber" }
-                        ],
-                        outcomes: [
-                            { icon: "star", title: "Berkarakter Islami", desc: "Menerapkan adab harian dengan baik." },
-                            { icon: "book-open", title: "Cinta Al-Qur'an", desc: "Membaca dan menghafal dengan senang hati." }
-                        ],
-                        mapelData: [
+                        fase: { 
+                        arab: "مرحلة الاسْتِعْدَاد", 
+                        indo: "Fase Al-Isti'dad — \"Kesiapan Naik ke Tingkat Lebih Tinggi\"", 
+                        dalil: "Al-Ghazali dalam Ihya': \"Barangsiapa yang tidak mempersiapkan bekalnya sebelum berjalan, ia akan terputus di tengah jalan.\"", 
+                        makna: "Fase terakhir SD adalah fase mempersiapkan diri — hafalan dikumpulkan, kemandirian dimatangkan, dan kemampuan berbicara di depan umum mulai diasah. Santri tidak hanya menjadi penerima, ia mulai menjadi penyampai.", 
+                        ciriList: [
+                            "Target hafalan dikukuhkan (min. 7–10 juz)",
+                            "Bahasa Arab produktif untuk konteks pesantren",
+                            "Khitobah perdana sebagai latihan awal berdakwah",
+                            "Profil santri disiapkan untuk jenjang SMP"
+                        ] 
+                    },
+                    mapelData: [
                             {
                                 nama: "Tahfidz Al-Qur'an",
                                 icon: "book-open",
@@ -2654,16 +2767,19 @@
                         title: "SD Kelas 6",
                         subtitle: "Pembentukan karakter dasar dan kecintaan pada ibadah.",
                         pillars: ["Qur'ani", "Berkarakter", "Visioner"],
-                        kompetensi: [
-                            { name: "Tahfidz — Target Selesai Juz 30", pct: "Jayyid Jiddan", val: 80, color: "emerald" },
-                            { name: "Aqidah & Akhlaq", pct: "Jayyid Jiddan", val: 85, color: "blue" },
-                            { name: "Matematika Dasar", pct: "Jayyid", val: 70, color: "amber" }
-                        ],
-                        outcomes: [
-                            { icon: "star", title: "Berkarakter Islami", desc: "Menerapkan adab harian dengan baik." },
-                            { icon: "book-open", title: "Cinta Al-Qur'an", desc: "Membaca dan menghafal dengan senang hati." }
-                        ],
-                        mapelData: [
+                        fase: { 
+                        arab: "مرحلة الاسْتِعْدَاد", 
+                        indo: "Fase Al-Isti'dad — \"Kesiapan Naik ke Tingkat Lebih Tinggi\"", 
+                        dalil: "Al-Ghazali dalam Ihya': \"Barangsiapa yang tidak mempersiapkan bekalnya sebelum berjalan, ia akan terputus di tengah jalan.\"", 
+                        makna: "Fase terakhir SD adalah fase mempersiapkan diri — hafalan dikumpulkan, kemandirian dimatangkan, dan kemampuan berbicara di depan umum mulai diasah. Santri tidak hanya menjadi penerima, ia mulai menjadi penyampai.", 
+                        ciriList: [
+                            "Target hafalan dikukuhkan (min. 7–10 juz)",
+                            "Bahasa Arab produktif untuk konteks pesantren",
+                            "Khitobah perdana sebagai latihan awal berdakwah",
+                            "Profil santri disiapkan untuk jenjang SMP"
+                        ] 
+                    },
+                    mapelData: [
                             {
                                 nama: "Tahfidz Al-Qur'an",
                                 icon: "book-open",
@@ -3074,19 +3190,19 @@
                         title: "Kelas 7 — Fondasi Mutlak",
                         subtitle: "Lebih baik satu kemampuan benar-benar dikuasai daripada sepuluh setengah-setengah.",
                         pillars: ["Qur'ani", "Berkarakter", "Visioner"],
-                        kompetensi: [
-                            { name: "Al-Qur'an — Tahsin S1 + Juz 30 Mutqin", pct: "Gate Wajib", val: 85, color: "emerald" },
-                            { name: "Matematika — 4 Operasi Dasar Otomatis", pct: "Jayyid Jiddan", val: 80, color: "blue" },
-                            { name: "Bahasa Arab — Kosakata Dasar", pct: "Jayyid Jiddan", val: 70, color: "amber" },
-                            { name: "Fikih — Shalat Sempurna (20-item)", pct: "Jayyid Jiddan", val: 88, color: "emerald" }
-                        ],
-                        outcomes: [
-                            { icon: "book-check", title: "Juz 30 Mutqin", desc: "Murajaah acak ≥95% akurasi, uji bersanad." },
-                            { icon: "calculator", title: "Perkalian Otomatis", desc: "20 soal 2-digit×1-digit dalam 3 mnt." },
-                            { icon: "user-check", title: "Shalat Sempurna", desc: "Checklist 20-item gerakan+bacaan." },
-                            { icon: "home", title: "Mandiri Boarding", desc: "60 hari kamar rapi konsisten (Mumtaz)." }
-                        ],
-                        mapelData: [
+                        fase: { 
+                        arab: "مرحلة التَّفَقُّه", 
+                        indo: "Fase At-Tafaqquh — \"Mulai Memahami Secara Mendalam\"", 
+                        dalil: "Allah Ta'ala: \"…ليتفقهوا في الدين ولينذروا قومهم…\" — (QS. At-Taubah: 122)", 
+                        makna: "Tafaqquh bukan sekadar menghafal, melainkan menelusuri makna, alasan, dan hikmah di balik ilmu. Di Kelas VIII, nahwu-shorf mulai diaplikasikan pada teks Al-Qur'an, fiqh dikaji kontekstual, dan sains mulai dilihat dengan kacamata tauhid.", 
+                        ciriList: [
+                            "I'rob ayat Al-Qur'an sebagai praktik nahwu hidup",
+                            "Fiqh kontemporer dikaji, bukan sekadar dihafal",
+                            "Integrasi sains dan nilai Islam dalam proyek",
+                            "Kepemimpinan organisasi dengan pertanggungjawaban"
+                        ] 
+                    },
+                    mapelData: [
                             {
                                 nama: "Al-Qur'an",
                                 icon: "book-open",
@@ -3728,19 +3844,19 @@
                         title: "Kelas 9 — Tahun Panen",
                         subtitle: "Tahun pembuktian dan penyelesaian seluruh target SMP.",
                         pillars: ["Qur'ani", "Berkarakter", "Visioner"],
-                        kompetensi: [
-                            { name: "Al-Qur'an — 5 Juz Mutqin", pct: "Exit Exam Eksternal", val: 90, color: "emerald" },
-                            { name: "Hadits — 100 Hadits Mutqin", pct: "Exit Exam", val: 85, color: "emerald" },
-                            { name: "B. Arab — B1 CEFR / TOAFL", pct: "Jayyid Jiddan", val: 75, color: "amber" },
-                            { name: "Akademik — AKM Literasi/Numerasi", pct: "Level Mahir", val: 80, color: "blue" }
-                        ],
-                        outcomes: [
-                            { icon: "award", title: "Sertifikat 5 Juz", desc: "Mutqin & teruji oleh penguji eksternal." },
-                            { icon: "book-check", title: "100 Hadits", desc: "Hafal & paham 100 hadits tematik." },
-                            { icon: "languages", title: "B1 Arab/Inggris", desc: "Standar internasional kelulusan SMP." },
-                            { icon: "graduation-cap", title: "Siap SMA MQBS", desc: "Transisi mulus ke jenjang SMA/I'dad." }
-                        ],
-                        mapelData: [
+                        fase: { 
+                        arab: "مرحلة الحَصَاد", 
+                        indo: "Fase Al-Hasad — \"Menuai Hasil Tiga Tahun\"", 
+                        dalil: "Pepatah ulama: \"من زرع أيام شبابه، حصد ثمار شيبه\" — Siapa yang menanam di masa mudanya, ia tuai buahnya di masa berikutnya.", 
+                        makna: "Hasad artinya panen. Kelas IX adalah saat santri menuai apa yang telah ditanam selama tiga tahun — hafalan 15 juz, kemampuan baca kitab, retorika publik, dan kematangan akademik. Ini juga fase membuktikan diri sebelum naik ke jenjang lebih tinggi.", 
+                        ciriList: [
+                            "Ujian tahfidz komprehensif oleh penguji eksternal",
+                            "Ujian baca kitab kuning tanpa harokat",
+                            "Khitobah terbuka di hadapan orang tua/komunitas",
+                            "Karya tulis ilmiah sebagai prasyarat kelulusan"
+                        ] 
+                    },
+                    mapelData: [
                             {
                                 nama: "Al-Qur'an",
                                 icon: "book",
@@ -6375,41 +6491,35 @@
                         <p class="text-sm md:text-base text-mqbs-brown font-signika italic">${contentData.subtitle}</p>
                     </div>
 
+                                        ${contentData.fase ? `
                     <div class="mb-10">
                         <div class="text-[10px] font-bold text-mqbs-gray tracking-widest uppercase mb-4 flex items-center gap-4 font-mono">
-                            Kompetensi Utama <div class="h-px bg-slate-200 flex-1"></div>
+                            Fase Jenjang <div class="h-px bg-slate-200 flex-1"></div>
                         </div>
-                        <div class="space-y-4">
-                            ${contentData.kompetensi.map(k => `
-                                <div>
-                                    <div class="flex justify-between items-end mb-1.5">
-                                        <span class="text-sm font-semibold text-slate-700">${k.name}</span>
-                                        <span class="text-[10px] font-mono font-bold text-mqbs-gray uppercase">${k.pct}</span>
-                                    </div>
-                                    <div class="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-                                        <div class="h-full ${colorMap[k.color] || 'bg-mqbs-green'} rounded-full progress-fill" style="width: 0%" data-width="${k.val}%"></div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-
-                    <div class="mb-10">
-                        <div class="text-[10px] font-bold text-mqbs-gray tracking-widest uppercase mb-4 flex items-center gap-4 font-mono">
-                            Dokumen & Output <div class="h-px bg-slate-200 flex-1"></div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            ${contentData.outcomes.map(o => `
-                                <div class="p-4 rounded-xl border border-slate-200 bg-white hover:border-mqbs-gold/50 hover:shadow-md transition-all">
-                                    <div class="w-8 h-8 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-mqbs-green mb-3 shadow-sm">
-                                        <i data-lucide="${o.icon}" class="w-4 h-4"></i>
-                                    </div>
-                                    <h4 class="font-bold text-sm text-mqbs-ink mb-1">${o.title}</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">${o.desc}</p>
-                                </div>
-                            `).join('')}
+                        
+                        <div class="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-mqbs-gold/50 transition-all">
+                            <div class="mb-5">
+                                <p class="text-2xl md:text-3xl font-medium text-mqbs-ink mb-1 font-arabic" dir="rtl" style="text-align: right;">${contentData.fase.arab}</p>
+                                <p class="text-sm font-bold text-mqbs-ink">${contentData.fase.indo}</p>
+                            </div>
+                            
+                            <div class="pl-4 border-l-2 border-mqbs-gold/40 mb-5">
+                                <p class="text-xs md:text-sm text-slate-500 italic leading-relaxed">${contentData.fase.dalil}</p>
+                            </div>
+                            
+                            <p class="text-sm text-slate-700 leading-relaxed mb-6">${contentData.fase.makna}</p>
+                            
+                            <ul class="space-y-2">
+                                ${contentData.fase.ciriList.map(ciri => `
+                                    <li class="flex items-start gap-3 text-sm text-slate-600">
+                                        <i data-lucide="chevron-right" class="w-4 h-4 text-mqbs-gold shrink-0 mt-0.5"></i>
+                                        <span class="leading-relaxed">${ciri}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
                         </div>
                     </div>
+                    ` : ''}
                 `;
 
                 // If this tab contains detailed mapel data, append it
@@ -6471,7 +6581,228 @@
                 }
                 
                 area.innerHTML = html;
-                lucide.createIcons(); // re-init icons
+                
+    // === Persona Ideal Widget Logic ===
+    // === Persona Ideal Widget Logic ===
+const personaData = {
+  sd: {
+    title: "Jenjang SD (usia 7–12 tahun)",
+    tagline: "Fase menanam — fitrah dijaga, iman dirawat, adab ditanamkan",
+    quote: "\"الأدب قبل العلم\" — Adab sebelum ilmu (Imam Malik)",
+    pillars: [
+      { icon: "ti-book", title: "Qurani", items: ["Tartil & tajwid benar", "Hafal 3 Juz Mutqin", "Paham 15 makna surat harian", "Muraja'ah mandiri"] },
+      { icon: "ti-heart", title: "Akidah & ibadah", items: ["Rukun iman & islam mantap", "Shalat 5 waktu & sunnah rawatib", "Adab masjid & wudhu", "Puasa Ramadan penuh"] },
+      { icon: "ti-users", title: "Adab & akhlak", items: ["Adab kepada guru & ortu", "Jujur, amanah, qana'ah", "Bertutur santun", "Menjaga kebersihan diri"] },
+      { icon: "ti-pencil", title: "Keilmuan dasar", items: ["Baca-tulis Arab & latin", "Hitung dasar & logika", "Hafal doa harian & hadis pilihan", "Cerita sirah singkat"] },
+      { icon: "ti-seedling", title: "Kemandirian", items: ["Urus diri sendiri", "Taat aturan asrama", "Bangun pagi tanpa disuruh", "Minta maaf & memaafkan"] }
+    ],
+    ikhwan: {
+      name: "Ahmad Salim",
+      label: "Santri SD ikhwan ideal",
+      qurani: ["Hafal 60 surat pilihan", "Bacaan Al Quran tartil", "Mengimami shalat jama'ah kelas"],
+      karakter: ["Tidak jajan sembarangan", "Antri & tertib tanpa diawasi", "Suka membantu teman lemah"],
+      visioner: ["Cita-cita menjadi muslim profesional", "Malu berbuat curang walau bisa lolos"],
+      pembeda: "Laki-laki sejati dimulai dari keberanian berkata benar. Ikhwan SD diarahkan menginternalisasi nilai syaja'ah (keberanian) — berani memimpin doa, berani menegur teman yang salah.",
+    },
+    akhwat: {
+      name: "Fathimah Nuur",
+      label: "Santri SD akhwat ideal",
+      qurani: ["Hafal 60 surat pilihan", "Tilawah dengan suara lembut", "Menjaga adab suara di depan non-mahram"],
+      karakter: ["Rapi, bersih, menutup aurat sejak dini", "Penyayang kepada teman & adik kelas", "Tidak bergosip & mengadu domba"],
+      visioner: ["Bangga menjadi muslimah", "Memimpikan menjadi ibu pendidik terbaik"],
+      pembeda: "Akhwat SD diarahkan menginternalisasi hayaa' (rasa malu yang mulia) — menjaga lisan, penampilan, dan pergaulan bukan karena takut dimarahi, tapi karena mengerti fitrah kemuliaan wanita Islam.",
+    }
+  },
+  smp: {
+    title: "Jenjang SMP (usia 12–15 tahun)",
+    tagline: "Fase menghunjam — identitas islam dikristalkan sebelum dunia membentuknya",
+    quote: "\"طلب العلم فريضة على كل مسلم\" — Menuntut ilmu wajib atas setiap muslim (HR. Ibn Majah)",
+    pillars: [
+      { icon: "ti-book-2", title: "Qurani", items: ["Hafal 5 Juz Mutqin", "Memahami tafsir juz 30 + Al Fatihah", "Menulis Arab tanpa harakat", "Tadabbur ayat tematis"] },
+      { icon: "ti-school", title: "Keilmuan syar'i", items: ["Fiqh ibadah lengkap (Riyadhussalihin)", "Aqidah Wasithiyyah dasar", "Sirah Nabawiyah kronologis", "Mushthalah hadis pengenalan"] },
+      { icon: "ti-brain", title: "Penalaran & literasi", items: ["Baca kritis teks Indonesia & Arab", "FIkih dasar", "Numerasi kontekstual", "Presentasi argumen sederhana"] },
+      { icon: "ti-shield", title: "Karakter & identitas", items: ["Bangga identitas muslim", "Tidak silau dunia (zuhud terapan)", "Adab berbeda pendapat", "Menghindari ashabiyyah"] },
+      { icon: "ti-world", title: "Visi & wawasan", items: ["Mengenal peradaban Islam & Barat", "Isu kontemporer level remaja", "Pilih karir selaras nilai Islam", "Bisa berpidato 5 menit"] }
+    ],
+    ikhwan: {
+      name: "Umar Faris",
+      label: "Santri SMP ikhwan ideal",
+      qurani: ["Hafal 5 Juz Mutqin", "Mampu memimpin tarawih", "Paham asbabun nuzul surat-surat kunci"],
+      karakter: ["Tidak terpengaruh tren negatif sekolah umum", "Tegas menolak ghibah & konten haram", "Pemimpin alami di kamar asrama"],
+      visioner: ["Punya rencana kuliah & kontribusi umat", "Baca buku non-pelajaran minimal 1/bulan"],
+      pembeda: "Ikhwan SMP adalah fase paling kritis pembentukan identitas maskulin islami. Diarahkan pada qawwamah — jiwa kepemimpinan, tanggung jawab, dan keberanian membela kebenaran; bukan tunduk pada tekanan teman sebaya.",
+    },
+    akhwat: {
+      name: "Zainab Hafsah",
+      label: "Santri SMP akhwat ideal",
+      qurani: ["Hafal 10 juz dengan mutqin", "Tilawah 1 juz/hari secara istiqamah", "Tadabbur surat Al-Baqarah sampai khatam"],
+      karakter: ["Syar'i dalam berpakaian tanpa paksaan", "Tidak terlibat gosip dan perbandingan penampilan", "Fasih bahasa Arab percakapan sehari-hari"],
+      visioner: ["Tahu 5 muslimah inspiratif sepanjang sejarah", "Menulis jurnal refleksi mingguan"],
+      pembeda: "Akhwat SMP diarahkan membangun izzah (kemuliaan diri) yang tidak bergantung validasi eksternal. Ia percaya diri sebagai muslimah, tahan banting dari tekanan budaya populer yang merendahkan perempuan.",
+    }
+  },
+  "sma-din": {
+    title: "SMA Takhassus Diniyah (usia 15–18 tahun)",
+    tagline: "Fase menjulang — ulama muda yang membumi, bukan hanya hafidz tanpa konteks",
+    quote: "\"إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ\" — Hanya ulama yang benar-benar takut kepada Allah (QS. Fatir: 28)",
+    pillars: [
+      { icon: "ti-book-open", title: "Qurani & ulumul quran", items: ["Hafal 10 Juz Mutqin", "Ulumul Quran (Mabahits fi Ulumil Quran)", "Imam Shalat Ideal", "Bisa tafsir mandiri dengan metode"] },
+      { icon: "ti-gavel", title: "Keilmuan syar'i lanjut", items: ["Ushul fiqh (Al-Waraqat)", "Mushthalah hadis aplikatif", "Nahwu-sharaf (Alfiyyah Ibn Malik)", "Bahtsul masa'il pesantren"] },
+      { icon: "ti-eye", title: "Pemikiran & dakwah", items: ["Fiqhud da'wah kontemporer", "Studi perbandingan mazhab", "Membantah syubhat populer", "Pidato & ceramah berjenjang"] },
+      { icon: "ti-certificate", title: "Kompetensi modern", items: ["Bahasa Arab aktif (C1)", "Bahasa Inggris pasif (B2)", "Literasi media & digital islami", "Manajemen waktu & proyek"] },
+      { icon: "ti-rocket", title: "Visi peradaban", items: ["Punya khittah dakwah pribadi", "Networking ulama & lembaga Islam", "Kontribusi nyata (mengajar dll)", "Roadmap 10 tahun ke depan"] }
+    ],
+    ikhwan: {
+      name: "Ibrahim Musa",
+      label: "Takhassus Diniyah — ikhwan ideal",
+      qurani: ["Hafal 20 juz min., 10 juz mutqin", "Sanad bacaan tersambung ke guru", "Mampu memimpin majelis taklim kecil"],
+      karakter: ["Zuhud terhadap gawai & hiburan duniawi", "Adil kepada diri, teman & juniornya", "Istiqamah wirid harian tanpa diawasi"],
+      visioner: ["Rancangan dakwah di komunitas tertentu", "Kuasai 1 bidang keahlian dunia (sains/ekonomi/hukum) sebagai bekal"],
+      pembeda: "Lulusan takhassus diniyah bukan sekadar 'hafidz bersertifikat'. Ia adalah calon ulama yang memahami konteks zamannya — mampu menjawab pertanyaan anak muda tentang hukum media sosial, ekonomi Islam, dan isu gender dari sumber yang shahih.",
+    },
+    akhwat: {
+      name: "Maryam Khadijah",
+      label: "Takhassus Diniyah — akhwat ideal",
+      qurani: ["Hafal 20 juz min., 10 juz mutqin", "Fasih tafsir tematis untuk kajian muslimah", "Bisa mengajar tilawah kepada pemula"],
+      karakter: ["Qanaah dan tidak materialisme", "Bijak bersikap di lingkungan non-pesantren", "Menjadi rujukan adik kelas dalam masalah syar'i"],
+      visioner: ["Siap menjadi pendidik generasi / ibu teladan", "Merintis majelis ilmu muslimah setelah lulus"],
+      pembeda: "Akhwat takhassus disiapkan sebagai 'murabbi peradaban' — kekuatan Islam yang tersembunyi. Ia faham bahwa kekuatan seorang akhwat bukan dari viralitas, tapi dari kedalaman ilmu, kesabaran mendidik, dan keikhlasan berkorban.",
+    }
+  },
+  "sma-um": {
+    title: "SMA Jalur Umum (usia 15–18 tahun)",
+    tagline: "Fase melengkapi — profesional muslim yang tidak tercerabut dari akarnya",
+    quote: "\"خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ\" — Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia (HR. Ahmad, shahih)",
+    pillars: [
+      { icon: "ti-award", title: "Qurani & ibadah", items: ["Hafal 10–15 juz (min. 10 juz mutqin)", "Shalat khusyuk & on-time tanpa alarm", "Tilawah harian 1–2 halaman min.", "Paham tafsir ibadah sehari-hari"] },
+      { icon: "ti-trending-up", title: "Akademik & SNBT", items: ["Skor UTBK >600 (target PTN favorit)", "Penalaran kritis (TPS) terlatih", "Literasi & numerasi di atas rata-rata", "Portofolio prestasi akademik/non"] },
+      { icon: "ti-language", title: "Kompetensi global", items: ["Bahasa Inggris aktif (B2–C1)", "Bahasa Arab pasif (B1 min.)", "Literasi digital bertanggung jawab", "Public speaking & debat"] },
+      { icon: "ti-building", title: "Karakter profesional", items: ["Integritas di lingkungan kompetitif", "Kolaborasi lintas latar belakang", "Manajemen stres & prioritas", "Menolak jalan pintar haram"] },
+      { icon: "ti-compass", title: "Identitas & visi", items: ["Muslim percaya diri di kampus umum", "Punya rencana karir berbasis nilai", "Aktif di organisasi Islam kampus (proyeksi)", "Kontribusi nyata sejak SMA"] }
+    ],
+    ikhwan: {
+      name: "Hasan Rasyid",
+      label: "SMA Umum — ikhwan ideal",
+      qurani: ["Hafal 10 juz mutqin", "Bisa memimpin shalat jamaah dengan baik", "Tidak malu tilawah di lingkungan umum"],
+      karakter: ["Tidak merokok, tidak pacaran, tidak berbohong", "Berani tampil sebagai muslim di lingkungan sekuler", "Dermawan & tidak pelit dengan ilmu"],
+      visioner: ["Target jurusan: kedokteran/teknik/hukum/ekonomi Islam", "Punya mentor dan rencana 5 tahunan"],
+      pembeda: "Ikhwan SMA jalur umum adalah 'duta Islam di dunia modern'. Ia bukan hanya tidak melanggar syariat, tapi menjadi bukti hidup bahwa Islam dan prestasi akademik tinggi bukan dua hal yang bertentangan.",
+    },
+    akhwat: {
+      name: "Nur Aisha",
+      label: "SMA Umum — akhwat ideal",
+      qurani: ["Hafal 10 juz mutqin", "Rutinitas tadabbur harian terjaga", "Menjadi contoh tilawah di lingkungan non-pesantren"],
+      karakter: ["Syar'i berpakaian di lingkungan apapun", "Tidak terpengaruh tren diet atau kecantikan tidak sehat", "Setia kawan, anti gosip, anti bully"],
+      visioner: ["Lolos SNBT jalur saintek atau soshum sesuai passion", "Punya karya nyata (tulisan/proyek/beasiswa) sejak SMA"],
+      pembeda: "Akhwat SMA umum adalah muslimah yang menavigasi dunia modern dengan kompas iman. Ia berprestasi tanpa mengorbankan identitas, bersaing tanpa rasa rendah diri, dan beradab tanpa merasa ketinggalan zaman.",
+    }
+  }
+};
+
+let pCurrentLevel = 'sd';
+let pCurrentGender = 'i';
+
+window.setLevel = function(l) {
+  pCurrentLevel = l;
+  document.querySelectorAll('.nav-btn').forEach((b,i) => {
+    const levels = ['sd','smp','sma-din','sma-um'];
+    b.classList.toggle('active', levels[i] === l);
+  });
+  renderPersona();
+}
+
+window.setGender = function(g) {
+  pCurrentGender = g;
+  const bi = document.getElementById('btn-i');
+  const ba = document.getElementById('btn-a');
+  bi.className = 'gender-btn' + (g === 'i' ? ' active-i' : '');
+  ba.className = 'gender-btn' + (g === 'a' ? ' active-a' : '');
+  renderPersona();
+}
+
+function renderPersona() {
+  const d = personaData[pCurrentLevel];
+  const g = pCurrentGender === 'i' ? d.ikhwan : d.akhwat;
+  const isI = pCurrentGender === 'i';
+  const avClass = isI ? 'av-i' : 'av-a';
+  const initials = g.name.split(' ').map(x=>x[0]).join('').slice(0,2);
+
+  const pillarsHTML = d.pillars.map(p => `
+    <div class="pillar-card">
+      <div class="pillar-icon"><i class="ti ${p.icon}" aria-hidden="true"></i></div>
+      <p class="pillar-title">${p.title}</p>
+      <ul class="pillar-items">
+        ${p.items.map(i => `<li>${i}</li>`).join('')}
+      </ul>
+    </div>
+  `).join('');
+
+  const qTags = g.qurani.map(t => `<span class="tag q">${t}</span>`).join('');
+  const kTags = g.karakter.map(t => `<span class="tag k">${t}</span>`).join('');
+  const vTags = g.visioner.map(t => `<span class="tag v">${t}</span>`).join('');
+
+  document.getElementById('content-area').innerHTML = `
+    <div class="hero-card">
+      <div class="hero-header">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
+          <div class="avatar ${avClass}">${initials}</div>
+          <div>
+            <p class="persona-name">${g.name}</p>
+            <p class="persona-label">${g.label}</p>
+          </div>
+        </div>
+        <p class="hero-title">${d.title}</p>
+        <p class="hero-sub">${d.tagline}</p>
+      </div>
+      <div class="hero-quote">${d.quote}</div>
+    </div>
+
+    <p class="p-section-label">5 pilar kompetensi lulusan</p>
+    <div class="pillars-grid">${pillarsHTML}</div>
+
+    <p class="p-section-label"><i class="ti ti-book" style="font-size:16px;vertical-align:-2px" aria-hidden="true"></i> Qurani — penanda utama</p>
+    <div class="tag-row">${qTags}</div>
+
+    <p class="p-section-label"><i class="ti ti-heart" style="font-size:16px;vertical-align:-2px" aria-hidden="true"></i> Karakter — perilaku yang terlihat</p>
+    <div class="tag-row">${kTags}</div>
+
+    <p class="p-section-label"><i class="ti ti-telescope" style="font-size:16px;vertical-align:-2px" aria-hidden="true"></i> Visioner — orientasi masa depan</p>
+    <div class="tag-row">${vTags}</div>
+
+    <p class="p-section-label" style="margin-top: 32px">Pembeda gender — apa yang khas</p>
+    <div class="distinguish-box">
+      <p class="distinguish-title">${isI ? 'Ikhwan' : 'Akhwat'}: ${pCurrentLevel === 'sd' ? (isI ? 'Syaja\'ah — keberanian yang terhormat' : 'Haya\' — rasa malu yang mulia') : pCurrentLevel === 'smp' ? (isI ? 'Qawwamah — jiwa kepemimpinan bertanggung jawab' : 'Izzah — kemuliaan diri yang tidak lapar validasi') : pCurrentLevel === 'sma-din' ? (isI ? 'Ulama membumi — ilmu menjawab zaman' : 'Murabbi peradaban — kekuatan yang tersembunyi') : (isI ? 'Duta Islam modern — buktikan iman & prestasi seiring' : 'Muslimah navigasi zaman — kompas iman di dunia terbuka')}</p>
+      <p class="distinguish-text">${g.pembeda}</p>
+    </div>
+  `;
+}
+
+// Inisialisasi awal render
+renderPersona();
+
+
+// === Interactive Roadmap Logic ===
+window.showPhase = function(i) {
+  document.querySelectorAll('.rm-phase-section').forEach((s, j) => {
+    s.classList.toggle('visible', j === i);
+  });
+  document.querySelectorAll('.rm-nav-btn').forEach((b, j) => {
+    b.classList.toggle('active', j === i);
+  });
+}
+
+window.toggleTask = function(card) {
+  card.classList.toggle('open');
+}
+    
+    // Auto init persona
+    document.addEventListener("DOMContentLoaded", () => {
+        if(typeof setLevel === 'function') {
+            setLevel('sd');
+        }
+    });
+    
+            lucide.createIcons(); // re-init icons
                 
                 // Fade In
                 area.style.opacity = 1;
