@@ -80,6 +80,19 @@
         .hide-scroll::-webkit-scrollbar { display: none; }
         .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
 
+        /* Unified Table Font & Size styling */
+        #mastertime table, 
+        #kurikulum table {
+            font-family: 'Plus Jakarta Sans', -apple-system, system-ui, sans-serif !important;
+            font-size: 12px !important;
+        }
+        #mastertime th, 
+        #kurikulum th {
+            font-family: 'Signika', sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 700 !important;
+        }
+
         /* Table Sticky Kolom Kiri Kurikulum */
         .table-kurikulum th:first-child,
         .table-kurikulum td:first-child {
@@ -194,7 +207,14 @@
                 <p class="text-slate-600 max-w-2xl mx-auto leading-relaxed">Jadwal harian santri MQBS yang menyeimbangkan kegiatan KBM, Halaqoh, dan aktivitas mandiri.</p>
             </div>
             
-            <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm mb-8 hide-scroll">
+            <!-- TAB BUTTONS -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <button id="btn-master-sd" onclick="switchMastertimeTab('sd')" class="px-6 py-2.5 rounded-full text-sm font-semibold border border-mqbs-green bg-mqbs-green text-mqbs-yellow shadow-sm transition-all duration-200">SD Fullday MQ</button>
+                <button id="btn-master-boarding" onclick="switchMastertimeTab('boarding')" class="px-6 py-2.5 rounded-full text-sm font-medium border border-slate-200 bg-white text-slate-600 transition-all duration-200">SMP, I'dad & SMA</button>
+            </div>
+
+            <!-- TABLE SD -->
+            <div id="master-sd" class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm mb-8 bg-white hide-scroll">
                 <table class="w-full text-sm text-center border-collapse min-w-[900px]">
                     <thead>
                         <tr class="bg-mqbs-darkgreen text-mqbs-yellow font-bold border-b border-mqbs-green">
@@ -212,270 +232,436 @@
                     <tbody class="text-slate-700 font-medium">
                         <!-- Row 1 -->
                         <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">04.00-04.40</td>
-                            <td class="p-2 bg-[#D6BEEA] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#D6BEEA] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#D6BEEA] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#D6BEEA] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#D6BEEA] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200"></td>
-                            <td class="p-2 bg-slate-100 text-slate-400"></td>
+                            <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">07.30-07.40</td>
+                            <td colspan="5" class="p-2 bg-[#9b6220]/20 text-[#0e373e] border-r border-slate-200">Shalat Dhuha & Tausiyah</td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400">Pulang</td>
                         </tr>
                         <!-- Row 2 -->
                         <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">04.00-05.20</td>
-                            <td colspan="7" class="p-2 bg-[#7FB9E6] text-[#0e373e]">Qiyamul Lail, Shalat Shubuh, Dzikir Ba'da Shalat, Dzikir Pagi, dan Halaqoh Mutun</td>
+                            <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">07.40-08.00</td>
+                            <td colspan="5" class="p-2 bg-[#D6BEEA] text-[#0e373e] border-r border-slate-200">Dzikir Pagi</td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400">Pulang</td>
                         </tr>
                         <!-- Row 3 -->
                         <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">05.20-06.00</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#7FB9E6] text-[#0e373e]">Amal Jama'i</td>
+                            <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">08.00-09.30</td>
+                            <td colspan="5" class="p-2 bg-[#B7C96A]/60 text-[#0e373e] border-r border-slate-200">Ziyadah (Halaqoh Quran)</td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400">Pulang</td>
                         </tr>
                         <!-- Row 4 -->
                         <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">06.00-07.00</td>
-                            <td colspan="6" class="p-2 bg-[#7FB9E6] text-[#0e373e] border-r border-slate-200">Mandi, Sarapan dan Persiapan KBM</td>
-                            <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
+                            <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">09.30-09.45</td>
+                            <td colspan="5" class="p-2 bg-[#7FB9E6]/40 text-[#0e373e] border-r border-slate-200">Istirahat</td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400">Pulang</td>
                         </tr>
                         <!-- Row 5 -->
                         <tr class="border-b border-slate-200 bg-white">
                             <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">07.00-07.20</td>
-                            <td colspan="5" class="p-2 bg-[#F98BA9] text-[#0e373e] border-r border-slate-200">Apel Pagi</td>
-                            <td class="p-2 bg-white text-xs border-r border-slate-200">Coaching & Konsultasi Wali Kelas</td>
-                            <td class="p-2 bg-slate-100"></td>
+                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">09.45-10.25</td>
+                            <td class="p-2 border-r border-slate-200">1</td>
+                            <td class="p-2 border-r border-slate-200">1</td>
+                            <td class="p-2 border-r border-slate-200">1</td>
+                            <td class="p-2 border-r border-slate-200">1</td>
+                            <td class="p-2 border-r border-slate-200">1</td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400">Pulang</td>
                         </tr>
                         <!-- Row 6 -->
                         <tr class="border-b border-slate-200 bg-white">
                             <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">07.20-08.00</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">10.25-11.05</td>
                             <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100"></td>
+                            <td class="p-2 border-r border-slate-200">1</td>
+                            <td class="p-2 border-r border-slate-200">1</td>
+                            <td class="p-2 border-r border-slate-200">1</td>
+                            <td class="p-2 bg-[#7FB9E6]/40 text-[#0e373e] border-r border-slate-200">Istirahat</td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400">Pulang</td>
                         </tr>
                         <!-- Row 7 -->
                         <tr class="border-b border-slate-200 bg-white">
                             <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">08.00-08.40</td>
+                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">11.05-11.20</td>
+                            <td colspan="4" class="p-2 bg-[#7FB9E6]/40 text-[#0e373e] border-r border-slate-200">Istirahat</td>
                             <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100"></td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400">Pulang</td>
                         </tr>
                         <!-- Row 8 -->
                         <tr class="border-b border-slate-200 bg-white">
                             <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">08.40-09.20</td>
+                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">11.20-12.00</td>
                             <td class="p-2 border-r border-slate-200">1</td>
                             <td class="p-2 border-r border-slate-200">1</td>
                             <td class="p-2 border-r border-slate-200">1</td>
                             <td class="p-2 border-r border-slate-200">1</td>
                             <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#7FB9E6] text-[#0e373e] border-r border-slate-200">Istirahat</td>
-                            <td class="p-2 bg-slate-100"></td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400">Pulang</td>
                         </tr>
                         <!-- Row 9 -->
                         <tr class="border-b border-slate-200 bg-white">
                             <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">09.20-10.00</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#F4D77A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100"></td>
+                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">12.00-12.45</td>
+                            <td colspan="4" class="p-2 bg-[#7FB9E6]/40 text-[#0e373e] border-r border-slate-200">Istirahat / ISHOMA</td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400">Pulang</td>
                         </tr>
                         <!-- Row 10 -->
                         <tr class="border-b border-slate-200 bg-white">
                             <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">10.00-10.20</td>
-                            <td colspan="4" class="p-2 bg-[#7FB9E6] text-[#0e373e] border-r border-slate-200">Istirahat</td>
+                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">12.45-13.25</td>
                             <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#F4D77A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100"></td>
+                            <td class="p-2 border-r border-slate-200">1</td>
+                            <td class="p-2 border-r border-slate-200">1</td>
+                            <td class="p-2 border-r border-slate-200">1</td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400">Pulang</td>
                         </tr>
                         <!-- Row 11 -->
                         <tr class="border-b border-slate-200 bg-white">
                             <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">10.20-11.00</td>
+                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">13.25-14.00</td>
                             <td class="p-2 border-r border-slate-200">1</td>
                             <td class="p-2 border-r border-slate-200">1</td>
                             <td class="p-2 border-r border-slate-200">1</td>
                             <td class="p-2 border-r border-slate-200">1</td>
-                            <td rowspan="2" class="p-2 bg-[#7FB9E6] text-[#0e373e] border-r border-slate-200 align-middle">Persiapan<br>Shalat Jumat</td>
-                            <td class="p-2 bg-[#F4D77A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100"></td>
-                        </tr>
-                        <!-- Row 12 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">11.00-11.40</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
-                            <td class="p-2 bg-slate-100"></td>
-                        </tr>
-                        <!-- Row 13 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">11.40-13.00</td>
-                            <td colspan="6" class="p-2 bg-[#7FB9E6] text-[#0e373e] border-r border-slate-200">Istirahat, Qoilulah, Shalat Dzuhur, Makan Siang</td>
-                            <td class="p-2 bg-slate-100"></td>
-                        </tr>
-                        <!-- Row 14 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">13.00-13.40</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
-                            <td class="p-2 bg-slate-100"></td>
-                        </tr>
-                        <!-- Row 15 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">13.40-14.20</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
-                            <td class="p-2 bg-slate-100"></td>
-                        </tr>
-                        <!-- Row 16 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">14.20-15.00</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
-                            <td class="p-2 bg-slate-100"></td>
-                        </tr>
-                        <!-- Row 17 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">15.00-16.30</td>
-                            <td colspan="7" class="p-2 bg-[#7FB9E6] text-[#0e373e]">Shalat Ashar, Aktivitas Mandiri Santri</td>
-                        </tr>
-                        <!-- Row 18 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">16.30-17.10</td>
-                            <td class="p-2 bg-[#F98BA9] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#FF8F45] text-[#0e373e] border-r border-slate-200">Ekskul</td>
-                            <td class="p-2 bg-[#F98BA9] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#FF8F45] text-[#0e373e] border-r border-slate-200">Ekskul</td>
-                            <td class="p-2 bg-[#F98BA9] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200"></td>
-                            <td class="p-2 bg-slate-100 text-slate-400"></td>
-                        </tr>
-                        <!-- Row 19 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">17.10-17.50</td>
-                            <td colspan="7" class="p-2 bg-[#7FB9E6] text-[#0e373e]">Mandi, Makan Malam, Persiapan Shalat Maghrib</td>
-                        </tr>
-                        <!-- Row 20 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">17.50-18.20</td>
-                            <td colspan="7" class="p-2 bg-[#7FB9E6] text-[#0e373e]">Shalat Magrib, Dzikir</td>
-                        </tr>
-                        <!-- Row 21 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">18.00-18.40</td>
-                            <td colspan="5" rowspan="2" class="p-2 bg-[#F4D77A] text-[#0e373e] border-r border-slate-200 align-middle">Kajian Ba'da Magrib</td>
-                            <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
-                            <td class="p-2 bg-slate-100"></td>
-                        </tr>
-                        <!-- Row 22 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">18.40-19.20</td>
-                            <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
-                            <td class="p-2 bg-slate-100"></td>
-                        </tr>
-                        <!-- Row 23 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">19.20-20.00</td>
-                            <td colspan="7" class="p-2 bg-[#7FB9E6] text-[#0e373e]">Shalat Isya, Dzikir</td>
-                        </tr>
-                        <!-- Row 24 -->
-                        <tr class="border-b border-slate-200 bg-white">
-                            <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
-                            <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">19.50-20.30</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
-                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200"></td>
-                            <td class="p-2 bg-slate-100 text-slate-400"></td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200">Pulang</td>
+                            <td class="p-2 bg-slate-100 text-slate-400">Pulang</td>
                         </tr>
                         <!-- Totals -->
                         <tr class="bg-mqbs-darkgreen text-mqbs-yellow font-bold">
-                            <td colspan="2" class="p-2 border-r border-mqbs-green/30"></td>
-                            <td class="p-2 border-r border-mqbs-green/30">13</td>
-                            <td class="p-2 border-r border-mqbs-green/30">12</td>
-                            <td class="p-2 border-r border-mqbs-green/30">13</td>
-                            <td class="p-2 border-r border-mqbs-green/30">12</td>
-                            <td class="p-2 border-r border-mqbs-green/30">12</td>
+                            <td colspan="2" class="p-2 border-r border-mqbs-green/30">Total JP / Hari</td>
+                            <td class="p-2 border-r border-mqbs-green/30">8</td>
+                            <td class="p-2 border-r border-mqbs-green/30">8</td>
+                            <td class="p-2 border-r border-mqbs-green/30">8</td>
+                            <td class="p-2 border-r border-mqbs-green/30">8</td>
                             <td class="p-2 border-r border-mqbs-green/30">6</td>
+                            <td class="p-2 border-r border-mqbs-green/30">0</td>
                             <td class="p-2">0</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- Stats & Legends -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
+            <!-- Stats & Legends SD -->
+            <div id="master-sd-stats" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
                 <div class="flex flex-col justify-center items-center gap-2 bg-slate-50 rounded-xl p-4 border border-slate-200 shadow-sm">
                     <div class="flex gap-8 text-sm font-bold text-slate-800">
-                        <div class="text-center">Total:<br><span class="text-lg text-mqbs-ink font-bold">68 JP</span></div>
-                        <div class="text-center">KBM:<br><span class="text-lg text-mqbs-green font-bold">44 JP</span> <span class="font-normal text-slate-500">(65%)</span></div>
-                        <div class="text-center">Non-KBM:<br><span class="text-lg text-mqbs-brown font-bold">24 JP</span> <span class="font-normal text-slate-500">(35%)</span></div>
+                        <div class="text-center">Total:<br><span class="text-lg text-mqbs-ink font-bold">38 JP</span></div>
+                        <div class="text-center">KBM:<br><span class="text-lg text-mqbs-green font-bold">38 JP</span> <span class="font-normal text-slate-500">(100%)</span></div>
+                        <div class="text-center">Non-KBM:<br><span class="text-lg text-mqbs-brown font-bold">0 JP</span> <span class="font-normal text-slate-500">(0%)</span></div>
                     </div>
                 </div>
                 
                 <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 text-xs shadow-sm">
                     <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#B7C96A] rounded shadow-sm"></div> Halaqoh Quran</div>
-                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#FF8F45] rounded shadow-sm"></div> Ekskul</div>
-                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#F4D77A] rounded shadow-sm"></div> P5/Project/Inspirasi</div>
-                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#D6BEEA] rounded shadow-sm"></div> Halaqoh Mutun</div>
-                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#F4D77A] rounded shadow-sm"></div> Kajian Ba'da Magrib</div>
-                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#F98BA9] rounded shadow-sm"></div> Life Skill</div>
-                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#F98BA9] rounded shadow-sm"></div> Apel Pagi</div>
-                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#7FB9E6] rounded shadow-sm"></div> Aktivitas Mandiri</div>
+                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#B7C96A]/60 rounded shadow-sm"></div> Ziyadah (Halaqoh)</div>
+                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#9b6220]/20 rounded shadow-sm"></div> Shalat Dhuha & Tausiyah</div>
+                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#D6BEEA] rounded shadow-sm"></div> Dzikir Pagi</div>
+                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#7FB9E6]/40 rounded shadow-sm"></div> Istirahat / ISHOMA</div>
+                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-white border border-slate-200 rounded shadow-sm"></div> KBM Umum (1 JP)</div>
+                        <div class="flex items-center gap-2"><div class="w-4 h-4 bg-slate-100 rounded shadow-sm"></div> Pulang / Libur</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLE BOARDING (SMP, I'dad & SMA) -->
+            <div id="master-boarding" class="hidden">
+                <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm mb-8 hide-scroll">
+                    <table class="w-full text-sm text-center border-collapse min-w-[900px]">
+                        <thead>
+                            <tr class="bg-mqbs-darkgreen text-mqbs-yellow font-bold border-b border-mqbs-green">
+                                <th class="p-3 border-r border-mqbs-green/30 w-24">Zona</th>
+                                <th class="p-3 border-r border-mqbs-green/30 w-32">Jam</th>
+                                <th class="p-3 border-r border-mqbs-green/30 w-16">Senin</th>
+                                <th class="p-3 border-r border-mqbs-green/30 w-16">Selasa</th>
+                                <th class="p-3 border-r border-mqbs-green/30 w-16">Rabu</th>
+                                <th class="p-3 border-r border-mqbs-green/30 w-16">Kamis</th>
+                                <th class="p-3 border-r border-mqbs-green/30 w-16">Jumat</th>
+                                <th class="p-3 border-r border-mqbs-green/30 w-24">Sabtu</th>
+                                <th class="p-3 w-24">Ahad</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-700 font-medium">
+                            <!-- Row 1 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">04.00-04.40</td>
+                                <td class="p-2 bg-[#D6BEEA] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#D6BEEA] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#D6BEEA] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#D6BEEA] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#D6BEEA] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200"></td>
+                                <td class="p-2 bg-slate-100 text-slate-400"></td>
+                            </tr>
+                            <!-- Row 2 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">04.00-05.20</td>
+                                <td colspan="7" class="p-2 bg-[#7FB9E6] text-[#0e373e]">Qiyamul Lail, Shalat Shubuh, Dzikir Ba'da Shalat, Dzikir Pagi, dan Halaqoh Mutun</td>
+                            </tr>
+                            <!-- Row 3 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">05.20-06.00</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#7FB9E6] text-[#0e373e]">Amal Jama'i</td>
+                            </tr>
+                            <!-- Row 4 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">06.00-07.00</td>
+                                <td colspan="6" class="p-2 bg-[#7FB9E6] text-[#0e373e] border-r border-slate-200">Mandi, Sarapan dan Persiapan KBM</td>
+                                <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
+                            </tr>
+                            <!-- Row 5 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">07.00-07.20</td>
+                                <td colspan="5" class="p-2 bg-[#F98BA9] text-[#0e373e] border-r border-slate-200">Apel Pagi</td>
+                                <td class="p-2 bg-white text-xs border-r border-slate-200">Coaching & Konsultasi Wali Kelas</td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 6 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">07.20-08.00</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 7 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">08.00-08.40</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 8 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">08.40-09.20</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#7FB9E6] text-[#0e373e] border-r border-slate-200">Istirahat</td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 9 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">09.20-10.00</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#F4D77A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 10 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">10.00-10.20</td>
+                                <td colspan="4" class="p-2 bg-[#7FB9E6] text-[#0e373e] border-r border-slate-200">Istirahat</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#F4D77A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 11 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">10.20-11.00</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td rowspan="2" class="p-2 bg-[#7FB9E6] text-[#0e373e] border-r border-slate-200 align-middle">Persiapan<br>Shalat Jumat</td>
+                                <td class="p-2 bg-[#F4D77A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 12 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">11.00-11.40</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 13 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">11.40-13.00</td>
+                                <td colspan="6" class="p-2 bg-[#7FB9E6] text-[#0e373e] border-r border-slate-200">Istirahat, Qoilulah, Shalat Dzuhur, Makan Siang</td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 14 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">13.00-13.40</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 15 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">13.40-14.20</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 16 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F4D77A]/30 text-[#9b6220] font-semibold border-r border-slate-200">KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">14.20-15.00</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 17 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">15.00-16.30</td>
+                                <td colspan="7" class="p-2 bg-[#7FB9E6] text-[#0e373e]">Shalat Ashar, Aktivitas Mandiri Santri</td>
+                            </tr>
+                            <!-- Row 18 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">16.30-17.10</td>
+                                <td class="p-2 bg-[#F98BA9] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#FF8F45] text-[#0e373e] border-r border-slate-200">Ekskul</td>
+                                <td class="p-2 bg-[#F98BA9] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#FF8F45] text-[#0e373e] border-r border-slate-200">Ekskul</td>
+                                <td class="p-2 bg-[#F98BA9] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200"></td>
+                                <td class="p-2 bg-slate-100 text-slate-400"></td>
+                            </tr>
+                            <!-- Row 19 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">17.10-17.50</td>
+                                <td colspan="7" class="p-2 bg-[#7FB9E6] text-[#0e373e]">Mandi, Makan Malam, Persiapan Shalat Maghrib</td>
+                            </tr>
+                            <!-- Row 20 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">17.50-18.20</td>
+                                <td colspan="7" class="p-2 bg-[#7FB9E6] text-[#0e373e]">Shalat Magrib, Dzikir</td>
+                            </tr>
+                            <!-- Row 21 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">18.00-18.40</td>
+                                <td colspan="5" rowspan="2" class="p-2 bg-[#F4D77A] text-[#0e373e] border-r border-slate-200 align-middle">Kajian Ba'da Magrib</td>
+                                <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 22 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">18.40-19.20</td>
+                                <td class="p-2 bg-slate-100 border-r border-slate-200"></td>
+                                <td class="p-2 bg-slate-100"></td>
+                            </tr>
+                            <!-- Row 23 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">19.20-20.00</td>
+                                <td colspan="7" class="p-2 bg-[#7FB9E6] text-[#0e373e]">Shalat Isya, Dzikir</td>
+                            </tr>
+                            <!-- Row 24 -->
+                            <tr class="border-b border-slate-200 bg-white">
+                                <td class="p-2 bg-[#F98BA9]/20 text-[#0e373e] font-semibold border-r border-slate-200">Non-KBM</td>
+                                <td class="p-2 border-r border-slate-200 font-mono text-xs text-slate-500">19.50-20.30</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-[#B7C96A] text-[#0e373e] border-r border-slate-200">1</td>
+                                <td class="p-2 bg-slate-100 text-slate-400 border-r border-slate-200"></td>
+                                <td class="p-2 bg-slate-100 text-slate-400"></td>
+                            </tr>
+                            <!-- Totals -->
+                            <tr class="bg-mqbs-darkgreen text-mqbs-yellow font-bold">
+                                <td colspan="2" class="p-2 border-r border-mqbs-green/30"></td>
+                                <td class="p-2 border-r border-mqbs-green/30">13</td>
+                                <td class="p-2 border-r border-mqbs-green/30">12</td>
+                                <td class="p-2 border-r border-mqbs-green/30">13</td>
+                                <td class="p-2 border-r border-mqbs-green/30">12</td>
+                                <td class="p-2 border-r border-mqbs-green/30">12</td>
+                                <td class="p-2 border-r border-mqbs-green/30">6</td>
+                                <td class="p-2">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Stats & Legends -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
+                    <div class="flex flex-col justify-center items-center gap-2 bg-slate-50 rounded-xl p-4 border border-slate-200 shadow-sm">
+                        <div class="flex gap-8 text-sm font-bold text-slate-800">
+                            <div class="text-center">Total:<br><span class="text-lg text-mqbs-ink font-bold">68 JP</span></div>
+                            <div class="text-center">KBM:<br><span class="text-lg text-mqbs-green font-bold">44 JP</span> <span class="font-normal text-slate-500">(65%)</span></div>
+                            <div class="text-center">Non-KBM:<br><span class="text-lg text-mqbs-brown font-bold">24 JP</span> <span class="font-normal text-slate-500">(35%)</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 text-xs shadow-sm">
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#B7C96A] rounded shadow-sm"></div> Halaqoh Quran</div>
+                            <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#FF8F45] rounded shadow-sm"></div> Ekskul</div>
+                            <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#F4D77A] rounded shadow-sm"></div> P5/Project/Inspirasi</div>
+                            <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#D6BEEA] rounded shadow-sm"></div> Halaqoh Mutun</div>
+                            <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#F4D77A] rounded shadow-sm"></div> Kajian Ba'da Magrib</div>
+                            <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#F98BA9] rounded shadow-sm"></div> Life Skill</div>
+                            <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#F98BA9] rounded shadow-sm"></div> Apel Pagi</div>
+                            <div class="flex items-center gap-2"><div class="w-4 h-4 bg-[#7FB9E6] rounded shadow-sm"></div> Aktivitas Mandiri</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -486,7 +672,7 @@
 <!-- SECTION 02: STRUKTUR KURIKULUM --><section id="kurikulum" class="py-20 bg-slate-50 border-t border-slate-200"><div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8"><div class="mb-10 text-center"><div class="inline-flex items-center justify-center gap-3 mb-2"><span class="font-mono text-sm font-bold text-mqbs-gold">02</span><div class="h-px w-8 bg-mqbs-gold/50"></div><span class="text-xs font-bold tracking-widest uppercase text-mqbs-gray">Struktur Kurikulum</span></div><h2 class="text-3xl md:text-4xl font-signika font-bold text-mqbs-ink mb-4">Struktur <span class="font-signika italic text-mqbs-green">Kurikulum</span></h2><p class="text-slate-600 max-w-2xl mx-auto leading-relaxed">Alokasi waktu mata pelajaran untuk jenjang SD, SMP, dan SMA dalam per pekan.</p></div><!-- TAB BUTTONS -->
 <div class="flex flex-wrap justify-center gap-2 mb-8">
     <button id="btn-kurisd" onclick="switchKurikulumTab('sd')" class="px-6 py-2.5 rounded-full text-sm font-semibold border border-mqbs-green bg-mqbs-green text-mqbs-yellow shadow-sm transition-all duration-200">SD Fullday MQ</button>
-    <button id="btn-kurismpsma" onclick="switchKurikulumTab('smpsma')" class="px-6 py-2.5 rounded-full text-sm font-medium border border-slate-200 bg-white text-slate-600 transition-all duration-200">SMP & SMA</button>
+    <button id="btn-kurismpsma" onclick="switchKurikulumTab('smpsma')" class="px-6 py-2.5 rounded-full text-sm font-medium border border-slate-200 bg-white text-slate-600 transition-all duration-200">SMP, I'dad & SMA</button>
 </div><!-- TABLE SD --><div id="kuri-sd" class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white hide-scroll">
 <table class="w-full text-xs text-center border-collapse min-w-[900px]">
 <thead>
@@ -678,12 +864,12 @@
     sd: {
                 label: "Jenjang SD",
                 menus: [
-                    { id: "sd_k1", title: "Kelas 1", subtitle: "Tahap Pembelajaran", icon: "book" },
-                    { id: "sd_k2", title: "Kelas 2", subtitle: "Tahap Pembelajaran", icon: "book" },
-                    { id: "sd_k3", title: "Kelas 3", subtitle: "Tahap Pembelajaran", icon: "book" },
-                    { id: "sd_k4", title: "Kelas 4", subtitle: "Tahap Pembelajaran", icon: "book" },
-                    { id: "sd_k5", title: "Kelas 5", subtitle: "Tahap Pembelajaran", icon: "book" },
-                    { id: "sd_k6", title: "Kelas 6", subtitle: "Tahap Pembelajaran", icon: "book" }
+                    { id: "sd_k1", title: "Kelas 1", subtitle: "Fase At-Talaqqi", icon: "book" },
+                    { id: "sd_k2", title: "Kelas 2", subtitle: "Fase At-Talaqqi", icon: "book" },
+                    { id: "sd_k3", title: "Kelas 3", subtitle: "Fase At-Tamkin", icon: "book" },
+                    { id: "sd_k4", title: "Kelas 4", subtitle: "Fase At-Tamkin", icon: "book" },
+                    { id: "sd_k5", title: "Kelas 5", subtitle: "Fase Al-Isti'dad", icon: "book" },
+                    { id: "sd_k6", title: "Kelas 6", subtitle: "Fase Al-Isti'dad", icon: "book" }
                 ],
                 content: {
                     sd_k1: {
@@ -2873,9 +3059,9 @@
             smp: {
                 label: "Jenjang SMP",
                 menus: [
-                    { id: "smp_k7", title: "Kelas 7", subtitle: "Fondasi Mutlak", icon: "compass" },
-                    { id: "smp_k8", title: "Kelas 8", subtitle: "Demonstrasi", icon: "presentation" },
-                    { id: "smp_k9", title: "Kelas 9", subtitle: "Tahun Panen", icon: "graduation-cap" }
+                    { id: "smp_k7", title: "Kelas 7", subtitle: "Fase Al-Iltizam", icon: "compass" },
+                    { id: "smp_k8", title: "Kelas 8", subtitle: "Fase At-Tafaqquh", icon: "presentation" },
+                    { id: "smp_k9", title: "Kelas 9", subtitle: "Fase Al-Hasad", icon: "graduation-cap" }
                 ],
                 content: {
                     smp_k7: {
@@ -3701,7 +3887,7 @@
             },
             idad: {
                 label: "Jenjang I'dad",
-                menus: [{ id: "idad_main", title: "I'dad", subtitle: "1 Tahun • 62 JP", icon: "book" }],
+                menus: [{ id: "idad_main", title: "I'dad", subtitle: "Fase Al-I'dad lil Isti'la'", icon: "book" }],
                 content: {
                     idad_main: {
                         title: "Program I'dad — Fase Al-I'dad lil Isti'la'",
@@ -3958,9 +4144,9 @@
             sma_din: {
                 label: "SMA — Jalur Diniyah",
                 menus: [
-                    { id: "d_k10", title: "Kelas 10", subtitle: "Normalisasi", icon: "scale" },
-                    { id: "d_k11", title: "Kelas 11", subtitle: "Pendalaman Diniyah", icon: "book-open" },
-                    { id: "d_k12", title: "Kelas 12", subtitle: "Penggenapan", icon: "check-circle" }
+                    { id: "d_k10", title: "Kelas 10", subtitle: "Fase At-Tartib wat Tawazun", icon: "scale" },
+                    { id: "d_k11", title: "Kelas 11", subtitle: "Fase At-Ta'miq", icon: "book-open" },
+                    { id: "d_k12", title: "Kelas 12", subtitle: "Fase Al-Badzl wal 'Atha'", icon: "check-circle" }
                 ],
                 content: {
                     d_k10: {
@@ -4797,9 +4983,9 @@
             sma_umum: {
                 label: "SMA — Jalur Umum",
                 menus: [
-                    { id: "u_k10", title: "Kelas 10", subtitle: "Normalisasi", icon: "scale" },
-                    { id: "u_k11", title: "Kelas 11", subtitle: "Penjurusan Aktif", icon: "target" },
-                    { id: "u_k12", title: "Kelas 12", subtitle: "Eksekusi Total", icon: "rocket" }
+                    { id: "u_k10", title: "Kelas 10", subtitle: "Fase At-Tartib wat Tawazun", icon: "scale" },
+                    { id: "u_k11", title: "Kelas 11", subtitle: "Fase At-Tarkib", icon: "target" },
+                    { id: "u_k12", title: "Kelas 12", subtitle: "Fase An-Nufudz wal Istitsmar", icon: "rocket" }
                 ],
                 content: {
                     u_k10: {
@@ -6215,7 +6401,39 @@ window.toggleTask = function(card) {
             }, 150); // wait for fade out
         }
 
-                function switchKurikulumTab(tabId) {
+        function switchMastertimeTab(tabId) {
+            const sdMaster = document.getElementById('master-sd');
+            const sdStats = document.getElementById('master-sd-stats');
+            const boardingMaster = document.getElementById('master-boarding');
+            const btnSd = document.getElementById('btn-master-sd');
+            const btnBoarding = document.getElementById('btn-master-boarding');
+
+            if (tabId === 'sd') {
+                if (sdMaster) sdMaster.classList.remove('hidden');
+                if (sdStats) sdStats.classList.remove('hidden');
+                if (boardingMaster) boardingMaster.classList.add('hidden');
+                
+                if (btnSd) {
+                    btnSd.className = 'px-6 py-2.5 rounded-full text-sm font-semibold border border-mqbs-green bg-mqbs-green text-mqbs-yellow shadow-sm transition-all duration-200';
+                }
+                if (btnBoarding) {
+                    btnBoarding.className = 'px-6 py-2.5 rounded-full text-sm font-medium border border-slate-200 bg-white text-slate-600 transition-all duration-200';
+                }
+            } else {
+                if (sdMaster) sdMaster.classList.add('hidden');
+                if (sdStats) sdStats.classList.add('hidden');
+                if (boardingMaster) boardingMaster.classList.remove('hidden');
+                
+                if (btnSd) {
+                    btnSd.className = 'px-6 py-2.5 rounded-full text-sm font-medium border border-slate-200 bg-white text-slate-600 transition-all duration-200';
+                }
+                if (btnBoarding) {
+                    btnBoarding.className = 'px-6 py-2.5 rounded-full text-sm font-semibold border border-mqbs-green bg-mqbs-green text-mqbs-yellow shadow-sm transition-all duration-200';
+                }
+            }
+        }
+
+        function switchKurikulumTab(tabId) {
             const sdTable = document.getElementById('kuri-sd');
             const smpSmaTable = document.getElementById('kuri-smpsma');
             const btnSd = document.getElementById('btn-kurisd');
