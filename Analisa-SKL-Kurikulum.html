@@ -9,6 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- Menambahkan Tabler Icons untuk ikon pada Persona Ideal -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<!-- Load Chart.js for Tren Santri Chart -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 :root {
   /* MQBS Color Identity Mapping */
@@ -115,6 +117,49 @@ body::before {
 .meta-strip span b { color: var(--brick); font-weight: 600; }
 @media (max-width: 720px) {
   .meta-strip { display: none; }
+}
+
+/* ============ TREN SANTRI SECTION ============ */
+.tren-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+@media (max-width: 768px) {
+  .tren-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .tren-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.factor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+@media (max-width: 600px) {
+  .factor-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tren-card {
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.tren-stat-card {
+  border: 1px solid var(--rule-soft);
+  border-radius: 8px;
+  padding: 16px;
 }
 
 /* ============ HERO ============ */
@@ -1890,10 +1935,214 @@ body::before {
   </div>
 </section>
 
+<!-- ============ TREN PENURUNAN SANTRI ============ -->
+<section class="section" id="tren-santri">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">03</span> Tren Penurunan Santri Nasional</div>
+    <h2 class="action-title">
+      Jumlah santri nasional anjlok <span style="color: var(--brick);">−66%</span> dalam 3 tahun — pesantren yang tidak berbenah akan kehilangan pasar sebelum sempat berbenah
+    </h2>
+    <p class="action-deck">
+      Data EMIS Kementerian Agama RI menunjukkan penurunan tajam jumlah santri terdaftar sejak tahun ajaran 2022/2023. Sebagian disebabkan penyesuaian definisi santri (UU No.18/2019), namun faktor riil — persaingan sekolah modern, kekhawatiran orang tua, dan pergeseran preferensi kelas menengah — tidak bisa diabaikan. <strong>Ini bukan sekadar masalah data. Ini alarm pasar.</strong>
+    </p>
+  </div>
+
+  <div class="reveal" style="max-width: 1000px; margin: 2rem auto 0; padding: 0 28px;">
+    <!-- STAT STRIP -->
+    <div class="tren-grid">
+      <div style="background: rgba(155,98,32,0.06); border: 1px solid var(--rule-soft); border-radius: 12px; padding: 1.25rem;">
+        <div style="font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--brick); line-height: 1; margin-bottom: 5px;">4,84 jt</div>
+        <div style="font-size: 12px; color: var(--ink-2); line-height: 1.5;">Puncak: Sem. Genap 2022/2023</div>
+      </div>
+      <div style="background: rgba(227,177,31,0.08); border: 1px solid var(--rule-soft); border-radius: 12px; padding: 1.25rem;">
+        <div style="font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 5px;">1,37 jt</div>
+        <div style="font-size: 12px; color: var(--ink-2); line-height: 1.5;">Titik terendah: Sem. Ganjil 2025/2026</div>
+      </div>
+      <div style="background: var(--paper); border: 1px solid var(--rule-soft); border-radius: 12px; padding: 1.25rem;">
+        <div style="font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--brick); line-height: 1; margin-bottom: 5px;">−66%</div>
+        <div style="font-size: 12px; color: var(--ink-2); line-height: 1.5;">Penurunan dari puncak ke titik terendah</div>
+      </div>
+      <div style="background: var(--paper); border: 1px solid var(--rule-soft); border-radius: 12px; padding: 1.25rem;">
+        <div style="font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--ink); line-height: 1; margin-bottom: 5px;">−36%</div>
+        <div style="font-size: 12px; color: var(--ink-2); line-height: 1.5;">Santri baru Kab. Bogor 2024→2025 (25.834 → 16.484)</div>
+      </div>
+    </div>
+
+    <!-- GRAFIK -->
+    <div style="background: var(--cream); border: 1px solid var(--rule-soft); border-radius: 14px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: var(--shadow);">
+      <p style="font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;">
+        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background: var(--gold);"></span>
+        Perkembangan Jumlah Santri Pesantren Indonesia — Per Semester (EMIS/Kemenag)
+      </p>
+      <div style="position: relative; height: 260px;">
+        <canvas id="trendSantriChart" aria-label="Grafik tren jumlah santri pesantren 2022 hingga 2026"></canvas>
+      </div>
+      <p style="font-size: 11px; color: var(--ink-2); opacity: 0.8; margin-top: .75rem; line-height: 1.6;">
+        ⚠️ <strong>Catatan metodologis:</strong> Penurunan signifikan di Sem. Genap 2024/2025 and Sem. Ganjil 2025/2026 sebagian disebabkan <em>penyesuaian definisi santri</em> mengikuti UU No.18/2019 (Kemenag, Oktober 2025). Namun faktor riil (persaingan, ekonomi, persepsi keamanan) tetap berkontribusi. Sumber: EMIS Kemenag RI via GoodStats Data (Oktober 2025).
+      </p>
+    </div>
+
+    <!-- FAKTOR PENYEBAB -->
+    <p style="font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); margin-bottom: .75rem;">
+      Faktor Penyebab — Bukti Lapangan
+    </p>
+
+    <div class="factor-grid">
+      <div class="tren-card">
+        <div style="font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;">Persaingan Institusional</div>
+        <div style="font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: .3rem;">Sekolah Islam Modern Tumbuh Pesat</div>
+        <div style="font-size: 13px; color: var(--ink-2); opacity: 0.9; line-height: 1.65;">Jumlah pesantren naik dari 36.600 → 42.433 (2021–2024), sementara jumlah anak usia sekolah stagnan. "Kue"-nya sama, pemainnya makin banyak.</div>
+      </div>
+
+      <div class="tren-card">
+        <div style="font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;">Kekhawatiran Prospek</div>
+        <div style="font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: .3rem;">Pesantren Tanpa Ijazah Formal Ditinggal</div>
+        <div style="font-size: 13px; color: var(--ink-2); opacity: 0.9; line-height: 1.65;">Orang tua santri khawatir anaknya tidak bisa bekerja tanpa ijazah formal minimum SMA. Pesantren salaf tanpa sekolah formal terdampak paling parah.</div>
+      </div>
+
+      <div class="tren-card">
+        <div style="font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;">Persepsi Keamanan</div>
+        <div style="font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: .3rem;">Isu Kekerasan Melemahkan Kepercayaan</div>
+        <div style="font-size: 13px; color: var(--ink-2); opacity: 0.9; line-height: 1.65;">Kasus kekerasan di sebagian pesantren menyebar cepat via medsos. Satu insiden menurunkan rasa aman orang tua secara luas — efek reputasi lintas lembaga.</div>
+      </div>
+
+      <div class="tren-card">
+        <div style="font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;">Selektivitas Kelas Menengah</div>
+        <div style="font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: .3rem;">Orang Tua Makin Rasional & Kritis</div>
+        <div style="font-size: 13px; color: var(--ink-2); opacity: 0.9; line-height: 1.65;">Orang tua kelas menengah mempertimbangkan fasilitas, kurikulum, adaptasi digital, dan prospek masa depan. Figur kiai tidak lagi menjadi satu-satunya penentu pilihan.</div>
+      </div>
+    </div>
+
+    <!-- IMPLIKASI UNTUK MQBS -->
+    <div style="border-left: 4px solid var(--brick); padding: 1.25rem; background: rgba(155,98,32,0.06); border-radius: 0 12px 12px 0; margin-bottom: 2rem;">
+      <div style="font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px;">
+        Implikasi Langsung untuk MQBS
+      </div>
+      <div style="font-size: 13px; color: var(--ink-2); line-height: 1.7;">
+        MQBS memiliki keunggulan yang langsung menjawab semua faktor di atas: ijazah formal terintegrasi, ekosistem aman & terstruktur, kurikulum yang bisa dibuktikan terukur. <strong>Namun keunggulan ini hanya berdampak jika dikomunikasikan lewat SKL yang terverifikasi</strong> — bukan sekadar brosur. Di tengah penurunan pasar 66% secara nasional, pesantren yang bisa membuktikan output-nya secara data akan merebut pangsa yang ditinggalkan pesantren lain.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chart.js script untuk blok ini -->
+<script>
+(function() {
+  function drawChart(ctx) {
+    var labels = [
+      'Ganjil\n2022/23','Genap\n2022/23',
+      'Ganjil\n2023/24','Genap\n2023/24',
+      'Ganjil\n2024/25','Genap\n2024/25',
+      'Ganjil\n2025/26'
+    ];
+    var data = [4074011, 4845317, 3143555, 3339536, 3221332, 1605445, 1378687];
+    var colors = data.map(function(v, i) {
+      if (i <= 1) return 'rgba(21,95,165,0.85)';   // biru — fase naik
+      if (i <= 3) return 'rgba(133,79,11,0.85)';   // amber — mulai turun
+      return 'rgba(163,45,45,0.9)';                 // merah — anjlok
+    });
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Jumlah Santri',
+          data: data,
+          backgroundColor: colors,
+          borderRadius: 5,
+          borderSkipped: false
+        }, {
+          label: 'Tren',
+          data: data,
+          type: 'line',
+          borderColor: 'rgba(26,25,23,0.25)',
+          backgroundColor: 'transparent',
+          borderWidth: 1.5,
+          borderDash: [4, 3],
+          pointRadius: 3,
+          pointBackgroundColor: colors,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return '  ' + ctx.parsed.y.toLocaleString('id-ID') + ' santri';
+              },
+              afterLabel: function(ctx) {
+                var i = ctx.dataIndex;
+                if (i === 0) return '';
+                var prev = ctx.dataset.data[i - 1];
+                var curr = ctx.parsed.y;
+                var pct = (((curr - prev) / prev) * 100).toFixed(1);
+                return '  ' + (pct > 0 ? '+' : '') + pct + '% vs semester sebelumnya';
+              }
+            },
+            backgroundColor: '#1A1917',
+            titleFont: { family: "'Plus Jakarta Sans', sans-serif", size: 11 },
+            bodyFont: { family: "'Plus Jakarta Sans', sans-serif", size: 11 },
+            padding: 10,
+            cornerRadius: 6
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              font: { family: "'Plus Jakarta Sans', sans-serif", size: 10 },
+              color: '#9A9890',
+              maxRotation: 0
+            },
+            grid: { display: false },
+            border: { display: false }
+          },
+          y: {
+            ticks: {
+              font: { family: "'Plus Jakarta Sans', sans-serif", size: 10 },
+              color: '#9A9890',
+              callback: function(v) {
+                if (v >= 1000000) return (v / 1000000).toFixed(1) + ' jt';
+                if (v >= 1000) return (v / 1000).toFixed(0) + ' rb';
+                return v;
+              }
+            },
+            grid: { color: 'rgba(26,25,23,0.06)' },
+            border: { display: false },
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+
+  function initTrendChart() {
+    var ctx = document.getElementById('trendSantriChart');
+    if (!ctx) return;
+    if (typeof Chart === 'undefined') {
+      setTimeout(initTrendChart, 100);
+    } else {
+      drawChart(ctx);
+    }
+  }
+
+  // Tunggu DOM siap
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTrendChart);
+  } else {
+    initTrendChart();
+  }
+})();
+</script>
+
 <!-- ============ CAPAIAN TAHFIDZ ============ -->
 <section class="section">
   <div class="reveal">
-    <div class="section-num"><span class="nm">03</span> Capaian Tahfidz Reality Check</div>
+    <div class="section-num"><span class="nm">04</span> Capaian Tahfidz Reality Check</div>
     <h2 class="action-title">
       Mutqin <em>tercapai sangat baik</em>, sementara target ziyadah <b>membutuhkan penyesuaian</b> — indikasi bahwa fokus pada satu pilar inti memberikan hasil yang lebih kokoh.
     </h2>
@@ -2003,7 +2252,7 @@ body::before {
 <!-- ============ MISMATCH ============ -->
 <section class="section">
   <div class="reveal">
-    <div class="section-num"><span class="nm">04</span> Mismatch Strategis #1</div>
+    <div class="section-num"><span class="nm">05</span> Mismatch Strategis #1</div>
     <h2 class="action-title">
       Kurikulum dirancang untuk <em>menghasilkan ulama</em> — tetapi <b>92% santri kelas 12 Ikhwan</b> fokus bersiap menjadi insinyur, dokter, militer, dan pengusaha.
     </h2>
@@ -2045,7 +2294,7 @@ body::before {
 <!-- ============ KRISIS BAHASA ARAB ============ -->
 <section class="section">
   <div class="reveal">
-    <div class="section-num"><span class="nm">05</span> Evaluasi Kompetensi Bahasa Arab</div>
+    <div class="section-num"><span class="nm">06</span> Evaluasi Kompetensi Bahasa Arab</div>
     <h2 class="action-title">
       Diperlukan penguatan <em>metodologi pembelajaran</em> — agar kelancaran bahasa Arab dapat memenuhi standar tes pihak eksternal.
     </h2>
@@ -2085,7 +2334,7 @@ body::before {
 <!-- ============ JP OVERLOAD ============ -->
 <section class="section">
   <div class="reveal">
-    <div class="section-num"><span class="nm">06</span> Beban Kognitif Overload</div>
+    <div class="section-num"><span class="nm">07</span> Beban Kognitif Overload</div>
     <h2 class="action-title">
       <em>58 jam pelajaran per pekan</em> — beban yang melampaui pedoman <b>Kurikulum Merdeka</b> dan berpotensi mengurangi daya serap santri secara keseluruhan.
     </h2>
@@ -2151,7 +2400,7 @@ body::before {
 <section class="dark">
   <div class="section">
     <div class="reveal">
-      <div class="section-num"><span class="nm">07</span> Tekanan Eksternal</div>
+      <div class="section-num"><span class="nm">08</span> Tekanan Eksternal</div>
       <h2 class="action-title">
         Krisis kognitif Gen Alpha + mandat <b>Permendikdasmen No 10 Tahun 2025</b> + <b>SNBT yang ketat</b> = Proyek 12 bulan <b>MQBS</b> untuk berbenah.
       </h2>
@@ -2238,7 +2487,7 @@ body::before {
 <!-- ============ STRATEGIC FRAMEWORK ============ -->
 <section class="section">
   <div class="reveal">
-    <div class="section-num"><span class="nm">08</span> Kerangka Strategis</div>
+    <div class="section-num"><span class="nm">09</span> Kerangka Strategis</div>
     <h2 class="action-title">
       Tiga sumbu yang <em>tidak bisa dinegosiasi</em>: Qur'ani sebagai akar, Karakter sebagai batang, <b>Visioner sebagai cabang</b> yang bercabang dua.
     </h2>
@@ -2287,7 +2536,7 @@ body::before {
 <!-- ============ TRACK SPLIT ============ -->
 <section class="section">
   <div class="reveal">
-    <div class="section-num"><span class="nm">09</span> Penjurusan Tegas</div>
+    <div class="section-num"><span class="nm">10</span> Penjurusan Tegas</div>
     <h2 class="action-title">
       Mulai kelas 11, satu kurikulum berubah menjadi <em>dua arsitektur</em> — masing-masing dengan SKL, indikator, dan jalur lanjut yang berbeda.
     </h2>
@@ -2333,7 +2582,7 @@ body::before {
 <!-- ============ JP REALLOCATION ============ -->
 <section class="section">
   <div class="reveal">
-    <div class="section-num"><span class="nm">10</span> Restrukturisasi 7 JP</div>
+    <div class="section-num"><span class="nm">11</span> Restrukturisasi 7 JP</div>
     <h2 class="action-title">
       Dengan <em>fusi & ekstrakurikuler</em>, MQBS membebaskan <b>7 JP/pekan</b> tanpa kehilangan satu pun esensi pembelajaran.
     </h2>
@@ -2418,7 +2667,7 @@ body::before {
 <!-- ============ SKL PER JENJANG ============ -->
 <section class="section">
   <div class="reveal">
-    <div class="section-num"><span class="nm">11</span> SKL Per Jenjang</div>
+    <div class="section-num"><span class="nm">12</span> SKL Per Jenjang</div>
     <h2 class="action-title">
       Tiga jenjang, <em>tiga filosofi progresif</em> — setiap kelas memiliki output yang dapat diuji eksternal pada hari kelulusan.
     </h2>
@@ -2498,7 +2747,7 @@ body::before {
 <!-- ============ 6 INTERVENSI ============ -->
 <section class="section">
   <div class="reveal">
-    <div class="section-num"><span class="nm">12</span> Enam Intervensi</div>
+    <div class="section-num"><span class="nm">13</span> Enam Intervensi</div>
     <h2 class="action-title">
       6 tindakan terukur yang harus <em>masuk SKL final dalam 12 bulan</em> — masing-masing dengan indikator verifikasi yang dapat diaudit.
     </h2>
@@ -2593,603 +2842,927 @@ body::before {
 <!-- ============ ROADMAP ============ -->
 <section class="section" id="roadmap">
   <div class="reveal">
-    <div class="section-num"><span class="nm">13</span> Roadmap Implementasi</div>
+    <div class="section-num"><span class="nm">14</span> Roadmap Implementasi</div>
     <h2 class="action-title">
-      Lima fase, <em>14 bulan</em>, dengan output yang dapat diverifikasi pada akhir setiap fase. (Ver. Draft)
+      Reformasi SKL bukan peristiwa — melainkan <span style="color: var(--brick);">tiga fase yang saling bergantung</span>
     </h2>
     <p class="action-deck">
-      Roadmap ini menyiratkan urutan yang tidak boleh dibalik. Terdapat <strong>Fase 0 (Mei–Juni)</strong> sebagai fase pra-tahun-ajaran yang harus dimulai segera, sehingga santri baru kelas 7 dan 10 disambut dengan sistem yang sudah siap pada hari pertama masuk. 
-	  </br><em>(Catatan: Masih perlu disesuikan dengan kondisi real di lapangan).</em>
+      Pilot berjalan di Semester 2 TA 2026/2027, tetapi kualitasnya ditentukan oleh apa yang disiapkan sebelumnya. Modul guru yang belum siap, keputusan penjurusan yang tertunda, atau guru yang tidak <em>buy-in</em> — masing-masing cukup untuk menggagalkan implementasi penuh di 2027/2028.
     </p>
   </div>
 
-  <div class="roadmap-interactive-wrap reveal">
-    <!-- NAV -->
-    <nav class="rm-phase-nav">
-      <button class="rm-nav-btn active" onclick="showPhase(0)">Fase 0 — Mei–Jun</button>
-      <button class="rm-nav-btn" onclick="showPhase(1)">Fase 1 — Juli</button>
-      <button class="rm-nav-btn" onclick="showPhase(2)">Fase 2 — Ags–Okt</button>
-      <button class="rm-nav-btn" onclick="showPhase(3)">Fase 3 — Nov–Jan</button>
-      <button class="rm-nav-btn" onclick="showPhase(4)">Fase 4 — Feb–Jun '27</button>
-    </nav>
+  <div class="reveal" style="max-width: 820px; margin: 2rem auto 0; padding: 0 1.5rem; font-family: var(--sans);">
 
-    <!-- FASE 0 -->
-    <section class="rm-phase-section visible">
-      <div class="rm-header-card">
-        <div class="rm-header-top">
-          <div class="rm-badge-row">
-            <span class="rm-badge urgent">Fase 00 · Sedang Berjalan</span>
-            <span class="rm-badge prio">Mei – Juni 2026</span>
-            <span class="rm-badge urgent">KRITIS</span>
-          </div>
-          <h2 class="rm-phase-title">Pra-Tahun-Ajaran: Otorisasi & Landasan</h2>
-          <p class="rm-phase-sub">8 minggu sebelum santri datang — satu-satunya waktu untuk mempersiapkan tanpa mengganggu KBM yang sedang berjalan.</p>
-        </div>
-        <div class="rm-meta-bar">
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Periode</span><span class="rm-meta-val">Mei – Juni 2026</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Durasi</span><span class="rm-meta-val">8 minggu</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Sasaran</span><span class="rm-meta-val">Seluruh perencana</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Tenggat keras</span><span class="rm-meta-val">Selesai sebelum 14 Juli</span></div>
-        </div>
-      </div>
+    <!-- TIMELINE STRIP -->
+    <div style="display:flex; gap:0; margin-bottom:2.5rem; overflow-x:auto; padding-bottom:.5rem;">
 
-      <p class="rm-section-label">Indikator kunci fase ini</p>
-      <div class="rm-kpi-grid">
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Tenggat otorisasi SK</p><p class="rm-kpi-val">30 Jun</p><p class="rm-kpi-sub">Batas terakhir sebelum T.A. baru</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Sesi briefing guru</p><p class="rm-kpi-val">4 sesi</p><p class="rm-kpi-sub">Per jenjang & per mapel</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Draft SKL selesai</p><p class="rm-kpi-val">2 dok</p><p class="rm-kpi-sub">Diniyah & Umum</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Materi orientasi siap</p><p class="rm-kpi-val">100%</p><p class="rm-kpi-sub">Sebelum 14 Juli</p></div>
-      </div>
-
-      <p class="rm-section-label">Timeline mingguan</p>
-      <div class="rm-timeline">
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot now"></div>
-          <p class="rm-tl-date">Pekan 1–2 · 12–23 Mei 2026</p>
-          <p class="rm-tl-text">Rapat pimpinan yayasan: tetapkan keputusan penjurusan, restrukturisasi JP, dan penghapusan halaqah Ashar — hasilkan notulensi berformat SK.</p>
-        </div>
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">Pekan 3–4 · 26 Mei – 6 Jun</p>
-          <p class="rm-tl-text">Sosialisasi internal asatidz: penjelasan 2 jalur, pembagian peran musyrif sebagai verifier karakter, dan demonstrasi checklist karakter baru.</p>
-        </div>
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">Pekan 5–6 · 9–20 Jun</p>
-          <p class="rm-tl-text">Workshop translasi keilmuan: tim kurikulum memetakan hadits → TPS, Ushul Fiqh → penalaran, Muthala'ah → literasi — hasilkan peta kompetensi satu halaman.</p>
-        </div>
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">Pekan 7–8 · 23 Jun – 4 Jul</p>
-          <p class="rm-tl-text">Finalisasi: jadwal KBM baru, checklist karakter musyrif, modul detoks kognitif 8 minggu, dan briefing wali santri kelas 9 & 11 (calon penjurusan kelas 10).</p>
-        </div>
-      </div>
-
-      <p class="rm-section-label">Agenda & tugas — klik untuk detail</p>
-
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">📋</div>
-          <span class="rm-task-name">SK Otorisasi: penjurusan, restrukturisasi JP, dan pemangkasan halaqah</span>
-          <span class="rm-task-chip kritis">Kritis</span>
-          <span class="rm-chevron">▾</span>
-        </div>
-        <div class="rm-task-body">
-          Pimpinan yayasan menandatangani 3 SK sebelum 30 Juni:
-          <ul>
-            <li><strong>SK Penjurusan</strong> — berlaku kelas 10 T.A. 2026/27: dua jalur resmi (Diniyah & Umum) dengan SKL berbeda.</li>
-            <li><strong>SK Restrukturisasi JP</strong> — perampingan Kelompok E (−7 JP), reinvestasi ke: Proyek/P5 (+4 JP), Matematika (+1 JP), IPA (+1–2 JP), TIK (+1 JP).</li>
-            <li><strong>SK Halaqah</strong> — pangkas dari 4 waktu menjadi 3 waktu (halaqah Ashar dihapus), berlaku mulai hari pertama T.A. baru.</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: dokumen SK ditandatangani + diarsipkan sebelum 30 Juni 2026.</span>
+      <!-- FASE 0 -->
+      <div style="flex:1; min-width:200px;">
+        <div style="background: rgba(14,55,62,0.06); border-radius:10px 0 0 10px; padding:.6rem 1rem; display:flex; align-items:center; gap:8px; border-right:2px dashed rgba(14,55,62,0.2);">
+          <div style="width:28px; height:28px; border-radius:50%; background: var(--ink); color:#fff; font-size:12px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0;">0</div>
+          <div>
+            <div style="font-size:11px; font-weight:600; color: var(--ink); letter-spacing:.05em; text-transform:uppercase;">Fase 0 · Fondasi</div>
+            <div style="font-size:11px; color: var(--ink); opacity:0.8;">Jul – Des 2026</div>
           </div>
         </div>
       </div>
 
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">👥</div>
-          <span class="rm-task-name">Briefing asatidz: sosialisasi 2 jalur, peran baru musyrif, format checklist</span>
-          <span class="rm-task-chip prioritas">Prioritas</span>
-          <span class="rm-chevron">▾</span>
-        </div>
-        <div class="rm-task-body">
-          4 sesi briefing terpisah:
-          <ul>
-            <li><strong>Sesi 1:</strong> Kepala Sekolah + Waka Kurikulum — overview perubahan arsitektur kurikulum secara keseluruhan.</li>
-            <li><strong>Sesi 2:</strong> musyrif — cara mengisi dan menandatangani checklist karakter (bukan rapor afektif seperti dulu).</li>
-            <li><strong>Sesi 3:</strong> Guru diniyah — penyesuaian silabus untuk 2 jalur (materi lanjut hanya jalur Diniyah).</li>
-            <li><strong>Sesi 4:</strong> Guru mapel umum — target HOTS baru, integrasi hadits ke Penalaran, target numerasi kelas 9 dan 12 Umum.</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: daftar hadir + notulensi per sesi, pertanyaan guru terdokumentasi dan dijawab sebelum T.A. baru.</span>
+      <!-- FASE 1 -->
+      <div style="flex:1; min-width:200px;">
+        <div style="background: rgba(155,98,32,0.06); padding:.6rem 1rem; display:flex; align-items:center; gap:8px; border-right:2px dashed rgba(155,98,32,0.2);">
+          <div style="width:28px; height:28px; border-radius:50%; background: var(--brick); color:#fff; font-size:12px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0;">1</div>
+          <div>
+            <div style="font-size:11px; font-weight:600; color: var(--brick); letter-spacing:.05em; text-transform:uppercase;">Fase 1 · Pilot</div>
+            <div style="font-size:11px; color: var(--ink); opacity:0.8;">Jan – Jun 2027</div>
           </div>
         </div>
       </div>
 
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">🗺</div>
-          <span class="rm-task-name">Peta translasi keilmuan: hadits / Ushul Fiqh / Muthala'ah → HOTS SNBT</span>
-          <span class="rm-task-chip">Strategis</span>
-          <span class="rm-chevron">▾</span>
-        </div>
-        <div class="rm-task-body">
-          Tim kurikulum (minimal: guru hadits, guru Bahasa Indonesia, guru Matematika) menyusun peta kompetensi satu halaman:
-          <ul>
-            <li>hadits silogisme → sub-tes Penalaran Umum (analogi, silogisme, pola logika)</li>
-            <li>Ushul Fiqh qiyas → penalaran induktif-deduktif (analisis argumen, kesimpulan logis)</li>
-            <li>Muthala'ah + Balaghah → Literasi Bahasa Indonesia (inferensi, fakta vs opini, simpulan teks)</li>
-            <li>Hisab / Falak dasar → Penalaran Matematika (logika kuantitatif kontekstual)</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: 1 dokumen peta kompetensi + 10 contoh soal HOTS hasil translasi, selesai 30 Juni 2026.</span>
+      <!-- FASE 2 -->
+      <div style="flex:1; min-width:200px;">
+        <div style="background: rgba(0,90,38,0.06); border-radius:0 10px 10px 0; padding:.6rem 1rem; display:flex; align-items:center; gap:8px;">
+          <div style="width:28px; height:28px; border-radius:50%; background: var(--teal); color:#fff; font-size:12px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</div>
+          <div>
+            <div style="font-size:11px; font-weight:600; color: var(--teal); letter-spacing:.05em; text-transform:uppercase;">Fase 2 · Penuh</div>
+            <div style="font-size:11px; color: var(--ink); opacity:0.8;">Jul 2027 – dst</div>
           </div>
         </div>
       </div>
 
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">📢</div>
-          <span class="rm-task-name">Briefing wali santri kelas 9 & 11 tentang pilihan penjurusan kelas 10</span>
-          <span class="rm-task-chip prioritas">Prioritas</span>
-          <span class="rm-chevron">▾</span>
+    </div>
+
+    <!-- ==================== FASE 0 ==================== -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:1.25rem;">
+        <div style="width:36px; height:36px; border-radius:50%; background: var(--ink); color:#fff; font-size:14px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family: var(--serif);">0</div>
+        <div>
+          <div style="font-family: var(--mono); font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color: var(--brick); margin-bottom:3px;">Jul – Des 2026 · 6 Bulan</div>
+          <h3 style="font-family: var(--serif); font-size:18px; font-weight:600; color: var(--ink); margin-bottom:4px; line-height:1.3;">
+            Fondasi: Modul & Keputusan Strategis harus selesai <em>sebelum</em> pilot dimulai
+          </h3>
+          <p style="font-size:13px; color: var(--ink); opacity:0.85; line-height:1.7; margin-bottom:1rem;">
+            Fase paling kritis yang paling sering dilewatkan. Litbang menyusun semua "amunisi" guru sebelum kelas pilot dimulai. Tanpa fase ini, pilot hanya akan mengekspos ketidaksiapan — bukan menguji sistem.
+          </p>
         </div>
-        <div class="rm-task-body">
-          Pertemuan wali santri kelas 9 (calon kelas 10) sebelum akhir tahun ajaran 2025/26:
-          <ul>
-            <li>Penjelasan 2 jalur: Takhassus Diniyah vs Umum Kompetitif — bukan hierarki, tapi spesialisasi.</li>
-            <li>Kriteria pemilihan: prestasi tahfidz, minat, kemampuan bahasa Arab, orientasi karir santri.</li>
-            <li>Konsekuensi kurikuler: jalur Diniyah dapat Alfiyyah & Waraqat; jalur Umum dapat penguatan UTBK & Inggris intensif.</li>
-            <li>Formulir pra-pemilihan jalur — dikembalikan sebelum 11 Juli (hari pertama MPLS).</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: daftar hadir wali + 100% formulir pilihan jalur terkumpul sebelum 11 Juli 2026.</span>
+      </div>
+
+      <!-- Timeline bulan Fase 0 -->
+      <div style="margin-left:50px; display:flex; flex-direction:column; gap:8px; margin-bottom:1.25rem;">
+
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:.85rem 1rem; background: var(--cream); border:0.5px solid var(--rule-soft); border-left:3px solid var(--ink); border-radius:0 10px 10px 0; box-shadow: var(--shadow);">
+          <div style="flex-shrink:0; width:68px; font-family: var(--mono); font-size:11px; font-weight:600; color: var(--ink); padding-top:1px;">Jul–Agt</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color: var(--ink); margin-bottom:2px;">Keputusan Penjurusan Ditetapkan Pimpinan</div>
+            <div style="font-size:12px; color: var(--ink); opacity:0.8; line-height:1.6;">MQBS secara resmi menetapkan pemisahan jalur <strong>Diniyah & Umum mulai kelas 11</strong>. Tanpa keputusan ini, seluruh roadmap tidak memiliki landasan. Sekaligus finalisasi 2 dokumen SKL terpisah dengan indikator butir terverifikasi → disahkan Pimpinan sebagai <em>SKL v1.0</em>.</div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- FASE 1 -->
-    <section class="rm-phase-section">
-      <div class="rm-header-card">
-        <div class="rm-header-top">
-          <div class="rm-badge-row">
-            <span class="rm-badge prio">Fase 01 · Juli 2026</span>
-            <span class="rm-badge prio">PRIORITAS</span>
-          </div>
-          <h2 class="rm-phase-title">Orientasi: Sambut Santri dengan Sistem yang Sudah Berubah</h2>
-          <p class="rm-phase-sub">Kelas 7 dan 10 masuk sebagai angkatan pertama kurikulum baru — program detoks kognitif dimulai dari hari pertama, bukan ditunda.</p>
-        </div>
-        <div class="rm-meta-bar">
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Periode</span><span class="rm-meta-val">14–31 Juli 2026</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Durasi</span><span class="rm-meta-val">3 pekan</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Prioritas sasaran</span><span class="rm-meta-val">Kelas 7 & 10</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Status</span><span class="rm-meta-val">Implementasi perdana</span></div>
-        </div>
-      </div>
-
-      <p class="rm-section-label">Indikator kunci fase ini</p>
-      <div class="rm-kpi-grid">
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Mulai detoks kognitif</p><p class="rm-kpi-val">Hari ke-1</p><p class="rm-kpi-sub">Kelas 7 & 10</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Jadwal KBM baru berlaku</p><p class="rm-kpi-val">14 Jul</p><p class="rm-kpi-sub">Sesuai SK yang ditandatangani</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Penjurusan kelas 10</p><p class="rm-kpi-val">Pekan 1</p><p class="rm-kpi-sub">Berdasarkan data kuesioner</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Checklist karakter</p><p class="rm-kpi-val">Pekan 2</p><p class="rm-kpi-sub">musyrif observasi aktif</p></div>
-      </div>
-
-      <p class="rm-section-label">Timeline mingguan</p>
-      <div class="rm-timeline">
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">14–18 Juli · Pekan pertama</p>
-          <p class="rm-tl-text">MPLS/MOS kelas 7 & 10: pengenalan 2 jalur, nilai-nilai pesantren, dan sesi perdana detoks kognitif (baca teks 15 menit tanpa gangguan). Penetapan jalur kelas 10 berdasarkan formulir yang sudah terkumpul.</p>
-        </div>
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">21–25 Juli · Pekan kedua</p>
-          <p class="rm-tl-text">KBM reguler dimulai dengan jadwal baru. Kelas 10 sudah masuk jalur masing-masing. musyrif mulai mengisi form observasi karakter pekan pertama.</p>
-        </div>
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">28–31 Juli · Pekan ketiga</p>
-          <p class="rm-tl-text">Evaluasi awal: cek apakah jadwal berjalan sesuai rancangan, inventarisasi hambatan lapangan, penyesuaian minor sebelum Agustus penuh.</p>
-        </div>
-      </div>
-
-      <p class="rm-section-label">Agenda & tugas — klik untuk detail</p>
-
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">🧠</div>
-          <span class="rm-task-name">Program detoks kognitif 8 minggu — dimulai hari pertama kelas 7 & 10</span>
-          <span class="rm-task-chip kritis">Kritis</span>
-          <span class="rm-chevron">▾</span>
-        </div>
-        <div class="rm-task-body">
-          Santri Gen Alpha masuk dengan attention span 8 detik dan working memory −11%. Jangan langsung halaqah 60 menit. Protokol bertahap:
-          <ul>
-            <li><strong>Minggu 1–2:</strong> baca teks 15 menit tanpa gangguan → muraja'ah lisan 10 menit → bebas 5 menit.</li>
-            <li><strong>Minggu 3–4:</strong> ditingkatkan ke 25 menit fokus — teks kitab Jurumiyyah atau bacaan Indonesia bermutu.</li>
-            <li><strong>Minggu 5–6:</strong> 40 menit fokus tanpa jeda — mulai bisa mengidentifikasi argumen pokok teks.</li>
-            <li><strong>Minggu 7–8:</strong> 60 menit penuh → post-test: apakah bisa merangkum 1 halaman teks tanpa kehilangan arah?</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: tes baseline minggu 1 + post-test minggu 8 — catat durasi fokus rata-rata per santri per kelas.</span>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:.85rem 1rem; background: var(--cream); border:0.5px solid var(--rule-soft); border-left:3px solid var(--ink); border-radius:0 10px 10px 0; box-shadow: var(--shadow);">
+          <div style="flex-shrink:0; width:68px; font-family: var(--mono); font-size:11px; font-weight:600; color: var(--ink); padding-top:1px;">Sep–Okt</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color: var(--ink); margin-bottom:2px;">Litbang Menyusun 6 Modul Guru</div>
+            <div style="font-size:12px; color: var(--ink); opacity:0.8; line-height:1.6; margin-bottom:.5rem;">Setiap modul punya PIC tersendiri — jangan dikerjakan kolektif tanpa penanggung jawab. Libatkan 2–3 guru senior sebagai <em>co-author</em> agar buy-in terjaga sejak awal.</div>
+            
+            <!-- Modul list -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:6px; margin-top:.5rem;">
+              <div style="background: rgba(14,55,62,0.05); border-radius:8px; padding:.6rem .75rem; font-size:11.5px; color: var(--ink); border: 1px solid var(--rule-soft);">
+                <strong>M-1 · Rubrik SKL</strong><br>
+                <span style="opacity:0.8;">Panduan penilaian output karakter secara terverifikasi — form wali kamar bulanan</span>
+              </div>
+              <div style="background: rgba(14,55,62,0.05); border-radius:8px; padding:.6rem .75rem; font-size:11.5px; color: var(--ink); border: 1px solid var(--rule-soft);">
+                <strong>M-2 · Mantiq → HOTS</strong><br>
+                <span style="opacity:0.8;">Translasi Ushul Fiqh & Mantiq ke format soal penalaran kompatibel SNBT</span>
+              </div>
+              <div style="background: rgba(14,55,62,0.05); border-radius:8px; padding:.6rem .75rem; font-size:11.5px; color: var(--ink); border: 1px solid var(--rule-soft);">
+                <strong>M-3 · Diferensiasi Kelas</strong><br>
+                <span style="opacity:0.8;">Cara mengajar kelas campuran Diniyah & Umum dalam satu sesi KBM</span>
+              </div>
+              <div style="background: rgba(14,55,62,0.05); border-radius:8px; padding:.6rem .75rem; font-size:11.5px; color: var(--ink); border: 1px solid var(--rule-soft);">
+                <strong>M-4 · Detoks Kognitif</strong><br>
+                <span style="opacity:0.8;">Protokol 6–8 minggu membangun cognitive endurance santri baru kelas 7 & 10</span>
+              </div>
+              <div style="background: rgba(14,55,62,0.05); border-radius:8px; padding:.6rem .75rem; font-size:11.5px; color: var(--ink); border: 1px solid var(--rule-soft);">
+                <strong>M-5 · ATP Ramping</strong><br>
+                <span style="opacity:0.8;">Template Alur Tujuan Pembelajaran ringkas — kurangi beban administrasi guru</span>
+              </div>
+              <div style="background: rgba(14,55,62,0.05); border-radius:8px; padding:.6rem .75rem; font-size:11.5px; color: var(--ink); border: 1px solid var(--rule-soft);">
+                <strong>M-6 · Evaluasi Outcome</strong><br>
+                <span style="opacity:0.8;">Instrumen survei & tracking capaian santri per semester untuk musyrif</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">⑂</div>
-          <span class="rm-task-name">Penetapan jalur kelas 10: Diniyah atau Umum Kompetitif</span>
-          <span class="rm-task-chip kritis">Kritis</span>
-          <span class="rm-chevron">▾</span>
-        </div>
-        <div class="rm-task-body">
-          Berdasarkan formulir yang sudah dikumpulkan sebelum 11 Juli, pimpinan akademik menetapkan:
-          <ul>
-            <li><strong>Kelas 10 Diniyah:</strong> jadwal dengan Alfiyyah, Waraqat, Muthala'ah lanjut, bahasa Arab aktif C1.</li>
-            <li><strong>Kelas 10 Umum:</strong> jadwal dengan Matematika (5 JP), IPA (3 JP), TIK (3 JP), Bahasa Inggris intensif, dan P5 (4 JP).</li>
-            <li>Santri yang belum punya pilihan tegas: konseling wali kelas + orang tua dalam 3 hari pertama sekolah.</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: daftar nama santri per jalur disetujui kepala sekolah dan wali santri sebelum 18 Juli.</span>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:.85rem 1rem; background: var(--cream); border:0.5px solid var(--rule-soft); border-left:3px solid var(--ink); border-radius:0 10px 10px 0; box-shadow: var(--shadow);">
+          <div style="flex-shrink:0; width:68px; font-family: var(--mono); font-size:11px; font-weight:600; color: var(--ink); padding-top:1px;">Nov</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color: var(--ink); margin-bottom:2px;">Review & Revisi Modul</div>
+            <div style="font-size:12px; color: var(--ink); opacity:0.8; line-height:1.6;">Uji baca oleh 3–5 guru perwakilan tiap jenjang. Pertanyaan kunci: <em>"Apakah modul ini bisa langsung kamu pakai di kelas tanpa bertanya ke Litbang?"</em> Jika tidak → revisi. Output: <strong>Modul v1.0 final</strong>.</div>
           </div>
         </div>
-      </div>
 
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">✅</div>
-          <span class="rm-task-name">Aktivasi checklist karakter musyrif — bukan rapor afektif lama</span>
-          <span class="rm-task-chip prioritas">Prioritas</span>
-          <span class="rm-chevron">▾</span>
-        </div>
-        <div class="rm-task-body">
-          musyrif menerima format baru — berisi pernyataan yang ditandatangani, bukan rating "baik/cukup/kurang":
-          <ul>
-            <li><strong>Format per bulan:</strong> 8 butir perilaku terverifikasi (shalat tepat waktu tanpa diingatkan, jujur saat ditemukan melanggar, tidak mengadu domba, dll.)</li>
-            <li><strong>Catatan insiden:</strong> jika ada pelanggaran, musyrif mencatat tanggal, konteks, dan respons santri.</li>
-            <li><strong>Rekap semester:</strong> agregasi dari 6 bulan observasi → menjadi 1 komponen penilaian kelulusan jenjang.</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: seluruh musyrif menyerahkan observasi pekan pertama sebelum 25 Juli.</span>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:.85rem 1rem; background: var(--cream); border:0.5px solid var(--rule-soft); border-left:3px solid var(--ink); border-radius:0 10px 10px 0; box-shadow: var(--shadow);">
+          <div style="flex-shrink:0; width:68px; font-family: var(--mono); font-size:11px; font-weight:600; color: var(--ink); padding-top:1px;">Des</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color: var(--ink); margin-bottom:2px;">Workshop Orientasi Guru Pilot</div>
+            <div style="font-size:12px; color: var(--ink); opacity:0.8; line-height:1.6;">Sosialisasi SKL baru + simulasi penggunaan 6 modul kepada semua guru yang terlibat pilot. Seluruh guru pilot harus "siap pakai" sebelum Januari. Bukan sekadar hadir workshop — tapi sudah praktik simulasi minimal 1 sesi.</div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- FASE 2 -->
-    <section class="rm-phase-section">
-      <div class="rm-header-card">
-        <div class="rm-header-top">
-          <div class="rm-badge-row">
-            <span class="rm-badge normal">Fase 02 · Ags–Okt 2026</span>
-            <span class="rm-badge prio">PRIORITAS</span>
+      </div>
+
+      <!-- Risiko Fase 0 -->
+      <div style="margin-left:50px; background: rgba(155,98,32,0.06); border-left:3px solid var(--brick); border-radius:0 10px 10px 0; padding:1rem 1.25rem;">
+        <div style="font-family: var(--mono); font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color: var(--brick); margin-bottom:.5rem;">⚠ Risiko Kritis Fase 0</div>
+        <div style="font-size:12px; color: var(--ink); opacity:0.85; line-height:1.7;">
+          <strong style="color: var(--ink);">6 modul dalam 5 bulan</strong> adalah target ambisius jika Litbang memiliki tanggung jawab lain. Tetapkan PIC per modul paling lambat minggu pertama Juli. Jika keputusan penjurusan tertunda melewati Agustus, seluruh roadmap tidak memiliki landasan.
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== FASE 1 ==================== -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:1.25rem;">
+        <div style="width:36px; height:36px; border-radius:50%; background: var(--brick); color:#fff; font-size:14px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family: var(--serif);">1</div>
+        <div>
+          <div style="font-family: var(--mono); font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color: var(--brick); margin-bottom:3px;">Jan – Jun 2027 · Semester 2 TA 2026/2027</div>
+          <h3 style="font-family: var(--serif); font-size:18px; font-weight:600; color: var(--ink); margin-bottom:4px; line-height:1.3;">
+            Pilot: Uji di kelas nyata — catat gesekan, <em>bukan</em> pamer keberhasilan
+          </h3>
+          <p style="font-size:13px; color: var(--ink); opacity:0.85; line-height:1.7; margin-bottom:1rem;">
+            Pilot bukan implementasi penuh versi kecil. Tujuannya adalah <strong>menemukan apa yang tidak bekerja</strong> sebelum diterapkan ke seluruh kelas. Lingkup sengaja dibatasi agar masalah mudah dideteksi dan diperbaiki.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sasaran Pilot -->
+      <div style="margin-left:50px; margin-bottom:1rem;">
+        <p style="font-family: var(--mono); font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color: var(--ink-2); margin-bottom:.6rem;">Kelas Sasaran Pilot</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem;">
+          <div style="background: rgba(155,98,32,0.06); border-radius:10px; padding:1rem 1.1rem; border: 1px solid var(--rule-soft);">
+            <div style="font-family: var(--serif); font-size:14px; font-weight:600; color: var(--brick); margin-bottom:.35rem;">Kelas 11 — Ikhwan & Akhwat</div>
+            <div style="font-size:12px; color: var(--ink); opacity:0.85; line-height:1.6;">Titik penjurusan Diniyah vs Umum. Uji modul Diferensiasi Kelas & Rubrik SKL terpisah. Paling krusial karena menjadi prototipe sistem penjurusan 2027/2028.</div>
           </div>
-          <h2 class="rm-phase-title">Konstruksi: Bank Soal HOTS & Pemantapan Dua Jalur</h2>
-          <p class="rm-phase-sub">3 bulan untuk membangun infrastruktur keilmuan baru — soal, modul, upgrade kompetensi guru, dan simulasi UTBK pertama.</p>
-        </div>
-        <div class="rm-meta-bar">
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Periode</span><span class="rm-meta-val">Agustus – Oktober 2026</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Durasi</span><span class="rm-meta-val">3 bulan</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Prioritas sasaran</span><span class="rm-meta-val">Kelas 9 & 12 Umum</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Status</span><span class="rm-meta-val">Konstruksi aktif</span></div>
-        </div>
-      </div>
-
-      <p class="rm-section-label">Indikator kunci fase ini</p>
-      <div class="rm-kpi-grid">
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Bank soal HOTS</p><p class="rm-kpi-val">50 soal</p><p class="rm-kpi-sub">Per sub-tes TPS dari translasi kitab</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Simulasi UTBK</p><p class="rm-kpi-val">1× Okt</p><p class="rm-kpi-sub">Baseline score kelas 12 Umum</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Sesi upgrading guru</p><p class="rm-kpi-val">2×/bln</p><p class="rm-kpi-sub">Active Learning + PjBL</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Modul ajar integratif</p><p class="rm-kpi-val">3 modul</p><p class="rm-kpi-sub">hadits-TPS, Muthala'ah-Lit, Ushul-Penalaran</p></div>
-      </div>
-
-      <p class="rm-section-label">Timeline bulanan</p>
-      <div class="rm-timeline">
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">Agustus · Bulan 1</p>
-          <p class="rm-tl-text">Tim kurikulum finalisasi 3 modul ajar integratif. Guru mulai menggunakan peta translasi keilmuan dalam KBM. Sesi upgrading guru Active Learning pertama.</p>
-        </div>
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">September · Bulan 2</p>
-          <p class="rm-tl-text">Bank soal HOTS 50 soal per sub-tes selesai. Latihan soal masuk jadwal mingguan kelas 9 & 12 Umum. Evaluasi detoks kognitif kelas 7 & 10 (post-test minggu ke-8).</p>
-        </div>
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">Oktober · Bulan 3</p>
-          <p class="rm-tl-text">Simulasi UTBK pertama kelas 12 Umum — catat baseline score. Review administrasi guru: apakah ATP dan absensi sudah disederhanakan? Audit kompetensi musyrif tahsin.</p>
-        </div>
-      </div>
-
-      <p class="rm-section-label">Agenda & tugas — klik untuk detail</p>
-
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">📝</div>
-          <span class="rm-task-name">Bank soal HOTS berbasis translasi keilmuan pesantren</span>
-          <span class="rm-task-chip">Strategis</span>
-          <span class="rm-chevron">▾</span>
-        </div>
-        <div class="rm-task-body">
-          50 soal per kategori, dikembangkan dari materi yang sudah diajarkan di MQBS:
-          <ul>
-            <li><strong>Penalaran Umum:</strong> silogisme dari contoh-contoh hadits, analogi dari Ushul Fiqh qiyas, pola logika dari argumen ilmu kalam.</li>
-            <li><strong>Literasi Bahasa Indonesia:</strong> teks berbasis matan hadis terjemah, artikel isu muslimah kontemporer, wacana sosial berbasis nilai Islam.</li>
-            <li><strong>Penalaran Matematika:</strong> soal kontekstual berbasis penghitungan zakat, faraidh, jadwal shalat — logika numerik bukan hafalan rumus.</li>
-            <li><strong>Literasi Bahasa Inggris:</strong> teks opini tentang Islam dan modernitas, artikel sains populer.</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: 50 soal per sub-tes selesai September, diuji coba ke 1 kelas pilot sebelum digunakan massal.</span>
+          <div style="background: rgba(155,98,32,0.06); border-radius:10px; padding:1rem 1.1rem; border: 1px solid var(--rule-soft);">
+            <div style="font-family: var(--serif); font-size:14px; font-weight:600; color: var(--brick); margin-bottom:.35rem;">Kelas 7 — Ikhwan & Akhwat</div>
+            <div style="font-size:12px; color: var(--ink); opacity:0.85; line-height:1.6;">Santri baru dengan latar belakang Gen Alpha. Uji protokol Detoks Kognitif 6–8 minggu. Data baseline cognitive endurance dikumpulkan sejak pekan pertama masuk.</div>
           </div>
         </div>
       </div>
 
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">🎓</div>
-          <span class="rm-task-name">Upgrading guru: Active Learning, PjBL, dan simplifikasi administrasi</span>
-          <span class="rm-task-chip prioritas">Prioritas</span>
-          <span class="rm-chevron">▾</span>
+      <!-- Yang Diuji vs Tidak Diubah -->
+      <div style="margin-left:50px; display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem;">
+        <div style="background: var(--cream); border:0.5px solid var(--rule-soft); border-radius:10px; padding:1rem 1.1rem; box-shadow: var(--shadow);">
+          <div style="font-family: var(--mono); font-size:10px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color: var(--teal); margin-bottom:.6rem;">✓ Yang Diuji Selama Pilot</div>
+          <div style="font-size:12px; color: var(--ink); opacity:0.85; line-height:1.8;">
+            Apakah rubrik SKL bisa diisi guru tanpa bantuan Litbang?<br>
+            Apakah guru kelas 11 bisa mengelola dua jalur dalam satu kelas?<br>
+            Apakah modul Mantiq → HOTS bisa dipraktikkan dalam 1 semester?<br>
+            Apakah form wali kamar realistis diisi setiap bulan?<br>
+            Apakah protokol detoks kognitif meningkatkan durasi fokus belajar?
+          </div>
         </div>
-        <div class="rm-task-body">
-          Guru kelelahan sebelum masuk kelas akibat beban administrasi. Dua intervensi paralel:
-          <ul>
-            <li><strong>Workshop pedagogis 2×/bulan:</strong> teknik Active Learning untuk kelas dengan attention pendek, metode Project-Based Learning untuk P5 baru.</li>
-            <li><strong>Simplifikasi administrasi:</strong> satu format ATP yang ringkas (bukan 15 halaman), sistem absensi digital satu platform, jurnal KBM 3 kolom saja (tujuan, aktivitas, evaluasi).</li>
-            <li><strong>Standarisasi tahsin musyrif:</strong> audit kompetensi, musyrif yang belum lulus standar tajwid mendapat pendampingan khusus sebelum Oktober.</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: presensi workshop + audit administrasi Oktober — apakah guru merasa beban administrasi berkurang?</span>
+        <div style="background: var(--cream); border:0.5px solid var(--rule-soft); border-radius:10px; padding:1rem 1.1rem; box-shadow: var(--shadow);">
+          <div style="font-family: var(--mono); font-size:10px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color: var(--brick); margin-bottom:.6rem;">✗ Yang TIDAK Diubah Saat Pilot</div>
+          <div style="font-size:12px; color: var(--ink); opacity:0.85; line-height:1.8;">
+            Struktur JP keseluruhan (jangan ubah jadwal besar dulu)<br>
+            Sistem halaqah tahfidz (jaga stabilitas pilar Qur'ani)<br>
+            Kurikulum kelas 12 yang menuju SNBT 2027<br>
+            Prosedur penilaian rapor formal yang berlaku<br>
+            Struktur organisasi guru & musyrif
           </div>
         </div>
       </div>
 
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">📊</div>
-          <span class="rm-task-name">Simulasi UTBK baseline kelas 12 Umum — Oktober 2026</span>
-          <span class="rm-task-chip">Ukur baseline</span>
-          <span class="rm-chevron">▾</span>
+      <!-- Output wajib akhir pilot -->
+      <div style="margin-left:50px; background: var(--cream); border:0.5px solid var(--rule-soft); border-left:3px solid var(--brick); border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin-bottom:1rem; box-shadow: var(--shadow);">
+        <div style="font-family: var(--mono); font-size:11px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color: var(--brick); margin-bottom:.6rem;">Output Wajib — Akhir Juni 2027</div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="font-size:12px; color: var(--ink); opacity:0.85; display:flex; gap:8px; align-items:flex-start;"><span style="color: var(--brick); font-weight:600; flex-shrink:0;">→</span> Laporan pilot: data kuantitatif (skor simulasi SNBT, % rubrik terisi, feedback guru tertulis)</div>
+          <div style="font-size:12px; color: var(--ink); opacity:0.85; display:flex; gap:8px; align-items:flex-start;"><span style="color: var(--brick); font-weight:600; flex-shrink:0;">→</span> Revisi 6 modul berdasarkan temuan lapangan → <strong>Modul v2.0</strong></div>
+          <div style="font-size:12px; color: var(--ink); opacity:0.85; display:flex; gap:8px; align-items:flex-start;"><span style="color: var(--brick); font-weight:600; flex-shrink:0;">→</span> Pengumpulan formulir minat penjurusan dari seluruh santri kelas 10 (paling lambat Mei 2027)</div>
+          <div style="font-size:12px; color: var(--ink); opacity:0.85; display:flex; gap:8px; align-items:flex-start;"><span style="color: var(--brick); font-weight:600; flex-shrink:0;">→</span> Keputusan formal Pimpinan: <em>"go"</em> atau <em>"revisi dulu"</em> untuk implementasi penuh</div>
         </div>
-        <div class="rm-task-body">
-          Simulasi UTBK pertama menggunakan soal standar SNBT + soal HOTS buatan tim:
-          <ul>
-            <li>Sub-tes: Penalaran Umum, Literasi BI, Literasi Inggris, Penalaran Matematika.</li>
-            <li>Target baseline (sebelum intervensi penuh): rata-rata kelas minimal 500.</li>
-            <li>Target akhir T.A. (Juni 2027): rata-rata kelas 600+, 65% santri TPS >650.</li>
-            <li>Data digunakan untuk penyesuaian intensitas latihan di semester 2.</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: laporan score simulasi + identifikasi sub-tes terlemah per santri, diserahkan ke wali kelas sebelum 31 Oktober.</span>
+      </div>
+
+      <!-- Risiko Fase 1 -->
+      <div style="margin-left:50px; background: rgba(155,98,32,0.06); border-left:3px solid var(--brick); border-radius:0 10px 10px 0; padding:1rem 1.25rem;">
+        <div style="font-family: var(--mono); font-size:11px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color: var(--brick); margin-bottom:.5rem;">⚠ Risiko Kritis Fase 1</div>
+        <div style="font-size:12px; color: var(--ink); opacity:0.85; line-height:1.7;">
+          Guru pilot yang tidak <em>buy-in</em> akan menyabotase data — bukan karena niat, tapi karena modul terasa menambah beban. Antisipasi: adakan sesi umpan balik bulanan Litbang–guru pilot (bukan evaluasi, tapi <em>problem-solving</em> bersama). Dengarkan gesekan, bukan sekadar laporan capaian.
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== FASE 2 ==================== -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:1.25rem;">
+        <div style="width:36px; height:36px; border-radius:50%; background: var(--teal); color:#fff; font-size:14px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family: var(--serif);">2</div>
+        <div>
+          <div style="font-family: var(--mono); font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color: var(--brick); margin-bottom:3px;">Jul 2027 – seterusnya · TA 2027/2028</div>
+          <h3 style="font-family: var(--serif); font-size:18px; font-weight:600; color: var(--ink); margin-bottom:4px; line-height:1.3;">
+            Implementasi Penuh: Semua kelas, semua guru — dengan modul yang sudah <em>terbukti di lapangan</em>
+          </h3>
+          <p style="font-size:13px; color: var(--ink); opacity:0.85; line-height:1.7; margin-bottom:1rem;">
+            Implementasi penuh hanya efektif jika Fase 1 menghasilkan modul yang sudah bisa dipakai tanpa pendampingan intensif. Empat hal berikut harus disiapkan sebelum Juli 2027, bukan sesudahnya.
+          </p>
+        </div>
+      </div>
+
+      <!-- Timeline bulan Fase 2 -->
+      <div style="margin-left:50px; display:flex; flex-direction:column; gap:8px; margin-bottom:1.25rem;">
+
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:.85rem 1rem; background: var(--cream); border:0.5px solid var(--rule-soft); border-left:3px solid var(--teal); border-radius:0 10px 10px 0; box-shadow: var(--shadow);">
+          <div style="flex-shrink:0; width:68px; font-family: var(--mono); font-size:11px; font-weight:600; color: var(--teal); padding-top:1px;">Mei 2027</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color: var(--ink); margin-bottom:2px;">Formulir Penjurusan Kelas 10 Dikumpulkan</div>
+            <div style="font-size:12px; color: var(--ink); opacity:0.8; line-height:1.6;">Seluruh santri kelas 10 mengisi formulir minat penjurusan (Diniyah / Umum) untuk kelas 11 TA 2027/2028. Data ini menjadi dasar pembagian kelas dan penugasan guru. Batas waktu: <strong>31 Mei 2027</strong>.</div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- FASE 3 -->
-    <section class="rm-phase-section">
-      <div class="rm-header-card">
-        <div class="rm-header-top">
-          <div class="rm-badge-row">
-            <span class="rm-badge normal">Fase 03 · Nov 2026–Jan 2027</span>
-            <span class="rm-badge">NORMAL</span>
-          </div>
-          <h2 class="rm-phase-title">Pemantapan: Konsolidasi dan Uji Kelayakan SKL</h2>
-          <p class="rm-phase-sub">Periksa apakah arsitektur baru berjalan sesuai rencana, perkuat yang lemah, dan siapkan bukti untuk audit Kemenag.</p>
-        </div>
-        <div class="rm-meta-bar">
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Periode</span><span class="rm-meta-val">November 2026 – Januari 2027</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Durasi</span><span class="rm-meta-val">3 bulan</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Prioritas sasaran</span><span class="rm-meta-val">Semua jenjang + alumni</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Status</span><span class="rm-meta-val">Konsolidasi</span></div>
-        </div>
-      </div>
-
-      <p class="rm-section-label">Indikator kunci fase ini</p>
-      <div class="rm-kpi-grid">
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Simulasi UTBK ke-2</p><p class="rm-kpi-val">Des '26</p><p class="rm-kpi-sub">Ukur progres dari baseline Oktober</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">SKL final diratifikasi</p><p class="rm-kpi-val">Jan '27</p><p class="rm-kpi-sub">2 dokumen + SK pimpinan</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Audit Permendikdasmen</p><p class="rm-kpi-val">8 dimensi</p><p class="rm-kpi-sub">Dokumentasi per dimensi</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Kepuasan wali santri</p><p class="rm-kpi-val">≥80%</p><p class="rm-kpi-sub">Target setuju dengan perubahan</p></div>
-      </div>
-
-      <p class="rm-section-label">Timeline bulanan</p>
-      <div class="rm-timeline">
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">November · Bulan 1</p>
-          <p class="rm-tl-text">Review semester 1: apa yang berjalan, apa yang tidak. Penyesuaian modul ajar dan pendalaman program detoks kognitif kelas 7 & 10 yang sudah 4 bulan berjalan.</p>
-        </div>
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">Desember · Bulan 2</p>
-          <p class="rm-tl-text">Simulasi UTBK ke-2 — ukur pertumbuhan dari Oktober. Finalisasi draft SKL 2 jalur. Mulai membangun sistem tracking alumni (formulir kontak, platform sederhana).</p>
-        </div>
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">Januari 2027 · Bulan 3</p>
-          <p class="rm-tl-text">SKL final diratifikasi pimpinan yayasan. Audit 8 dimensi Permendikdasmen 10/2025 — dokumentasi per dimensi. Persiapan laporan tahunan untuk wali santri.</p>
-        </div>
-      </div>
-
-      <p class="rm-section-label">Agenda & tugas — klik untuk detail</p>
-
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">📜</div>
-          <span class="rm-task-name">Ratifikasi SKL final 2 jalur dan audit Permendikdasmen 10/2025</span>
-          <span class="rm-task-chip">Regulasi</span>
-          <span class="rm-chevron">▾</span>
-        </div>
-        <div class="rm-task-body">
-          Dua SKL terpisah (Diniyah & Umum) diratifikasi Januari 2027 dengan kelengkapan:
-          <ul>
-            <li>Indikator output terukur per jenjang (kelas 6, 9, 12) sesuai persona ideal yang sudah disusun.</li>
-            <li>Checklist 8 dimensi Permendikdasmen 10/2025: setiap dimensi ada mata pelajaran/kegiatan penanggungjawabnya.</li>
-            <li>Dimensi yang masih defisit (Kreativitas, Kolaborasi, Kewargaan): diisi via P5 — proyek lintas mapel wajib semester 2.</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: dokumen SKL ditandatangani pimpinan yayasan + diarsipkan untuk audit Kemenag kapanpun dibutuhkan.</span>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:.85rem 1rem; background: var(--cream); border:0.5px solid var(--rule-soft); border-left:3px solid var(--teal); border-radius:0 10px 10px 0; box-shadow: var(--shadow);">
+          <div style="flex-shrink:0; width:68px; font-family: var(--mono); font-size:11px; font-weight:600; color: var(--teal); padding-top:1px;">Jun 2027</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color: var(--ink); margin-bottom:2px;">Onboarding Seluruh Guru — Modul v2.0</div>
+            <div style="font-size:12px; color: var(--ink); opacity:0.8; line-height:1.6;">Setiap guru — termasuk yang baru bergabung — menerima 6 modul sebagai bagian wajib orientasi TA baru. Guru pilot yang sudah berpengalaman menjadi <em>fasilitator</em>, bukan Litbang yang mengulang dari nol.</div>
           </div>
         </div>
-      </div>
 
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">🔗</div>
-          <span class="rm-task-name">Bangun sistem tracking alumni — mulai dari angkatan terdekat</span>
-          <span class="rm-task-chip">Outcome</span>
-          <span class="rm-chevron">▾</span>
-        </div>
-        <div class="rm-task-body">
-          Pesantren selama ini hanya mengontrol output, tapi tidak mengukur outcome. Mulai sederhana:
-          <ul>
-            <li>Database alumni kelas 12 angkatan 2024 & 2025: nomor HP aktif, universitas/lembaga yang dituju, status tilawah saat ini.</li>
-            <li>Survei 6 pertanyaan via WhatsApp: apakah masih shalat 5 waktu? bergabung komunitas Islam kampus? ada kendala identitas muslimnya?</li>
-            <li>Target response rate ≥70% — hasilnya menjadi input evaluasi efektivitas kurikulum lama vs baru.</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: laporan tracking alumni pertama diserahkan ke pimpinan yayasan sebelum Februari 2027.</span>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:.85rem 1rem; background: var(--cream); border:0.5px solid var(--rule-soft); border-left:3px solid var(--teal); border-radius:0 10px 10px 0; box-shadow: var(--shadow);">
+          <div style="flex-shrink:0; width:68px; font-family: var(--mono); font-size:11px; font-weight:600; color: var(--teal); padding-top:1px;">Jan 2028</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color: var(--ink); margin-bottom:2px;">Evaluasi Tengah Tahun — Cek Dampak Awal</div>
+            <div style="font-size:12px; color: var(--ink); opacity:0.8; line-height:1.6;">Cek apakah indikator SKL baru berdampak terukur: skor simulasi SNBT kelas 12, % rubrik karakter terisi, laporan musyrif kelas 7. Jika ada modul yang tidak berjalan → revisi cepat sebelum semester 2.</div>
           </div>
         </div>
-      </div>
 
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">💬</div>
-          <span class="rm-task-name">Survei wali santri: apakah perubahan kurikulum terasa dan disetujui?</span>
-          <span class="rm-task-chip">Kepercayaan</span>
-          <span class="rm-chevron">▾</span>
-        </div>
-        <div class="rm-task-body">
-          Wali santri adalah pemangku kepentingan yang paling terdampak dan paling cepat menyebarkan reputasi:
-          <ul>
-            <li>Survei 10 pertanyaan: apakah mengetahui perubahan? apakah setuju penjurusan? apakah melihat perubahan perilaku anak?</li>
-            <li>Fokus khusus: wali santri kelas 10 (angkatan pertama penjurusan) — apakah merasa pilihan jalur tepat?</li>
-            <li>Target: ≥80% menyatakan setuju atau sangat setuju dengan arah perubahan kurikulum.</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: laporan survei + action plan untuk keluhan utama yang muncul, selesai Januari 2027.</span>
+        <div style="display:flex; gap:12px; align-items:flex-start; padding:.85rem 1rem; background: var(--cream); border:0.5px solid var(--rule-soft); border-left:3px solid var(--teal); border-radius:0 10px 10px 0; box-shadow: var(--shadow);">
+          <div style="flex-shrink:0; width:68px; font-family: var(--mono); font-size:11px; font-weight:600; color: var(--teal); padding-top:1px;">Jun 2028</div>
+          <div>
+            <div style="font-size:13px; font-weight:600; color: var(--ink); margin-bottom:2px;">Siklus Tahunan Evaluasi Dimulai</div>
+            <div style="font-size:12px; color: var(--ink); opacity:0.8; line-height:1.6;">Litbang mengumpulkan data outcome → revisi modul → publikasi versi baru setiap Juni. Survei pasca-kelulusan 1 tahun (lulusan 2027) mulai dikirim untuk mengukur apakah identitas Islam santri bertahan di lingkungan baru.</div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- FASE 4 -->
-    <section class="rm-phase-section">
-      <div class="rm-header-card">
-        <div class="rm-header-top">
-          <div class="rm-badge-row">
-            <span class="rm-badge good">Fase 04 · Feb–Jun 2027</span>
-            <span class="rm-badge">NORMAL</span>
-          </div>
-          <h2 class="rm-phase-title">Peluncuran Penuh: Ukur, Laporkan, dan Tingkatkan</h2>
-          <p class="rm-phase-sub">Tahun pertama evaluasi menyeluruh — apakah lulusan kelas 12 membuktikan validitas SKL baru yang telah dirancang?</p>
-        </div>
-        <div class="rm-meta-bar">
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Periode</span><span class="rm-meta-val">Februari – Juni 2027</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Durasi</span><span class="rm-meta-val">5 bulan</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Prioritas sasaran</span><span class="rm-meta-val">Semua jenjang</span></div>
-          <div class="rm-meta-cell"><span class="rm-meta-lbl">Status</span><span class="rm-meta-val">Operasional penuh</span></div>
-        </div>
       </div>
 
-      <p class="rm-section-label">Indikator kunci fase ini</p>
-      <div class="rm-kpi-grid">
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Santri daftar SNBT '27</p><p class="rm-kpi-val">100%</p><p class="rm-kpi-sub">Kelas 12 Umum</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Target skor SNBT</p><p class="rm-kpi-val">>600</p><p class="rm-kpi-sub">Dari baseline Oktober 2026</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Kelas 12 Din berkarya</p><p class="rm-kpi-val">100%</p><p class="rm-kpi-sub">Risalah / modul ta'lim</p></div>
-        <div class="rm-kpi-card"><p class="rm-kpi-lbl">Review tahunan laporan</p><p class="rm-kpi-val">Jun '27</p><p class="rm-kpi-sub">Disajikan ke yayasan & wali</p></div>
-      </div>
-
-      <p class="rm-section-label">Timeline bulanan</p>
-      <div class="rm-timeline">
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">Februari – Maret 2027</p>
-          <p class="rm-tl-text">Simulasi SNBT final kelas 12 Umum. Pendaftaran SNBT 2027. Kelas 12 Diniyah presentasi karya (risalah / modul ta'lim) di depan tim penguji internal.</p>
-        </div>
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">April – Mei 2027</p>
-          <p class="rm-tl-text">Pelaksanaan UTBK SNBT 2027. Kelas 12 Diniyah menyelesaikan setoran akhir tahfidz + uji baca kitab oleh penguji eksternal. Checklist karakter direkap musyrif.</p>
-        </div>
-        <div class="rm-tl-item">
-          <div class="rm-tl-dot"></div>
-          <p class="rm-tl-date">Juni 2027</p>
-          <p class="rm-tl-text">Review tahun pertama: score SNBT, kelulusan kitab, checklist karakter, kepuasan wali, tracking alumni. Laporan disajikan ke pimpinan yayasan sebagai benchmark T.A. 2027/28.</p>
+      <!-- Risiko Fase 2 -->
+      <div style="margin-left:50px; background: rgba(155,98,32,0.06); border-left:3px solid var(--brick); border-radius:0 10px 10px 0; padding:1rem 1.25rem;">
+        <div style="font-family: var(--mono); font-size:11px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color: var(--brick); margin-bottom:.5rem;">⚠ Risiko Kritis Fase 2</div>
+        <div style="font-size:12px; color: var(--ink); opacity:0.85; line-height:1.7;">
+          Implementasi penuh tanpa sistem evaluasi berkelanjutan akan membuat SKL baru menjadi dokumen mati — dipakai di tahun pertama, lalu dilupakan. Pastikan siklus evaluasi Juni bukan kegiatan tambahan, melainkan sudah menjadi bagian dari kalender akademik tetap.
         </div>
       </div>
+    </div>
 
-      <p class="rm-section-label">Agenda & tugas — klik untuk detail</p>
-
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">🏅</div>
-          <span class="rm-task-name">Uji eksternal komprehensif kelas 12 — kelulusan dengan bukti yang terverifikasi</span>
-          <span class="rm-task-chip">Verifikasi akhir</span>
-          <span class="rm-chevron">▾</span>
+    <!-- PENUTUP: Prasyarat Keberhasilan -->
+    <div style="background: var(--ink); border-radius:14px; padding:1.75rem 2rem; margin-top:2.5rem; color: var(--paper); box-shadow: var(--shadow);">
+      <p style="font-family: var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:.6rem;">Prasyarat Keberhasilan</p>
+      <h3 style="font-family: var(--serif); font-size:20px; font-weight:400; color:#fff; margin-bottom:.75rem; line-height:1.3;">
+        Tiga kondisi yang harus terpenuhi — jika tidak, tunda roadmap sampai siap
+      </h3>
+      <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:1.5rem;">
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <div style="width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.15); color:#fff; font-size:11px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">1</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.75); line-height:1.65;"><strong style="color:#fff;">Keputusan penjurusan ditetapkan Pimpinan sebelum Agustus 2026.</strong> Tanpa ini, Litbang menyusun modul tanpa tahu untuk sistem yang mana.</div>
         </div>
-        <div class="rm-task-body">
-          Kelas 12 pertama yang lulus dari sistem baru harus diuji secara eksternal, bukan hanya internal:
-          <ul>
-            <li><strong>Kelas 12 Umum:</strong> hasil UTBK SNBT 2027 adalah verifier eksternal terkuat — tidak bisa dimanipulasi.</li>
-            <li><strong>Kelas 12 Diniyah:</strong> uji baca kitab oleh penguji bersanad dari luar MQBS + presentasi karya dakwah.</li>
-            <li><strong>Semua jalur:</strong> rekap checklist karakter 3 tahun dari musyrif — ditandatangani dan diarsipkan.</li>
-            <li><strong>Semua jalur:</strong> 1 karya nyata (risalah, portofolio, proyek, atau halaqah yang masih berjalan).</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: sertifikat kelulusan baru mencantumkan jalur, score/capaian tahfidz, dan status checklist karakter.</span>
-          </div>
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <div style="width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.15); color:#fff; font-size:11px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">2</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.75); line-height:1.65;"><strong style="color:#fff;">Setiap modul punya satu PIC yang bertanggung jawab penuh.</strong> Pekerjaan kolektif tanpa penanggung jawab akan selesai terlambat atau tidak selesai sama sekali.</div>
+        </div>
+        <div style="display:flex; gap:12px; align-items:flex-start;">
+          <div style="width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,.15); color:#fff; font-size:11px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:1px;">3</div>
+          <div style="font-size:13px; color:rgba(255,255,255,.75); line-height:1.65;"><strong style="color:#fff;">Guru pilot dilibatkan sebagai co-author modul, bukan penerima modul.</strong> Partisipasi di awal adalah satu-satunya cara memastikan buy-in di implementasi.</div>
         </div>
       </div>
-
-      <div class="rm-task-card" onclick="toggleTask(this)">
-        <div class="rm-task-head">
-          <div class="rm-task-icon">📈</div>
-          <span class="rm-task-name">Laporan tahunan pertama — transparansi kepada wali santri dan yayasan</span>
-          <span class="rm-task-chip">Akuntabilitas</span>
-          <span class="rm-chevron">▾</span>
-        </div>
-        <div class="rm-task-body">
-          Laporan satu halaman ringkas + dokumen lengkap, disajikan Juni 2027:
-          <ul>
-            <li>Capaian tahfidz mutqin per jenjang vs target SKL — berapa % tercapai?</li>
-            <li>Score SNBT angkatan pertama jalur Umum — vs baseline Oktober 2026.</li>
-            <li>Kelas 12 Diniyah: berapa yang diterima di UIN/PTKIN/luar negeri?</li>
-            <li>Tracking karakter: berapa % santri lulus checklist 3 tahun tanpa insiden serius?</li>
-            <li>Tracking alumni: apakah yang lulus tahun lalu masih shalat, masih aktif di komunitas Islam?</li>
-          </ul>
-          <div class="rm-verif-box">
-            <span class="rm-verif-icon">✓</span>
-            <span>Verifier: laporan disajikan dalam Rapat Wali Santri tahunan + diarsipkan sebagai benchmark T.A. berikutnya.</span>
-          </div>
-        </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <span style="font-family: var(--mono); font-size:10px; padding:4px 11px; border-radius:20px; border:0.5px solid rgba(255,255,255,.2); color:rgba(255,255,255,.65);">Fondasi · Jul–Des 2026</span>
+        <span style="font-family: var(--mono); font-size:10px; padding:4px 11px; border-radius:20px; border:0.5px solid rgba(255,255,255,.2); color:rgba(255,255,255,.65);">Pilot · Jan–Jun 2027</span>
+        <span style="font-family: var(--mono); font-size:10px; padding:4px 11px; border-radius:20px; border:0.5px solid rgba(255,255,255,.2); color:rgba(255,255,255,.65);">Penuh · Jul 2027 →</span>
+        <span style="font-family: var(--mono); font-size:10px; padding:4px 11px; border-radius:20px; border:0.5px solid rgba(255,255,255,.2); color:rgba(255,255,255,.65);">Evaluasi Tahunan · Jun 2028</span>
       </div>
-    </section>
+    </div>
 
   </div>
 </section>
+
+<!-- ============ RANGKUMAN PERUBAHAN ============ -->
+<section class="section" id="rangkuman">
+  <div class="reveal">
+    <div class="section-num"><span class="nm">15</span> Rangkuman Perubahan SKL & Kurikulum</div>
+    <h2 class="action-title">
+      Dari kondisi saat ini ke <em>kondisi yang dituju</em> — 15 perubahan konkret yang membedakan <b>SKL & Kurikulum Baru MQBS</b>.
+    </h2>
+    <p class="action-deck">
+      Blok ini merangkum seluruh delta antara kondisi kurikulum yang berjalan saat ini dengan arsitektur yang direkomendasikan.
+      Setiap baris adalah keputusan nyata — bukan aspirasi — yang perlu diotorisasi, dijadwalkan, dan diaudit pelaksanaannya.
+    </p>
+  </div>
+
+  <!-- STAT STRIP -->
+  <div class="rv-strip reveal-stagger">
+    <div class="rv-stat"><span class="rv-n">15</span><span class="rv-l">Total perubahan teridentifikasi</span></div>
+    <div class="rv-stat"><span class="rv-n">7</span><span class="rv-l">Perubahan struktural kurikulum</span></div>
+    <div class="rv-stat"><span class="rv-n">4</span><span class="rv-l">Perubahan standar kelulusan (SKL)</span></div>
+    <div class="rv-stat"><span class="rv-n">4</span><span class="rv-l">Perubahan sistem & SDM</span></div>
+  </div>
+
+  <!-- CATEGORY: SKL -->
+  <div class="rv-group reveal">
+    <div class="rv-group-head">
+      <span class="rv-group-icon">◈</span>
+      <span class="rv-group-title">Standar Kelulusan (SKL)</span>
+      <span class="rv-group-tag">4 perubahan</span>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">01</div>
+      <div class="rv-content">
+        <div class="rv-title">Satu SKL untuk semua → Dua SKL yang berbeda per jalur</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Satu set SKL berlaku sama untuk seluruh santri kelas 12 — tanpa membedakan orientasi karir atau jalur keilmuan yang berbeda.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p><strong>Dua SKL terpisah:</strong> SKL Kelas 12 Takhassus Diniyah (20–30 juz + 8 kitab + Arab C1 + risalah) dan SKL Kelas 12 Umum (7–10 juz + SNBT >600 + Inggris B2 + portofolio). Satu SKL untuk keduanya adalah kompromi yang merugikan kedua pihak.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">02</div>
+      <div class="rv-content">
+        <div class="rv-title">Indikator abstrak → Indikator terukur & dapat diverifikasi eksternal</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>SKL menggunakan rumusan kualitatif seperti "santri bertakwa, berakhlak mulia, berilmu" — sulit diaudit secara sistematis oleh pihak luar.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p>Setiap indikator SKL per jenjang wajib dapat diuji: hafalan diuji penguji bersanad, karakter diverifikasi laporan musyrif, kompetensi akademik dibuktikan skor simulasi, bahasa diuji lembaga independen (LIPIA/CEFR).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">03</div>
+      <div class="rv-content">
+        <div class="rv-title">Karakter sebagai catatan afektif → Karakter sebagai checklist terverifikasi musyrif</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Nilai karakter santri dirangkum sebagai kolom "Baik / Cukup / Kurang" di rapor — tidak ada deskripsi perilaku konkret yang dapat dibuktikan.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p>Karakter menjadi butir perilaku terverifikasi: <em>"shalat 5 waktu mandiri tanpa diingatkan selama 6 bulan"</em>, <em>"tidak berbohong selama 1 tahun"</em>, <em>"konsisten syar'i di lingkungan manapun"</em> — ditandatangani musyrif, bukan sekadar kalimat di brosur.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">04</div>
+      <div class="rv-content">
+        <div class="rv-title">Evaluasi berakhir saat wisuda → Outcome tracking 1 tahun pasca-kelulusan</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Evaluasi kurikulum hanya mengukur output di hari kelulusan (hafalan, nilai, kitab khatam) — tidak ada data tentang kehidupan lulusan setelah meninggalkan pesantren.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p>Sistem survei alumni wajib: apakah lulusan tetap shalat berjamaah di kampus? Apakah identitas islamnya bertahan? Berapa yang lolos PTN favorit? Berapa yang aktif berdakwah? Data ini menjadi kompas desain kurikulum generasi berikutnya.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY: JADWAL & WAKTU -->
+  <div class="rv-group reveal">
+    <div class="rv-group-head">
+      <span class="rv-group-icon">◈</span>
+      <span class="rv-group-title">Struktur Waktu & Jadwal KBM</span>
+      <span class="rv-group-tag">3 perubahan</span>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">05</div>
+      <div class="rv-content">
+        <div class="rv-title">KBM Senin–Sabtu pagi → KBM Senin–Jumat (lebih panjang), Sabtu untuk luar ruang</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>KBM berlangsung Senin–Sabtu pukul 08.00–12.20 (4 jam 20 menit/hari). Tidak ada blok waktu khusus untuk kegiatan fisik, karakter, dan ekstrakurikuler terstruktur.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p><strong>Senin–Jumat: KBM 08.00–14.00</strong> (6 jam/hari, lebih efektif dan terkonsentrasi). <strong>Sabtu sepenuhnya</strong> dialokasikan untuk PJOK, penguatan karakter, muhasabah mingguan, dan kegiatan ekstrakurikuler terstruktur — bukan tambahan KBM akademis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">06</div>
+      <div class="rv-content">
+        <div class="rv-title">4 waktu halaqah Al-Qur'an → 3 waktu halaqah (Ashar dihapus)</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Halaqah Al-Qur'an dilaksanakan 4 waktu: Bada Subuh, Dhuha, setelah Ashar, dan setelah Isya. Waktu Ashar dilaporkan sangat tidak efektif karena santri baru bangun tidur siang, mengantuk, dan tidak fokus.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p><strong>3 waktu halaqah:</strong> Bada Subuh, Dhuha, dan setelah Isya. Waktu Ashar dibebaskan untuk aktivitas fisik atau istirahat resmi — sehingga 3 sesi yang tersisa berlangsung dengan kualitas atensi jauh lebih tinggi. Kualitas > kuantitas waktu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">07</div>
+      <div class="rv-content">
+        <div class="rv-title">Seni/Prakarya/PJOK sebagai mapel KBM → Dialihkan ke ekstrakurikuler Sabtu</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Seni Budaya, Prakarya, dan PJOK mengambil slot JP KBM reguler di tengah minggu, bersaing dengan Matematika, IPA, dan Diniyah untuk waktu dan atensi yang terbatas.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p>Ketiga mapel ini <strong>dialihkan ke format ekstrakurikuler wajib Sabtu</strong> — esensinya tetap diajarkan, namun dalam format yang lebih sesuai karakter ilmu praktis tersebut. Slot yang terbebas direinvestasikan ke Pilar Visioner.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY: TAHFIDZ -->
+  <div class="rv-group reveal">
+    <div class="rv-group-head">
+      <span class="rv-group-icon">◈</span>
+      <span class="rv-group-title">Tahfidz & Program Al-Qur'an</span>
+      <span class="rv-group-tag">2 perubahan</span>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">08</div>
+      <div class="rv-content">
+        <div class="rv-title">Mutqin + Ziyadah 30 juz (target ganda) → Mutqin saja sebagai target utama</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Target ganda: santri diharapkan sekaligus mencapai itqon <em>dan</em> menyetor 30 juz. Data lapangan: setor 30 juz kelas 12 ikhwan hanya 12% dan akhwat hanya 11% — target yang tidak realistis dikejar bersamaan.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p><strong>Target tunggal yang kokoh:</strong> SMP kelas 9 = 5 juz mutqin, SMA kelas 12 Umum = 7–10 juz mutqin, SMA Diniyah = 20–30 juz. Ziyadah (tambahan hafalan) menjadi <strong>prestasi opsional</strong> setelah target mutqin tercapai — bukan beban wajib yang mengorbankan kualitas itqon.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">09</div>
+      <div class="rv-content">
+        <div class="rv-title">Tidak ada standarisasi kompetensi musyrif tahfidz → Standar tahsin musyrif seragam</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Kompetensi tahfidz musyrif sangat beragam — tidak ada kelas tahsin internal, sehingga kualitas pengecekan bacaan santri saat talaqqi tidak konsisten antar kamar.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p>Seluruh musyrif wajib mengikuti <strong>program tahsin standarisasi internal</strong> sebelum diberi tanggung jawab mengelola halaqah. Cek bacaan santri menjadi tanggung jawab yang terstandar, bukan sekedar bergantung pada bakat individual musyrif.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY: PENJURUSAN -->
+  <div class="rv-group reveal">
+    <div class="rv-group-head">
+      <span class="rv-group-icon">◈</span>
+      <span class="rv-group-title">Penjurusan & Diferensiasi Jalur</span>
+      <span class="rv-group-tag">2 perubahan</span>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">10</div>
+      <div class="rv-content">
+        <div class="rv-title">Satu jalur kurikulum untuk semua → Penjurusan tegas Diniyah vs Umum mulai kelas 11</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Semua santri SMA menerima materi Diniyah lanjut yang sama (Musthalah Hadits, Ushul Fiqh, Mukhtarot, Alfiyyah) tanpa memperhitungkan bahwa 92% dari mereka menargetkan jalur umum.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p>Mulai kelas 11, santri memilih secara resmi: <strong>Jalur Diniyah</strong> (±8% santri) dengan fokus kitab + Arab C1 + risalah ilmiah, atau <strong>Jalur Umum</strong> (±92% santri) dengan fokus SNBT + Inggris B2 + portofolio. Keduanya tetap wajib mutqin dan karakter terverifikasi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">11</div>
+      <div class="rv-content">
+        <div class="rv-title">Materi Diniyah lanjut = beban semua santri → Difokuskan hanya untuk Jalur Diniyah</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Musthalah Hadits, Ushul Fiqh mendalam, Mukhtarot, dan Nahwu lanjutan diwajibkan untuk semua santri — tanpa pengecualian berdasarkan orientasi karir.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p>Materi Diniyah mendalam <strong>hanya wajib untuk Jalur Diniyah</strong>. Santri Jalur Umum cukup dibekali fondasi yang tidak bisa ditawar: Akidah Wasithiyyah, Fiqih ibadah dasar, dan translasi Hadits/Ushul Fiqh ke soal HOTS untuk persiapan SNBT.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY: MAPEL & JP -->
+  <div class="rv-group reveal">
+    <div class="rv-group-head">
+      <span class="rv-group-icon">◈</span>
+      <span class="rv-group-title">Mata Pelajaran & Alokasi Jam Pelajaran</span>
+      <span class="rv-group-tag">2 perubahan</span>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">12</div>
+      <div class="rv-content">
+        <div class="rv-title">58 JP/pekan (overload) → Target ≤48 JP dengan reinvestasi ke Pilar Visioner</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Total 58 JP/pekan melampaui batas Kurikulum Merdeka (SMA: 48 JP). Matematika hanya 4 JP, IPA 1–2 JP, P5 = 0 JP — Pilar Visioner hampir tidak mendapat porsi.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <div class="rv-jp-table">
+              <div class="rv-jp-row head"><span>Mata Pelajaran</span><span>Sebelum</span><span>Sesudah</span><span>Perubahan</span></div>
+              <div class="rv-jp-row"><span>PAI + PKN + Sejarah + Sosiologi</span><span>4 JP</span><span>difusi ke inti</span><span class="minus">−4 JP</span></div>
+              <div class="rv-jp-row"><span>Seni Budaya + Prakarya + PJOK</span><span>3 JP</span><span>→ Ekskul Sabtu</span><span class="minus">−3 JP</span></div>
+              <div class="rv-jp-row"><span>Proyek Karakter / P5</span><span>0 JP</span><span>7 JP wajib</span><span class="plus">+7 JP</span></div>
+              <div class="rv-jp-row"><span>Matematika</span><span>4 JP</span><span>5 JP</span><span class="plus">+1 JP</span></div>
+              <div class="rv-jp-row"><span>IPA (Fisika + Kimia)</span><span>1–2 JP</span><span>3 JP</span><span class="plus">+1–2 JP</span></div>
+              <div class="rv-jp-row"><span>TIK / Informatika / Coding</span><span>2 JP</span><span>3 JP</span><span class="plus">+1 JP</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">13</div>
+      <div class="rv-content">
+        <div class="rv-title">Hadits & Ushul Fiqh sebatas pelajaran agama → Diterjemahkan ke soal HOTS standar nasional</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Hadits, Ushul Fiqh, dan Muthala'ah diajarkan sebagai materi keislaman murni — tanpa koneksi eksplisit ke kompetensi yang diuji SNBT, sehingga aset ini tidak dioptimalkan secara kompetitif.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p>Tim kurikulum <strong>menyusun bank soal HOTS bilingual</strong> berbasis tiga keilmuan klasik ini: Hadits → Penalaran Umum (TPS), Ushul Fiqh → penalaran induktif-deduktif, Muthala'ah → literasi membaca kritis. Target: 65% santri Jalur Umum kelas 12 mencapai skor TPS >650 dalam simulasi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY: SDM & SISTEM -->
+  <div class="rv-group reveal">
+    <div class="rv-group-head">
+      <span class="rv-group-icon">◈</span>
+      <span class="rv-group-title">Sistem, SDM, & Tata Kelola</span>
+      <span class="rv-group-tag">2 perubahan</span>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">14</div>
+      <div class="rv-content">
+        <div class="rv-title">Administrasi guru kompleks & berlapis → Sistem pelaporan yang disederhanakan</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Guru menanggung beban administrasi tinggi: Jurnal KBM, penyusunan ATP yang rumit, absensi ganda (manual + online), membuat energi asatidz terkuras sebelum sempat fokus pada kualitas mengajar.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p>ATP disederhanakan menjadi format ringkas dengan template standar. Absensi diintegrasikan ke satu sistem. Jurnal KBM menjadi 3 kolom esensial (topik, refleksi, tindak lanjut). Target: <strong>waktu administrasi per guru berkurang minimal 40%</strong>, waktu yang tersisa dikembalikan untuk persiapan mengajar dan pembimbingan santri.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv-row">
+      <div class="rv-idx">15</div>
+      <div class="rv-content">
+        <div class="rv-title">Santri baru langsung ke program penuh → Protokol detoks kognitif 6–8 minggu</div>
+        <div class="rv-cols">
+          <div class="rv-before">
+            <div class="rv-badge-label old">Sebelumnya</div>
+            <p>Santri baru langsung mengikuti jadwal penuh tanpa masa transisi — padahal Gen Alpha masuk dengan kondisi attention span 8 detik, otak terkondisi dopamin instan, dan working memory melemah akibat 4–6 jam screen time harian.</p>
+          </div>
+          <div class="rv-after">
+            <div class="rv-badge-label new">Kurikulum Baru</div>
+            <p><strong>6–8 minggu pertama</strong> adalah "Program Detoks Kognitif" wajib: membaca teks bertahap (15 → 30 → 60 menit tanpa gangguan), didampingi musyrif terlatih. Tujuan: membangun kembali <em>cognitive endurance</em> sebelum beban penuh kurikulum dimulai. Diukur dengan tes baseline dan post-test di minggu ke-8.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM SUMMARY BAR -->
+  <div class="rv-summary reveal">
+    <div class="rv-summary-head">Matriks Keputusan — Satu Pandang</div>
+    <div class="rv-summary-grid">
+      <div class="rv-summary-col">
+        <div class="rv-sc-label kept">Tetap Dipertahankan</div>
+        <ul class="rv-sc-list">
+          <li>3 Pilar: Qur'ani, Berkarakter, Visioner</li>
+          <li>Target mutqin per jenjang (SMP 5 juz, SMA 10 juz Umum, SMA 20+ juz Diniyah)</li>
+          <li>Sistem asrama 24 jam</li>
+          <li>Bahtsul Masa'il (Jalur Diniyah)</li>
+          <li>Akidah & Fiqih dasar untuk semua jalur</li>
+          <li>Sanad keilmuan (Jalur Diniyah)</li>
+        </ul>
+      </div>
+      <div class="rv-summary-col">
+        <div class="rv-sc-label cut">Dipangkas / Direasignasi</div>
+        <ul class="rv-sc-list">
+          <li>Halaqah Ashar (dipindah ke aktivitas fisik)</li>
+          <li>Mapel sekunder (Seni, Prakarya, PJOK) → Ekskul Sabtu</li>
+          <li>Target ziyadah 30 juz wajib → opsional</li>
+          <li>Materi Diniyah lanjut wajib semua → hanya Jalur Diniyah</li>
+          <li>ATP & administrasi berlapis → disederhanakan</li>
+          <li>KBM hari Sabtu → diganti program luar kelas</li>
+        </ul>
+      </div>
+      <div class="rv-summary-col">
+        <div class="rv-sc-label added">Ditambahkan / Baru</div>
+        <ul class="rv-sc-list">
+          <li>SKL dua jalur dengan indikator terpisah</li>
+          <li>Penjurusan resmi mulai kelas 11</li>
+          <li>P5/Proyek Karakter wajib (7 JP)</li>
+          <li>Bank soal HOTS dari Hadits + Ushul Fiqh</li>
+          <li>Protokol detoks kognitif 6–8 minggu</li>
+          <li>Survei alumni pasca-kelulusan 1 tahun</li>
+          <li>Tahsin standarisasi untuk semua musyrif</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ======= RANGKUMAN STYLES ======= */
+.rv-strip {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--rule-soft);
+  background: var(--cream);
+}
+@media (max-width: 720px) { .rv-strip { grid-template-columns: repeat(2, 1fr); } }
+.rv-stat {
+  padding: 24px 22px;
+  border-right: 1px solid var(--rule-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.rv-stat:last-child { border-right: 0; }
+@media (max-width: 720px) {
+  .rv-stat:nth-child(2) { border-right: 0; }
+  .rv-stat { border-bottom: 1px solid var(--rule-soft); }
+  .rv-stat:nth-last-child(-n+2) { border-bottom: 0; }
+}
+.rv-n {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--teal-2);
+}
+.rv-l { font-size: 12.5px; color: var(--ink-2); line-height: 1.4; font-weight: 500; }
+
+/* Groups */
+.rv-group {
+  margin-top: 52px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--cream);
+}
+.rv-group-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px;
+  background: var(--dark);
+  color: var(--teal);
+}
+.rv-group-icon {
+  color: var(--gold-2);
+  font-size: 18px;
+  line-height: 1;
+}
+.rv-group-title {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  flex: 1;
+}
+.rv-group-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--teal);
+  background: var(--gold-2);
+  border: 1px solid rgba(227,177,31,0.4);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+/* Rows */
+.rv-row {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.rv-row:last-child { border-bottom: 0; }
+.rv-idx {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 22px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  border-right: 1px solid var(--rule-soft);
+}
+.rv-content {
+  padding: 20px 24px;
+}
+.rv-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.3;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--rule-soft);
+}
+.rv-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 720px) { .rv-cols { grid-template-columns: 1fr; } }
+.rv-before, .rv-after {
+  padding: 14px 16px;
+  border-radius: 3px;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+.rv-before {
+  background: rgba(155,98,32,0.05);
+  border-left: 3px solid rgba(155,98,32,0.3);
+  color: var(--ink-2);
+}
+.rv-after {
+  background: rgba(0,90,38,0.06);
+  border-left: 3px solid var(--teal-2);
+  color: var(--ink-2);
+}
+.rv-after strong { color: var(--dark); font-weight: 700; }
+.rv-badge-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.rv-badge-label.old { color: rgba(155,98,32,0.7); }
+.rv-badge-label.new { color: var(--teal-2); }
+
+/* JP Table */
+.rv-jp-table { margin-top: 10px; }
+.rv-jp-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 90px 70px;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--rule-soft);
+  font-size: 12.5px;
+  align-items: center;
+}
+.rv-jp-row:last-child { border-bottom: 0; }
+.rv-jp-row.head {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 8px;
+}
+.rv-jp-row .minus { color: var(--brick); font-weight: 700; font-family: var(--mono); font-size: 12px; }
+.rv-jp-row .plus { color: var(--teal-2); font-weight: 700; font-family: var(--mono); font-size: 12px; }
+@media (max-width: 640px) {
+  .rv-jp-row { grid-template-columns: 1fr 60px 70px 55px; font-size: 11px; }
+  .rv-jp-row.head { font-size: 8.5px; }
+}
+
+/* Summary bar */
+.rv-summary {
+  margin-top: 52px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.rv-summary-head {
+  padding: 16px 24px;
+  background: var(--dark);
+  color: var(--gold-2);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: var(--teal-2);
+}
+.rv-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+@media (max-width: 800px) { .rv-summary-grid { grid-template-columns: 1fr; } }
+.rv-summary-col {
+  padding: 24px;
+  border-right: 1px solid var(--rule-soft);
+  background: var(--cream);
+}
+.rv-summary-col:last-child { border-right: 0; }
+@media (max-width: 800px) {
+  .rv-summary-col { border-right: 0; border-bottom: 1px solid var(--rule-soft); }
+  .rv-summary-col:last-child { border-bottom: 0; }
+}
+.rv-sc-label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid;
+}
+.rv-sc-label.kept { color: var(--teal-2); border-color: var(--teal-2); }
+.rv-sc-label.cut { color: var(--amber); border-color: var(--amber); }
+.rv-sc-label.added { color: var(--teal); border-color: var(--teal); }
+.rv-sc-list { list-style: none; }
+.rv-sc-list li {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-2);
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--rule-soft);
+  padding-left: 16px;
+  position: relative;
+}
+.rv-sc-list li:last-child { border-bottom: 0; }
+.rv-sc-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+.rv-sc-label.kept + .rv-sc-list li::before { color: var(--teal-2); }
+.rv-sc-label.cut + .rv-sc-list li::before { color: var(--amber); }
+.rv-sc-label.added + .rv-sc-list li::before { color: var(--teal); }
+</style>
 
 <!-- ============ EXECUTIVE CONCLUSION ============ -->
 <section class="conclusion">
@@ -3245,6 +3818,7 @@ body::before {
         <li><a href="#question" style="color:var(--ink-2);text-decoration:none">03 — Strategic Question</a></li>
         <li><a href="#answer" style="color:var(--ink-2);text-decoration:none">04 — Answer: Kerangka & 6 Intervensi</a></li>
         <li><a href="#roadmap" style="color:var(--ink-2);text-decoration:none">05 — Roadmap Implementasi</a></li>
+        <li><a href="#rangkuman" style="color:var(--ink-2);text-decoration:none">06 — Rangkuman Perubahan</a></li>
       </ul>
     </div>
   </div>
@@ -3336,7 +3910,7 @@ const personaData = {
     pillars: [
       { icon: "ti-book-2", title: "Qurani", items: ["Hafal 5 Juz Mutqin", "Memahami tafsir juz 30 + Al Fatihah", "Menulis Arab tanpa harakat", "Tadabbur ayat tematis"] },
       { icon: "ti-school", title: "Keilmuan syar'i", items: ["Fiqh ibadah lengkap (Riyadhussalihin)", "Aqidah Wasithiyyah dasar", "Sirah Nabawiyah kronologis", "Mushthalah hadis pengenalan"] },
-      { icon: "ti-brain", title: "Penalaran & literasi", items: ["Baca kritis teks Indonesia & Arab", "hadits dasar (silogisme)", "Numerasi kontekstual", "Presentasi argumen sederhana"] },
+      { icon: "ti-brain", title: "Penalaran & literasi", items: ["Baca kritis teks Indonesia & Arab", "FIkih dasar", "Numerasi kontekstual", "Presentasi argumen sederhana"] },
       { icon: "ti-shield", title: "Karakter & identitas", items: ["Bangga identitas muslim", "Tidak silau dunia (zuhud terapan)", "Adab berbeda pendapat", "Menghindari ashabiyyah"] },
       { icon: "ti-world", title: "Visi & wawasan", items: ["Mengenal peradaban Islam & Barat", "Isu kontemporer level remaja", "Pilih karir selaras nilai Islam", "Bisa berpidato 5 menit"] }
     ],
