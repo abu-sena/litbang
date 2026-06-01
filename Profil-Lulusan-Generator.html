@@ -2,620 +2,687 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perancang Profil Lulusan Sekolah</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Perancang Profil Lulusan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
-:root {
-  --ink:#0E373E; --gold:#E3B11F; --cream:#FAF7EF; --paper:#F2EDE3;
-  --muted:#5C6B6D; --white:#ffffff;
+:root{
+  --ink:#0E373E;--gold:#D4A017;--gold2:#F0C040;
+  --cream:#FAF7EF;--muted:#5C6B6D;
+  --da:#1A237E;--da-b:#E8EAF6;
+  --db:#1B5E20;--db-b:#E8F5E9;
+  --dc:#E65100;--dc-b:#FFF3E0;
+  --dd:#880E4F;--dd-b:#FCE4EC;
+  --de:#006064;--de-b:#E0F7FA;
+  --df:#4A148C;--df-b:#F3E5F5;
+  --dg:#37474F;--dg-b:#ECEFF1;
+  --dh:#BF360C;--dh-b:#FBE9E7;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:#0a1a1e;color:var(--cream);min-height:100vh;}
+body{font-family:'DM Sans',sans-serif;background:#0c1e23;color:#e8f0f1;min-height:100vh;}
 
-/* ── APP HEADER ── */
-.app-header{background:linear-gradient(135deg,var(--ink) 0%,#163a42 100%);border-bottom:2px solid var(--gold);padding:22px 36px;display:flex;align-items:center;gap:16px;}
-.app-logo{width:46px;height:46px;background:var(--gold);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:26px;color:var(--ink);font-weight:700;flex-shrink:0;}
-.app-title{flex:1;}
-.app-title h1{font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--gold);letter-spacing:-0.02em;}
-.app-title p{font-size:0.78rem;color:#8ab5bb;margin-top:2px;}
-.step-badge{background:rgba(227,177,31,.15);border:1px solid var(--gold);color:var(--gold);padding:5px 13px;border-radius:20px;font-size:0.76rem;font-weight:500;white-space:nowrap;}
-
-/* ── LAYOUT ── */
-.app-body{display:grid;grid-template-columns:380px 1fr;min-height:calc(100vh - 88px);}
-.sidebar{background:#0e2228;border-right:1px solid rgba(227,177,31,.18);overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;}
-.main-area{padding:20px;overflow-y:auto;}
-
-/* ── CARDS ── */
-.section-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px;}
-.section-card h3{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.section-card h3 .num{width:22px;height:22px;background:var(--gold);color:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;font-family:'DM Sans',sans-serif;flex-shrink:0;}
-
-/* ── FORM ── */
-.field-group{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;}
-.field-group:last-child{margin-bottom:0;}
-.field-group label{font-size:.7rem;font-weight:600;color:#8ab5bb;text-transform:uppercase;letter-spacing:.06em;}
-.field-group input,.field-group select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:7px;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:.88rem;padding:9px 12px;outline:none;transition:border-color .2s;width:100%;}
-.field-group input:focus,.field-group select:focus{border-color:var(--gold);background:rgba(227,177,31,.05);}
-.field-group select option{background:#0e2228;}
-.field-group input::placeholder{color:rgba(255,255,255,.28);}
-
-/* ── DOMAIN FILTERS ── */
-.domain-filters{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
-.dom-filter{padding:4px 11px;border-radius:20px;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .18s;border:1.5px solid transparent;user-select:none;}
-.dom-filter.active{opacity:1;}
-.dom-filter:not(.active){opacity:.38;}
-.dom-filter[data-dom="all"]{background:var(--ink);border-color:var(--gold);color:var(--gold);}
-.dom-filter[data-dom="A"]{background:#E8EAF6;color:#1A237E;border-color:#1A237E;}
-.dom-filter[data-dom="B"]{background:#E8F5E9;color:#1B5E20;border-color:#1B5E20;}
-.dom-filter[data-dom="C"]{background:#FBE9E7;color:#BF360C;border-color:#BF360C;}
-.dom-filter[data-dom="D"]{background:#FCE4EC;color:#880E4F;border-color:#880E4F;}
-.dom-filter[data-dom="E"]{background:#FFF3E0;color:#E65100;border-color:#E65100;}
-
-/* ── SKILL GRID ── */
-.skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
-.skill-card{background:rgba(255,255,255,.04);border:1.5px solid rgba(255,255,255,.1);border-radius:9px;padding:9px 11px;cursor:pointer;transition:all .16s;position:relative;overflow:hidden;}
-.skill-card:hover{border-color:rgba(227,177,31,.5);background:rgba(227,177,31,.06);transform:translateY(-1px);}
-.skill-card.selected{border-color:var(--gold)!important;background:rgba(227,177,31,.1)!important;}
-.skill-card.selected::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);}
-.skill-card.disabled{opacity:.25;cursor:not-allowed;}
-.skill-card.disabled:hover{border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.04);transform:none;}
-.dom-badge{display:inline-block;padding:2px 6px;border-radius:8px;font-size:.6rem;font-weight:700;margin-bottom:4px;}
-.skill-name{font-size:.78rem;font-weight:600;color:var(--cream);line-height:1.3;}
-.skill-def{font-size:.64rem;color:rgba(255,255,255,.4);margin-top:3px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.check-icon{position:absolute;top:7px;right:7px;width:16px;height:16px;background:var(--gold);border-radius:50%;display:none;align-items:center;justify-content:center;font-size:9px;color:var(--ink);font-weight:700;}
-.skill-card.selected .check-icon{display:flex;}
-
-/* ── SELECTION BAR ── */
-.selection-bar{background:rgba(227,177,31,.07);border:1px solid rgba(227,177,31,.22);border-radius:9px;padding:11px 14px;}
-.selection-bar .bar-label{font-size:.68rem;color:#8ab5bb;text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;display:flex;align-items:center;}
-.selection-chips{display:flex;flex-wrap:wrap;gap:5px;min-height:26px;}
-.chip{background:var(--gold);color:var(--ink);padding:3px 9px 3px 7px;border-radius:20px;font-size:.68rem;font-weight:600;display:flex;align-items:center;gap:4px;cursor:pointer;transition:all .14s;}
-.chip:hover{background:#f5c842;}
-.count-badge{margin-left:auto;background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-weight:700;font-size:.74rem;padding:2px 9px;border-radius:20px;}
-.count-badge.ready{background:#1B5E20;color:#fff;}
-
-/* ── BUTTONS ── */
-.btn-gen{width:100%;background:linear-gradient(135deg,var(--gold) 0%,#d4a017 100%);color:var(--ink);border:none;border-radius:9px;padding:13px 20px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
-.btn-gen:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 24px rgba(227,177,31,.3);}
-.btn-gen:disabled{opacity:.35;cursor:not-allowed;}
-.btn-dl{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#1B5E20 0%,#2E7D32 100%);color:#fff;border:none;border-radius:9px;padding:13px 24px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;width:100%;margin-top:12px;}
-.btn-dl:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 24px rgba(27,94,32,.35);}
-.btn-dl:disabled{opacity:.45;cursor:not-allowed;}
-
-/* ── PREVIEW ── */
-.preview-label{font-size:.7rem;color:#8ab5bb;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.preview-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.08);}
-.empty-state{background:rgba(255,255,255,.03);border:2px dashed rgba(255,255,255,.09);border-radius:14px;padding:50px 30px;text-align:center;color:rgba(255,255,255,.28);}
-.empty-state .icon{font-size:2.6rem;margin-bottom:12px;}
-.empty-state p{font-size:.84rem;line-height:1.7;}
-
-/* ── POSTER PREVIEW WRAPPER ── */
-#poster-preview-area{display:none;}
-#poster-scale-wrap{transform-origin:top left;display:inline-block;}
-
-/* ── HINT ── */
-.hint{font-size:.68rem;color:rgba(255,255,255,.28);line-height:1.6;padding:0 2px;}
-.hint strong{color:rgba(255,255,255,.45);}
-
-.hidden{display:none!important;}
-
-/* ═══════════════════════════════════════════
-   POSTER STYLES — self-contained, no CSS vars
-   ═══════════════════════════════════════════ */
-#poster-render-target{
-  position:fixed;
-  left:-9999px;
-  top:0;
-  z-index:-1;
-  width:900px;
+.app-bar{
+  background:linear-gradient(135deg,#0E373E,#1a5260);
+  border-bottom:2px solid var(--gold);
+  padding:18px 32px;display:flex;align-items:center;gap:14px;
 }
-.poster-root{
-  width:900px;
-  font-family:'DM Sans',sans-serif;
-  background:#FAF7EF;
-  overflow:hidden;
-}
-.pr-header{
-  background:#0E373E;
-  padding:48px 52px 40px;
-  position:relative;
-  overflow:hidden;
-}
-.pr-header-glow1{
-  position:absolute;top:-80px;right:-80px;
-  width:320px;height:320px;border-radius:50%;
-  background:radial-gradient(circle,rgba(227,177,31,.14) 0%,transparent 65%);
-  pointer-events:none;
-}
-.pr-header-glow2{
-  position:absolute;bottom:-60px;left:20px;
-  width:240px;height:240px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,255,255,.05) 0%,transparent 65%);
-  pointer-events:none;
-}
-.pr-eyebrow{
-  font-size:10px;font-weight:700;letter-spacing:.2em;
-  color:#E3B11F;text-transform:uppercase;
-  margin-bottom:12px;position:relative;z-index:1;
-}
-.pr-school{
-  font-family:'Playfair Display',serif;
-  font-size:38px;font-weight:900;
-  color:#ffffff;line-height:1.08;
-  margin-bottom:8px;position:relative;z-index:1;
-}
-.pr-jenjang{
-  font-size:13px;font-weight:400;
-  color:rgba(255,255,255,.58);
-  letter-spacing:.04em;
-  position:relative;z-index:1;
-}
-.pr-bar{
-  width:56px;height:3px;
-  background:#E3B11F;
-  margin:16px 0;
-  position:relative;z-index:1;
-}
-.pr-tagline{
-  font-family:'Amiri',serif;
-  font-size:14px;font-style:italic;
-  color:rgba(255,255,255,.7);
-  position:relative;z-index:1;line-height:1.5;
-}
-.pr-body{
-  background:#FAF7EF;
-  padding:36px 52px 40px;
-}
-.pr-sec-label{
-  font-size:9px;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:#5C6B6D;
-  margin-bottom:22px;
-  display:flex;align-items:center;gap:12px;
-}
-.pr-sec-label::after{content:'';flex:1;height:1px;background:rgba(0,0,0,.1);}
-.pr-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px;
-  margin-bottom:26px;
-}
-.pr-card{
-  background:#ffffff;
-  border-radius:10px;
-  padding:15px 17px;
-  display:flex;gap:13px;align-items:flex-start;
-  box-shadow:0 2px 10px rgba(0,0,0,.07);
-}
-.pr-num{
-  width:30px;height:30px;
-  border-radius:50%;
+.app-logo{
+  width:42px;height:42px;background:var(--gold);border-radius:9px;
   display:flex;align-items:center;justify-content:center;
-  font-size:13px;font-weight:700;color:#ffffff;
-  flex-shrink:0;
+  font-family:'Amiri',serif;font-size:24px;color:var(--ink);font-weight:700;flex-shrink:0;
+}
+.app-title h1{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--gold);letter-spacing:-.01em;}
+.app-title p{font-size:.75rem;color:#7ab5bc;margin-top:1px;}
+.step-pill{
+  margin-left:auto;background:rgba(212,160,23,.14);border:1px solid var(--gold);
+  color:var(--gold);padding:5px 14px;border-radius:20px;font-size:.73rem;font-weight:600;
+  white-space:nowrap;
+}
+
+.layout{display:grid;grid-template-columns:360px 1fr;min-height:calc(100vh - 80px);}
+.sidebar{background:#0d2028;border-right:1px solid rgba(212,160,23,.18);overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px;}
+.main{padding:18px;overflow-y:auto;}
+
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:10px;padding:15px;}
+.card h3{font-family:'Playfair Display',serif;font-size:.88rem;color:var(--gold);margin-bottom:11px;display:flex;align-items:center;gap:7px;}
+.badge-num{width:20px;height:20px;background:var(--gold);color:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;flex-shrink:0;}
+
+.fgrp{display:flex;flex-direction:column;gap:4px;margin-bottom:9px;}
+.fgrp:last-child{margin-bottom:0;}
+.fgrp label{font-size:.65rem;font-weight:700;color:#7ab5bc;text-transform:uppercase;letter-spacing:.07em;}
+.fgrp input,.fgrp select{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);
+  border-radius:7px;color:#e8f0f1;font-family:'DM Sans',sans-serif;
+  font-size:.84rem;padding:8px 11px;outline:none;transition:border-color .18s;width:100%;
+}
+.fgrp input:focus,.fgrp select:focus{border-color:var(--gold);background:rgba(212,160,23,.05);}
+.fgrp select option{background:#0d2028;}
+.fgrp input::placeholder{color:rgba(255,255,255,.27);}
+
+.sel-bar{background:rgba(212,160,23,.07);border:1px solid rgba(212,160,23,.22);border-radius:9px;padding:11px 13px;}
+.sel-bar .lbl{font-size:.64rem;color:#7ab5bc;text-transform:uppercase;letter-spacing:.07em;margin-bottom:7px;display:flex;align-items:center;}
+.chips{display:flex;flex-wrap:wrap;gap:5px;min-height:24px;}
+.chip{background:var(--gold);color:var(--ink);padding:3px 8px 3px 7px;border-radius:20px;font-size:.67rem;font-weight:600;display:flex;align-items:center;gap:3px;cursor:pointer;transition:background .12s;}
+.chip:hover{background:var(--gold2);}
+.cnt{margin-left:auto;background:rgba(255,255,255,.1);color:rgba(255,255,255,.55);font-weight:700;font-size:.7rem;padding:1px 9px;border-radius:20px;}
+.cnt.go{background:#1B5E20;color:#fff;}
+
+.btn-gen{
+  width:100%;background:linear-gradient(135deg,var(--gold),#b8890e);
+  color:var(--ink);border:none;border-radius:9px;padding:12px 18px;
+  font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;
+  cursor:pointer;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.btn-gen:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 22px rgba(212,160,23,.28);}
+.btn-gen:disabled{opacity:.32;cursor:not-allowed;}
+
+.dom-tabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:11px;}
+.dom-tab{padding:4px 10px;border-radius:18px;font-size:.68rem;font-weight:700;cursor:pointer;transition:all .15s;border:1.5px solid transparent;user-select:none;}
+.dom-tab.on{opacity:1;}
+.dom-tab:not(.on){opacity:.36;}
+[data-d="all"]{background:#0E373E;border-color:var(--gold);color:var(--gold);}
+[data-d="A"]{background:var(--da-b);color:var(--da);border-color:var(--da);}
+[data-d="B"]{background:var(--db-b);color:var(--db);border-color:var(--db);}
+[data-d="C"]{background:var(--dc-b);color:var(--dc);border-color:var(--dc);}
+[data-d="D"]{background:var(--dd-b);color:var(--dd);border-color:var(--dd);}
+[data-d="E"]{background:var(--de-b);color:var(--de);border-color:var(--de);}
+[data-d="F"]{background:var(--df-b);color:var(--df);border-color:var(--df);}
+[data-d="G"]{background:var(--dg-b);color:var(--dg);border-color:var(--dg);}
+[data-d="H"]{background:var(--dh-b);color:var(--dh);border-color:var(--dh);}
+
+.sk-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;}
+.sk{background:rgba(255,255,255,.035);border:1.5px solid rgba(255,255,255,.09);border-radius:8px;padding:8px 10px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;}
+.sk:hover{border-color:rgba(212,160,23,.5);background:rgba(212,160,23,.06);transform:translateY(-1px);}
+.sk.sel{border-color:var(--gold)!important;background:rgba(212,160,23,.1)!important;}
+.sk.sel::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);}
+.sk.dis{opacity:.22;cursor:not-allowed;}
+.sk.dis:hover{transform:none;border-color:rgba(255,255,255,.09);background:rgba(255,255,255,.035);}
+.sk-badge{display:inline-block;padding:1px 5px;border-radius:6px;font-size:.57rem;font-weight:700;margin-bottom:3px;}
+.sk-name{font-size:.74rem;font-weight:600;color:#e8f0f1;line-height:1.25;}
+.sk-def{font-size:.6rem;color:rgba(255,255,255,.38);margin-top:2px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.tick{position:absolute;top:5px;right:5px;width:14px;height:14px;background:var(--gold);border-radius:50%;display:none;align-items:center;justify-content:center;font-size:8px;color:var(--ink);font-weight:700;}
+.sk.sel .tick{display:flex;}
+
+.prev-lbl{font-size:.65rem;color:#7ab5bc;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.prev-lbl::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.07);}
+.empty{background:rgba(255,255,255,.03);border:2px dashed rgba(255,255,255,.08);border-radius:12px;padding:44px 28px;text-align:center;color:rgba(255,255,255,.25);}
+.empty-icon{font-size:2.4rem;margin-bottom:10px;}
+.empty p{font-size:.8rem;line-height:1.7;}
+
+#preview-area{display:none;}
+#scale-wrap{transform-origin:top left;display:inline-block;}
+.btn-dl{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,#1B5E20,#2E7D32);color:#fff;
+  border:none;border-radius:9px;padding:12px 22px;
+  font-family:'DM Sans',sans-serif;font-size:.87rem;font-weight:700;
+  cursor:pointer;transition:all .18s;width:100%;margin-top:11px;
+}
+.btn-dl:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 7px 20px rgba(27,94,32,.32);}
+.btn-dl:disabled{opacity:.42;cursor:not-allowed;}
+.hint{font-size:.64rem;color:rgba(255,255,255,.26);line-height:1.65;padding:0 2px;}
+.hint strong{color:rgba(255,255,255,.44);}
+
+/* ── OFFSCREEN CAPTURE TARGET ── */
+#cap-host{
+  position:fixed;left:-9999px;top:0;
+  width:794px;z-index:-1;
+}
+
+/* ═══════════════════════════
+   POSTER — A4 794×1123px
+   (96dpi: 210mm×297mm exactly)
+   ═══════════════════════════ */
+.poster{
+  width:794px;
+  font-family:'DM Sans',sans-serif;
+  background:#FAF7EF;
+  overflow:hidden;
+}
+.po-head{
+  background:#0E373E;
+  padding:40px 44px 32px;
+  position:relative;overflow:hidden;
+}
+.po-glow{
+  position:absolute;top:-70px;right:-70px;width:300px;height:300px;
+  border-radius:50%;background:radial-gradient(circle,rgba(212,160,23,.13) 0%,transparent 65%);
+  pointer-events:none;
+}
+.po-ey{font-size:9.5px;font-weight:700;letter-spacing:.2em;color:#D4A017;text-transform:uppercase;margin-bottom:10px;position:relative;z-index:1;}
+.po-school{font-family:'Playfair Display',serif;font-size:34px;font-weight:900;color:#fff;line-height:1.06;margin-bottom:6px;position:relative;z-index:1;}
+.po-jenjang{font-size:12px;color:rgba(255,255,255,.55);letter-spacing:.04em;position:relative;z-index:1;}
+.po-bar{width:52px;height:3px;background:#D4A017;margin:14px 0;position:relative;z-index:1;}
+.po-tagline{font-family:'Amiri',serif;font-size:13px;font-style:italic;color:rgba(255,255,255,.68);position:relative;z-index:1;line-height:1.5;}
+.po-body{background:#FAF7EF;padding:28px 44px 32px;}
+.po-sec{font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#5C6B6D;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.po-sec::after{content:'';flex:1;height:1px;background:rgba(0,0,0,.1);}
+.po-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:20px;}
+.po-card{
+  background:#fff;border-radius:9px;padding:13px 15px;
+  display:flex;gap:11px;align-items:flex-start;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.po-num{
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12.5px;font-weight:700;color:#fff;flex-shrink:0;
   font-family:'DM Sans',sans-serif;
 }
-.pr-content{flex:1;}
-.pr-cname{
-  font-size:13.5px;font-weight:700;
-  color:#0E373E;margin-bottom:4px;line-height:1.2;
-}
-.pr-dom-tag{
-  font-size:9px;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
-  padding:2px 8px;border-radius:10px;
-  display:inline-block;margin-bottom:5px;
-}
-.pr-ciri{
-  font-size:10.5px;color:#5C6B6D;
-  line-height:1.5;
-}
-/* If 7 items, last one spans full width */
-.pr-card.full-span{
-  grid-column:1 / -1;
-  max-width:50%;
-}
-.pr-footer{
-  background:#0E373E;
-  padding:20px 52px;
+.po-txt{flex:1;}
+.po-cname{font-size:12.5px;font-weight:700;color:#0E373E;margin-bottom:3px;line-height:1.2;}
+.po-dtag{font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:9px;display:inline-block;margin-bottom:4px;}
+.po-ciri{font-size:10px;color:#5C6B6D;line-height:1.5;}
+.po-chips{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.po-chip{font-size:8.5px;font-weight:700;padding:2px 9px;border-radius:10px;display:inline-block;}
+.po-foot{
+  background:#0E373E;padding:18px 44px;
   display:flex;align-items:center;justify-content:space-between;
 }
-.pr-footer-left{
-  font-size:10px;color:rgba(255,255,255,.45);
-  font-style:italic;line-height:1.6;
-}
-.pr-footer-left strong{color:#E3B11F;font-style:normal;}
-.pr-dom-chips{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
-.pr-dom-chip{
-  font-size:9px;font-weight:700;
-  padding:3px 10px;border-radius:12px;
-  display:inline-block;
-}
-.pr-seal{
-  width:46px;height:46px;
-  border:2px solid #E3B11F;border-radius:50%;
+.po-fl{font-size:9.5px;color:rgba(255,255,255,.42);font-style:italic;line-height:1.6;}
+.po-fl strong{color:#D4A017;font-style:normal;}
+.po-seal{
+  width:44px;height:44px;border:2px solid #D4A017;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-family:'Amiri',serif;font-size:22px;color:#E3B11F;
-  flex-shrink:0;margin-left:14px;
+  font-family:'Amiri',serif;font-size:21px;color:#D4A017;flex-shrink:0;
 }
 </style>
 </head>
 <body>
 
-<!-- APP HEADER -->
-<div class="app-header">
+<!-- OFFSCREEN CAPTURE HOST -->
+<div id="cap-host">
+  <div class="poster" id="cap-poster"><!-- injected for html2canvas --></div>
+</div>
+
+<div class="app-bar">
   <div class="app-logo">م</div>
   <div class="app-title">
     <h1>Perancang Profil Lulusan</h1>
-    <p>Rancang identitas kemampuan inti lulusan sekolah Anda</p>
+    <p>64 kompetensi · 8 domain · poster A4 siap cetak</p>
   </div>
-  <div class="step-badge" id="step-badge">Langkah 1: Isi Info Sekolah</div>
+  <div class="step-pill" id="spill">Langkah 1: Isi Info Sekolah</div>
 </div>
 
-<!-- OFFSCREEN POSTER RENDER TARGET (untuk html2canvas) -->
-<div id="poster-render-target">
-  <div class="poster-root" id="the-poster"><!-- injected --></div>
-</div>
-
-<div class="app-body">
+<div class="layout">
 
   <!-- SIDEBAR -->
   <div class="sidebar">
-
-    <!-- Step 1 -->
-    <div class="section-card">
-      <h3><span class="num">1</span>Informasi Sekolah</h3>
-      <div class="field-group">
+    <div class="card">
+      <h3><span class="badge-num">1</span>Informasi Sekolah</h3>
+      <div class="fgrp">
         <label>Nama Sekolah / Lembaga</label>
-        <input type="text" id="school-name" placeholder="cth. Madinatul Qur'an Boarding School"/>
+        <input id="sname" placeholder="cth. Madinatul Qur'an Boarding School"/>
       </div>
-      <div class="field-group">
-        <label>Jenjang Pendidikan</label>
-        <select id="jenjang">
+      <div class="fgrp">
+        <label>Jenjang</label>
+        <select id="jnjg">
           <option value="">Pilih jenjang...</option>
-          <option>SD / MI</option>
-          <option>SMP / MTs</option>
-          <option>SMA / MA</option>
-          <option>Mahad Aly / Perguruan Tinggi</option>
-          <option>SD–SMA (Terpadu)</option>
-          <option>SD–Mahad Aly (Terpadu)</option>
-          <option>TK / PAUD</option>
-          <option>Pesantren (Semua Jenjang)</option>
+          <option>SD / MI</option><option>SMP / MTs</option><option>SMA / MA</option>
+          <option>Mahad Aly / Perguruan Tinggi</option><option>SD–SMA (Terpadu)</option>
+          <option>SD–Mahad Aly (Terpadu)</option><option>TK / PAUD</option>
+          <option>Pesantren (Semua Jenjang)</option><option>Bimbel / Lembaga Kursus</option>
+          <option>Program Khusus / Non-Formal</option>
         </select>
       </div>
-      <div class="field-group">
+      <div class="fgrp">
         <label>Tagline / Visi Singkat (opsional)</label>
-        <input type="text" id="tagline" placeholder="cth. Mencetak Hafidz Mutqin Bersanad"/>
+        <input id="tgl" placeholder="cth. Mencetak Hafidz Mutqin Bersanad"/>
       </div>
     </div>
 
-    <!-- Step 2 -->
-    <div class="section-card">
-      <h3><span class="num">2</span>Pilih 5–7 Kemampuan Inti</h3>
-      <div class="selection-bar">
-        <div class="bar-label">
-          Dipilih
-          <span class="count-badge" id="count-badge">0 / 7</span>
-        </div>
-        <div class="selection-chips" id="chips">
-          <span style="color:rgba(255,255,255,.22);font-size:.74rem;align-self:center;">Pilih dari katalog di sebelah kanan...</span>
+    <div class="card">
+      <h3><span class="badge-num">2</span>Pilih 5–7 Kompetensi Inti</h3>
+      <div class="sel-bar">
+        <div class="lbl">Dipilih<span class="cnt" id="cnt">0 / 7</span></div>
+        <div class="chips" id="chips">
+          <span style="color:rgba(255,255,255,.2);font-size:.72rem;align-self:center">Pilih dari katalog →</span>
         </div>
       </div>
     </div>
 
-    <!-- Generate -->
-    <button class="btn-gen" id="btn-gen" disabled onclick="generatePoster()">
-      ✦ Buat Poster Profil Lulusan
-    </button>
+    <button class="btn-gen" id="bgen" disabled onclick="gen()">✦ Buat Poster A4</button>
 
     <div class="hint">
-      💡 Prinsip Inti: fokus pada <strong>sedikit kekuatan yang unggul</strong> — bukan rata-rata di semua hal. Pilih 5–7 yang paling mencerminkan identitas sekolah.
+      💡 <strong>Pilih 5–7 saja.</strong> Sekolah yang unggul di sedikit hal lebih berkesan daripada yang mencoba semua.
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="prev-lbl">Katalog 64 Kompetensi</div>
+
+    <div class="dom-tabs">
+      <div class="dom-tab on" data-d="all" onclick="filt('all')">Semua</div>
+      <div class="dom-tab on" data-d="A" onclick="filt('A')">A · Kognitif</div>
+      <div class="dom-tab on" data-d="B" onclick="filt('B')">B · Spiritual</div>
+      <div class="dom-tab on" data-d="C" onclick="filt('C')">C · Eksekusi</div>
+      <div class="dom-tab on" data-d="D" onclick="filt('D')">D · Sosial</div>
+      <div class="dom-tab on" data-d="E" onclick="filt('E')">E · Komunikasi</div>
+      <div class="dom-tab on" data-d="F" onclick="filt('F')">F · Bahasa</div>
+      <div class="dom-tab on" data-d="G" onclick="filt('G')">G · Sains & Teknologi</div>
+      <div class="dom-tab on" data-d="H" onclick="filt('H')">H · Seni & Kreativitas</div>
     </div>
 
-  </div><!-- /sidebar -->
+    <div class="sk-grid" id="sgrid"></div>
 
-  <!-- MAIN AREA -->
-  <div class="main-area">
-
-    <div class="preview-label">Katalog 40 Kemampuan</div>
-    <div class="domain-filters">
-      <div class="dom-filter active" data-dom="all" onclick="filterDom('all')">Semua (40)</div>
-      <div class="dom-filter active" data-dom="A" onclick="filterDom('A')">A. Keilmuan</div>
-      <div class="dom-filter active" data-dom="B" onclick="filterDom('B')">B. Spiritual</div>
-      <div class="dom-filter active" data-dom="C" onclick="filterDom('C')">C. Eksekusi</div>
-      <div class="dom-filter active" data-dom="D" onclick="filterDom('D')">D. Sosial</div>
-      <div class="dom-filter active" data-dom="E" onclick="filterDom('E')">E. Komunikasi</div>
-    </div>
-    <div class="skill-grid" id="skill-grid"></div>
-
-    <!-- Preview section -->
-    <div style="margin-top:32px;">
-      <div class="preview-label">Preview Poster</div>
-
-      <div id="empty-state" class="empty-state">
-        <div class="icon">🎓</div>
-        <p>Isi info sekolah dan pilih minimal 5 kemampuan,<br>lalu klik <strong style="color:rgba(255,255,255,.6)">"Buat Poster"</strong>.</p>
+    <div style="margin-top:28px">
+      <div class="prev-lbl">Preview Poster (A4)</div>
+      <div id="empty" class="empty">
+        <div class="empty-icon">🎓</div>
+        <p>Isi info sekolah dan pilih min. 5 kompetensi,<br>lalu klik <strong style="color:rgba(255,255,255,.5)">"Buat Poster A4"</strong>.</p>
       </div>
-
-      <!-- Scaled preview of the offscreen poster -->
-      <div id="poster-preview-area">
-        <div id="poster-scale-wrap">
-          <div class="poster-root" id="poster-preview-clone"><!-- mirror --></div>
+      <div id="preview-area">
+        <div id="scale-wrap">
+          <div class="poster" id="prev-poster"><!-- preview clone --></div>
         </div>
-        <button class="btn-dl" id="btn-dl" onclick="downloadPoster()">
-          ⬇ Download Poster (PNG — Siap Cetak A3/A4)
-        </button>
+        <button class="btn-dl" id="bdl" onclick="dl()">⬇ Download PNG Siap Cetak (A4)</button>
       </div>
     </div>
-
   </div>
 </div>
 
 <script>
-const DOM_META={
-  A:{label:"A. Keilmuan & Intelektual",color:"#1A237E",bg:"#E8EAF6",short:"KEILMUAN"},
-  B:{label:"B. Spiritual & Karakter",  color:"#1B5E20",bg:"#E8F5E9",short:"SPIRITUAL"},
-  C:{label:"C. Keterampilan & Eksekusi",color:"#BF360C",bg:"#FBE9E7",short:"EKSEKUSI"},
-  D:{label:"D. Sosial & Kepemimpinan", color:"#880E4F",bg:"#FCE4EC",short:"SOSIAL"},
-  E:{label:"E. Komunikasi & Pengaruh", color:"#E65100",bg:"#FFF3E0",short:"KOMUNIKASI"},
+const DM={
+  A:{l:"A · Keilmuan & Kognitif",  c:"#1A237E",b:"#E8EAF6",s:"KOGNITIF"},
+  B:{l:"B · Spiritual & Karakter", c:"#1B5E20",b:"#E8F5E9",s:"SPIRITUAL"},
+  C:{l:"C · Keterampilan & Eksekusi",c:"#E65100",b:"#FFF3E0",s:"EKSEKUSI"},
+  D:{l:"D · Sosial & Kepemimpinan", c:"#880E4F",b:"#FCE4EC",s:"SOSIAL"},
+  E:{l:"E · Komunikasi & Pengaruh", c:"#006064",b:"#E0F7FA",s:"KOMUNIKASI"},
+  F:{l:"F · Bahasa & Literasi",     c:"#4A148C",b:"#F3E5F5",s:"BAHASA"},
+  G:{l:"G · Sains, Teknologi & Inovasi",c:"#37474F",b:"#ECEFF1",s:"SAINTEK"},
+  H:{l:"H · Seni, Estetika & Budaya",c:"#BF360C",b:"#FBE9E7",s:"SENI"},
 };
 
-const SKILLS=[
-  {id:"A1",dom:"A",name:"Hafalan Kuat (Mutqin)",def:"Menghafal materi penting secara kokoh & tahan lama — Qur'an, hadits, matan, konsep.",ciri:"Mempertahankan hafalan jangka panjang, murajaah mandiri, menggunakan hafalan secara aktif."},
-  {id:"A2",dom:"A",name:"Pemecahan Masalah",def:"Mengurai masalah kompleks dan menemukan solusi yang tepat & kreatif.",ciri:"Tidak panik hadapi masalah baru; memecah masalah besar menjadi langkah kecil terkelola."},
-  {id:"A3",dom:"A",name:"Berpikir Kritis",def:"Mengevaluasi informasi objektif, membedakan fakta dari opini.",ciri:"Menganalisis argumen, mengenali hoaks, kesimpulan berdasarkan dalil dan bukti."},
-  {id:"A4",dom:"A",name:"Berpikir Analitis",def:"Memahami pola, hubungan sebab-akibat, dan struktur dari suatu fenomena.",ciri:"Melihat keterkaitan antar konsep, membuat klasifikasi, kesimpulan logis dari data."},
-  {id:"A5",dom:"A",name:"Rasa Ingin Tahu",def:"Dorongan internal untuk terus belajar, bertanya, dan mengeksplorasi.",ciri:"Pembelajar seumur hidup, aktif mencari ilmu, selalu bertanya 'mengapa' & 'bagaimana'."},
-  {id:"A6",dom:"A",name:"Penguasaan Bahasa",def:"Menguasai bahasa (Arab, Indonesia, Inggris) secara aktif: bicara, baca, tulis, simak.",ciri:"Berkomunikasi, membaca literatur, dan mengakses ilmu dalam lebih dari satu bahasa."},
-  {id:"A7",dom:"A",name:"Numerasi & Logika",def:"Menggunakan angka, perhitungan, dan penalaran logis dalam kehidupan & keilmuan.",ciri:"Nyaman dengan angka, mampu menghitung, mengukur, dan menalar secara sistematis."},
-  {id:"A8",dom:"A",name:"Literasi & Riset",def:"Membaca secara mendalam dan melakukan penelitian sederhana dengan benar.",ciri:"Gemar membaca, mampu menyarikan bacaan, melakukan riset kecil yang metodologis."},
-  {id:"B1",dom:"B",name:"Akidah Lurus",def:"Keyakinan tauhid yang benar sesuai Al-Qur'an & Sunnah, bersih dari syirik.",ciri:"Keyakinan kokoh, mampu membedakan tauhid dari kesyirikan, teguh dalam prinsip."},
-  {id:"B2",dom:"B",name:"Akhlaq Mulia",def:"Perilaku terpuji dalam interaksi dengan Allah, sesama, dan lingkungan.",ciri:"Adab kepada guru & orang tua, jujur, rendah hati, baik bahkan tanpa diawasi."},
-  {id:"B3",dom:"B",name:"Kejujuran & Integritas",def:"Konsistensi antara ucapan, perbuatan, dan keyakinan; dapat dipercaya.",ciri:"Jujur dalam ujian, amanah dalam tugas, berani mengakui kesalahan."},
-  {id:"B4",dom:"B",name:"Kedisiplinan",def:"Mematuhi aturan, menepati waktu, konsisten menjalankan kewajiban.",ciri:"Tepat waktu, teratur dalam ibadah & tugas, memiliki rutinitas yang sehat."},
-  {id:"B5",dom:"B",name:"Ketangguhan (Resilience)",def:"Bangkit dari kegagalan, bertahan dalam kesulitan, teguh di bawah tekanan.",ciri:"Tidak mudah menyerah, mampu kelola stres, melihat kegagalan sebagai pelajaran."},
-  {id:"B6",dom:"B",name:"Tanggung Jawab",def:"Kesadaran menuntaskan amanah dan menanggung konsekuensi perbuatan.",ciri:"Menyelesaikan tugas hingga tuntas, menjaga amanah, tidak melempar kesalahan."},
-  {id:"B7",dom:"B",name:"Kemandirian",def:"Mengurus diri sendiri, mengambil keputusan, tidak bergantung berlebihan.",ciri:"Mengatur kehidupan pribadi, mengambil inisiatif, menyelesaikan masalah sendiri."},
-  {id:"B8",dom:"B",name:"Kesyukuran & Qana'ah",def:"Mensyukuri nikmat, merasa cukup, tidak tamak terhadap dunia.",ciri:"Bersyukur atas yang dimiliki, sederhana dalam gaya hidup, tidak iri."},
-  {id:"C1",dom:"C",name:"Daya Cipta (Kreativitas)",def:"Menghasilkan ide, karya, atau solusi baru yang orisinal & bermanfaat.",ciri:"Berpikir di luar kotak, menciptakan karya, menemukan cara baru selesaikan masalah."},
-  {id:"C2",dom:"C",name:"Ketekunan (Achiever)",def:"Dorongan produktif, menyelesaikan target, terus berprestasi setiap hari.",ciri:"Etos kerja tinggi, menyelesaikan apa yang dimulai, terus mengejar pencapaian."},
-  {id:"C3",dom:"C",name:"Kerapian & Keteraturan",def:"Menjaga ketertiban, mengelola lingkungan, bekerja secara sistematis.",ciri:"Menjaga kebersihan, mengatur barang dengan rapi, bekerja dengan sistem."},
-  {id:"C4",dom:"C",name:"Adaptabilitas",def:"Menyesuaikan diri dengan perubahan, situasi baru, dan kondisi tak terduga.",ciri:"Fleksibel, mampu beradaptasi di lingkungan baru, tenang hadapi perubahan."},
-  {id:"C5",dom:"C",name:"Keterampilan Praktis",def:"Keterampilan sehari-hari: memasak, P3K, keuangan, bertahan hidup.",ciri:"Mengurus kebutuhan dasar hidup secara mandiri, siap di berbagai kondisi."},
-  {id:"C6",dom:"C",name:"Literasi Digital",def:"Menggunakan teknologi secara bijak, produktif, dan beretika.",ciri:"Menguasai alat digital untuk belajar & berkarya, bijak di media sosial."},
-  {id:"C7",dom:"C",name:"Manajemen Waktu",def:"Mengelola waktu, memprioritaskan tugas, menyeimbangkan kewajiban.",ciri:"Mengatur jadwal, selesaikan tugas tepat waktu, seimbang ibadah-belajar-istirahat."},
-  {id:"C8",dom:"C",name:"Kewirausahaan",def:"Melihat peluang, mengambil inisiatif, menciptakan nilai ekonomi atau sosial.",ciri:"Jiwa wirausaha, berani ambil risiko terukur, mampu menciptakan peluang."},
-  {id:"D1",dom:"D",name:"Kepemimpinan",def:"Mengarahkan, menggerakkan, dan menginspirasi orang lain menuju tujuan bersama.",ciri:"Memimpin tim, mengambil keputusan, bertanggung jawab — siap memimpin & dipimpin."},
-  {id:"D2",dom:"D",name:"Kerja Sama Tim",def:"Bekerja efektif dalam kelompok, berkontribusi, menghargai peran orang lain.",ciri:"Berkolaborasi, berbagi tugas, utamakan keberhasilan tim di atas ego pribadi."},
-  {id:"D3",dom:"D",name:"Empati & Kepedulian",def:"Memahami perasaan orang lain dan peduli terhadap kebutuhan mereka.",ciri:"Peka terhadap kondisi orang lain, suka membantu, tidak egois."},
-  {id:"D4",dom:"D",name:"Kemampuan Mengajar",def:"Mentransfer ilmu dan keterampilan kepada orang lain secara efektif.",ciri:"Mengajarkan apa yang dikuasai, sabar membimbing, membuat orang lain paham."},
-  {id:"D5",dom:"D",name:"Membangun Relasi",def:"Menjalin dan memelihara hubungan baik dengan berbagai kalangan.",ciri:"Mudah bergaul, membangun jaringan, memelihara silaturahmi."},
-  {id:"D6",dom:"D",name:"Pengelolaan Konflik",def:"Menyelesaikan perselisihan secara adil, damai, dan konstruktif.",ciri:"Menengahi konflik, cari solusi menang-menang, menjaga keharmonisan."},
-  {id:"D7",dom:"D",name:"Pelayanan (Khidmah)",def:"Melayani dan mengabdi kepada sesama dengan ikhlas tanpa pamrih.",ciri:"Jiwa melayani, ringan tangan membantu, kepentingan umat di atas pribadi."},
-  {id:"D8",dom:"D",name:"Inklusivitas",def:"Menerima dan merangkul perbedaan latar belakang, kemampuan, dan karakter.",ciri:"Menghargai keragaman, tidak diskriminatif, mampu bekerja dengan siapa saja."},
-  {id:"E1",dom:"E",name:"Public Speaking & Retorika",def:"Berbicara di depan umum dengan percaya diri, jelas, dan meyakinkan.",ciri:"Mampu berpidato, berkhutbah, presentasi, menyampaikan gagasan efektif."},
-  {id:"E2",dom:"E",name:"Kemampuan Dakwah",def:"Menyeru kepada kebaikan dengan hikmah, sesuai audiens, berbasis ilmu.",ciri:"Berdakwah dengan metode tepat, sabar, sesuaikan dengan medan dakwah."},
-  {id:"E3",dom:"E",name:"Menulis & Berkarya",def:"Menuangkan gagasan dalam tulisan yang baik dan menghasilkan karya bermanfaat.",ciri:"Menulis artikel, karya ilmiah, atau konten bermanfaat yang tersusun rapi."},
-  {id:"E4",dom:"E",name:"Persuasi",def:"Mempengaruhi pendapat dan sikap orang lain dengan argumen yang baik.",ciri:"Meyakinkan orang lain secara santun, berbasis bukti, tanpa manipulasi."},
-  {id:"E5",dom:"E",name:"Mendengar Aktif",def:"Menyimak dengan penuh perhatian, memahami, dan merespons secara tepat.",ciri:"Pendengar yang baik, memahami maksud orang lain sebelum merespons."},
-  {id:"E6",dom:"E",name:"Keteladanan (Role Model)",def:"Menjadi contoh yang baik sehingga orang lain terinspirasi mengikuti.",ciri:"Teladan dalam perkataan & perbuatan, mempengaruhi lewat contoh nyata."},
-  {id:"E7",dom:"E",name:"Negosiasi",def:"Mencapai kesepakatan menguntungkan berbagai pihak melalui dialog.",ciri:"Bernegosiasi dengan adil, mencari titik temu, menjaga hubungan baik."},
-  {id:"E8",dom:"E",name:"Multibahasa",def:"Berkomunikasi aktif dalam beberapa bahasa untuk perluas jangkauan ilmu.",ciri:"Komunikasi minimal 2–3 bahasa (Arab, Indonesia, Inggris) secara fungsional."},
+const SK=[
+  /* A – KOGNITIF */
+  {id:"A1",d:"A",n:"Hafalan: Kuantitas",
+   df:"Target jumlah materi yang dihafal — juz Al-Qur'an, bab, rumus, atau teks.",
+   ci:"Lulusan mencapai target hafalan tertentu yang terukur dan tersertifikasi."},
+  {id:"A2",d:"A",n:"Hafalan: Kualitas & Ketepatan",
+   df:"Standar akurasi, tajwid, dan mutqin dari hafalan — bukan sekadar jumlah.",
+   ci:"Hafalan kokoh, tahan lama, murajaah mandiri, dan diuji oleh penguji eksternal."},
+  {id:"A3",d:"A",n:"Penguasaan Materi Akademik",
+   df:"Pemahaman mendalam atas materi kurikulum sesuai jenjang dan bidang studi.",
+   ci:"Nilai ujian konsisten, mampu menjelaskan konsep dengan kata sendiri."},
+  {id:"A4",d:"A",n:"Pemecahan Masalah",
+   df:"Mengurai masalah kompleks menjadi langkah solusi yang logis dan kreatif.",
+   ci:"Tidak panik hadapi soal/situasi baru; memecah masalah besar secara sistematis."},
+  {id:"A5",d:"A",n:"Berpikir Kritis & Analitis",
+   df:"Mengevaluasi informasi secara objektif, membedakan fakta dari opini.",
+   ci:"Mengenali hoaks, menganalisis argumen, kesimpulan berbasis bukti."},
+  {id:"A6",d:"A",n:"Rasa Ingin Tahu & Cinta Belajar",
+   df:"Dorongan internal untuk terus belajar dan mengeksplorasi hal baru.",
+   ci:"Aktif bertanya, membaca di luar kewajiban, termotivasi dari dalam."},
+  {id:"A7",d:"A",n:"Kemampuan Riset & Literasi Bacaan",
+   df:"Membaca mendalam, menyarikan sumber, dan melakukan penelitian sederhana.",
+   ci:"Gemar membaca, dapat meringkas bacaan, mampu riset mini yang metodologis."},
+  {id:"A8",d:"A",n:"Penalaran Logis & Matematis",
+   df:"Menggunakan logika, angka, dan pola untuk memahami dan memecahkan masalah.",
+   ci:"Nyaman dengan perhitungan, mampu berpikir secara deduktif dan induktif."},
+
+  /* B – SPIRITUAL */
+  {id:"B1",d:"B",n:"Akidah & Keyakinan yang Lurus",
+   df:"Pemahaman tauhid yang benar sesuai Al-Qur'an & Sunnah, bebas dari syirik.",
+   ci:"Keyakinan kokoh, membedakan tauhid dari kesyirikan, teguh dalam prinsip."},
+  {id:"B2",d:"B",n:"Akhlaq & Adab dalam Keseharian",
+   df:"Perilaku terpuji dalam interaksi dengan Allah, guru, sesama, dan lingkungan.",
+   ci:"Adab kepada guru & orang tua, jujur, rendah hati, baik walau tidak diawasi."},
+  {id:"B3",d:"B",n:"Kejujuran & Integritas",
+   df:"Konsistensi antara ucapan, perbuatan, dan keyakinan; dapat dipercaya.",
+   ci:"Jujur dalam ujian, amanah dalam tugas, berani akui kesalahan."},
+  {id:"B4",d:"B",n:"Kedisiplinan & Tepat Waktu",
+   df:"Mematuhi aturan, menepati waktu, dan konsisten menjalankan kewajiban.",
+   ci:"Tidak terlambat, teratur dalam ibadah & tugas, memiliki rutinitas sehat."},
+  {id:"B5",d:"B",n:"Ketangguhan (Resilience)",
+   df:"Bangkit dari kegagalan, bertahan dalam kesulitan, teguh di bawah tekanan.",
+   ci:"Tidak mudah menyerah, mengelola stres, kegagalan dijadikan pelajaran."},
+  {id:"B6",d:"B",n:"Tanggung Jawab & Amanah",
+   df:"Kesadaran untuk menuntaskan amanah dan menanggung konsekuensi perbuatan.",
+   ci:"Tugas diselesaikan tuntas, amanah dijaga, tidak melempar kesalahan."},
+  {id:"B7",d:"B",n:"Kemandirian & Inisiatif Diri",
+   df:"Mengurus diri sendiri, mengambil keputusan, tidak bergantung berlebihan.",
+   ci:"Mengatur kehidupan pribadi, berinisiatif tanpa harus disuruh."},
+  {id:"B8",d:"B",n:"Kesyukuran & Kesederhanaan",
+   df:"Mensyukuri nikmat, merasa cukup, tidak tamak dan tidak gaya hidup boros.",
+   ci:"Bersyukur atas yang dimiliki, sederhana, tidak iri kepada orang lain."},
+
+  /* C – EKSEKUSI */
+  {id:"C1",d:"C",n:"Manajemen Waktu & Prioritas",
+   df:"Mengelola waktu, memprioritaskan tugas, dan menyeimbangkan semua kewajiban.",
+   ci:"Jadwal teratur, tugas tepat waktu, seimbang antara belajar-ibadah-istirahat."},
+  {id:"C2",d:"C",n:"Kerapian & Keteraturan",
+   df:"Menjaga ketertiban lingkungan dan bekerja secara sistematis.",
+   ci:"Kamar/meja rapi, barang teratur, kerja mengikuti prosedur yang benar."},
+  {id:"C3",d:"C",n:"Ketekunan & Etos Kerja",
+   df:"Dorongan produktif, menyelesaikan target, dan terus berprestasi setiap hari.",
+   ci:"Etos kerja tinggi, menyelesaikan apa yang dimulai, tidak setengah-setengah."},
+  {id:"C4",d:"C",n:"Adaptabilitas & Fleksibilitas",
+   df:"Menyesuaikan diri dengan perubahan, situasi baru, dan kondisi tak terduga.",
+   ci:"Fleksibel, tenang hadapi perubahan, cepat beradaptasi di lingkungan baru."},
+  {id:"C5",d:"C",n:"Keterampilan Hidup Praktis",
+   df:"Kemampuan sehari-hari: memasak, P3K, kebersihan, keuangan dasar, navigasi.",
+   ci:"Mengurus kebutuhan dasar hidupnya secara mandiri, siap di berbagai kondisi."},
+  {id:"C6",d:"C",n:"Literasi Keuangan Dasar",
+   df:"Memahami konsep keuangan: menabung, anggaran, investasi sederhana, menghindari utang.",
+   ci:"Dapat membuat anggaran bulanan, menabung secara konsisten, tidak boros."},
+  {id:"C7",d:"C",n:"Kemampuan Organisasi & Perencanaan",
+   df:"Merencanakan program, mengatur sumber daya, dan mengelola proyek kecil.",
+   ci:"Mampu membuat rencana yang realistis dan mengeksekusinya hingga selesai."},
+  {id:"C8",d:"C",n:"Kewirausahaan & Jiwa Usaha",
+   df:"Melihat peluang, mengambil inisiatif, dan menciptakan nilai ekonomi atau sosial.",
+   ci:"Jiwa wirausaha, berani ambil risiko terukur, mampu ciptakan peluang baru."},
+
+  /* D – SOSIAL */
+  {id:"D1",d:"D",n:"Kepemimpinan",
+   df:"Mengarahkan, menggerakkan, dan menginspirasi orang lain menuju tujuan bersama.",
+   ci:"Memimpin tim, ambil keputusan, tanggung jawab — siap memimpin & dipimpin."},
+  {id:"D2",d:"D",n:"Kerja Sama Tim & Kolaborasi",
+   df:"Bekerja efektif dalam kelompok dan menghargai kontribusi semua anggota.",
+   ci:"Berkolaborasi, berbagi tugas, utamakan keberhasilan tim di atas ego pribadi."},
+  {id:"D3",d:"D",n:"Empati & Kepedulian Sosial",
+   df:"Memahami perasaan orang lain dan peduli terhadap kebutuhan mereka.",
+   ci:"Peka terhadap kondisi orang lain, suka membantu, tidak egois."},
+  {id:"D4",d:"D",n:"Kemampuan Mengajar & Mentoring",
+   df:"Mentransfer ilmu dan keterampilan kepada orang lain secara efektif.",
+   ci:"Mengajarkan apa yang dikuasai, sabar membimbing, membuat orang lain paham."},
+  {id:"D5",d:"D",n:"Membangun Relasi & Jaringan",
+   df:"Menjalin dan memelihara hubungan baik dengan berbagai kalangan.",
+   ci:"Mudah bergaul, membangun jaringan yang sehat, silaturahmi terpelihara."},
+  {id:"D6",d:"D",n:"Pengelolaan Konflik & Mediasi",
+   df:"Menyelesaikan perselisihan secara adil, damai, dan konstruktif.",
+   ci:"Menengahi konflik, cari solusi menang-menang, menjaga keharmonisan."},
+  {id:"D7",d:"D",n:"Pelayanan & Jiwa Mengabdi",
+   df:"Melayani dan mengabdi kepada sesama dengan ikhlas tanpa pamrih.",
+   ci:"Jiwa melayani, ringan tangan membantu, kepentingan komunitas di atas diri."},
+  {id:"D8",d:"D",n:"Inklusivitas & Toleransi",
+   df:"Menerima dan merangkul perbedaan latar belakang, kemampuan, dan keyakinan.",
+   ci:"Menghargai keragaman, tidak diskriminatif, mampu bekerja dengan siapa saja."},
+
+  /* E – KOMUNIKASI */
+  {id:"E1",d:"E",n:"Public Speaking & Retorika",
+   df:"Berbicara di depan umum dengan percaya diri, jelas, dan meyakinkan.",
+   ci:"Berpidato, berkhutbah, presentasi, menyampaikan gagasan secara efektif."},
+  {id:"E2",d:"E",n:"Kemampuan Presentasi Visual",
+   df:"Merancang dan menyampaikan presentasi visual (slide, poster, infografis) yang efektif.",
+   ci:"Slide bersih, data tersampaikan dengan jelas, audiens mudah memahami."},
+  {id:"E3",d:"E",n:"Kemampuan Dakwah / Edukasi Publik",
+   df:"Menyeru kepada kebaikan atau menyebarkan pengetahuan dengan hikmah dan berbasis ilmu.",
+   ci:"Berdakwah atau mengedukasi dengan metode tepat, sabar, sesuai audiens."},
+  {id:"E4",d:"E",n:"Menulis Kreatif & Karya Tulis",
+   df:"Menuangkan gagasan dalam tulisan yang baik dan menghasilkan karya bermanfaat.",
+   ci:"Menulis artikel, esai, karya ilmiah, atau konten yang mengalir dan tepat sasaran."},
+  {id:"E5",d:"E",n:"Mendengar Aktif & Komunikasi Empatik",
+   df:"Menyimak penuh perhatian, memahami, dan merespons secara tepat.",
+   ci:"Pendengar yang baik, tidak memotong, paham maksud lawan bicara."},
+  {id:"E6",d:"E",n:"Persuasi & Negosiasi Beretika",
+   df:"Mempengaruhi pendapat orang lain dengan argumen baik dan mencapai kesepakatan.",
+   ci:"Meyakinkan secara santun, berbasis bukti, tanpa manipulasi, titik temu ditemukan."},
+  {id:"E7",d:"E",n:"Keteladanan (Role Model)",
+   df:"Menjadi contoh yang baik sehingga orang lain terinspirasi mengikutinya.",
+   ci:"Teladan dalam perkataan & perbuatan, pengaruh lewat contoh nyata, bukan kata-kata."},
+  {id:"E8",d:"E",n:"Kemampuan Debat & Argumentasi",
+   df:"Membangun dan menyampaikan argumen yang terstruktur dan logis dalam forum.",
+   ci:"Argumen koheren, memahami posisi lawan, menjawab sanggahan dengan tepat."},
+
+  /* F – BAHASA */
+  {id:"F1",d:"F",n:"Bahasa Arab Aktif",
+   df:"Berbicara dan menulis dalam bahasa Arab secara komunikatif dan fungsional.",
+   ci:"Berkomunikasi dalam Arab untuk keperluan harian, kajian, dan presentasi."},
+  {id:"F2",d:"F",n:"Bahasa Arab Pasif (Baca Kitab)",
+   df:"Membaca dan memahami teks Arab tanpa harakat dan kitab-kitab klasik.",
+   ci:"Membaca kitab kuning, memahami matan, mengakses sumber ilmu klasik."},
+  {id:"F3",d:"F",n:"Bahasa Indonesia Efektif",
+   df:"Menggunakan bahasa Indonesia secara tepat, jelas, dan sesuai konteks.",
+   ci:"Lisan dan tulisan runtut, tidak ambigu, sesuai kaidah bahasa Indonesia baku."},
+  {id:"F4",d:"F",n:"Bahasa Inggris Aktif",
+   df:"Berbicara dan menulis dalam bahasa Inggris untuk komunikasi dan akademik.",
+   ci:"Dapat berkomunikasi dan menulis dalam Inggris untuk keperluan nyata."},
+  {id:"F5",d:"F",n:"Bahasa Inggris Pasif (Baca Teks)",
+   df:"Membaca dan memahami teks akademik, jurnal, dan sumber berbahasa Inggris.",
+   ci:"Mengakses literatur ilmiah, artikel, dan buku teks berbahasa Inggris."},
+  {id:"F6",d:"F",n:"Khat & Kaligrafi Arab",
+   df:"Menguasai seni tulisan Arab (Naskhi, Riq'ah) untuk kebutuhan resmi dan estetik.",
+   ci:"Menulis papan halaqah, sertifikat, dan karya kaligrafi yang terbaca dan indah."},
+  {id:"F7",d:"F",n:"Multiliterasi Teks",
+   df:"Mampu membaca dan memahami berbagai jenis teks: sastra, ilmiah, digital, visual.",
+   ci:"Tidak terbatas pada satu genre bacaan, kritis terhadap semua jenis teks."},
+  {id:"F8",d:"F",n:"Bahasa Asing Ketiga",
+   df:"Penguasaan fungsional bahasa asing selain Arab dan Inggris (Mandarin, dll).",
+   ci:"Dapat berkomunikasi dasar atau membaca teks dalam bahasa ketiga."},
+
+  /* G – SAINTEK */
+  {id:"G1",d:"G",n:"Literasi Digital & Teknologi",
+   df:"Menggunakan teknologi secara bijak, produktif, dan beretika.",
+   ci:"Menguasai alat digital untuk belajar & berkarya, bijak di media sosial."},
+  {id:"G2",d:"G",n:"Computational Thinking",
+   df:"Berpikir algoritmis: dekomposisi, pola, abstraksi, dan perancangan solusi.",
+   ci:"Mampu merancang alur solusi, memahami logika pemrograman dasar."},
+  {id:"G3",d:"G",n:"Pemahaman Sains Dasar",
+   df:"Menguasai konsep-konsep sains dasar: fisika, kimia, biologi, bumi & antariksa.",
+   ci:"Dapat menjelaskan fenomena alam, menerapkan metode ilmiah sederhana."},
+  {id:"G4",d:"G",n:"Matematika Terapan",
+   df:"Menerapkan matematika untuk menyelesaikan masalah nyata dalam kehidupan.",
+   ci:"Dari perhitungan zakat hingga analisis data sederhana — matematik fungsional."},
+  {id:"G5",d:"G",n:"Kreativitas & Inovasi Teknis",
+   df:"Menghasilkan solusi teknis baru menggunakan prinsip sains dan teknologi.",
+   ci:"Prototype produk/sistem, memecahkan masalah dengan pendekatan rekayasa."},
+  {id:"G6",d:"G",n:"Riset & Eksperimen Ilmiah",
+   df:"Merancang hipotesis, melakukan eksperimen, dan menganalisis hasilnya.",
+   ci:"Menggunakan metode ilmiah, data berbicara, kesimpulan berbasis bukti."},
+  {id:"G7",d:"G",n:"Proyek STEM & Robotika",
+   df:"Mengintegrasikan sains, teknologi, rekayasa, dan matematika dalam proyek nyata.",
+   ci:"Menyelesaikan proyek STEM dari konsep hingga prototipe yang berfungsi."},
+  {id:"G8",d:"G",n:"Keamanan Digital & Etika AI",
+   df:"Memahami keamanan data pribadi, ancaman digital, dan implikasi etika AI.",
+   ci:"Tidak mudah tertipu penipuan digital, melindungi privasi, bijak terhadap AI."},
+
+  /* H – SENI */
+  {id:"H1",d:"H",n:"Seni Rupa & Visual",
+   df:"Mengekspresikan ide melalui karya visual: gambar, ilustrasi, lukis, desain.",
+   ci:"Menghasilkan karya visual yang bermakna, menguasai teknik dasar seni rupa."},
+  {id:"H2",d:"H",n:"Seni Pertunjukan",
+   df:"Berekspresi melalui musik, vokal, teater, tari, atau seni pertunjukan lain.",
+   ci:"Percaya diri tampil, menguasai teknik dasar pertunjukan, menghibur & menginspirasi."},
+  {id:"H3",d:"H",n:"Apresiasi Seni & Estetika",
+   df:"Memahami, menghargai, dan menganalisis karya seni, budaya, dan keindahan.",
+   ci:"Peka terhadap estetika, bisa menganalisis karya seni dengan kritis."},
+  {id:"H4",d:"H",n:"Kecerdasan Emosi & Regulasi Diri",
+   df:"Mengenali, memahami, dan mengelola emosi diri dan empati terhadap emosi orang lain.",
+   ci:"Tidak reaktif, memahami perasaan diri, merespons situasi emosi dengan bijak."},
+  {id:"H5",d:"H",n:"Kreativitas & Daya Imajinasi",
+   df:"Menghasilkan ide orisinal, berpikir 'di luar kotak', dan menemukan cara baru.",
+   ci:"Solusi yang tidak terduga, proyek yang unik, cara pandang segar terhadap masalah."},
+  {id:"H6",d:"H",n:"Keterampilan Craft & Prakarya",
+   df:"Kemampuan membuat produk fisik dengan tangan melalui kerajinan atau rekayasa.",
+   ci:"Menghasilkan produk fungsional atau estetik dari bahan sederhana."},
+  {id:"H7",d:"H",n:"Desain & Pemikiran Kreatif",
+   df:"Merancang solusi yang mempertimbangkan estetika, fungsi, dan pengguna.",
+   ci:"Desain yang indah sekaligus fungsional — dari poster hingga produk."},
+  {id:"H8",d:"H",n:"Kecintaan Budaya & Sejarah",
+   df:"Memahami dan menghargai budaya lokal, nasional, dan sejarah peradaban Islam.",
+   ci:"Bangga pada identitas budaya, memahami sejarah, tidak tercerabut dari akar."},
 ];
 
-let selected=new Set();
-let currentFilter='all';
+let sel=new Set(), fdom='all';
 
-/* ── GRID ── */
 function renderGrid(){
-  const g=document.getElementById('skill-grid');
-  const list=currentFilter==='all'?SKILLS:SKILLS.filter(s=>s.dom===currentFilter);
+  const g=document.getElementById('sgrid');
+  const list=fdom==='all'?SK:SK.filter(s=>s.d===fdom);
   g.innerHTML=list.map(s=>{
-    const isSel=selected.has(s.id);
-    const isDis=!isSel&&selected.size>=7;
-    const d=DOM_META[s.dom];
-    return `<div class="skill-card${isSel?' selected':''}${isDis?' disabled':''}" onclick="toggleSkill('${s.id}')">
-      <div class="check-icon">✓</div>
-      <div class="dom-badge" style="background:${d.bg};color:${d.color}">${s.id}</div>
-      <div class="skill-name">${s.name}</div>
-      <div class="skill-def">${s.def}</div>
+    const isSel=sel.has(s.id), isDis=!isSel&&sel.size>=7;
+    const dm=DM[s.d];
+    return `<div class="sk${isSel?' sel':''}${isDis?' dis':''}" onclick="tog('${s.id}')">
+      <div class="tick">✓</div>
+      <div class="sk-badge" style="background:${dm.b};color:${dm.c}">${s.id}</div>
+      <div class="sk-name">${s.n}</div>
+      <div class="sk-def">${s.df}</div>
     </div>`;
   }).join('');
 }
 
-/* ── TOGGLE ── */
-function toggleSkill(id){
-  if(selected.has(id))selected.delete(id);
-  else{if(selected.size>=7)return;selected.add(id);}
-  renderChips();renderGrid();updateUI();
+function tog(id){
+  if(sel.has(id))sel.delete(id);
+  else{if(sel.size>=7)return;sel.add(id);}
+  renderChips();renderGrid();upd();
 }
 
-/* ── CHIPS ── */
 function renderChips(){
   const c=document.getElementById('chips');
-  if(selected.size===0){
-    c.innerHTML=`<span style="color:rgba(255,255,255,.22);font-size:.74rem;align-self:center;">Pilih dari katalog di sebelah kanan...</span>`;
-  }else{
-    const arr=[...selected].map(id=>SKILLS.find(s=>s.id===id));
-    c.innerHTML=arr.map(s=>`<div class="chip" onclick="toggleSkill('${s.id}')">${s.name} <span style="opacity:.6">×</span></div>`).join('');
-  }
-  const b=document.getElementById('count-badge');
-  b.textContent=`${selected.size} / 7`;
-  b.className='count-badge'+(selected.size>=5?' ready':'');
+  if(!sel.size){c.innerHTML='<span style="color:rgba(255,255,255,.2);font-size:.72rem;align-self:center">Pilih dari katalog →</span>';return;}
+  c.innerHTML=[...sel].map(id=>{const s=SK.find(x=>x.id===id);return `<div class="chip" onclick="tog('${s.id}')">${s.n} <span style="opacity:.6">×</span></div>`;}).join('');
+  const b=document.getElementById('cnt');
+  b.textContent=`${sel.size} / 7`;
+  b.className='cnt'+(sel.size>=5?' go':'');
 }
 
-/* ── UI STATE ── */
-function updateUI(){
-  const school=document.getElementById('school-name').value.trim();
-  const jenjang=document.getElementById('jenjang').value;
-  const ok=selected.size>=5&&school&&jenjang;
-  document.getElementById('btn-gen').disabled=!ok;
-  let step='Langkah 1: Isi Info Sekolah';
-  if(school&&jenjang&&selected.size===0)step='Langkah 2: Pilih Kemampuan';
-  else if(school&&jenjang&&selected.size<5)step=`${selected.size}/7 dipilih — butuh min. 5`;
-  else if(ok)step='✓ Siap! Klik Buat Poster';
-  document.getElementById('step-badge').textContent=step;
+function upd(){
+  const sn=document.getElementById('sname').value.trim();
+  const jn=document.getElementById('jnjg').value;
+  const ok=sel.size>=5&&sn&&jn;
+  document.getElementById('bgen').disabled=!ok;
+  let s='Langkah 1: Isi Info Sekolah';
+  if(sn&&jn&&sel.size===0)s='Langkah 2: Pilih Kompetensi';
+  else if(sn&&jn&&sel.size<5)s=`${sel.size}/7 dipilih — butuh min. 5`;
+  else if(ok)s='✓ Siap! Klik Buat Poster A4';
+  document.getElementById('spill').textContent=s;
 }
 
-/* ── FILTER ── */
-function filterDom(dom){
-  currentFilter=dom;
-  document.querySelectorAll('.dom-filter').forEach(el=>{
-    const isAll=dom==='all';
-    el.classList.toggle('active',isAll||(el.dataset.dom===dom)||(el.dataset.dom==='all'));
+function filt(d){
+  fdom=d;
+  document.querySelectorAll('.dom-tab').forEach(el=>{
+    const isAll=d==='all';
+    el.classList.toggle('on',isAll||(el.dataset.d===d)||(el.dataset.d==='all'));
   });
   renderGrid();
 }
 
-/* ── BUILD POSTER HTML ── */
-function buildPosterHTML(){
-  const school=document.getElementById('school-name').value.trim();
-  const jenjang=document.getElementById('jenjang').value;
-  const tagline=document.getElementById('tagline').value.trim()||'Mendidik Generasi Unggul Berakhlak Mulia';
-  const skills=[...selected].map(id=>SKILLS.find(s=>s.id===id));
+/* ── BUILD POSTER INNER HTML ── */
+function buildPoster(){
+  const sn=document.getElementById('sname').value.trim();
+  const jn=document.getElementById('jnjg').value;
+  const tg=document.getElementById('tgl').value.trim()||'Mendidik Generasi Unggul & Berkarakter';
+  const skills=[...sel].map(id=>SK.find(s=>s.id===id));
   const today=new Date().toLocaleDateString('id-ID',{year:'numeric',month:'long',day:'numeric'});
 
-  /* domain summary chips */
-  const domCounts={};
-  skills.forEach(s=>{domCounts[s.dom]=(domCounts[s.dom]||0)+1;});
-  const domChipsHTML=Object.entries(domCounts).map(([dom,cnt])=>{
-    const d=DOM_META[dom];
-    return `<span class="pr-dom-chip" style="background:${d.bg};color:${d.color}">${d.short} ×${cnt}</span>`;
+  /* domain summary */
+  const dc={};skills.forEach(s=>{dc[s.d]=(dc[s.d]||0)+1;});
+  const chipH=Object.entries(dc).map(([d,c])=>{
+    const dm=DM[d];
+    return `<span class="po-chip" style="background:${dm.b};color:${dm.c}">${dm.s} ×${c}</span>`;
   }).join('');
 
-  /* skill cards — if 7 items, last card gets full-span */
-  const cardHTML=skills.map((s,i)=>{
-    const d=DOM_META[s.dom];
-    const isLast=i===skills.length-1;
-    const isOdd=skills.length%2===1;
-    const spanClass=(isLast&&isOdd)?'pr-card full-span':'pr-card';
-    return `<div class="${spanClass}" style="border-left:4px solid ${d.color}">
-      <div class="pr-num" style="background:${d.color}">${i+1}</div>
-      <div class="pr-content">
-        <div class="pr-cname">${s.name}</div>
-        <div class="pr-dom-tag" style="background:${d.bg};color:${d.color}">${d.short}</div>
-        <div class="pr-ciri">${s.ciri}</div>
+  /* cards — if odd count, last card spans full width */
+  const odd=skills.length%2===1;
+  const cardH=skills.map((s,i)=>{
+    const dm=DM[s.d];
+    const span=(odd&&i===skills.length-1)?'grid-column:1/-1;max-width:50%;':'';
+    return `<div class="po-card" style="border-left:4px solid ${dm.c};${span}">
+      <div class="po-num" style="background:${dm.c}">${i+1}</div>
+      <div class="po-txt">
+        <div class="po-cname">${s.n}</div>
+        <div class="po-dtag" style="background:${dm.b};color:${dm.c}">${dm.s}</div>
+        <div class="po-ciri">${s.ci}</div>
       </div>
     </div>`;
   }).join('');
 
-  return `<div class="pr-header">
-    <div class="pr-header-glow1"></div>
-    <div class="pr-header-glow2"></div>
-    <div class="pr-eyebrow">Profil Kemampuan Lulusan</div>
-    <div class="pr-school">${school}</div>
-    <div class="pr-jenjang">${jenjang}</div>
-    <div class="pr-bar"></div>
-    <div class="pr-tagline">"${tagline}"</div>
+  return `<div class="po-head">
+    <div class="po-glow"></div>
+    <div class="po-ey">Profil Kompetensi Lulusan</div>
+    <div class="po-school">${sn}</div>
+    <div class="po-jenjang">${jn}</div>
+    <div class="po-bar"></div>
+    <div class="po-tagline">"${tg}"</div>
   </div>
-  <div class="pr-body">
-    <div class="pr-sec-label">${skills.length} Kemampuan Inti Lulusan</div>
-    <div class="pr-grid">${cardHTML}</div>
-    <div class="pr-dom-chips">${domChipsHTML}</div>
+  <div class="po-body">
+    <div class="po-sec">${skills.length} Kompetensi Inti Lulusan</div>
+    <div class="po-grid">${cardH}</div>
+    <div class="po-chips">${chipH}</div>
   </div>
-  <div class="pr-footer">
-    <div class="pr-footer-left">
-      Dirancang dengan <strong>Perancang Profil Lulusan</strong><br>
-      Dibuat pada: ${today}
-    </div>
-    <div style="display:flex;align-items:center;gap:0">
-      <div style="text-align:right;font-size:9px;color:rgba(255,255,255,.5);line-height:1.6;margin-right:12px">
-        <strong style="color:#fff;display:block;font-size:10px">${skills.length} Kemampuan</strong>Inti Terpilih
+  <div class="po-foot">
+    <div class="po-fl">Dirancang dengan <strong>Perancang Profil Lulusan</strong><br>64 kompetensi · 8 domain · ${today}</div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="text-align:right;font-size:9px;color:rgba(255,255,255,.45);line-height:1.6">
+        <strong style="color:#fff;font-size:10px;display:block">${skills.length} Kompetensi</strong>Inti Terpilih
       </div>
-      <div class="pr-seal">م</div>
+      <div class="po-seal">م</div>
     </div>
   </div>`;
 }
 
-/* ── GENERATE POSTER ── */
-function generatePoster(){
-  const html=buildPosterHTML();
+/* ── GENERATE ── */
+function gen(){
+  const html=buildPoster();
 
-  /* 1) inject into OFFSCREEN target (used for capture) */
-  document.getElementById('the-poster').innerHTML=html;
+  /* offscreen (for capture) */
+  document.getElementById('cap-poster').innerHTML=html;
 
-  /* 2) inject into PREVIEW clone (visible to user) — scaled to fit */
-  document.getElementById('poster-preview-clone').innerHTML=html;
+  /* preview clone — scaled to fit available width */
+  const pv=document.getElementById('preview-area');
+  pv.style.display='block';
+  document.getElementById('empty').style.display='none';
+  document.getElementById('prev-poster').innerHTML=html;
 
-  /* 3) scale preview to fit container */
-  const area=document.getElementById('poster-preview-area');
-  area.style.display='block';
-  document.getElementById('empty-state').classList.add('hidden');
+  const aw=pv.offsetWidth||700;
+  const ratio=Math.min(1,(aw-8)/794);
+  const sw=document.getElementById('scale-wrap');
+  sw.style.transform=`scale(${ratio})`;
+  sw.style.width='794px';
+  /* auto-height for preview container */
+  const ph=document.getElementById('prev-poster').scrollHeight||1123;
+  pv.style.minHeight=(ph*ratio+60)+'px';
 
-  const containerW=area.offsetWidth||700;
-  const scaleRatio=Math.min(1,(containerW-4)/900);
-  const wrap=document.getElementById('poster-scale-wrap');
-  wrap.style.transform=`scale(${scaleRatio})`;
-  wrap.style.width='900px';
-  // adjust container height
-  const posterH=document.getElementById('poster-preview-clone').scrollHeight||700;
-  area.style.minHeight=(posterH*scaleRatio+60)+'px';
-
-  setTimeout(()=>{
-    area.scrollIntoView({behavior:'smooth',block:'start'});
-  },120);
+  setTimeout(()=>pv.scrollIntoView({behavior:'smooth',block:'start'}),150);
 }
 
-/* ── DOWNLOAD ── */
-async function downloadPoster(){
-  const btn=document.getElementById('btn-dl');
-  btn.disabled=true;
-  btn.textContent='⏳ Merender poster...';
+/* ── DOWNLOAD — render offscreen at full A4 size ── */
+async function dl(){
+  const btn=document.getElementById('bdl');
+  btn.disabled=true;btn.textContent='⏳ Merender poster A4...';
 
-  const target=document.getElementById('the-poster');
-  const school=document.getElementById('school-name').value.trim().replace(/\s+/g,'_');
+  const host=document.getElementById('cap-host');
+  const target=document.getElementById('cap-poster');
+  const sname=document.getElementById('sname').value.trim().replace(/\s+/g,'_');
 
-  /* Make sure offscreen element is visible to html2canvas */
-  const wrapper=document.getElementById('poster-render-target');
-  const origStyle=wrapper.getAttribute('style')||'';
-  wrapper.style.cssText='position:fixed;left:0;top:0;z-index:-999;width:900px;opacity:0;pointer-events:none;';
+  /* temporarily bring offscreen el into renderable position */
+  host.style.cssText='position:fixed;left:0;top:0;z-index:-999;width:794px;opacity:0;pointer-events:none;';
 
   try{
-    /* Wait for fonts */
     await document.fonts.ready;
 
     const canvas=await html2canvas(target,{
-      scale:3,
+      scale:3.7795,       /* 96dpi→ 360dpi print; 3.7795 = 360/96 ≈ scale for 3mm bleed */
       useCORS:true,
       allowTaint:false,
       backgroundColor:'#FAF7EF',
       logging:false,
-      width:900,
+      width:794,
       height:target.scrollHeight,
-      windowWidth:900,
-      scrollX:0,
-      scrollY:0,
-      x:0,
-      y:0,
+      windowWidth:794,
+      scrollX:0,scrollY:0,x:0,y:0,
     });
 
-    const link=document.createElement('a');
-    link.download=`Profil_Lulusan_${school}.png`;
-    link.href=canvas.toDataURL('image/png',1.0);
-    link.click();
+    const a=document.createElement('a');
+    a.download=`Profil_Lulusan_${sname}.png`;
+    a.href=canvas.toDataURL('image/png',1.0);
+    a.click();
 
-    btn.textContent='✓ Poster berhasil didownload!';
-    setTimeout(()=>{
-      btn.disabled=false;
-      btn.innerHTML='⬇ Download Poster (PNG — Siap Cetak A3/A4)';
-    },2500);
-  }catch(err){
-    console.error(err);
-    btn.disabled=false;
-    btn.innerHTML='⬇ Download Poster (PNG — Siap Cetak A3/A4)';
-    alert('Gagal merender. Coba klik kanan pada preview poster → "Simpan gambar sebagai..."');
+    btn.textContent='✓ Berhasil didownload!';
+    setTimeout(()=>{btn.disabled=false;btn.innerHTML='⬇ Download PNG Siap Cetak (A4)';},2800);
+  }catch(e){
+    console.error(e);
+    btn.disabled=false;btn.innerHTML='⬇ Download PNG Siap Cetak (A4)';
+    alert('Gagal render. Coba klik kanan preview poster → Simpan Gambar.');
   }finally{
-    wrapper.setAttribute('style',origStyle||'position:fixed;left:-9999px;top:0;z-index:-1;width:900px;');
+    host.style.cssText='position:fixed;left:-9999px;top:0;width:794px;z-index:-1;';
   }
 }
 
-/* ── INIT ── */
-document.getElementById('school-name').addEventListener('input',updateUI);
-document.getElementById('jenjang').addEventListener('change',updateUI);
-
-renderGrid();
-updateUI();
+document.getElementById('sname').addEventListener('input',upd);
+document.getElementById('jnjg').addEventListener('change',upd);
+renderGrid();upd();
 </script>
 </body>
 </html>
