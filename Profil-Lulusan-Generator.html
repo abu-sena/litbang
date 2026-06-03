@@ -92,7 +92,7 @@ body{font-family:'DM Sans',sans-serif;background:#0c1e23;color:#e8f0f1;min-heigh
 [data-d="H"]{background:var(--dh-b);color:var(--dh);border-color:var(--dh);}
 
 .sk-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;}
-.sk{background:rgba(255,255,255,.035);border:1.5px solid rgba(255,255,255,.09);border-radius:8px;padding:8px 10px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;}
+.sk{background:rgba(24,76,89);border:1.5px solid rgba(255,255,255,.09);border-radius:8px;padding:8px 10px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;}
 .sk:hover{border-color:rgba(212,160,23,.5);background:rgba(212,160,23,.06);transform:translateY(-1px);}
 .sk.sel{border-color:var(--gold)!important;background:rgba(212,160,23,.1)!important;}
 .sk.sel::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);}
@@ -297,11 +297,11 @@ const DM={
 
 const SK=[
   /* A – KOGNITIF */
-  {id:"A1",d:"A",n:"Hafalan: Kuantitas",
-   df:"Target jumlah materi yang dihafal — juz Al-Qur'an, bab, rumus, atau teks.",
-   ci:"Lulusan mencapai target hafalan tertentu yang terukur dan tersertifikasi."},
-  {id:"A2",d:"A",n:"Hafalan: Kualitas & Ketepatan",
-   df:"Standar akurasi, tajwid, dan mutqin dari hafalan — bukan sekadar jumlah.",
+  {id:"A1",d:"A",n:"Jumlah Hafalan: Quran",
+   df:"Target jumlah juz Al Quran yang perlu dihafalkan.",
+   ci:"Lulusan mencapai target hafalan tertentu."},
+  {id:"A2",d:"A",n:"Kualitas Hafalan: Quran",
+   df:"Fokus pada Standar tartil, tajwid, dan mutqin dari hafalan.",
    ci:"Hafalan kokoh, tahan lama, murajaah mandiri, dan diuji oleh penguji eksternal."},
   {id:"A3",d:"A",n:"Penguasaan Materi Akademik",
    df:"Pemahaman mendalam atas materi kurikulum sesuai jenjang dan bidang studi.",
@@ -335,7 +335,7 @@ const SK=[
   {id:"B4",d:"B",n:"Kedisiplinan & Tepat Waktu",
    df:"Mematuhi aturan, menepati waktu, dan konsisten menjalankan kewajiban.",
    ci:"Tidak terlambat, teratur dalam ibadah & tugas, memiliki rutinitas sehat."},
-  {id:"B5",d:"B",n:"Ketangguhan (Resilience)",
+  {id:"B5",d:"B",n:"Ketangguhan/Pantang Menyerah",
    df:"Bangkit dari kegagalan, bertahan dalam kesulitan, teguh di bawah tekanan.",
    ci:"Tidak mudah menyerah, mengelola stres, kegagalan dijadikan pelajaran."},
   {id:"B6",d:"B",n:"Tanggung Jawab & Amanah",
